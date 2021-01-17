@@ -1,0 +1,42 @@
+@import "../configuration.scss";
+
+$ui-spacer: 0.25em;
+
+.ui-nav-application {
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  padding: $ui-spacer;
+  padding: 0em !important ;
+  margin:  0em !important ;
+
+  > .ui-navigation {
+    @include full-height-box();
+    overflow: auto;
+
+    .banner {
+      background: #a6c0c9;
+    }
+
+    .w-controls {
+      padding: 5px 5px;
+      .btn-link {
+        display: block;
+        padding: 0px 5px;
+      }
+    }
+  }
+}
+
+.ui-menu-application {
+  @include full-height-box();
+
+  > .ui-menu {
+    height: 30px;
+  }
+
+  > .ui-body {
+    @include full-height-box();
+  }
+}

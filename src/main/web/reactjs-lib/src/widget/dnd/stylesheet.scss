@@ -1,0 +1,49 @@
+@import "../../configuration.scss";
+
+.dnd-board {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: row;
+
+  .column {
+    padding: 0px 5px;
+    @include full-height-box();
+    
+
+    > .header {
+      border-bottom: 2px solid gray; 
+    } 
+
+    > .list-body {
+      padding: 5px;
+      border: 1px solid lightgray;
+      height: calc(100% - 30px);
+
+      outline: none;
+
+      .dnd-item {
+        border: 1px dashed lightgray;
+        @include full-height-box();
+
+        .item {
+          padding: 2px;
+        }
+
+        .item-detail {
+          padding: 2px;
+          @include full-height-box();
+        }
+      }
+
+      .ReactVirtualized__Grid__innerScrollContainer {
+        overflow: visible !important;
+      }
+    }
+
+    > .list-body-hightlight {
+      border: 2px dashed lightgray;
+      transition: 'background-color 0.2s ease';
+    }
+
+  }
+}
