@@ -8,13 +8,19 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+      <Navbar color="dark" light expand="md">
+        <NavbarBrand href="/">Pets Store</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          <Nav className="mr-auto">
             <NavItem>
               <NavLink href="/components/">Components</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
@@ -38,6 +44,11 @@ const Header = () => {
             </UncontrolledDropdown>
           </Nav>
           <NavbarText>Simple Text</NavbarText>
+          <Nav>
+            <NavItem>
+              <NavLink href="https://github.com/reactstrap/reactstrap">Cart</NavLink>
+            </NavItem>
+          </Nav>
         </Collapse>
       </Navbar>
     </div>
