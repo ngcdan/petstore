@@ -74,4 +74,9 @@ public class User extends AbstractPersistable<Long> implements UserDetails {
   public boolean isCredentialsNonExpired() {
       return true;
   }
+  @Override
+  public boolean isEnabled() {
+      return enabled;
+  }
+  
 }

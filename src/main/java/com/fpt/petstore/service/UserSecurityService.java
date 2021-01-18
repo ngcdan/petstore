@@ -15,6 +15,7 @@ import com.fpt.petstore.repository.UserRepository;
  * @author linuss
  */
 
+// lay thong tin UserDetails kiem tra 
 @Component
 public class UserSecurityService implements UserDetailsService {
 
@@ -26,6 +27,7 @@ public class UserSecurityService implements UserDetailsService {
 
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    // kiem tra xem user co ton tai trong DB ko? 
       User user = userRepository.findByUsername(username);
 
       if(user == null){
