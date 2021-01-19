@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.fpt.petstore.logic;
+package com.fpt.petstore.services;
 
 import java.util.List;
 
@@ -23,10 +23,10 @@ public class UserLogic {
   }
 
   public User getUserbyUsername(String username) {
-    return repo.getByUsername(username);
+    return repo.findByUsername(username);
   }
 
-  public List<User> findByLastName(String name) {
+  public List<User> findByName(String name) {
     return repo.findByName(name);
   }
 

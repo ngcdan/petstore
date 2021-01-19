@@ -10,4 +10,5 @@ import com.fpt.petstore.entities.Products;
 /**
  * @author linuss
  */
-public interface ProductsRepository extends JpaRepository<Products, Long>{}
+public interface ProductsRepository extends JpaRepository<Products, Long>{
+}
