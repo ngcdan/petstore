@@ -1,5 +1,6 @@
 package com.fpt.petstore.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,8 +10,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fpt.petstore.util.DateUtil;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +27,7 @@ uniqueConstraints = {
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
 @NoArgsConstructor
-public class User extends AbstractPersistable<Long> {
+public class User extends AbstractPersistable<Serializable> {
 
   static public enum UserRole { Admin, Staff, User };
 
@@ -40,7 +43,7 @@ public class User extends AbstractPersistable<Long> {
 
   private String avatar;
 
-
+  @JsonFormat(pattern = DateUtil.LOCAL_DATETIME_FORMAT)
   private Date dateOfBirth;
 
   private boolean gender;
@@ -49,8 +52,7 @@ public class User extends AbstractPersistable<Long> {
 
   private boolean enabled=true;
 
-
   @Enumerated(EnumType.STRING)
-  private UserRole role;
+  private UserRole role = UserRole.Admin;
 
 }
