@@ -1,25 +1,16 @@
 package com.fpt.petstore.entities;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fpt.petstore.security.Authority;
-import com.fpt.petstore.security.UserRole;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,50 +24,33 @@ uniqueConstraints = {
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
 @NoArgsConstructor
-public class User extends AbstractPersistable<Long> implements UserDetails {
+public class User extends AbstractPersistable<Long> {
 
-  private static final long serialVersionUID = 1L;
-  
+  static public enum UserRole { Admin, Staff, User };
+
   private String username;
   private String password;
   private String firstName;
   private String lastName;
-  
+
   @Column(name = "email", nullable = false,updatable = false)
   private String email;
-  
+
   private String phone;
-  
+
+  private String avatar;
+
+
+  private Date dateOfBirth;
+
+  private boolean gender;
+
+  private String address;
+
   private boolean enabled=true;
-  
-  @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-  @JsonIgnore
-  private Set<UserRole> userRoles = new HashSet<>();
 
-  @Override
-  public Collection<? extends GrantedAuthority> getAuthorities() {
-      Set<GrantedAuthority> authorities = new HashSet<>();
-      userRoles.forEach(ur -> authorities.add(new Authority(ur.getRole().getName())));
-      return authorities;
-  }
-  
-  @Override
-  public boolean isAccountNonExpired() {
-      return true;
-  }
 
-  @Override
-  public boolean isAccountNonLocked() {
-      return true;
-  }
+  @Enumerated(EnumType.STRING)
+  private UserRole role;
 
-  @Override
-  public boolean isCredentialsNonExpired() {
-      return true;
-  }
-  @Override
-  public boolean isEnabled() {
-      return enabled;
-  }
-  
 }
