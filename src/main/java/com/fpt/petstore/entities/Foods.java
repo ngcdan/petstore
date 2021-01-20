@@ -4,8 +4,6 @@
 package com.fpt.petstore.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -19,17 +17,18 @@ import lombok.Setter;
 /**
  * @author linuss
  */
+
 @Entity
-@Table(name = "products",
+@Table(name = "foods",
 uniqueConstraints = {
     @UniqueConstraint(columnNames = {"id", "code"})
 })
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
 @NoArgsConstructor
-public class Products extends AbstractPersistable<Long> {
+public class Foods extends AbstractPersistable<Long> {
 
-  static public enum ProductType {CLOTHES, BOWL, COLLAR, CAGE, LEASH };
+  static public enum FoodType {DRY, SNACK, MILK};
 
   private String code;
 
@@ -40,8 +39,5 @@ public class Products extends AbstractPersistable<Long> {
   private String pic;
 
   private String description;
-
-  @Enumerated(EnumType.STRING)
-  private ProductType type = ProductType.CLOTHES;
 
 }

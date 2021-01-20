@@ -5,6 +5,7 @@ package com.fpt.petstore.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fpt.petstore.entities.User;
@@ -16,6 +17,7 @@ import com.fpt.petstore.repository.UserRepository;
 @Component
 public class UserLogic {
 
+  @Autowired
   UserRepository repo;
 
   public User saveUser(User user) {

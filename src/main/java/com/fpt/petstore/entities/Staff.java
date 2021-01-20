@@ -1,6 +1,7 @@
+/**
+ * 
+ */
 package com.fpt.petstore.entities;
-
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,26 +10,27 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fpt.petstore.util.DateUtil;
+import com.fpt.petstore.entities.User.UserRole;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * @author linuss
+ */
+
 @Entity
-@Table(name = "user",
+@Table(name = "staff",
 uniqueConstraints = {
     @UniqueConstraint(columnNames = {"id", "username", "email"})
 })
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
 @NoArgsConstructor
-public class User extends AbstractPersistable<Long> {
-
-  static public enum UserRole { Admin, Staff, User };
+public class Staff extends AbstractPersistable<Long> {
 
   private String username;
   private String password;
@@ -42,10 +44,7 @@ public class User extends AbstractPersistable<Long> {
 
   private String avatar;
 
-  @JsonFormat(pattern = DateUtil.LOCAL_DATETIME_FORMAT)
-  private Date dateOfBirth = new Date();
-
-  private boolean gender = true;
+  private boolean gender;
 
   private String address;
 
@@ -53,30 +52,5 @@ public class User extends AbstractPersistable<Long> {
 
   @Enumerated(EnumType.STRING)
   private UserRole role = UserRole.Admin;
-
-  public User(String username, String email) {
-    this.username = username;
-    this.email = email;
-  }
-  
-  public User withFirstName(String firstName) {
-    this.firstName = firstName;
-    return this;
-  }
-  
-  public User withLastName(String lastName) {
-    this.lastName = lastName;
-    return this;
-  }
-  
-  public User withPhone(String phone) {
-    this.phone = phone;
-    return this;
-  }
-  
-  public User withAddress(String address) {
-    this.address = address;
-    return this;
-  }
 
 }

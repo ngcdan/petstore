@@ -3,7 +3,6 @@
  */
 package com.fpt.petstore.entities;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -33,24 +32,34 @@ uniqueConstraints = {
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
 @NoArgsConstructor
-public class Orders extends AbstractPersistable<Serializable> {
-  
+public class Orders extends AbstractPersistable<Long> {
+
   private String code;
-  
+
   @ManyToOne(optional = false)
   @JoinColumn(name = "userId", referencedColumnName = "id")
   private User user;
-  
+
+  @ManyToOne(optional = false)
+  @JoinColumn(name = "staffId", referencedColumnName = "id")
+  private Staff staff;
+
   @ManyToMany
   @JoinTable(
       name = "order_product-rel",
       joinColumns = @JoinColumn(name = "orderId"), inverseJoinColumns = @JoinColumn(name = "product_id"))
   private List<Products> products;
-  
+
+  @ManyToMany
+  @JoinTable(
+      name = "order_food-rel",
+      joinColumns = @JoinColumn(name = "orderId"), inverseJoinColumns = @JoinColumn(name = "food_id"))
+  private List<Foods> foods;
+
   private Long quantity;
-  
+
   private Long total;
-  
+
   private String note;
-  
+
 }
