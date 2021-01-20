@@ -21,11 +21,6 @@ public class PetStoreService {
   @Autowired
   UserLogic userLogic;
 
-  @Transactional(readOnly = true)
-  public User getUserByUsername(String username) {
-    return userLogic.getUserbyUsername(username);
-  }
-
   @Transactional
   public User saveUser(User user) {
     return userLogic.saveUser(user);

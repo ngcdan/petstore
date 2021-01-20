@@ -37,23 +37,23 @@ public class Orders extends AbstractPersistable<Long> {
 
   private String code;
 
-  @ManyToOne(optional = false)
+  @ManyToOne(optional = true) // optinal = false
   @JoinColumn(name = "userId", referencedColumnName = "id")
   private User user;
 
-  @ManyToOne(optional = false)
+  @ManyToOne(optional = true) // optinal = false
   @JoinColumn(name = "staffId", referencedColumnName = "id")
   private Staff staff;
 
   @ManyToMany
   @JoinTable(
-      name = "order_product-rel",
+      name = "order_product_rel",
       joinColumns = @JoinColumn(name = "orderId"), inverseJoinColumns = @JoinColumn(name = "product_id"))
   private List<Products> products;
 
   @ManyToMany
   @JoinTable(
-      name = "order_food-rel",
+      name = "order_food_rel",
       joinColumns = @JoinColumn(name = "orderId"), inverseJoinColumns = @JoinColumn(name = "food_id"))
   private List<Foods> foods;
 

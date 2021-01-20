@@ -19,8 +19,6 @@ import com.fpt.petstore.entities.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-  public User findByUsername(String username);
-
   /*
   @Query(
       "SELECT u FROM User u WHERE u.username = :username AND u.phone = :phone")
