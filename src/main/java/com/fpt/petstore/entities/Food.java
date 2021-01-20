@@ -21,9 +21,9 @@ import lombok.Setter;
  */
 
 @Entity
-@Table(name = "foods",
+@Table(name = "food",
 uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"id", "code"})
+    @UniqueConstraint(columnNames = {"code"})
 })
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter

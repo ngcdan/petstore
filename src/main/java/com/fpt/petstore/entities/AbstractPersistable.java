@@ -3,7 +3,6 @@ package com.fpt.petstore.entities;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,8 +34,7 @@ import lombok.Setter;
 public abstract class AbstractPersistable<PK extends Serializable> implements Persistable<PK> {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name="id", nullable = false,updatable = false)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private PK id;
 
   @Override

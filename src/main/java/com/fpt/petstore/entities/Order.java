@@ -12,7 +12,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -26,10 +25,7 @@ import lombok.Setter;
  */
 
 @Entity
-@Table(name = "order",
-uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"id", "code"})
-})
+@Table(name = "orders") //để tên bảng là orders thay vì order vì trùng tên bảng trong trong db  khác  
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
 @NoArgsConstructor
@@ -37,24 +33,24 @@ public class Order extends AbstractPersistable<Long> {
 
   private String code;
 
-  @ManyToOne(optional = true) // optinal = false
-  @JoinColumn(name = "userId", referencedColumnName = "id")
+  @ManyToOne(optional = false) 
+  @JoinColumn(name = "userId")
   private User user;
 
-  @ManyToOne(optional = true) // optinal = false
-  @JoinColumn(name = "staffId", referencedColumnName = "id")
+  @ManyToOne(optional = false) 
+  @JoinColumn(name = "staffId")
   private Staff staff;
 
   @ManyToMany
   @JoinTable(
       name = "order_product_rel",
-      joinColumns = @JoinColumn(name = "orderId"), inverseJoinColumns = @JoinColumn(name = "product_id"))
+      joinColumns =  @JoinColumn(name = "orderId"), inverseJoinColumns =  @JoinColumn(name = "productId" ))
   private List<Product> products;
 
   @ManyToMany
   @JoinTable(
       name = "order_food_rel",
-      joinColumns = @JoinColumn(name = "orderId"), inverseJoinColumns = @JoinColumn(name = "food_id"))
+      joinColumns =  @JoinColumn(name = "orderId"), inverseJoinColumns =  @JoinColumn(name = "foodId"))
   private List<Food> foods;
 
   private int total;

@@ -19,7 +19,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "user",
 uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"id", "phone", "email"})
+    @UniqueConstraint(columnNames = {"phone", "email"})
 })
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter

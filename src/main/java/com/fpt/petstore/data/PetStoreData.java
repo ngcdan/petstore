@@ -4,6 +4,7 @@
 package com.fpt.petstore.data;
 
 import com.fpt.petstore.entities.Food;
+import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.Product;
 import com.fpt.petstore.entities.Staff;
 import com.fpt.petstore.entities.User;
@@ -88,9 +89,21 @@ public class PetStoreData {
   public static Product pr_5 = new Product("pr_code_5", "product_name_5")
       .withPrice(200).withDescription("des");
   
+  // Order 
+  public static Order order_2 = new Order("or_code_2").withFoods(food_3).withProducts(pr_2)
+      .withProducts(pr_1).withStaff(staff_2).withUser(user_2).withTotal(200);
+  public static Order order_3 = new Order("or_code_3").withFoods(food_1)
+      .withProducts(pr_1).withStaff(staff_2).withUser(user_3).withTotal(400);
+  public static Order order_4 = new Order("or_code_4").withFoods(food_1)
+      .withProducts(pr_1).withStaff(staff_1).withUser(user_4).withTotal(500);
+  public static Order order_5 = new Order("or_code_5").withFoods(food_1)
+      .withProducts(pr_1).withStaff(staff_1).withUser(user_5).withTotal(600);
+  public static Order order_6 = new Order("or_code_6").withFoods(food_1)
+      .withProducts(pr_1).withStaff(staff_1).withUser(user_6).withTotal(700);
   
   public static User[] ALL_USERS = {user_1, user_2, user_3, user_4, user_5, user_6, user_7 }; 
   public static Staff[] ALL_STAFF = { staff_1, staff_2 };
   public static Food[] ALL_FOODS = {food_1, food_2, food_3, food_4, food_5};
   public static Product[] ALL_PRODUCTS = {pr_1, pr_2, pr_3, pr_4, pr_5 };
+  public static Order[] ALL_ORDERS = {order_2, order_3, order_4, order_5, order_6};
 }
