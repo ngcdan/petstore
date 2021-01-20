@@ -4,6 +4,7 @@
 package com.fpt.petstore.data;
 
 import com.fpt.petstore.entities.Food;
+import com.fpt.petstore.entities.Product;
 import com.fpt.petstore.entities.Staff;
 import com.fpt.petstore.entities.User;
 
@@ -60,23 +61,36 @@ public class PetStoreData {
       .withPassword("password");
   
   // Food 
-  public static Food food_1 = new Food("code_1", "Food_name_1", 100)
+  public static Food food_1 = new Food("f_code_1", "Food_name_1", 100)
       .withDes("description");
   
-  public static Food food_2 = new Food("code_2", "Food_name_2", 100)
+  public static Food food_2 = new Food("f_code_2", "Food_name_2", 100)
       .withDes("description");
   
-  public static Food food_3 = new Food("code_3", "Food_name_3", 100)
+  public static Food food_3 = new Food("f_code_3", "Food_name_3", 100)
       .withDes("description");
   
-  public static Food food_4 = new Food("code_4", "Food_name_4", 100)
+  public static Food food_4 = new Food("f_code_4", "Food_name_4", 100)
       .withDes("description");
   
-  public static Food food_5 = new Food("code_5", "Food_name_5", 100)
+  public static Food food_5 = new Food("f_code_5", "Food_name_5", 100)
       .withDes("description");
 
+  // Products 
+  public static Product pr_1 = new Product("pr_code_1", "product_name_1")
+      .withPrice(200).withDescription("des");
+  public static Product pr_2 = new Product("pr_code_2", "product_name_2")
+      .withPrice(200).withDescription("des");
+  public static Product pr_3 = new Product("pr_code_3", "product_name_3")
+      .withPrice(200).withDescription("des");
+  public static Product pr_4 = new Product("pr_code_4", "product_name_4")
+      .withPrice(200).withDescription("des");
+  public static Product pr_5 = new Product("pr_code_5", "product_name_5")
+      .withPrice(200).withDescription("des");
+  
   
   public static User[] ALL_USERS = {user_1, user_2, user_3, user_4, user_5, user_6, user_7 }; 
   public static Staff[] ALL_STAFF = { staff_1, staff_2 };
   public static Food[] ALL_FOODS = {food_1, food_2, food_3, food_4, food_5};
+  public static Product[] ALL_PRODUCTS = {pr_1, pr_2, pr_3, pr_4, pr_5 };
 }
