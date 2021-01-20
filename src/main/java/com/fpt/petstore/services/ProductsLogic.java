@@ -5,7 +5,7 @@ package com.fpt.petstore.services;
 
 import org.springframework.stereotype.Component;
 
-import com.fpt.petstore.entities.Products;
+import com.fpt.petstore.entities.Product;
 import com.fpt.petstore.repository.ProductsRepository;
 
 /**
@@ -16,7 +16,7 @@ public class ProductsLogic {
   
   private ProductsRepository repo;
   
-  public Products saveProduct(Products product) {
+  public Product saveProduct(Product product) {
     return repo.save(product);
   }
 

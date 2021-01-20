@@ -26,14 +26,14 @@ import lombok.Setter;
  */
 
 @Entity
-@Table(name = "orders",
+@Table(name = "order",
 uniqueConstraints = {
     @UniqueConstraint(columnNames = {"id", "code"})
 })
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
 @NoArgsConstructor
-public class Orders extends AbstractPersistable<Long> {
+public class Order extends AbstractPersistable<Long> {
 
   private String code;
 
@@ -49,50 +49,50 @@ public class Orders extends AbstractPersistable<Long> {
   @JoinTable(
       name = "order_product_rel",
       joinColumns = @JoinColumn(name = "orderId"), inverseJoinColumns = @JoinColumn(name = "product_id"))
-  private List<Products> products;
+  private List<Product> products;
 
   @ManyToMany
   @JoinTable(
       name = "order_food_rel",
       joinColumns = @JoinColumn(name = "orderId"), inverseJoinColumns = @JoinColumn(name = "food_id"))
-  private List<Foods> foods;
+  private List<Food> foods;
 
   private int total;
 
   private String note;
 
-  public Orders(String code) {
+  public Order(String code) {
     this.code     = code;
   }
   
-  public Orders withProducts(Products product) {
-    if(product == null) products = new ArrayList<>();
+  public Order withProducts(Product product) {
+    if(products == null) products = new ArrayList<>();
     products.add(product);
     return this;
   }
   
-  public Orders withFoods(Foods food) {
+  public Order withFoods(Food food) {
     if(foods == null) foods = new ArrayList<>();
     foods.add(food);
     return this;
   }
   
-  public Orders withUser(User user) {
+  public Order withUser(User user) {
     this.user = user;
     return this;
   }
   
-  public Orders withStaff(Staff staff) {
+  public Order withStaff(Staff staff) {
     this.staff = staff;
     return this;
   }
   
-  public Orders withTotal(int total) {
+  public Order withTotal(int total) {
     this.total = total;
     return this;
   }
   
-  public Orders withNote(String note) {
+  public Order withNote(String note) {
     this.note = note;
     return this;
   }

@@ -27,7 +27,7 @@ uniqueConstraints = {
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
 @NoArgsConstructor
-public class Products extends AbstractPersistable<Long> {
+public class Product extends AbstractPersistable<Long> {
 
   static public enum ProductType {CLOTHES, BOWL, COLLAR, CAGE, LEASH };
 
@@ -44,17 +44,17 @@ public class Products extends AbstractPersistable<Long> {
   @Enumerated(EnumType.STRING)
   private ProductType type = ProductType.CLOTHES;
 
-  public Products(String code, String name) {
+  public Product(String code, String name) {
     this.code = code;
     this.name = name;
   }
   
-  public Products withPrice(int price) {
+  public Product withPrice(int price) {
     this.price = price;
     return this;
   }
   
-  public Products withDescription(String des) {
+  public Product withDescription(String des) {
     this.description = des;
     return this;
   }
