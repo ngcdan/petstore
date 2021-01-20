@@ -18,7 +18,6 @@ public class StaffLogic {
   @Autowired
   StaffRepository repo;
   
-  
   public Staff saveStaff(Staff staff) {
     return repo.save(staff);
   }
