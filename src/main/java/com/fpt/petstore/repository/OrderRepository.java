@@ -11,5 +11,6 @@ import com.fpt.petstore.entities.Order;
 /**
  * @author linuss
  */
+
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long>{}

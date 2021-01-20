@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.fpt.petstore.data.PetStoreData;
+import com.fpt.petstore.entities.Staff;
 import com.fpt.petstore.entities.User;
 import com.fpt.petstore.services.PetStoreService;
 
@@ -21,12 +22,19 @@ public class PetStoreApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    createUserDate(PetStoreData.ALL_USERS);
+    createUserData(PetStoreData.ALL_USERS);
+    createStaffData(PetStoreData.ALL_STAFF);
   }
   
-  void createUserDate(User[] users) {
+  void createUserData(User[] users) {
     for(User user: users) {
       service.saveUser(user);
+    }
+  }
+  
+  void createStaffData(Staff[] staffs) {
+    for(Staff staff: staffs) {
+      service.saveStaff(staff);
     }
   }
 }

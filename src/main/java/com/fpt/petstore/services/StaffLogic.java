@@ -21,5 +21,5 @@ public class StaffLogic {
   public Staff saveStaff(Staff staff) {
     return repo.save(staff);
   }
-
+  
 }

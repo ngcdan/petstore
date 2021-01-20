@@ -12,8 +12,10 @@ import com.fpt.petstore.repository.FoodRepository;
 /**
  * @author linuss
  */
+
 @Component
 public class FoodLogic {
+ 
   @Autowired
   FoodRepository repo;
 
