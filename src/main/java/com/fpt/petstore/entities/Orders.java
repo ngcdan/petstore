@@ -3,6 +3,7 @@
  */
 package com.fpt.petstore.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -56,10 +57,44 @@ public class Orders extends AbstractPersistable<Long> {
       joinColumns = @JoinColumn(name = "orderId"), inverseJoinColumns = @JoinColumn(name = "food_id"))
   private List<Foods> foods;
 
-  private Long quantity;
-
-  private Long total;
+  private int total;
 
   private String note;
+
+  public Orders(String code) {
+    this.code     = code;
+  }
+  
+  public Orders withProducts(Products product) {
+    if(product == null) products = new ArrayList<>();
+    products.add(product);
+    return this;
+  }
+  
+  public Orders withFoods(Foods food) {
+    if(foods == null) foods = new ArrayList<>();
+    foods.add(food);
+    return this;
+  }
+  
+  public Orders withUser(User user) {
+    this.user = user;
+    return this;
+  }
+  
+  public Orders withStaff(Staff staff) {
+    this.staff = staff;
+    return this;
+  }
+  
+  public Orders withTotal(int total) {
+    this.total = total;
+    return this;
+  }
+  
+  public Orders withNote(String note) {
+    this.note = note;
+    return this;
+  }
 
 }

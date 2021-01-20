@@ -4,6 +4,8 @@
 package com.fpt.petstore.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -39,5 +41,19 @@ public class Foods extends AbstractPersistable<Long> {
   private String pic;
 
   private String description;
+  
+  @Enumerated(EnumType.STRING)
+  private FoodType foodType = FoodType.DRY;
+
+  public Foods(String code, String name, int price) {
+    this.code  = code;
+    this.name  = name;
+    this.price = price;
+  }
+  
+  public Foods withDes(String des) {
+    this.description = des;
+    return this;
+  }
 
 }
