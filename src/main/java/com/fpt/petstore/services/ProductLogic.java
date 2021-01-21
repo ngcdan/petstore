@@ -14,7 +14,7 @@ import com.fpt.petstore.repository.ProductsRepository;
  */
 
 @Component
-public class ProductsLogic {
+public class ProductLogic {
   
   @Autowired
   private ProductsRepository repo;

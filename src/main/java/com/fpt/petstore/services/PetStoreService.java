@@ -32,7 +32,7 @@ public class PetStoreService {
   OrderLogic orderLogic;
   
   @Autowired
-  ProductsLogic productLogic;
+  ProductLogic productLogic;
   
   @Autowired 
   FoodLogic foodLogic;
