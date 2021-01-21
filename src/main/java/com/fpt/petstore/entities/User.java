@@ -19,12 +19,14 @@ import lombok.Setter;
 @Entity
 @Table(name = "user",
 uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"phone", "email"})
+    @UniqueConstraint(columnNames = {"code", "phone", "email"})
 })
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
 @NoArgsConstructor
 public class User extends AbstractPersistable<Long> {
+
+  public String code;
 
   @Column(name = "email", nullable = false,updatable = false)
   private String email;

@@ -24,16 +24,16 @@ public class PetStoreService {
 
   @Autowired
   UserLogic userLogic;
-  
+
   @Autowired
   StaffLogic staffLogic;
-  
+
   @Autowired
   OrderLogic orderLogic;
-  
+
   @Autowired
   ProductLogic productLogic;
-  
+
   @Autowired 
   FoodLogic foodLogic;
 
@@ -44,29 +44,29 @@ public class PetStoreService {
   }
 
   @Transactional(readOnly = true)
-  public List<User> findUsersByName(String username) {
-    return userLogic.findByName(username);
+  public User getUserByCode(String code) {
+    return userLogic.getUserByCode(code);
   }
-  
-  
+
+
   // Staff
   @Transactional
   public Staff saveStaff(Staff staff) {
     return staffLogic.saveStaff(staff);
   }
-  
+
   // Order
   @Transactional
   public Order saveOrder(Order order) {
     return orderLogic.saveOrder(order);
   }
-  
+
   // Product 
   @Transactional
   public Product saveProduct(Product product) {
     return productLogic.saveProduct(product);
   }
-  
+
   // Food
   @Transactional
   public Food saveFood(Food food) {

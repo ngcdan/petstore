@@ -3,8 +3,6 @@
  */
 package com.fpt.petstore.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -19,13 +17,7 @@ import com.fpt.petstore.entities.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-  /*
   @Query(
-      "SELECT u FROM User u WHERE u.username = :username AND u.phone = :phone")
-  public List<User> findByUsernameOrPhone(@Param("username") String username, @Param("phone") String phone);
-   */
-
-  @Query(
-      "SELECT u FROM User u WHERE u.lastName = :name OR u.firstName = :name")
-  public List<User> findByName(@Param("name") String name);
+      "SELECT u FROM User u WHERE u.code = :code")
+  public User getByCode(@Param("code") String code);
 }

@@ -33,7 +33,7 @@ public class FoodLogic {
     return repo.findByType(foodType);
   }
   
-  public List<Food> findAll() {
+  public List<Food> findAllFoods() {
     return repo.findAll();
   }
 }

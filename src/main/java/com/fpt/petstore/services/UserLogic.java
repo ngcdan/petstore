@@ -24,8 +24,12 @@ public class UserLogic {
     return repo.save(user);
   }
 
-  public List<User> findByName(String name) {
-    return repo.findByName(name);
+  public User getUserByCode(String code) {
+    return repo.getByCode(code);
+  }
+  
+  public List<User> findAllUser() {
+    return repo.findAll();
   }
 
 }
