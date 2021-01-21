@@ -33,7 +33,7 @@ public class ProductLogic {
     return repo.findByType(type);
   }
   
-  public List<Product> findAll() {
+  public List<Product> findAllProducts() {
     return repo.findAll();
   }
 
