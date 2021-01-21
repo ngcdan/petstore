@@ -74,6 +74,16 @@ public class PetStoreService {
   public Order saveOrder(Order order) {
     return orderLogic.saveOrder(order);
   }
+  
+  @Transactional(readOnly = true) 
+  public Order getOrderByCode(String code) {
+    return orderLogic.getOrderByCode(code);
+  }
+  
+  @Transactional(readOnly = true)
+  public List<Order> findAllOrders() {
+    return orderLogic.findAllOrders();
+  }
 
   // Product 
   @Transactional

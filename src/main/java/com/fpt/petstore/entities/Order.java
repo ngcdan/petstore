@@ -25,7 +25,7 @@ import lombok.Setter;
  */
 
 @Entity
-@Table(name = "orders") //để tên bảng là orders thay vì order vì trùng tên bảng trong trong db  khác  
+@Table(name = "orders") 
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
 @NoArgsConstructor

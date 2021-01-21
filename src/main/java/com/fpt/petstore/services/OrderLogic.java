@@ -3,6 +3,8 @@
  */
 package com.fpt.petstore.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +23,14 @@ public class OrderLogic {
   
   public Order saveOrder(Order order) {
     return repo.save(order);
+  }
+  
+  public Order getOrderByCode(String code) {
+    return repo.getByCode(code);
+  }
+  
+  public List<Order> findAllOrders() {
+    return repo.findAll();
   }
 
 }
