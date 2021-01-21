@@ -20,10 +20,10 @@ import com.fpt.petstore.entities.Product;
 public interface ProductsRepository extends JpaRepository<Product, Long>{
   
   @Query(
-      "SELECT p FROM Food p WHERE p.code = :code")
+      "SELECT p FROM Product p WHERE p.code = :code")
   public Product getByCode(@Param("code") String code);
   
   @Query(
-      "SELECT f FROM Food f WHERE f.type = :type")
+      "SELECT p FROM Product p WHERE p.type = :type")
   public List<Product> findByType(@Param("type") String type);
 }
