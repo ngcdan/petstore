@@ -3,6 +3,8 @@
  */
 package com.fpt.petstore.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +23,18 @@ public class ProductLogic {
   
   public Product saveProduct(Product product) {
     return repo.save(product);
+  }
+  
+  public Product getProductByCode(String code) {
+    return repo.getByCode(code);
+  }
+  
+  public List<Product> findProductByType(String type) {
+    return repo.findByType(type);
+  }
+  
+  public List<Product> findAll() {
+    return repo.findAll();
   }
 
 }
