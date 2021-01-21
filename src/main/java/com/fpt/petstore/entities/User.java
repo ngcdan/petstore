@@ -43,7 +43,8 @@ public class User extends AbstractPersistable<Long> {
 
   private String address;
 
-  public User(String phone, String email) {
+  public User(String code, String phone, String email) {
+    this.code = code;
     this.phone = phone;
     this.email = email;
   }

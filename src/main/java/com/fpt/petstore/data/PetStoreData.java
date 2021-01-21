@@ -15,37 +15,37 @@ import com.fpt.petstore.entities.User;
 
 public class PetStoreData {
 
-  public static User user_1 = new User("0999999999", "user_1@gmail.com")
+  public static User user_1 = new User("user_1","0999999999", "user_1@gmail.com")
       .withFirstName("Le Van").withLastName("A")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_2 = new User("0999999999", "user_2@gmail.com")
+  public static User user_2 = new User("user_2","0999999999", "user_2@gmail.com")
       .withFirstName("Le Van").withLastName("A")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_3 = new User("0999999999", "user_3@gmail.com")
+  public static User user_3 = new User("user_3","0999999999", "user_3@gmail.com")
       .withFirstName("Le Van").withLastName("B")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_4 = new User("0999999999", "user_4@gmail.com")
+  public static User user_4 = new User("user_4","0999999999", "user_4@gmail.com")
       .withFirstName("Le Van").withLastName("C")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_5 = new User("0999999999", "user_5@gmail.com")
+  public static User user_5 = new User("user_5","0999999999", "user_5@gmail.com")
       .withFirstName("Le Van").withLastName("D")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_6 = new User("0999999999", "user_6@gmail.com")
+  public static User user_6 = new User("user_6","0999999999", "user_6@gmail.com")
       .withFirstName("Le Van").withLastName("D")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_7 = new User("0999999999", "user_7@gmail.com")
+  public static User user_7 = new User("user_7","0999999999", "user_7@gmail.com")
       .withFirstName("Le Van").withLastName("D")
       .withAddress("Ha Noi")
       .withPassword("password");

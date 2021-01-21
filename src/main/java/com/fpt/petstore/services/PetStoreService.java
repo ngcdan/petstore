@@ -118,7 +118,7 @@ public class PetStoreService {
   }
   
   @Transactional(readOnly = true)
-  public List<Food> findProductsByFoodType(String foodType) {
+  public List<Food> findFoodsByFoodType(String foodType) {
     return foodLogic.findFoodByType(foodType);
   }
   
