@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fpt.petstore.entities.Product;
 import com.fpt.petstore.entities.User;
 import com.fpt.petstore.services.PetStoreService;
 
@@ -45,11 +44,5 @@ public class Controller {
   public @ResponseBody User saveUser(User user) {
     return service.saveUser(user);
   }
-  
-  @GetMapping("products/{type}")
-  public @ResponseBody List<Product> findProductsByType(@PathVariable("type") String type) {
-    return service.findProductsByType(type);
-  }
-  
 
 }
