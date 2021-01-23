@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -30,6 +32,8 @@ import lombok.Setter;
 @Setter @Getter
 @NoArgsConstructor
 public class Order extends AbstractPersistable<Long> {
+  
+  static public enum State { pending, process, done, cancel };
 
   private String code;
 
@@ -56,6 +60,9 @@ public class Order extends AbstractPersistable<Long> {
   private int total;
 
   private String note;
+  
+  @Enumerated(EnumType.STRING)
+  private State state = State.done;
 
   public Order(String code) {
     this.code     = code;
