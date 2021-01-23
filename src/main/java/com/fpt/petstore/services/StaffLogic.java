@@ -32,4 +32,16 @@ public class StaffLogic {
     return repo.findAll();
   }
   
+  public boolean deleteStaff(Staff staff) {
+    repo.delete(staff);
+    return true;
+  }
+  
+  public boolean deleteStaffs(List<Staff> staffs) {
+    for(Staff sel : staffs) {
+      deleteStaff(sel);
+    }
+    return true;
+  }
+  
 }

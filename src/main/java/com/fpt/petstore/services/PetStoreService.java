@@ -52,6 +52,16 @@ public class PetStoreService {
   public List<User> findAllUsers() {
     return userLogic.findAllUser();
   }
+  
+  @Transactional
+  public boolean deleteUsers(List<User> users) {
+    return userLogic.deleteUsers(users);
+  }
+  
+  @Transactional
+  public boolean deleteUser(User user) {
+    return userLogic.deleteUser(user);
+  }
 
   // Staff
   @Transactional
@@ -68,6 +78,16 @@ public class PetStoreService {
   public Staff getStaffByUsername(String username) {
     return staffLogic.getStaffByUsername(username);
   }
+  
+  @Transactional
+  public boolean deleteStaffs(List<Staff> staffs) {
+    return staffLogic.deleteStaffs(staffs);
+  }
+  
+  @Transactional
+  public boolean deleteStaff(Staff staff) {
+    return staffLogic.deleteStaff(staff);
+  }
 
   // Order
   @Transactional
@@ -83,6 +103,16 @@ public class PetStoreService {
   @Transactional(readOnly = true)
   public List<Order> findAllOrders() {
     return orderLogic.findAllOrders();
+  }
+  
+  @Transactional
+  public boolean deleteOrders(List<Order> orders) {
+    return orderLogic.deleteOrders(orders);
+  }
+  
+  @Transactional
+  public boolean deleteOrder(Order order) {
+    return orderLogic.deleteOrder(order);
   }
 
   // Product 
@@ -105,6 +135,16 @@ public class PetStoreService {
   public Product getProductByCode(String code) {
     return productLogic.getProductByCode(code);
   }
+  
+  @Transactional
+  public boolean deleteProducts(List<Product> products) {
+    return productLogic.deleteProducts(products);
+  }
+  
+  @Transactional
+  public boolean deleteProduct(Product product) {
+    return productLogic.deleteProduct(product);
+  }
 
   // Food
   @Transactional
@@ -125,5 +165,15 @@ public class PetStoreService {
   @Transactional(readOnly = true)
   public Food getFoodByCode(String code) {
     return foodLogic.getFoodByCode(code);
+  }
+  
+  @Transactional
+  public boolean deleteFoods(List<Food> foods) {
+    return foodLogic.deleteFoods(foods);
+  }
+  
+  @Transactional
+  public boolean deleteFood(Food food) {
+    return foodLogic.deleteFood(food);
   }
 }

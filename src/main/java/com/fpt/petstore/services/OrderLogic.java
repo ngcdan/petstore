@@ -32,5 +32,17 @@ public class OrderLogic {
   public List<Order> findAllOrders() {
     return repo.findAll();
   }
+  
+  public boolean deleteOrder(Order order) {
+    repo.delete(order);
+    return true;
+  }
+  
+  public boolean deleteOrders(List<Order> orders) {
+    for (Order sel : orders) {
+      deleteOrder(sel);
+    }
+    return true;
+  }
 
 }

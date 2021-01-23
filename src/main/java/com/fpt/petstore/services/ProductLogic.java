@@ -36,5 +36,17 @@ public class ProductLogic {
   public List<Product> findAllProducts() {
     return repo.findAll();
   }
+  
+  public boolean deleteProduct(Product product) {
+    repo.delete(product);
+    return true;
+  }
+  
+  public boolean deleteProducts(List<Product> products) {
+    for( Product sel : products) {
+      deleteProduct(sel);
+    }
+    return true;
+  }
 
 }

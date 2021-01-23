@@ -36,4 +36,16 @@ public class FoodLogic {
   public List<Food> findAllFoods() {
     return repo.findAll();
   }
+  
+  public boolean deleteFood(Food food ) {
+    repo.delete(food);
+    return true;
+  }
+  
+  public boolean deleteFoods(List<Food> foods) {
+    for (Food sel : foods) {
+      deleteFood(sel);
+    }
+    return true;
+  }
 }

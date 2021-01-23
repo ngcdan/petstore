@@ -31,5 +31,17 @@ public class UserLogic {
   public List<User> findAllUser() {
     return repo.findAll();
   }
+  
+  public boolean deleteUser(User user) {
+    repo.delete(user);
+    return true;
+  }
+  
+  public boolean deleteUsers(List<User> users) {
+    for(User sel : users) {
+      deleteUser(sel);
+    }
+    return true;
+  }
 
 }
