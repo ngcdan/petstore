@@ -44,8 +44,7 @@ public class Product extends AbstractPersistable<Long> {
   @Enumerated(EnumType.STRING)
   private ProductType type = ProductType.CLOTHES;
 
-  public Product(String code, String name) {
-    this.code = code;
+  public Product(String name) {
     this.name = name;
   }
   

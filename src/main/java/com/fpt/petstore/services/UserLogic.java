@@ -48,7 +48,8 @@ public class UserLogic {
   }
   
   public User generateCode(User user) {
-    user.setCode("user-" + DateUtil.asCompactDateTimeId(new Date()));
+    if(user == null) return null;
+    user.setCode("user-" + user.getEmail() + DateUtil.asCompactDateTimeId(new Date()));
     return user;
   }
 

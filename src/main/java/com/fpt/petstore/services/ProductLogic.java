@@ -3,6 +3,7 @@
  */
 package com.fpt.petstore.services;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.fpt.petstore.entities.Product;
 import com.fpt.petstore.repository.ProductsRepository;
+import com.fpt.petstore.util.DateUtil;
 
 /**
  * @author linuss
@@ -22,7 +24,8 @@ public class ProductLogic {
   private ProductsRepository repo;
   
   public Product saveProduct(Product product) {
-    return repo.save(product);
+    Product _product = generateCode(product);
+    return repo.save(_product);
   }
   
   public Product getProductByCode(String code) {
@@ -47,6 +50,12 @@ public class ProductLogic {
       deleteProduct(sel);
     }
     return true;
+  }
+  
+  public Product generateCode(Product product) {
+    if(product == null) return null;
+    product.setCode("product-" + product.getName() + DateUtil.asCompactDateTimeId(new Date()));
+    return product;
   }
 
 }

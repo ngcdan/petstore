@@ -45,8 +45,7 @@ public class Food extends AbstractPersistable<Long> {
   @Enumerated(EnumType.STRING)
   private FoodType foodType = FoodType.DRY;
 
-  public Food(String code, String name, int price) {
-    this.code  = code;
+  public Food(String name, int price) {
     this.name  = name;
     this.price = price;
   }

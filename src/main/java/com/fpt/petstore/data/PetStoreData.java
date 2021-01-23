@@ -15,37 +15,37 @@ import com.fpt.petstore.entities.User;
 
 public class PetStoreData {
 
-  public static User user_1 = new User("user_1","0999999999", "user_1@gmail.com")
+  public static User user_1 = new User("0999999999", "user_1@gmail.com")
       .withFirstName("Le Van").withLastName("A")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_2 = new User("user_2","0999999999", "user_2@gmail.com")
+  public static User user_2 = new User("0999999999", "user_2@gmail.com")
       .withFirstName("Le Van").withLastName("A")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_3 = new User("user_3","0999999999", "user_3@gmail.com")
+  public static User user_3 = new User("0999999999", "user_3@gmail.com")
       .withFirstName("Le Van").withLastName("B")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_4 = new User("user_4","0999999999", "user_4@gmail.com")
+  public static User user_4 = new User("0999999999", "user_4@gmail.com")
       .withFirstName("Le Van").withLastName("C")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_5 = new User("user_5","0999999999", "user_5@gmail.com")
+  public static User user_5 = new User("0999999999", "user_5@gmail.com")
       .withFirstName("Le Van").withLastName("D")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_6 = new User("user_6","0999999999", "user_6@gmail.com")
+  public static User user_6 = new User("0999999999", "user_6@gmail.com")
       .withFirstName("Le Van").withLastName("D")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_7 = new User("user_7","0999999999", "user_7@gmail.com")
+  public static User user_7 = new User("0999999999", "user_7@gmail.com")
       .withFirstName("Le Van").withLastName("D")
       .withAddress("Ha Noi")
       .withPassword("password");
@@ -62,43 +62,43 @@ public class PetStoreData {
       .withPassword("password");
   
   // Food 
-  public static Food food_1 = new Food("f_code_1", "Food_name_1", 100)
+  public static Food food_1 = new Food( "Food_name_1", 100)
       .withDes("description");
   
-  public static Food food_2 = new Food("f_code_2", "Food_name_2", 100)
+  public static Food food_2 = new Food("Food_name_2", 100)
       .withDes("description");
   
-  public static Food food_3 = new Food("f_code_3", "Food_name_3", 100)
+  public static Food food_3 = new Food("Food_name_3", 100)
       .withDes("description");
   
-  public static Food food_4 = new Food("f_code_4", "Food_name_4", 100)
+  public static Food food_4 = new Food("Food_name_4", 100)
       .withDes("description");
   
-  public static Food food_5 = new Food("f_code_5", "Food_name_5", 100)
+  public static Food food_5 = new Food("Food_name_5", 100)
       .withDes("description");
 
   // Products 
-  public static Product pr_1 = new Product("pr_code_1", "product_name_1")
+  public static Product pr_1 = new Product("product_name_1")
       .withPrice(200).withDescription("des");
-  public static Product pr_2 = new Product("pr_code_2", "product_name_2")
+  public static Product pr_2 = new Product("product_name_2")
       .withPrice(200).withDescription("des");
-  public static Product pr_3 = new Product("pr_code_3", "product_name_3")
+  public static Product pr_3 = new Product("product_name_3")
       .withPrice(200).withDescription("des");
-  public static Product pr_4 = new Product("pr_code_4", "product_name_4")
+  public static Product pr_4 = new Product("product_name_4")
       .withPrice(200).withDescription("des");
-  public static Product pr_5 = new Product("pr_code_5", "product_name_5")
+  public static Product pr_5 = new Product("product_name_5")
       .withPrice(200).withDescription("des");
   
   // Order 
-  public static Order order_2 = new Order("or_code_2").withFoods(food_3).withProducts(pr_2)
+  public static Order order_2 = new Order().withFoods(food_3).withProducts(pr_2)
       .withProducts(pr_1).withStaff(staff_2).withUser(user_2).withTotal(200);
-  public static Order order_3 = new Order("or_code_3").withFoods(food_1)
+  public static Order order_3 = new Order().withFoods(food_1)
       .withProducts(pr_1).withStaff(staff_2).withUser(user_3).withTotal(400);
-  public static Order order_4 = new Order("or_code_4").withFoods(food_1)
+  public static Order order_4 = new Order().withFoods(food_1)
       .withProducts(pr_1).withStaff(staff_1).withUser(user_4).withTotal(500);
-  public static Order order_5 = new Order("or_code_5").withFoods(food_1)
+  public static Order order_5 = new Order().withFoods(food_1)
       .withProducts(pr_1).withStaff(staff_1).withUser(user_5).withTotal(600);
-  public static Order order_6 = new Order("or_code_6").withFoods(food_1)
+  public static Order order_6 = new Order().withFoods(food_1)
       .withProducts(pr_1).withStaff(staff_1).withUser(user_6).withTotal(700);
   
   public static User[] ALL_USERS = {user_1, user_2, user_3, user_4, user_5, user_6, user_7 }; 

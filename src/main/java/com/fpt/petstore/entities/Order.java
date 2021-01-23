@@ -63,10 +63,6 @@ public class Order extends AbstractPersistable<Long> {
   
   @Enumerated(EnumType.STRING)
   private State state = State.done;
-
-  public Order(String code) {
-    this.code     = code;
-  }
   
   public Order withProducts(Product product) {
     if(products == null) products = new ArrayList<>();
