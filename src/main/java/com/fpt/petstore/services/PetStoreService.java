@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fpt.petstore.entities.Food;
+import com.fpt.petstore.entities.Food.FoodType;
 import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.Product;
+import com.fpt.petstore.entities.Product.ProductType;
 import com.fpt.petstore.entities.Staff;
 import com.fpt.petstore.entities.User;
 
@@ -127,8 +129,8 @@ public class PetStoreService {
   }
   
   @Transactional(readOnly = true)
-  public List<Product> findProductsByType(String type) {
-    return productLogic.findProductByType(type);
+  public List<Product> findProductsByType(ProductType productType) {
+    return productLogic.findProductByType(productType);
   }
   
   @Transactional(readOnly = true)
@@ -158,7 +160,7 @@ public class PetStoreService {
   }
   
   @Transactional(readOnly = true)
-  public List<Food> findFoodsByFoodType(String foodType) {
+  public List<Food> findFoodsByFoodType(FoodType foodType) {
     return foodLogic.findFoodByType(foodType);
   }
   

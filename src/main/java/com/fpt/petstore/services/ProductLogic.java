@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fpt.petstore.entities.Product;
+import com.fpt.petstore.entities.Product.ProductType;
 import com.fpt.petstore.repository.ProductsRepository;
 import com.fpt.petstore.util.DateUtil;
 
@@ -32,8 +33,8 @@ public class ProductLogic {
     return repo.getByCode(code);
   }
   
-  public List<Product> findProductByType(String type) {
-    return repo.findByType(type);
+  public List<Product> findProductByType(ProductType productType) {
+    return repo.findByType(productType);
   }
   
   public List<Product> findAllProducts() {

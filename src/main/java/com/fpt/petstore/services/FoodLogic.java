@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fpt.petstore.entities.Food;
+import com.fpt.petstore.entities.Food.FoodType;
 import com.fpt.petstore.repository.FoodRepository;
 import com.fpt.petstore.util.DateUtil;
 
@@ -32,8 +33,8 @@ public class FoodLogic {
     return repo.getByCode(code);
   }
   
-  public List<Food> findFoodByType(String foodType) {
-    return repo.findByType(foodType);
+  public List<Food> findFoodByType(FoodType foodType) {
+    return repo.findByFoodType(foodType);
   }
   
   public List<Food> findAllFoods() {

@@ -11,6 +11,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.fpt.petstore.entities.Product;
+import com.fpt.petstore.entities.Product.ProductType;
 
 /**
  * @author linuss
@@ -23,7 +24,5 @@ public interface ProductsRepository extends JpaRepository<Product, Long>{
       "SELECT p FROM Product p WHERE p.code = :code")
   public Product getByCode(@Param("code") String code);
   
-  @Query(
-      "SELECT p FROM Product p WHERE p.type = :type")
-  public List<Product> findByType(@Param("type") String type);
+  public List<Product> findByType(ProductType productType);
 }

@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fpt.petstore.entities.Food;
+import com.fpt.petstore.entities.Food.FoodType;
 import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.Product;
+import com.fpt.petstore.entities.Product.ProductType;
 import com.fpt.petstore.entities.Staff;
 import com.fpt.petstore.entities.User;
 import com.fpt.petstore.services.PetStoreService;
@@ -110,11 +112,21 @@ public class Controller {
   public @ResponseBody boolean deleteProducts(List<Product> products) {
     return service.deleteProducts(products);
   }
+  
+  @GetMapping("products/{productType}")
+  public @ResponseBody List<Product> findProductsByProductType(@PathVariable("productType") ProductType productType) {
+      return service.findProductsByType(productType);
+  }
 
   // Food
   @GetMapping("food/{code}")
   public @ResponseBody Food getFoodByCode(@PathVariable("code") String code) {
     return service.getFoodByCode(code);
+  }
+  
+  @GetMapping("foods/{foodType}")
+  public @ResponseBody List<Food> findFoodsByFoodType(@PathVariable("foodType") FoodType foodType) {
+      return service.findFoodsByFoodType(foodType);
   }
   
   @GetMapping("foods")
