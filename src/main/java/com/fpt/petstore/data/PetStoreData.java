@@ -15,38 +15,38 @@ import com.fpt.petstore.entities.User;
 
 public class PetStoreData {
 
-  public static User user_1 = new User("0999999999", "user_1@gmail.com")
-      .withFirstName("Le Van").withLastName("A")
+  public static User user_1 = new User("0999999999", "nguyenhuuduc@gmail.com")
+      .withFirstName("Nguyễn Hữu").withLastName("Đức")
+      .withAddress("Hà Nội")
+      .withPassword("password");
+  
+  public static User user_2 = new User("0999999999", "levanduc@gmail.com")
+      .withFirstName("Le Van").withLastName("Duc")
+      .withAddress("Hai Phong")
+      .withPassword("password");
+  
+  public static User user_3 = new User("0999999999", "nguyendinhtien@gmail.com")
+      .withFirstName("Nguyen Dinh").withLastName("Tien")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_2 = new User("0999999999", "user_2@gmail.com")
-      .withFirstName("Le Van").withLastName("A")
+  public static User user_4 = new User("0999999999", "tranthihang@gmail.com")
+      .withFirstName("Tran Thi").withLastName("Hang")
+      .withAddress("Ho Chi Minh")
+      .withPassword("password");
+  
+  public static User user_5 = new User("0999999999", "nguyendinhtung@gmail.com")
+      .withFirstName("Nguyen Dinh").withLastName("Tung")
+      .withAddress("Binh Dinh")
+      .withPassword("password");
+  
+  public static User user_6 = new User("0999999999", "leanhvu@gmail.com")
+      .withFirstName("Le Anh").withLastName("Vu")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_3 = new User("0999999999", "user_3@gmail.com")
-      .withFirstName("Le Van").withLastName("B")
-      .withAddress("Ha Noi")
-      .withPassword("password");
-  
-  public static User user_4 = new User("0999999999", "user_4@gmail.com")
-      .withFirstName("Le Van").withLastName("C")
-      .withAddress("Ha Noi")
-      .withPassword("password");
-  
-  public static User user_5 = new User("0999999999", "user_5@gmail.com")
-      .withFirstName("Le Van").withLastName("D")
-      .withAddress("Ha Noi")
-      .withPassword("password");
-  
-  public static User user_6 = new User("0999999999", "user_6@gmail.com")
-      .withFirstName("Le Van").withLastName("D")
-      .withAddress("Ha Noi")
-      .withPassword("password");
-  
-  public static User user_7 = new User("0999999999", "user_7@gmail.com")
-      .withFirstName("Le Van").withLastName("D")
+  public static User user_7 = new User("0999999999", "levandat@gmail.com")
+      .withFirstName("Le Van").withLastName("Dat")
       .withAddress("Ha Noi")
       .withPassword("password");
   
