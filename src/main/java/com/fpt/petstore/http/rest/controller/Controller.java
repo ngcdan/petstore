@@ -20,8 +20,8 @@ import com.fpt.petstore.entities.Food.FoodType;
 import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.Product;
 import com.fpt.petstore.entities.Product.ProductType;
-import com.fpt.petstore.entities.Staff;
-import com.fpt.petstore.entities.User;
+import com.fpt.petstore.entities.Employee;
+import com.fpt.petstore.entities.Partner;
 import com.fpt.petstore.services.PetStoreService;
 
 /**
@@ -36,55 +36,55 @@ public class Controller {
   PetStoreService service;
   
   // User 
-  @GetMapping("user/{code}")
-  public @ResponseBody User getUserByCode(@PathVariable("code") String code) {
-    return service.getUserByCode(code);
+  @GetMapping("partner/{code}")
+  public @ResponseBody Partner getPartnerByCode(@PathVariable("code") String code) {
+    return service.getPartnerByCode(code);
   }
   
-  @GetMapping("users")
-  public @ResponseBody List<User> findAllUsers() {
-    return service.findAllUsers();
+  @GetMapping("partners")
+  public @ResponseBody List<Partner> findAllPartners() {
+    return service.findAllPartners();
   }
   
-  @PutMapping("user")
-  public @ResponseBody User saveUser(@RequestBody User user) {
-    return service.saveUser(user);
+  @PutMapping("partner")
+  public @ResponseBody Partner savePartner(@RequestBody Partner partner) {
+    return service.savePartner(partner);
   }
   
-  @DeleteMapping("user")
-  public @ResponseBody boolean deleteUser(User user) {
-    return service.deleteUser(user);
+  @DeleteMapping("partner")
+  public @ResponseBody boolean deletePartner(Partner partner) {
+    return service.deletePartner(partner);
   }
   
-  @DeleteMapping("users")
-  public @ResponseBody boolean deleteUsers(List<User> users) {
-    return service.deleteUsers(users);
+  @DeleteMapping("partners")
+  public @ResponseBody boolean deletePartners(List<Partner> partners) {
+    return service.deletePartners(partners);
   }
   
-  // Staff
-  @GetMapping("staff/{code}")
-  public @ResponseBody Staff getStaffByCode(@PathVariable("username") String username) {
-    return service.getStaffByUsername(username);
+  // Employee
+  @GetMapping("employee/{code}")
+  public @ResponseBody Employee getStaffByCode(@PathVariable("username") String username) {
+    return service.getEmployeeByUsername(username);
   }
   
-  @GetMapping("staffs")
-  public @ResponseBody List<Staff> findAllStaffs() {
-    return service.findAllStaffs();
+  @GetMapping("employees")
+  public @ResponseBody List<Employee> findAllStaffs() {
+    return service.findAllEmployees();
   }
   
-  @PutMapping("staff")
-  public @ResponseBody Staff saveStaff(@RequestBody Staff staff) {
-    return service.saveStaff(staff);
+  @PutMapping("employee")
+  public @ResponseBody Employee saveStaff(@RequestBody Employee employee) {
+    return service.saveEmployee(employee);
   }
   
-  @DeleteMapping("staff")
-  public @ResponseBody boolean deleteStaff(Staff staff) {
-    return service.deleteStaff(staff);
+  @DeleteMapping("employee")
+  public @ResponseBody boolean deleteStaff(Employee employee) {
+    return service.deleteEmployee(employee);
   }
   
-  @DeleteMapping("staffs")
-  public @ResponseBody boolean deleteStaffs(List<Staff> staffs) {
-    return service.deleteStaffs(staffs);
+  @DeleteMapping("employees")
+  public @ResponseBody boolean deleteStaffs(List<Employee> employees) {
+    return service.deleteEmployees(employees);
   }
   
   // Product

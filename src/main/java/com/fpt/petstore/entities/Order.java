@@ -39,11 +39,11 @@ public class Order extends AbstractPersistable<Long> {
 
   @ManyToOne(optional = false) 
   @JoinColumn(name = "userId")
-  private User user;
+  private Partner partner;
 
   @ManyToOne(optional = false) 
   @JoinColumn(name = "staffId")
-  private Staff staff;
+  private Employee employee;
 
   @ManyToMany
   @JoinTable(
@@ -76,13 +76,13 @@ public class Order extends AbstractPersistable<Long> {
     return this;
   }
   
-  public Order withUser(User user) {
-    this.user = user;
+  public Order withUser(Partner partner) {
+    this.partner = partner;
     return this;
   }
   
-  public Order withStaff(Staff staff) {
-    this.staff = staff;
+  public Order withStaff(Employee employee) {
+    this.employee = employee;
     return this;
   }
   

@@ -6,8 +6,8 @@ package com.fpt.petstore.data;
 import com.fpt.petstore.entities.Food;
 import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.Product;
-import com.fpt.petstore.entities.Staff;
-import com.fpt.petstore.entities.User;
+import com.fpt.petstore.entities.Employee;
+import com.fpt.petstore.entities.Partner;
 
 /**
  * @author linuss
@@ -15,48 +15,48 @@ import com.fpt.petstore.entities.User;
 
 public class PetStoreData {
 
-  public static User user_1 = new User("0999999999", "nguyenhuuduc@gmail.com")
+  public static Partner user_1 = new Partner("0999999999", "nguyenhuuduc@gmail.com")
       .withFirstName("Nguyễn Hữu").withLastName("Đức")
       .withAddress("Hà Nội")
       .withPassword("password");
   
-  public static User user_2 = new User("0999999999", "levanduc@gmail.com")
+  public static Partner user_2 = new Partner("0999999999", "levanduc@gmail.com")
       .withFirstName("Le Van").withLastName("Duc")
       .withAddress("Hai Phong")
       .withPassword("password");
   
-  public static User user_3 = new User("0999999999", "nguyendinhtien@gmail.com")
+  public static Partner user_3 = new Partner("0999999999", "nguyendinhtien@gmail.com")
       .withFirstName("Nguyen Dinh").withLastName("Tien")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_4 = new User("0999999999", "tranthihang@gmail.com")
+  public static Partner user_4 = new Partner("0999999999", "tranthihang@gmail.com")
       .withFirstName("Tran Thi").withLastName("Hang")
       .withAddress("Ho Chi Minh")
       .withPassword("password");
   
-  public static User user_5 = new User("0999999999", "nguyendinhtung@gmail.com")
+  public static Partner user_5 = new Partner("0999999999", "nguyendinhtung@gmail.com")
       .withFirstName("Nguyen Dinh").withLastName("Tung")
       .withAddress("Binh Dinh")
       .withPassword("password");
   
-  public static User user_6 = new User("0999999999", "leanhvu@gmail.com")
+  public static Partner user_6 = new Partner("0999999999", "leanhvu@gmail.com")
       .withFirstName("Le Anh").withLastName("Vu")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static User user_7 = new User("0999999999", "levandat@gmail.com")
+  public static Partner user_7 = new Partner("0999999999", "levandat@gmail.com")
       .withFirstName("Le Van").withLastName("Dat")
       .withAddress("Ha Noi")
       .withPassword("password");
   
   // Staff 
-  public static Staff staff_1 = new Staff("nguyenvantoan", "nguyenvantoan@gmail.com", "0978666667")
+  public static Employee staff_1 = new Employee("nguyenvantoan", "nguyenvantoan@gmail.com", "0978666667")
       .withFirstName("Nguyen Van").withLastName("Toan")
       .withAddress("Sai Gon")
       .withPassword("password");
   
-  public static Staff staff_2 = new Staff("nguyencongbao", "nguyencongbao@gmail.com", "0978666665")
+  public static Employee staff_2 = new Employee("nguyencongbao", "nguyencongbao@gmail.com", "0978666665")
       .withFirstName("Nguyen Cong").withLastName("Bao")
       .withAddress("Sai Gon")
       .withPassword("password");
@@ -101,8 +101,8 @@ public class PetStoreData {
   public static Order order_6 = new Order().withFoods(food_1)
       .withProducts(pr_1).withStaff(staff_1).withUser(user_6).withTotal(700);
   
-  public static User[] ALL_USERS = {user_1, user_2, user_3, user_4, user_5, user_6, user_7 }; 
-  public static Staff[] ALL_STAFF = { staff_1, staff_2 };
+  public static Partner[] ALL_USERS = {user_1, user_2, user_3, user_4, user_5, user_6, user_7 }; 
+  public static Employee[] ALL_STAFF = { staff_1, staff_2 };
   public static Food[] ALL_FOODS = {food_1, food_2, food_3, food_4, food_5};
   public static Product[] ALL_PRODUCTS = {pr_1, pr_2, pr_3, pr_4, pr_5 };
   public static Order[] ALL_ORDERS = {order_2, order_3, order_4, order_5, order_6};

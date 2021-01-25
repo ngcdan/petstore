@@ -44,25 +44,25 @@ public abstract class AbstractPersistable<PK extends Serializable> implements Pe
   }
 
   @JsonFormat(pattern = DateUtil.LOCAL_DATETIME_FORMAT)
-  private Date createdAt;
+  private Date createdTime;
 
   @JsonFormat(pattern = DateUtil.LOCAL_DATETIME_FORMAT)
-  private Date updatedAt;
+  private Date updatedTime;
   
   @PrePersist
   protected void prePersist() {
-      if (this.createdAt == null) createdAt = new Date();
-      if (this.updatedAt == null) updatedAt = new Date();
+      if (this.createdTime == null) createdTime = new Date();
+      if (this.updatedTime == null) updatedTime = new Date();
   }
 
   @PreUpdate
   protected void preUpdate() {
-      this.updatedAt = new Date();
+      this.updatedTime = new Date();
   }
 
   @PreRemove
   protected void preRemove() {
-      this.updatedAt = new Date();
+      this.updatedTime = new Date();
   }
 
 }

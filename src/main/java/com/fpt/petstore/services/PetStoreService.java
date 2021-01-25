@@ -14,8 +14,8 @@ import com.fpt.petstore.entities.Food.FoodType;
 import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.Product;
 import com.fpt.petstore.entities.Product.ProductType;
-import com.fpt.petstore.entities.Staff;
-import com.fpt.petstore.entities.User;
+import com.fpt.petstore.entities.Employee;
+import com.fpt.petstore.entities.Partner;
 
 /**
  * @author linuss
@@ -25,10 +25,10 @@ import com.fpt.petstore.entities.User;
 public class PetStoreService {
 
   @Autowired
-  UserLogic userLogic;
+  PartnerLogic partnerLogic;
 
   @Autowired
-  StaffLogic staffLogic;
+  EmployeeLogic employeeLogic;
 
   @Autowired
   OrderLogic orderLogic;
@@ -39,56 +39,56 @@ public class PetStoreService {
   @Autowired 
   FoodLogic foodLogic;
 
-  // User
+  // Partner
   @Transactional
-  public User saveUser(User user) {
-    return userLogic.saveUser(user);
+  public Partner savePartner(Partner partner) {
+    return partnerLogic.savePartner(partner);
   }
 
   @Transactional(readOnly = true)
-  public User getUserByCode(String code) {
-    return userLogic.getUserByCode(code);
+  public Partner getPartnerByCode(String code) {
+    return partnerLogic.getPartnerByCode(code);
   }
   
   @Transactional(readOnly = true)
-  public List<User> findAllUsers() {
-    return userLogic.findAllUser();
+  public List<Partner> findAllPartners() {
+    return partnerLogic.findAllPartners();
   }
   
   @Transactional
-  public boolean deleteUsers(List<User> users) {
-    return userLogic.deleteUsers(users);
+  public boolean deletePartners(List<Partner> partners) {
+    return partnerLogic.deletePartners(partners);
   }
   
   @Transactional
-  public boolean deleteUser(User user) {
-    return userLogic.deleteUser(user);
+  public boolean deletePartner(Partner partner) {
+    return partnerLogic.deletePartner(partner);
   }
 
-  // Staff
+  // Employee
   @Transactional
-  public Staff saveStaff(Staff staff) {
-    return staffLogic.saveStaff(staff);
+  public Employee saveEmployee(Employee employee) {
+    return employeeLogic.saveEmployee(employee);
   }
   
   @Transactional(readOnly = true)
-  public List<Staff> findAllStaffs() {
-    return staffLogic.findAllStaff();
+  public List<Employee> findAllEmployees() {
+    return employeeLogic.findAllEmployees();
   }
   
   @Transactional(readOnly = true) 
-  public Staff getStaffByUsername(String username) {
-    return staffLogic.getStaffByUsername(username);
+  public Employee getEmployeeByUsername(String username) {
+    return employeeLogic.getEmployeeByUsername(username);
   }
   
   @Transactional
-  public boolean deleteStaffs(List<Staff> staffs) {
-    return staffLogic.deleteStaffs(staffs);
+  public boolean deleteEmployees(List<Employee> employees) {
+    return employeeLogic.deleteEmployees(employees);
   }
   
   @Transactional
-  public boolean deleteStaff(Staff staff) {
-    return staffLogic.deleteStaff(staff);
+  public boolean deleteEmployee(Employee employee) {
+    return employeeLogic.deleteEmployee(employee);
   }
 
   // Order

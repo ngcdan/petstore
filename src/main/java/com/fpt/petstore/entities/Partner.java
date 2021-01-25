@@ -24,7 +24,7 @@ uniqueConstraints = {
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
 @NoArgsConstructor
-public class User extends AbstractPersistable<Long> {
+public class Partner extends AbstractPersistable<Long> {
 
   public String code;
 
@@ -43,27 +43,27 @@ public class User extends AbstractPersistable<Long> {
 
   private String address;
 
-  public User(String phone, String email) {
+  public Partner(String phone, String email) {
     this.phone = phone;
     this.email = email;
   }
 
-  public User withFirstName(String firstName) {
+  public Partner withFirstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
 
-  public User withLastName(String lastName) {
+  public Partner withLastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
 
-  public User withAddress(String address) {
+  public Partner withAddress(String address) {
     this.address = address;
     return this;
   }
 
-  public User withPassword(String password) {
+  public Partner withPassword(String password) {
     this.password = password;
     return this;
   }

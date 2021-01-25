@@ -10,8 +10,8 @@ import com.fpt.petstore.data.PetStoreData;
 import com.fpt.petstore.entities.Food;
 import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.Product;
-import com.fpt.petstore.entities.Staff;
-import com.fpt.petstore.entities.User;
+import com.fpt.petstore.entities.Employee;
+import com.fpt.petstore.entities.Partner;
 import com.fpt.petstore.services.PetStoreService;
 
 @SpringBootApplication
@@ -34,15 +34,15 @@ public class PetStoreApplication implements CommandLineRunner {
     createOrderData(PetStoreData.ALL_ORDERS);
   }
   
-  void createUserData(User[] users) {
-    for(User user: users) {
-      service.saveUser(user);
+  void createUserData(Partner[] users) {
+    for(Partner partner: users) {
+      service.savePartner(partner);
     }
   }
   
-  void createStaffData(Staff[] staffs) {
-    for(Staff staff: staffs) {
-      service.saveStaff(staff);
+  void createStaffData(Employee[] staffs) {
+    for(Employee employee: staffs) {
+      service.saveEmployee(employee);
     }
   }
   
