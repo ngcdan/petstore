@@ -8,16 +8,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.fpt.petstore.entities.Partner;
+import com.fpt.petstore.entities.Customer;
 
 /**
  * @author linuss
  */
 
 @Repository
-public interface PartnerRepository extends JpaRepository<Partner, Long> {
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
   @Query(
-      "SELECT p FROM Partner p WHERE p.code = :code")
-  public Partner getByCode(@Param("code") String code);
+      "SELECT c FROM Customer c WHERE c.code = :code")
+  public Customer getByCode(@Param("code") String code);
 }

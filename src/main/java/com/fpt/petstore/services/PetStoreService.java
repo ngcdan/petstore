@@ -15,7 +15,7 @@ import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.Product;
 import com.fpt.petstore.entities.Product.ProductType;
 import com.fpt.petstore.entities.Employee;
-import com.fpt.petstore.entities.Partner;
+import com.fpt.petstore.entities.Customer;
 
 /**
  * @author linuss
@@ -25,7 +25,7 @@ import com.fpt.petstore.entities.Partner;
 public class PetStoreService {
 
   @Autowired
-  PartnerLogic partnerLogic;
+  CustomerLogic customerLogic;
 
   @Autowired
   EmployeeLogic employeeLogic;
@@ -39,30 +39,30 @@ public class PetStoreService {
   @Autowired 
   FoodLogic foodLogic;
 
-  // Partner
+  // Customer
   @Transactional
-  public Partner savePartner(Partner partner) {
-    return partnerLogic.savePartner(partner);
+  public Customer saveCustomer(Customer customer) {
+    return customerLogic.saveCustomer(customer);
   }
 
   @Transactional(readOnly = true)
-  public Partner getPartnerByCode(String code) {
-    return partnerLogic.getPartnerByCode(code);
+  public Customer getCustomerByCode(String code) {
+    return customerLogic.getCustomerByCode(code);
   }
   
   @Transactional(readOnly = true)
-  public List<Partner> findAllPartners() {
-    return partnerLogic.findAllPartners();
+  public List<Customer> findAllCustomers() {
+    return customerLogic.findAllCustomers();
   }
   
   @Transactional
-  public boolean deletePartners(List<Partner> partners) {
-    return partnerLogic.deletePartners(partners);
+  public boolean deleteCustomers(List<Customer> customers) {
+    return customerLogic.deleteCustomers(customers);
   }
   
   @Transactional
-  public boolean deletePartner(Partner partner) {
-    return partnerLogic.deletePartner(partner);
+  public boolean deleteCustomer(Customer customer) {
+    return customerLogic.deleteCustomer(customer);
   }
 
   // Employee

@@ -3,17 +3,17 @@
  */
 package com.fpt.petstore.entities;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -27,57 +27,48 @@ import lombok.Setter;
  */
 
 @Entity
-@Table(name = "orders") 
+@Table(name = "orders",
+uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"code"})
+}) 
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
 @NoArgsConstructor
 public class Order extends AbstractPersistable<Long> {
   
-  static public enum State { pending, process, done, cancel };
+  static public enum State { PENDING, PROCESS, DONE, CANCEL };
 
   private String code;
+  
+  private String label;
 
   @ManyToOne(optional = false) 
-  @JoinColumn(name = "userId")
-  private Partner partner;
+  @JoinColumn(name = "customerId")
+  private Customer customer;
 
   @ManyToOne(optional = false) 
-  @JoinColumn(name = "staffId")
+  @JoinColumn(name = "employeeId")
   private Employee employee;
-
-  @ManyToMany
-  @JoinTable(
-      name = "order_product_rel",
-      joinColumns =  @JoinColumn(name = "orderId"), inverseJoinColumns =  @JoinColumn(name = "productId" ))
-  private List<Product> products;
-
-  @ManyToMany
-  @JoinTable(
-      name = "order_food_rel",
-      joinColumns =  @JoinColumn(name = "orderId"), inverseJoinColumns =  @JoinColumn(name = "foodId"))
-  private List<Food> foods;
+  
+  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+  @JoinColumn(name = "orderId", referencedColumnName = "id")
+  private List<Payment> payments;
+  
+  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+  @JoinColumn(name = "orderId", referencedColumnName = "id")
+  private List<OrderItem> orderItems;
 
   private int total;
 
   private String note;
   
+  private String currency;
+  
   @Enumerated(EnumType.STRING)
-  private State state = State.done;
+  private State state = State.PROCESS;
   
-  public Order withProducts(Product product) {
-    if(products == null) products = new ArrayList<>();
-    products.add(product);
-    return this;
-  }
-  
-  public Order withFoods(Food food) {
-    if(foods == null) foods = new ArrayList<>();
-    foods.add(food);
-    return this;
-  }
-  
-  public Order withUser(Partner partner) {
-    this.partner = partner;
+  public Order withUser(Customer customer) {
+    this.customer = customer;
     return this;
   }
   

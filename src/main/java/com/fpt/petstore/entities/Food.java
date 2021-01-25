@@ -3,9 +3,14 @@
  */
 package com.fpt.petstore.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -41,6 +46,10 @@ public class Food extends AbstractPersistable<Long> {
   private String pic;
 
   private String description;
+  
+  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+  @JoinColumn(name = "foodId", referencedColumnName = "id")
+  private List<OrderItem> orderItems;
   
   @Enumerated(EnumType.STRING)
   private FoodType foodType = FoodType.DRY;

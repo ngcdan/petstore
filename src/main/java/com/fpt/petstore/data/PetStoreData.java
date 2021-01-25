@@ -3,11 +3,10 @@
  */
 package com.fpt.petstore.data;
 
-import com.fpt.petstore.entities.Food;
-import com.fpt.petstore.entities.Order;
-import com.fpt.petstore.entities.Product;
+import com.fpt.petstore.entities.Customer;
 import com.fpt.petstore.entities.Employee;
-import com.fpt.petstore.entities.Partner;
+import com.fpt.petstore.entities.Food;
+import com.fpt.petstore.entities.Product;
 
 /**
  * @author linuss
@@ -15,37 +14,37 @@ import com.fpt.petstore.entities.Partner;
 
 public class PetStoreData {
 
-  public static Partner user_1 = new Partner("0999999999", "nguyenhuuduc@gmail.com")
+  public static Customer user_1 = new Customer("0999999999", "nguyenhuuduc@gmail.com")
       .withFirstName("Nguyễn Hữu").withLastName("Đức")
       .withAddress("Hà Nội")
       .withPassword("password");
   
-  public static Partner user_2 = new Partner("0999999999", "levanduc@gmail.com")
+  public static Customer user_2 = new Customer("0999999999", "levanduc@gmail.com")
       .withFirstName("Le Van").withLastName("Duc")
       .withAddress("Hai Phong")
       .withPassword("password");
   
-  public static Partner user_3 = new Partner("0999999999", "nguyendinhtien@gmail.com")
+  public static Customer user_3 = new Customer("0999999999", "nguyendinhtien@gmail.com")
       .withFirstName("Nguyen Dinh").withLastName("Tien")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static Partner user_4 = new Partner("0999999999", "tranthihang@gmail.com")
+  public static Customer user_4 = new Customer("0999999999", "tranthihang@gmail.com")
       .withFirstName("Tran Thi").withLastName("Hang")
       .withAddress("Ho Chi Minh")
       .withPassword("password");
   
-  public static Partner user_5 = new Partner("0999999999", "nguyendinhtung@gmail.com")
+  public static Customer user_5 = new Customer("0999999999", "nguyendinhtung@gmail.com")
       .withFirstName("Nguyen Dinh").withLastName("Tung")
       .withAddress("Binh Dinh")
       .withPassword("password");
   
-  public static Partner user_6 = new Partner("0999999999", "leanhvu@gmail.com")
+  public static Customer user_6 = new Customer("0999999999", "leanhvu@gmail.com")
       .withFirstName("Le Anh").withLastName("Vu")
       .withAddress("Ha Noi")
       .withPassword("password");
   
-  public static Partner user_7 = new Partner("0999999999", "levandat@gmail.com")
+  public static Customer user_7 = new Customer("0999999999", "levandat@gmail.com")
       .withFirstName("Le Van").withLastName("Dat")
       .withAddress("Ha Noi")
       .withPassword("password");
@@ -90,20 +89,20 @@ public class PetStoreData {
       .withPrice(200).withDescription("des");
   
   // Order 
-  public static Order order_2 = new Order().withFoods(food_3).withProducts(pr_2)
-      .withProducts(pr_1).withStaff(staff_2).withUser(user_2).withTotal(200);
-  public static Order order_3 = new Order().withFoods(food_1)
-      .withProducts(pr_1).withStaff(staff_2).withUser(user_3).withTotal(400);
-  public static Order order_4 = new Order().withFoods(food_1)
-      .withProducts(pr_1).withStaff(staff_1).withUser(user_4).withTotal(500);
-  public static Order order_5 = new Order().withFoods(food_1)
-      .withProducts(pr_1).withStaff(staff_1).withUser(user_5).withTotal(600);
-  public static Order order_6 = new Order().withFoods(food_1)
-      .withProducts(pr_1).withStaff(staff_1).withUser(user_6).withTotal(700);
+//  public static Order order_2 = new Order().withFoods(food_3).withProducts(pr_2)
+//      .withProducts(pr_1).withStaff(staff_2).withUser(user_2).withTotal(200);
+//  public static Order order_3 = new Order().withFoods(food_1)
+//      .withProducts(pr_1).withStaff(staff_2).withUser(user_3).withTotal(400);
+//  public static Order order_4 = new Order().withFoods(food_1)
+//      .withProducts(pr_1).withStaff(staff_1).withUser(user_4).withTotal(500);
+//  public static Order order_5 = new Order().withFoods(food_1)
+//      .withProducts(pr_1).withStaff(staff_1).withUser(user_5).withTotal(600);
+//  public static Order order_6 = new Order().withFoods(food_1)
+//      .withProducts(pr_1).withStaff(staff_1).withUser(user_6).withTotal(700);
   
-  public static Partner[] ALL_USERS = {user_1, user_2, user_3, user_4, user_5, user_6, user_7 }; 
+  public static Customer[] ALL_USERS = {user_1, user_2, user_3, user_4, user_5, user_6, user_7 }; 
   public static Employee[] ALL_STAFF = { staff_1, staff_2 };
   public static Food[] ALL_FOODS = {food_1, food_2, food_3, food_4, food_5};
   public static Product[] ALL_PRODUCTS = {pr_1, pr_2, pr_3, pr_4, pr_5 };
-  public static Order[] ALL_ORDERS = {order_2, order_3, order_4, order_5, order_6};
+//  public static Order[] ALL_ORDERS = {order_2, order_3, order_4, order_5, order_6};
 }

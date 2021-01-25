@@ -15,7 +15,7 @@ import javax.persistence.UniqueConstraint;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fpt.petstore.entities.Partner.Gender;
+import com.fpt.petstore.entities.Customer.Gender;
 import com.fpt.petstore.util.DateUtil;
 
 import lombok.Getter;
@@ -27,7 +27,7 @@ import lombok.Setter;
  */
 
 @Entity
-@Table(name = "staff",
+@Table(name = "employee",
 uniqueConstraints = {
     @UniqueConstraint(columnNames = {"username", "email"})
 })

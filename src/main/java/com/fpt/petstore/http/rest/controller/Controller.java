@@ -21,7 +21,7 @@ import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.Product;
 import com.fpt.petstore.entities.Product.ProductType;
 import com.fpt.petstore.entities.Employee;
-import com.fpt.petstore.entities.Partner;
+import com.fpt.petstore.entities.Customer;
 import com.fpt.petstore.services.PetStoreService;
 
 /**
@@ -36,29 +36,29 @@ public class Controller {
   PetStoreService service;
   
   // User 
-  @GetMapping("partner/{code}")
-  public @ResponseBody Partner getPartnerByCode(@PathVariable("code") String code) {
-    return service.getPartnerByCode(code);
+  @GetMapping("customer/{code}")
+  public @ResponseBody Customer getCustomerByCode(@PathVariable("code") String code) {
+    return service.getCustomerByCode(code);
   }
   
-  @GetMapping("partners")
-  public @ResponseBody List<Partner> findAllPartners() {
-    return service.findAllPartners();
+  @GetMapping("customers")
+  public @ResponseBody List<Customer> findAllCustomers() {
+    return service.findAllCustomers();
   }
   
-  @PutMapping("partner")
-  public @ResponseBody Partner savePartner(@RequestBody Partner partner) {
-    return service.savePartner(partner);
+  @PutMapping("customer")
+  public @ResponseBody Customer saveCustomer(@RequestBody Customer customer) {
+    return service.saveCustomer(customer);
   }
   
-  @DeleteMapping("partner")
-  public @ResponseBody boolean deletePartner(Partner partner) {
-    return service.deletePartner(partner);
+  @DeleteMapping("customer")
+  public @ResponseBody boolean deleteCustomer(Customer customer) {
+    return service.deleteCustomer(customer);
   }
   
-  @DeleteMapping("partners")
-  public @ResponseBody boolean deletePartners(List<Partner> partners) {
-    return service.deletePartners(partners);
+  @DeleteMapping("customers")
+  public @ResponseBody boolean deleteCustomers(List<Customer> customers) {
+    return service.deleteCustomers(customers);
   }
   
   // Employee
