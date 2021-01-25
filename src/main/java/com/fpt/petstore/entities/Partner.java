@@ -25,6 +25,8 @@ uniqueConstraints = {
 @Setter @Getter
 @NoArgsConstructor
 public class Partner extends AbstractPersistable<Long> {
+  
+  static public enum Gender { Male, Female};
 
   public String code;
 
@@ -35,11 +37,15 @@ public class Partner extends AbstractPersistable<Long> {
   private String password;
   private String firstName;
   private String lastName;
+  
+  private String fullName;
+  
+  private String avatarUrl;
 
   @JsonFormat(pattern = DateUtil.LOCAL_DATETIME_FORMAT)
-  private Date dateOfBirth = new Date();
+  private Date birthday = new Date();
 
-  private boolean gender = true;
+  private Gender gender = Gender.Male;
 
   private String address;
 
