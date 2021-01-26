@@ -2,7 +2,6 @@ package com.fpt.petstore.entities;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -29,17 +28,10 @@ public class Customer extends AbstractPersistable<Long> {
   static public enum Gender { Male, Female};
 
   public String code;
-
-  @Column(name = "email", nullable = false,updatable = false)
   private String email;
-
   private String phone;
   private String password;
-  private String firstName;
-  private String lastName;
-  
   private String fullName;
-  
   private String avatarUrl;
 
   @JsonFormat(pattern = DateUtil.LOCAL_DATETIME_FORMAT)
@@ -48,19 +40,26 @@ public class Customer extends AbstractPersistable<Long> {
   private Gender gender = Gender.Male;
 
   private String address;
+  
+  public Customer(String fullName) {
+    this.fullName = fullName;
+  }
 
-  public Customer(String phone, String email) {
+  public Customer withData(String email, String phone, String birthday) {
+    this.email = email;
     this.phone = phone;
+    this.birthday = DateUtil.parseCompactDate(birthday);
+    return this;
+  }
+  
+  
+  public Customer(String fullName, String email) {
+    this.fullName = fullName;
     this.email = email;
   }
 
-  public Customer withFirstName(String firstName) {
-    this.firstName = firstName;
-    return this;
-  }
-
-  public Customer withLastName(String lastName) {
-    this.lastName = lastName;
+  public Customer withFullName(String fullName) {
+    this.fullName = fullName;
     return this;
   }
 
@@ -71,6 +70,11 @@ public class Customer extends AbstractPersistable<Long> {
 
   public Customer withPassword(String password) {
     this.password = password;
+    return this;
+  }
+  
+  public Customer withPhone(String phone) {
+    this.phone = phone;
     return this;
   }
 

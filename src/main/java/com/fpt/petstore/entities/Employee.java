@@ -38,14 +38,9 @@ public class Employee extends AbstractPersistable<Long> {
   static public enum UserRole { Admin, User };
 
   private String username;
-  
   private String password;
-  
-  // remove
   private String firstName;
   private String lastName;
-  
-  private String fullName;
 
   @Column(name = "email", nullable = false,updatable = false)
   private String email;

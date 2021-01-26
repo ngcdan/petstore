@@ -1,5 +1,7 @@
 package com.fpt.petstore;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -24,18 +26,20 @@ public class PetStoreApplication implements CommandLineRunner {
 	
 	@Autowired
 	PetStoreService service;
+	
+	PetStoreData data;
 
   @Override
   public void run(String... args) throws Exception {
-    createUserData(PetStoreData.ALL_USERS);
+    createUserData(PetStoreData.createDataCustomer());
     createStaffData(PetStoreData.ALL_STAFF);
     createFoodData(PetStoreData.ALL_FOODS);
     createProductData(PetStoreData.ALL_PRODUCTS);
 //    createOrderData(PetStoreData.ALL_ORDERS);
   }
   
-  void createUserData(Customer[] users) {
-    for(Customer customer: users) {
+  void createUserData(List<Customer> customers) {
+    for(Customer customer: customers) {
       service.saveCustomer(customer);
     }
   }
