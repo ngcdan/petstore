@@ -28,33 +28,33 @@ import lombok.Setter;
  */
 
 @Entity
-@Table(name = "orders",
-uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"code"})
-}) 
+@Table(name = "orders", uniqueConstraints = { @UniqueConstraint(columnNames = { "code" }) })
 @JsonInclude(Include.NON_NULL)
-@Setter @Getter
+@Setter
+@Getter
 @NoArgsConstructor
 public class Order extends AbstractPersistable<Long> {
-  
-  static public enum State { PENDING, PROCESS, DONE, CANCEL };
+
+  static public enum State {
+    PENDING, PROCESS, DONE, CANCEL
+  };
 
   private String code;
-  
+
   private String label;
 
-  @ManyToOne(optional = false) 
+  @ManyToOne(optional = false)
   @JoinColumn(name = "customerId")
   private Customer customer;
 
-  @ManyToOne(optional = false) 
+  @ManyToOne(optional = false)
   @JoinColumn(name = "employeeId")
   private Employee employee;
-  
+
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
   @JoinColumn(name = "orderId", referencedColumnName = "id")
   private List<Payment> payments;
-  
+
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
   @JoinColumn(name = "orderId", referencedColumnName = "id")
   private List<OrderItem> orderItems;
@@ -62,44 +62,48 @@ public class Order extends AbstractPersistable<Long> {
   private int total;
 
   private String note;
-  
+
   private String currency = "VND";
-  
+
   @Enumerated(EnumType.STRING)
   private State state = State.PROCESS;
-  
+
   public Order(String label) {
     this.label = label;
   }
-  
+
   public Order withCustomer(Customer customer) {
     this.customer = customer;
     return this;
   }
-  
+
   public Order withEmployee(Employee employee) {
     this.employee = employee;
     return this;
   }
-  
-  public Order withTotal(int total) {
-    this.total = total;
+
+  public Order withTotal(List<OrderItem> items) {
+    for (OrderItem item : items) {
+      this.total += item.getTotal();
+    }
     return this;
   }
-  
+
   public Order withNote(String note) {
     this.note = note;
     return this;
   }
-  
+
   public Order withPayment(Payment payment) {
-    if(payments == null) payments = new ArrayList<>();
+    if (payments == null)
+      payments = new ArrayList<>();
     payments.add(payment);
     return this;
   }
-  
+
   public Order withOrderItem(OrderItem item) {
-    if(orderItems == null) orderItems = new ArrayList<>();
+    if (orderItems == null)
+      orderItems = new ArrayList<>();
     orderItems.add(item);
     return this;
   }

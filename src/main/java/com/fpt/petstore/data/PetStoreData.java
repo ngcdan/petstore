@@ -189,6 +189,7 @@ public class PetStoreData {
       order.withCustomer(customer_1).withEmployee(employee_1).withPayment(new Payment("VietComBank"))
           .withOrderItem(new OrderItem().withFood(food_1)).withOrderItem(new OrderItem().withFood(food_1))
           .withOrderItem(new OrderItem().withProduct(product_1));
+      order.withTotal(order.getOrderItems());
       orders.add(order);
     }
     return orders;

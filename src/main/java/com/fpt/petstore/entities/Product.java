@@ -40,12 +40,6 @@ public class Product extends AbstractPersistable<Long> {
   private String pic;
 
   private String description;
-  
-  /*
-  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-  @JoinColumn(name = "productId", referencedColumnName = "id")
-  private List<OrderItem> orderItems;
-  */
 
   @Enumerated(EnumType.STRING)
   private ProductType type = ProductType.CLOTHES;

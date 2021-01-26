@@ -42,12 +42,6 @@ public class Food extends AbstractPersistable<Long> {
 
   private String description;
   
-  /*
-  @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true)
-  @JoinColumn(name = "foodId", referencedColumnName = "id")
-  private List<OrderItem> orderItems;
-  */
-  
   @Enumerated(EnumType.STRING)
   private FoodType foodType = FoodType.DRY;
 
