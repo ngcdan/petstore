@@ -17,9 +17,10 @@ public class DateUtil {
 
   final static public SimpleDateFormat COMPACT_DATETIME_ID       = new SimpleDateFormat("yyyyMMddHHmmss");
   final static public SimpleDateFormat COMPACT_MICRO_DATETIME_ID = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+  final static public SimpleDateFormat COMPACT_MICRO_TIME_ID = new SimpleDateFormat("HHmmssSSS");
 
   static public String asCompactDate(long time) { return COMPACT_DATE.format(new Date(time)) ; }
-  static public String asCompactDateTimeId(Date time) { return COMPACT_MICRO_DATETIME_ID.format(time) ; }
+  static public String asCompactDateTimeId(Date time) { return COMPACT_MICRO_TIME_ID.format(time) ; }
 
   static public String asCompactDate(Date time) {
     if(time == null) return null;

@@ -50,7 +50,7 @@ public class OrderLogic {
   
   public Order generateCode(Order order) {
     if(order == null) return null;
-    order.setCode("order-" + order.getTotal() + DateUtil.asCompactDateTimeId(new Date()));
+    order.setCode("order-" + DateUtil.asCompactDateTimeId(new Date()));
     return order;
   }
 

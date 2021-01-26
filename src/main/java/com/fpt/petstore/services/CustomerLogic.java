@@ -49,7 +49,7 @@ public class CustomerLogic {
   
   public Customer generateCode(Customer customer) {
     if(customer == null) return null;
-    customer.setCode("user-" + DateUtil.asCompactDateTimeId(new Date()));
+    customer.setCode("customer-" + DateUtil.asCompactDateTimeId(new Date()));
     return customer;
   }
 
