@@ -31,13 +31,13 @@ public class Payment extends AbstractPersistable<Long> {
   
   static public enum TransactionType { Cash, Wire, CreditCard, CustomerCredit }
   
-  private String backAccountId;
+  private String bankAccountId;
   
   private TransactionType transactionType = TransactionType.Cash;
   
-  private double amount;
+  private double amount; // so tien ( co the thanh toan nhieu lan hoac nhieu kieu )
   
-  private String currency;
+  private String currency = "VND";
   
   @JsonFormat(pattern = DateUtil.COMPACT_DATETIME_FORMAT)
   private Date  transactionDate = new Date();
@@ -45,5 +45,9 @@ public class Payment extends AbstractPersistable<Long> {
   @Getter @Setter
   @Column(length = 65536)
   private String          note;
+  
+  public Payment(String bankAccount) {
+    this.bankAccountId = bankAccount;
+  }
 
 }

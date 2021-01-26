@@ -20,14 +20,14 @@ import com.fpt.petstore.services.PetStoreService;
 @EntityScan
 public class PetStoreApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PetStoreApplication.class, args);
-	}
-	
-	@Autowired
-	PetStoreService service;
-	
-	PetStoreData data;
+  public static void main(String[] args) {
+    SpringApplication.run(PetStoreApplication.class, args);
+  }
+
+  @Autowired
+  PetStoreService service;
+
+  PetStoreData data;
 
   @Override
   public void run(String... args) throws Exception {
@@ -35,35 +35,35 @@ public class PetStoreApplication implements CommandLineRunner {
     createEmployeeData(PetStoreData.createDataEmployee());
     createFoodData(PetStoreData.ALL_FOODS);
     createProductData(PetStoreData.ALL_PRODUCTS);
-//    createOrderData(PetStoreData.ALL_ORDERS);
+    createOrderData(PetStoreData.createDataOrder());
   }
-  
+
   void createCustomerData(List<Customer> customers) {
-    for(Customer customer: customers) {
+    for (Customer customer : customers) {
       service.saveCustomer(customer);
     }
   }
-  
+
   void createEmployeeData(List<Employee> employees) {
-    for(Employee employee: employees) {
+    for (Employee employee : employees) {
       service.saveEmployee(employee);
     }
   }
-  
+
   void createFoodData(Food[] foods) {
-    for(Food food: foods) {
+    for (Food food : foods) {
       service.saveFood(food);
     }
   }
-  
+
   void createProductData(Product[] products) {
-    for(Product product: products) {
+    for (Product product : products) {
       service.saveProduct(product);
     }
   }
-  
-  void createOrderData(Order[] orders) {
-    for(Order order: orders) {
+
+  void createOrderData(List<Order> orders) {
+    for (Order order : orders) {
       service.saveOrder(order);
     }
   }

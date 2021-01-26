@@ -12,6 +12,9 @@ import java.util.regex.Pattern;
 import com.fpt.petstore.entities.Customer;
 import com.fpt.petstore.entities.Employee;
 import com.fpt.petstore.entities.Food;
+import com.fpt.petstore.entities.Order;
+import com.fpt.petstore.entities.OrderItem;
+import com.fpt.petstore.entities.Payment;
 import com.fpt.petstore.entities.Product;
 
 /**
@@ -21,8 +24,8 @@ import com.fpt.petstore.entities.Product;
 public class PetStoreData {
 
   static String[] ADDRESSES = { "Hà Nội", "Hải Phòng", "Thành phố Hồ Chí Minh", "Quảng Ninh", "Bạc Liêu", "Tây Ninh",
-  "Tuyên Quang" };
-  static String[] EMAILS = { "Donec.porttitor.tellus@maurisaliquameu.com", "non.ante@purus.com",
+      "Tuyên Quang" };
+  static String[] EMAILS    = { "Donec.porttitor.tellus@maurisaliquameu.com", "non.ante@purus.com",
       "dis@gravidamolestiearcu.co.uk", "Fusce@congueaaliquet.net", "arcu.imperdiet.ullamcorper@ac.edu",
       "posuere.enim.nisl@sagittisaugue.co.uk", "Cum@erat.ca", "iaculis.enim.sit@luctus.org", "Cras@Integerin.edu",
       "lectus.pede.ultrices@nuncsitamet.edu", "bibendum.ullamcorper@Curabitursed.ca", "inceptos.hymenaeos@velit.edu",
@@ -37,59 +40,60 @@ public class PetStoreData {
       "+84978504106", "+84979234893", "+84972099083", "+84979622655", "+84974686801", "+84979802671", "+84976458859",
       "+84978813980", "+84973094635", "+84979158307", "+84979386528", "+84974214735", "+84974443744" };
 
-  public static Customer user_1 = new Customer("Nguyễn Hữu Đức");
+  public static Customer customer_1 = new Customer("Nguyễn Hữu Đức");
 
-  public static Customer user_2 = new Customer("Le Van Duc");
+  public static Customer customer_2 = new Customer("Le Van Duc");
 
-  public static Customer user_3 = new Customer("Nguyen Dinh Tien");
+  public static Customer customer_3 = new Customer("Nguyen Dinh Tien");
 
-  public static Customer user_4 = new Customer("Tran Thi Hang");
+  public static Customer customer_4 = new Customer("Tran Thi Hang");
 
-  public static Customer user_5 = new Customer("Võ Thanh Sanh");
+  public static Customer customer_5 = new Customer("Võ Thanh Sanh");
 
-  public static Customer user_6 = new Customer("Phạm Minh Quân");
+  public static Customer customer_6 = new Customer("Phạm Minh Quân");
 
-  public static Customer user_7 = new Customer("Trương Trọng Quân");
+  public static Customer customer_7 = new Customer("Trương Trọng Quân");
 
-  public static Customer user_8 = new Customer("Nguyễn Vũ Ngọc Quyên");
+  public static Customer customer_8 = new Customer("Nguyễn Vũ Ngọc Quyên");
 
-  public static Customer user_9 = new Customer("Phan Duy Quốc");
+  public static Customer customer_9 = new Customer("Phan Duy Quốc");
 
-  public static Customer user_10 = new Customer("Nguyễn Thị Như Quỳnh");
+  public static Customer customer_10 = new Customer("Nguyễn Thị Như Quỳnh");
 
-  public static Customer user_11 = new Customer("Lê Hoàng Quân");
+  public static Customer customer_11 = new Customer("Lê Hoàng Quân");
 
-  public static Customer user_12 = new Customer("Đinh Văn Phượng");
+  public static Customer customer_12 = new Customer("Đinh Văn Phượng");
 
-  public static Customer user_13 = new Customer("Nguyễn Xuân Sang");
+  public static Customer customer_13 = new Customer("Nguyễn Xuân Sang");
 
-  public static Customer user_14 = new Customer("Lê Phú Quý");
+  public static Customer customer_14 = new Customer("Lê Phú Quý");
 
-  public static Customer user_15 = new Customer("Lý Quốc Quyền");
+  public static Customer customer_15 = new Customer("Lý Quốc Quyền");
 
-  public static Customer user_16 = new Customer("Bùi Minh Quân");
+  public static Customer customer_16 = new Customer("Bùi Minh Quân");
 
-  public static Customer user_17 = new Customer("Nguyễn Ngọc Sơn");
+  public static Customer customer_17 = new Customer("Nguyễn Ngọc Sơn");
 
-  public static Customer user_18 = new Customer("Bùi Duy Qúy");
+  public static Customer customer_18 = new Customer("Bùi Duy Qúy");
 
-  public static Customer user_19 = new Customer("Võ Hoàng Phương");
+  public static Customer customer_19 = new Customer("Võ Hoàng Phương");
 
-  public static Customer user_20 = new Customer("Trần Minh Phương");
+  public static Customer customer_20 = new Customer("Trần Minh Phương");
 
-  public static Customer[] ALL_CUSTOMERS = { user_1, user_2, user_3, user_4, user_5, user_6, user_10, user_11, user_12,
-      user_13, user_14, user_15, user_16, user_17, user_18, user_19, user_20, user_7, user_8, user_9 };
-  
-  // Employee 
-  public static Employee employee_1 = new Employee("Phạm Võ Hoài Anh");
-  public static Employee employee_2 = new Employee("Hồ Thanh Bình");
-  public static Employee employee_3 = new Employee("Nguyễn Thái Bình");
-  public static Employee employee_4 = new Employee("Bùi Thái Chánh");
-  public static Employee employee_5 = new Employee("Đỗ Đình Biên");
-  public static Employee employee_6 = new Employee("Nguyễn Phước Biển");
-  public static Employee employee_7 = new Employee("Lê Minh Chánh");
-  public static Employee employee_8 = new Employee("Lê Thái Bình");
-  public static Employee employee_9 = new Employee("Nguyễn Thái Bình");
+  public static Customer[] ALL_CUSTOMERS = { customer_1, customer_2, customer_3, customer_4, customer_5, customer_6,
+      customer_10, customer_11, customer_12, customer_13, customer_14, customer_15, customer_16, customer_17,
+      customer_18, customer_19, customer_20, customer_7, customer_8, customer_9 };
+
+  // Employee
+  public static Employee employee_1  = new Employee("Phạm Võ Hoài Anh");
+  public static Employee employee_2  = new Employee("Hồ Thanh Bình");
+  public static Employee employee_3  = new Employee("Nguyễn Thái Bình");
+  public static Employee employee_4  = new Employee("Bùi Thái Chánh");
+  public static Employee employee_5  = new Employee("Đỗ Đình Biên");
+  public static Employee employee_6  = new Employee("Nguyễn Phước Biển");
+  public static Employee employee_7  = new Employee("Lê Minh Chánh");
+  public static Employee employee_8  = new Employee("Lê Thái Bình");
+  public static Employee employee_9  = new Employee("Nguyễn Thái Bình");
   public static Employee employee_10 = new Employee("Đinh Hồng Châu");
   public static Employee employee_11 = new Employee("Võ Khải Hoàng Ca");
   public static Employee employee_12 = new Employee("Hà Thị Thùy Chi");
@@ -101,10 +105,11 @@ public class PetStoreData {
   public static Employee employee_18 = new Employee("Trần Đức Thịnh");
   public static Employee employee_19 = new Employee("Trần Viễn Chinh");
   public static Employee employee_20 = new Employee("Bùi Văn Chương");
-  
-  public static Employee[] ALL_EMPLOYEES = { employee_1, employee_2, employee_3, employee_4, employee_5, employee_6, employee_10, employee_11, employee_12,
-      employee_13, employee_14, employee_15, employee_16, employee_17, employee_18, employee_19, employee_20, employee_7, employee_8, employee_9 };
-  
+
+  public static Employee[] ALL_EMPLOYEES = { employee_1, employee_2, employee_3, employee_4, employee_5, employee_6,
+      employee_10, employee_11, employee_12, employee_13, employee_14, employee_15, employee_16, employee_17,
+      employee_18, employee_19, employee_20, employee_7, employee_8, employee_9 };
+
   static public List<Customer> createDataCustomer() {
     List<Customer> customers = new ArrayList<>();
     for (int i = 0; i < ALL_CUSTOMERS.length; i++) {
@@ -117,13 +122,13 @@ public class PetStoreData {
     }
     return customers;
   };
-  
+
   public static String removeAccent(String s) {
-    String temp = Normalizer.normalize(s, Normalizer.Form.NFD);
+    String  temp    = Normalizer.normalize(s, Normalizer.Form.NFD);
     Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
     return pattern.matcher(temp).replaceAll("");
-   }
-  
+  }
+
   static public List<Employee> createDataEmployee() {
     List<Employee> employees = new ArrayList<>();
     for (int i = 0; i < ALL_CUSTOMERS.length; i++) {
@@ -139,39 +144,53 @@ public class PetStoreData {
   };
 
   // Food
-  public static Food food_1 = new Food("Food_name_1", 100).withDes("description");
-
-  public static Food food_2 = new Food("Food_name_2", 100).withDes("description");
-
-  public static Food food_3 = new Food("Food_name_3", 100).withDes("description");
-
-  public static Food food_4 = new Food("Food_name_4", 100).withDes("description");
-
-  public static Food food_5 = new Food("Food_name_5", 100).withDes("description");
-
-  // Products
-  public static Product pr_1 = new Product("product_name_1").withPrice(200).withDescription("des");
-  public static Product pr_2 = new Product("product_name_2").withPrice(200).withDescription("des");
-  public static Product pr_3 = new Product("product_name_3").withPrice(200).withDescription("des");
-  public static Product pr_4 = new Product("product_name_4").withPrice(200).withDescription("des");
-  public static Product pr_5 = new Product("product_name_5").withPrice(200).withDescription("des");
-
-  // Order
-  // public static Order order_2 = new
-  // Order().withFoods(food_3).withProducts(pr_2)
-  // .withProducts(pr_1).withStaff(staff_2).withUser(user_2).withTotal(200);
-  // public static Order order_3 = new Order().withFoods(food_1)
-  // .withProducts(pr_1).withStaff(staff_2).withUser(user_3).withTotal(400);
-  // public static Order order_4 = new Order().withFoods(food_1)
-  // .withProducts(pr_1).withStaff(staff_1).withUser(user_4).withTotal(500);
-  // public static Order order_5 = new Order().withFoods(food_1)
-  // .withProducts(pr_1).withStaff(staff_1).withUser(user_5).withTotal(600);
-  // public static Order order_6 = new Order().withFoods(food_1)
-  // .withProducts(pr_1).withStaff(staff_1).withUser(user_6).withTotal(700);
-
-
+  public static Food   food_1    = new Food("Food_name_1", 100).withDes("description");
+  public static Food   food_2    = new Food("Food_name_2", 100).withDes("description");
+  public static Food   food_3    = new Food("Food_name_3", 100).withDes("description");
+  public static Food   food_4    = new Food("Food_name_4", 100).withDes("description");
+  public static Food   food_5    = new Food("Food_name_5", 100).withDes("description");
   public static Food[] ALL_FOODS = { food_1, food_2, food_3, food_4, food_5 };
-  public static Product[] ALL_PRODUCTS = { pr_1, pr_2, pr_3, pr_4, pr_5 };
-  // public static Order[] ALL_ORDERS = {order_2, order_3, order_4, order_5,
-  // order_6};
+  // Products
+  public static Product   product_1    = new Product("product_name_1").withPrice(200).withDescription("des");
+  public static Product   product_2    = new Product("product_name_2").withPrice(200).withDescription("des");
+  public static Product   product_3    = new Product("product_name_3").withPrice(200).withDescription("des");
+  public static Product   product_4    = new Product("product_name_4").withPrice(200).withDescription("des");
+  public static Product   product_5    = new Product("product_name_5").withPrice(200).withDescription("des");
+  public static Product[] ALL_PRODUCTS = { product_1, product_2, product_3, product_4, product_5 };
+
+  public static Order order_1  = new Order("order_1 ");
+  public static Order order_2  = new Order("order_2 ");
+  public static Order order_3  = new Order("order_3 ");
+  public static Order order_4  = new Order("order_4 ");
+  public static Order order_5  = new Order("order_5 ");
+  public static Order order_6  = new Order("order_6 ");
+  public static Order order_7  = new Order("order_7 ");
+  public static Order order_8  = new Order("order_8 ");
+  public static Order order_9  = new Order("order_9 ");
+  public static Order order_10 = new Order("order_10");
+  public static Order order_11 = new Order("order_11");
+  public static Order order_12 = new Order("order_12");
+  public static Order order_13 = new Order("order_13");
+  public static Order order_14 = new Order("order_14");
+  public static Order order_15 = new Order("order_15");
+  public static Order order_16 = new Order("order_16");
+  public static Order order_17 = new Order("order_17");
+  public static Order order_18 = new Order("order_18");
+  public static Order order_19 = new Order("order_19");
+  public static Order order_20 = new Order("order_20");
+
+  public static Order[] ALL_ORDERS = { order_1, order_2, order_3, order_4, order_5, order_6, order_10, order_11,
+      order_12, order_13, order_14, order_15, order_16, order_17, order_18, order_19, order_20, order_7, order_8,
+      order_9 };
+
+  public static List<Order> createDataOrder() {
+    List<Order> orders = new ArrayList<>();
+    for (Order order : ALL_ORDERS) {
+      order.withCustomer(customer_1).withEmployee(employee_1).withPayment(new Payment("VietComBank"))
+          .withOrderItem(new OrderItem().withFood(food_1)).withOrderItem(new OrderItem().withFood(food_1))
+          .withOrderItem(new OrderItem().withProduct(product_1));
+      orders.add(order);
+    }
+    return orders;
+  }
 }

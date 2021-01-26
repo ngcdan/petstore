@@ -3,6 +3,7 @@
  */
 package com.fpt.petstore.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -62,17 +63,21 @@ public class Order extends AbstractPersistable<Long> {
 
   private String note;
   
-  private String currency;
+  private String currency = "VND";
   
   @Enumerated(EnumType.STRING)
   private State state = State.PROCESS;
   
-  public Order withUser(Customer customer) {
+  public Order(String label) {
+    this.label = label;
+  }
+  
+  public Order withCustomer(Customer customer) {
     this.customer = customer;
     return this;
   }
   
-  public Order withStaff(Employee employee) {
+  public Order withEmployee(Employee employee) {
     this.employee = employee;
     return this;
   }
@@ -84,6 +89,18 @@ public class Order extends AbstractPersistable<Long> {
   
   public Order withNote(String note) {
     this.note = note;
+    return this;
+  }
+  
+  public Order withPayment(Payment payment) {
+    if(payments == null) payments = new ArrayList<>();
+    payments.add(payment);
+    return this;
+  }
+  
+  public Order withOrderItem(OrderItem item) {
+    if(orderItems == null) orderItems = new ArrayList<>();
+    orderItems.add(item);
     return this;
   }
 
