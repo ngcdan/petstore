@@ -31,21 +31,21 @@ public class PetStoreApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    createUserData(PetStoreData.createDataCustomer());
-    createStaffData(PetStoreData.ALL_STAFF);
+    createCustomerData(PetStoreData.createDataCustomer());
+    createEmployeeData(PetStoreData.createDataEmployee());
     createFoodData(PetStoreData.ALL_FOODS);
     createProductData(PetStoreData.ALL_PRODUCTS);
 //    createOrderData(PetStoreData.ALL_ORDERS);
   }
   
-  void createUserData(List<Customer> customers) {
+  void createCustomerData(List<Customer> customers) {
     for(Customer customer: customers) {
       service.saveCustomer(customer);
     }
   }
   
-  void createStaffData(Employee[] staffs) {
-    for(Employee employee: staffs) {
+  void createEmployeeData(List<Employee> employees) {
+    for(Employee employee: employees) {
       service.saveEmployee(employee);
     }
   }

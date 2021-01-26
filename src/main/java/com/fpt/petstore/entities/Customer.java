@@ -24,7 +24,7 @@ uniqueConstraints = {
 @Setter @Getter
 @NoArgsConstructor
 public class Customer extends AbstractPersistable<Long> {
-  
+
   static public enum Gender { Male, Female};
 
   public String code;
@@ -34,48 +34,14 @@ public class Customer extends AbstractPersistable<Long> {
   private String fullName;
   private String avatarUrl;
 
-  @JsonFormat(pattern = DateUtil.LOCAL_DATETIME_FORMAT)
+  @JsonFormat(pattern = DateUtil.COMPACT_DATE_FORMAT)
   private Date birthday = new Date();
 
   private Gender gender = Gender.Male;
 
   private String address;
-  
+
   public Customer(String fullName) {
     this.fullName = fullName;
   }
-
-  public Customer withData(String email, String phone, String birthday) {
-    this.email = email;
-    this.phone = phone;
-    this.birthday = DateUtil.parseCompactDate(birthday);
-    return this;
-  }
-  
-  
-  public Customer(String fullName, String email) {
-    this.fullName = fullName;
-    this.email = email;
-  }
-
-  public Customer withFullName(String fullName) {
-    this.fullName = fullName;
-    return this;
-  }
-
-  public Customer withAddress(String address) {
-    this.address = address;
-    return this;
-  }
-
-  public Customer withPassword(String password) {
-    this.password = password;
-    return this;
-  }
-  
-  public Customer withPhone(String phone) {
-    this.phone = phone;
-    return this;
-  }
-
 }

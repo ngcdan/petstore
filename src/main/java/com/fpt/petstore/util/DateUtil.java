@@ -7,7 +7,8 @@ import java.util.Date;
 
 public class DateUtil {
   final static public String LOCAL_DATETIME_FORMAT   = "dd/MM/yyyy@HH:mm:ss";  // sample 31/07/2020@11:26:07
-  final static public String COMPACT_DATETIME_FORMAT = "dd/MM/yyyy@HH:mm:ssZ"; // sample 31/07/2020@11:26:07+0700
+  final static public String COMPACT_DATETIME_FORMAT = "dd/MM/yyyy@HH:mm:ssZ";
+  final static public String COMPACT_DATE_FORMAT = "dd/MM/yyyy";// sample 31/07/2020
   
   final static public SimpleDateFormat TIME_WITHOUT_SECOND        = new SimpleDateFormat("HH:mm");
   final static public SimpleDateFormat TIME                       = new SimpleDateFormat("HH:mm:ss");

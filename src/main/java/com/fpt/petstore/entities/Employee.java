@@ -39,15 +39,14 @@ public class Employee extends AbstractPersistable<Long> {
 
   private String username;
   private String password;
-  private String firstName;
-  private String lastName;
+  private String fullName;
 
   @Column(name = "email", nullable = false,updatable = false)
   private String email;
 
   private String phone;
-  
-  @JsonFormat(pattern = DateUtil.COMPACT_DATETIME_FORMAT)
+
+  @JsonFormat(pattern = DateUtil.COMPACT_DATE_FORMAT)
   private Date   birthday = new Date();
 
   private String avatarUrl;
@@ -55,14 +54,14 @@ public class Employee extends AbstractPersistable<Long> {
   private Gender gender = Gender.Male;
 
   private String address;
-  
-  private float height;
-  
-  private float weight;
-  
+
+  private float height = 170;
+
+  private float weight = 60;
+
   @Column(name = "personal_id")
-  private String personalId;
-  
+  private String personalId = DateUtil.asCompactDateTimeId(new Date());
+
   @Column(name = "marital_status")
   private String maritalStatus = "Single";
 
@@ -71,56 +70,7 @@ public class Employee extends AbstractPersistable<Long> {
   @Enumerated(EnumType.STRING)
   private UserRole role = UserRole.User;
 
-  public Employee(String username, String email, String phone) {
-    this.username = username;
-    this.email    = email;
-    this.phone    = phone;
+  public Employee(String fullName) {
+    this.fullName = fullName;
   }
-  
-  public Employee withFirstName(String firstName) {
-    this.firstName = firstName;
-    return this;
-  }
-
-  public Employee withLastName(String lastName) {
-    this.lastName = lastName;
-    return this;
-  }
-
-  public Employee withAddress(String address) {
-    this.address = address;
-    return this;
-  }
-
-  public Employee withPassword(String password) {
-    this.password = password;
-    return this;
-  }
-  
-  public Employee withBirthday(Date birthday) {
-    this.birthday = birthday;
-    return this;
-  }
-
-  
-  public Employee withAvatar(String avatar) {
-    this.avatarUrl = avatar;
-    return this;
-  }
-  
-  public Employee withHeight(float height) {
-    this.height = height;
-    return this;
-  }
-
-  public Employee withWeight(float weight) {
-    this.weight = weight;
-    return this;
-  }
-  
-  public Employee withMaritalStatus(String maritalStatus) {
-    this.maritalStatus = maritalStatus;
-    return this;
-  }
-
 }
