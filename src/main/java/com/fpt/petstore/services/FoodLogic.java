@@ -20,39 +20,41 @@ import com.fpt.petstore.util.DateUtil;
 
 @Component
 public class FoodLogic {
- 
+
   @Autowired
   FoodRepository repo;
 
   public Food saveFood(Food food) {
-    Food _food = generateCode(food);
-    return repo.save(_food);
+    if(food.getId() == null) {
+      food = generateCode(food);
+    }
+    return repo.save(food);
   }
-  
+
   public Food getFoodByCode(String code) {
     return repo.getByCode(code);
   }
-  
+
   public List<Food> findFoodByType(FoodType foodType) {
     return repo.findByFoodType(foodType);
   }
-  
+
   public List<Food> findAllFoods() {
     return repo.findAll();
   }
-  
+
   public boolean deleteFood(Food food ) {
     repo.delete(food);
     return true;
   }
-  
+
   public boolean deleteFoods(List<Food> foods) {
     for (Food sel : foods) {
       deleteFood(sel);
     }
     return true;
   }
-  
+
   public Food generateCode(Food food) {
     if (food == null) return null;
     food.setCode("food-" + food.getName() + DateUtil.asCompactDateTimeId(new Date()));

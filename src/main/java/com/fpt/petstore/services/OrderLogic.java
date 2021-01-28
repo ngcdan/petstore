@@ -19,35 +19,37 @@ import com.fpt.petstore.util.DateUtil;
 
 @Component
 public class OrderLogic {
-  
+
   @Autowired
   OrderRepository repo;
-  
+
   public Order saveOrder(Order order) {
-    Order _order = generateCode(order);
-    return repo.save(_order);
+    if(order.getId() == null ) {
+      order = generateCode(order);      
+    }
+    return repo.save(order);
   }
-  
+
   public Order getOrderByCode(String code) {
     return repo.getByCode(code);
   }
-  
+
   public List<Order> findAllOrders() {
     return repo.findAll();
   }
-  
+
   public boolean deleteOrder(Order order) {
     repo.delete(order);
     return true;
   }
-  
+
   public boolean deleteOrders(List<Order> orders) {
     for (Order sel : orders) {
       deleteOrder(sel);
     }
     return true;
   }
-  
+
   public Order generateCode(Order order) {
     if(order == null) return null;
     order.setCode("order-" + DateUtil.asCompactDateTimeId(new Date()));

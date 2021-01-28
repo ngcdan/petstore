@@ -20,39 +20,41 @@ import com.fpt.petstore.util.DateUtil;
 
 @Component
 public class ProductLogic {
-  
+
   @Autowired
   private ProductsRepository repo;
-  
+
   public Product saveProduct(Product product) {
-    Product _product = generateCode(product);
-    return repo.save(_product);
+    if(product.getId() == null) {
+      product = generateCode(product);
+    }
+    return repo.save(product);
   }
-  
+
   public Product getProductByCode(String code) {
     return repo.getByCode(code);
   }
-  
+
   public List<Product> findProductByType(ProductType productType) {
     return repo.findByType(productType);
   }
-  
+
   public List<Product> findAllProducts() {
     return repo.findAll();
   }
-  
+
   public boolean deleteProduct(Product product) {
     repo.delete(product);
     return true;
   }
-  
+
   public boolean deleteProducts(List<Product> products) {
     for( Product sel : products) {
       deleteProduct(sel);
     }
     return true;
   }
-  
+
   public Product generateCode(Product product) {
     if(product == null) return null;
     product.setCode("product-" + product.getName() + DateUtil.asCompactDateTimeId(new Date()));

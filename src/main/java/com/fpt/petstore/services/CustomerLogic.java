@@ -23,8 +23,10 @@ public class CustomerLogic {
   CustomerRepository repo;
 
   public Customer saveCustomer(Customer customer) {
-    Customer _user = generateCode(customer);
-    return repo.save(_user);
+    if(customer.getId() == null ) {
+      customer = generateCode(customer);      
+    }
+    return repo.save(customer);
   }
 
   public Customer getCustomerByCode(String code) {
