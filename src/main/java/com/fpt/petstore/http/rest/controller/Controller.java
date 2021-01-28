@@ -6,6 +6,7 @@ package com.fpt.petstore.http.rest.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,13 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fpt.petstore.entities.Customer;
+import com.fpt.petstore.entities.Employee;
 import com.fpt.petstore.entities.Food;
 import com.fpt.petstore.entities.Food.FoodType;
 import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.Product;
 import com.fpt.petstore.entities.Product.ProductType;
-import com.fpt.petstore.entities.Employee;
-import com.fpt.petstore.entities.Customer;
 import com.fpt.petstore.services.PetStoreService;
 
 /**
@@ -30,6 +31,7 @@ import com.fpt.petstore.services.PetStoreService;
 
 @RestController
 @RequestMapping("/rest/v1.0.0")
+@CrossOrigin(origins = "http://localhost:3001")
 public class Controller {
   
   @Autowired
@@ -51,9 +53,9 @@ public class Controller {
     return service.saveCustomer(customer);
   }
   
-  @DeleteMapping("customer")
-  public @ResponseBody boolean deleteCustomer(Customer customer) {
-    return service.deleteCustomer(customer);
+  @DeleteMapping("customer/{code}")
+  public @ResponseBody void deleteCustomer(@PathVariable("code") String code) {
+    service.deleteCustomer(code);
   }
   
   @DeleteMapping("customers")

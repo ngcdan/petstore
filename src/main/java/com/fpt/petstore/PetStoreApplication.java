@@ -6,24 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import com.fpt.petstore.data.PetStoreData;
+import com.fpt.petstore.entities.Customer;
+import com.fpt.petstore.entities.Employee;
 import com.fpt.petstore.entities.Food;
 import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.Product;
-import com.fpt.petstore.entities.Employee;
-import com.fpt.petstore.entities.Customer;
 import com.fpt.petstore.services.PetStoreService;
 
 @SpringBootApplication
-@EntityScan
-public class PetStoreApplication implements CommandLineRunner {
+public class PetStoreApplication  implements CommandLineRunner {
 
   public static void main(String[] args) {
     SpringApplication.run(PetStoreApplication.class, args);
   }
-
+  
   @Autowired
   PetStoreService service;
 

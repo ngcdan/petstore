@@ -9,13 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fpt.petstore.entities.Customer;
+import com.fpt.petstore.entities.Employee;
 import com.fpt.petstore.entities.Food;
 import com.fpt.petstore.entities.Food.FoodType;
 import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.Product;
 import com.fpt.petstore.entities.Product.ProductType;
-import com.fpt.petstore.entities.Employee;
-import com.fpt.petstore.entities.Customer;
 
 /**
  * @author linuss
@@ -61,8 +61,8 @@ public class PetStoreService {
   }
   
   @Transactional
-  public boolean deleteCustomer(Customer customer) {
-    return customerLogic.deleteCustomer(customer);
+  public void deleteCustomer(String code) {
+    customerLogic.deleteCustomer(code);
   }
 
   // Employee
