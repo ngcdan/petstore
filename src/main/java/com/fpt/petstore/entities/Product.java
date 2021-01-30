@@ -29,7 +29,7 @@ uniqueConstraints = {
 @NoArgsConstructor
 public class Product extends AbstractPersistable<Long> {
 
-  static public enum ProductType {CLOTHES, BOWL, COLLAR, CAGE, LEASH };
+  static public enum ProductType {CLOTHES, Cat, DOG, Hamster, LEASH };
 
   private String code;
 
@@ -55,6 +55,10 @@ public class Product extends AbstractPersistable<Long> {
   
   public Product withDescription(String des) {
     this.description = des;
+    return this;
+  }
+  public Product withPic(String des){
+    this.pic = des;
     return this;
   }
 

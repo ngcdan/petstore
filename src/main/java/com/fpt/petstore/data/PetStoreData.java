@@ -151,11 +151,11 @@ public class PetStoreData {
   public static Food   food_5    = new Food("Food_name_5", 100).withDes("description");
   public static Food[] ALL_FOODS = { food_1, food_2, food_3, food_4, food_5 };
   // Products
-  public static Product   product_1    = new Product("product_name_1").withPrice(200).withDescription("des");
-  public static Product   product_2    = new Product("product_name_2").withPrice(200).withDescription("des");
-  public static Product   product_3    = new Product("product_name_3").withPrice(200).withDescription("des");
-  public static Product   product_4    = new Product("product_name_4").withPrice(200).withDescription("des");
-  public static Product   product_5    = new Product("product_name_5").withPrice(200).withDescription("des");
+  public static Product   product_1    = new Product("BioLine Catnip").withPrice(200).withDescription("des").withPic("catnip.jpg");
+  public static Product   product_2    = new Product("Vita Prima Hamster Food").withPrice(200).withDescription("des").withPic("hamster-food.jpg");
+  public static Product   product_3    = new Product("Dr.Kyan Predogen").withPrice(200).withDescription("des").withPic("suacho1.jpg");
+  public static Product   product_4    = new Product("Ganador Premium").withPrice(200).withDescription("des").withPic("thucan-cho1.jpg");
+  public static Product   product_5    = new Product("JerHigh").withPrice(200).withDescription("des").withPic("thucan-cho2.png");
   public static Product[] ALL_PRODUCTS = { product_1, product_2, product_3, product_4, product_5 };
 
   public static Order order_1  = new Order("order_1 ");
@@ -190,6 +190,7 @@ public class PetStoreData {
           .withOrderItem(new OrderItem().withFood(food_1)).withOrderItem(new OrderItem().withFood(food_1))
           .withOrderItem(new OrderItem().withProduct(product_1));
       order.withTotal(order.getOrderItems());
+
       orders.add(order);
     }
     return orders;

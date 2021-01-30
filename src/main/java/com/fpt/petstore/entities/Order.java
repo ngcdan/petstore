@@ -19,9 +19,11 @@ import javax.persistence.UniqueConstraint;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.lang.Nullable;
 
 /**
  * @author linuss
@@ -33,7 +35,9 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Order extends AbstractPersistable<Long> {
+
 
   static public enum State {
     PENDING, PROCESS, DONE, CANCEL

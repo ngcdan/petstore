@@ -29,9 +29,9 @@ import com.fpt.petstore.services.PetStoreService;
  * @author linuss
  */
 
-@RestController
+/*@RestController
 @RequestMapping("/rest/v1.0.0")
-@CrossOrigin(origins = "http://localhost:3001")
+@CrossOrigin(origins = "http://localhost:3001")*/
 public class Controller {
   
   @Autowired
