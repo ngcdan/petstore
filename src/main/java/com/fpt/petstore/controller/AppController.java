@@ -14,48 +14,58 @@ public class AppController {
 
   @Autowired
   private ProductLogic productLogic;
+
   @GetMapping("/")
-  public String viewHome(){
+  public String viewHome() {
     return "redirect:/trang-chu";
   }
+
   @GetMapping("/trang-chu")
-  public String viewHOme2(ModelMap model){
+  public String viewHOme2(ModelMap model) {
     List<Product> list = productLogic.findAllProducts();
-    model.addAttribute("listProduct",list);
+    model.addAttribute("listProduct", list);
     return "index";
   }
+
   @GetMapping("/about")
-  public String viewAbout(){
+  public String viewAbout() {
     return "about";
   }
+
   @GetMapping("/blog")
-  public String viewBlog(){
+  public String viewBlog() {
     return "blog";
   }
+
   @GetMapping("/blog-detail")
-  public String viewBlogDetails(){
+  public String viewBlogDetails() {
     return "blog-detail";
   }
+
   @GetMapping("/checkout")
-  public String viewCheckout(){
+  public String viewCheckout() {
     return "checkout";
   }
+
   @GetMapping("/product-details")
-  public String viewProductDetail(){
+  public String viewProductDetail() {
     return "product-details";
   }
+
   @GetMapping("/product")
-  public String viewProduct(ModelMap model){
+  public String viewProduct(ModelMap model) {
     List<Product> list = productLogic.findAllProducts();
-    model.addAttribute("listProduct",list);
+    model.addAttribute("listProduct", list);
     return "product";
   }
+
   @GetMapping("/cart")
-  public String viewsCart(){
+  public String viewsCart() {
     return "cart";
   }
+
   @GetMapping("/contact")
-  public String viewContact(){
+  public String viewContact() {
     return "contact";
   }
 
