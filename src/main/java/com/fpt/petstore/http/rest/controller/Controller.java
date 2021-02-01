@@ -6,7 +6,6 @@ package com.fpt.petstore.http.rest.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,13 +30,12 @@ import com.fpt.petstore.services.PetStoreService;
 
 @RestController
 @RequestMapping("/rest/v1.0.0")
-@CrossOrigin(origins = "http://localhost:3001")
 public class Controller {
   
   @Autowired
   PetStoreService service;
   
-  // User 
+  // Customer
   @GetMapping("customer/{code}")
   public @ResponseBody Customer getCustomerByCode(@PathVariable("code") String code) {
     return service.getCustomerByCode(code);
@@ -53,13 +51,15 @@ public class Controller {
     return service.saveCustomer(customer);
   }
   
-  @DeleteMapping("customer/{code}")
-  public @ResponseBody void deleteCustomer(@PathVariable("code") String code) {
-    service.deleteCustomer(code);
+  @DeleteMapping("customer/{codes}")
+  public @ResponseBody void deleteCustomer(@PathVariable("codes") List<String> codes) {
+    codes.forEach(code -> {
+      service.deleteCustomer(code);
+    });
   }
   
   @DeleteMapping("customers")
-  public @ResponseBody boolean deleteCustomers(List<Customer> customers) {
+  public @ResponseBody boolean deleteCustomers(@RequestBody List<Customer> customers) {
     return service.deleteCustomers(customers);
   }
   
@@ -152,7 +152,7 @@ public class Controller {
   }
   
   // Order
-  @GetMapping("order/code}")
+  @GetMapping("order/{code}")
   public @ResponseBody Order getOrderByCode(@PathVariable("code") String code) {
     return service.getOrderByCode(code);
   }
