@@ -27,7 +27,7 @@ public class Customer extends AbstractPersistable<Long> {
 
   static public enum Gender { Male, Female};
 
-  public String code;
+  private String code;
   private String email;
   private String phone;
   private String password;

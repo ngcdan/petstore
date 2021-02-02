@@ -12,45 +12,58 @@ import java.util.List;
 public class AppController {
 
   @Autowired
+
   private PetStoreService petStoreService;
 
+
+
   @GetMapping("/")
-  public String viewHome(){
+  public String viewHome() {
     return "redirect:/trang-chu";
   }
+
   @GetMapping("/trang-chu")
-  public String viewHome2(ModelMap model){
+
+  public String viewHome2(ModelMap model) {
     List<Product> list = petStoreService.findAllProducts();
-    model.addAttribute("listProduct",list);
+    model.addAttribute("listProduct", list);
+
     return "index";
   }
+
   @GetMapping("/about")
-  public String viewAbout(){
+  public String viewAbout() {
     return "about";
   }
+
   @GetMapping("/blog")
-  public String viewBlog(){
+  public String viewBlog() {
     return "blog";
   }
+
   @GetMapping("/blog-detail")
-  public String viewBlogDetails(){
+  public String viewBlogDetails() {
     return "blog-detail";
   }
+
   @GetMapping("/checkout")
-  public String viewCheckout(){
+  public String viewCheckout() {
     return "checkout";
   }
+
   @GetMapping("/product-details")
-  public String viewProductDetail(){
+  public String viewProductDetail() {
     return "product-details";
   }
 
+
   @GetMapping("/cart")
-  public String viewsCart(){
+  public String viewsCart() {
     return "cart";
   }
+
   @GetMapping("/contact")
-  public String viewContact(){
+  public String viewContact() {
     return "contact";
   }
 
