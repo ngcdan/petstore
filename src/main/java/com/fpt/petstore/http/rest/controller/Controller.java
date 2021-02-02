@@ -45,11 +45,10 @@ public class Controller {
     return service.saveCustomer(customer);
   }
   
-  @DeleteMapping("customer/{codes}")
-  public @ResponseBody void deleteCustomer(@PathVariable("codes") List<String> codes) {
-    codes.forEach(code -> {
+  @DeleteMapping("customer/{code}")
+  public @ResponseBody boolean deleteCustomer(@PathVariable("code") String code) {
       service.deleteCustomer(code);
-    });
+      return true;
   }
   
   @DeleteMapping("customers")
