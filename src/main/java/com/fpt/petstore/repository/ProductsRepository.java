@@ -25,4 +25,6 @@ public interface ProductsRepository extends JpaRepository<Product, Long>{
   public Product getByCode(@Param("code") String code);
   
   public List<Product> findByType(ProductType productType);
+  @Query(value = "Select * from Product limit 3",nativeQuery = true)
+  List<Product> listProductLimit3();
 }

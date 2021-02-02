@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page pageEncoding="UTF-8" %>
 <!-- Search Begin -->
 <div class="search-model">
     <div class="h-100 d-flex align-items-center justify-content-center">
@@ -20,20 +22,22 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel1">Login</h5>
-                <button
-                        type="button"
-                        class="btn-close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                >&times; </button>
             </div>
-            <div class="modal-body">...</div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
-                    Close
-                </button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            <form action="/login" method="post">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="email" class="col-form-label">Email:</label>
+                        <input type="email" placeholder="Nhập Email" class="form-control" name="email" id="email"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="col-form-label">Password:</label>
+                        <input type="password" placeholder="Nhập password" name="password" class="form-control" id="password"/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

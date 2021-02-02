@@ -64,7 +64,7 @@
     </section>
     <!-- Contact Section End -->
 
-<jsp:include page="part/footer.jsp" />
+<jsp:include page="part/end.jsp" />
 <jsp:include page="part/modal.jsp" />
 <jsp:include page="part/script.jsp" />
 </body>

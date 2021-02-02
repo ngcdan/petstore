@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8" %>
   <!-- Footer Section Begin -->
     <footer class="footer">
         <div class="container">

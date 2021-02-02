@@ -32,7 +32,7 @@
                         <div class="blog__item__text">
                             <span><img src="img/icon/calendar.png" alt=""> 16 February 2020</span>
                             <h5>What Curling Irons Are The Best Ones</h5>
-                            <a href="/blog-details">Read More</a>
+                            <a href="/blog-detail">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                         <div class="blog__item__text">
                             <span><img src="img/icon/calendar.png" alt=""> 21 February 2020</span>
                             <h5>Eternity Bands Do Last Forever</h5>
-                            <a href="/blog-details">Read More</a>
+                            <a href="/blog-detail">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
     </section>
     <!-- Blog Section End -->
 
-<jsp:include page="part/footer.jsp" />
+<jsp:include page="part/end.jsp" />
 <jsp:include page="part/modal.jsp" />
 <jsp:include page="part/script.jsp" />
 </body>

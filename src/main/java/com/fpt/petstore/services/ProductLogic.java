@@ -48,6 +48,7 @@ public class ProductLogic {
     return true;
   }
 
+
   public boolean deleteProducts(List<Product> products) {
     for( Product sel : products) {
       deleteProduct(sel);
@@ -59,6 +60,9 @@ public class ProductLogic {
     if(product == null) return null;
     product.setCode("product-" + product.getName() + DateUtil.asCompactDateTimeId(new Date()));
     return product;
+  }
+  public List<Product> productListlimit3(){
+    return repo.listProductLimit3();
   }
 
 }

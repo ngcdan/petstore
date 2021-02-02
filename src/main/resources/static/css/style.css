@@ -339,15 +339,30 @@ ol {
 }
 
 .header__top__links a {
-	color: #ffffff;
+	color: white;
 	font-size: 13px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	margin-right: 28px;
 	display: inline-block;
 }
+.header__top__links a:hover {
+	color:#e53637;
+}
 
-.header__top__links a:last-child {
+.header__top__hover a {
+	color: black;
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-right: 28px;
+	display: inline-block;
+}
+.header__top__hover a:hover {
+	color:#e53637;
+}
+
+.header__top__hover a:last-child {
 	margin-right: 0;
 }
 
@@ -380,8 +395,9 @@ ol {
 
 .header__top__hover ul {
 	background: #ffffff;
+	border-radius: 2px 2px 2px 2px;
 	display: inline-block;
-	padding: 2px 0;
+	padding: 10px;
 	position: absolute;
 	left: 0;
 	top: 44px;
@@ -399,9 +415,18 @@ ol {
 	list-style: none;
 	font-size: 13px;
 	color: #111111;
-	padding: 2px 15px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-right: 28px;
+	margin-bottom: 10px;
+	display: inline-block;
+	padding: 2px 7px;
 	cursor: pointer;
 }
+.header__top__hover ul li:hover{
+	color:#e53637;
+}
+
 
 .header__logo {
 	padding: 30px 0;
@@ -2054,8 +2079,10 @@ ol {
 -----------------------*/
 
 .breadcrumb-option {
-	background: #f3f2ee;
+	background-image:url("../img/dogebanner.png") ;
+	height: 250px;
 	padding: 40px 0;
+	padding-top: 100px;
 }
 
 .breadcrumb__text h4 {

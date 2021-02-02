@@ -1,7 +1,6 @@
 package com.fpt.petstore.controller;
-
 import com.fpt.petstore.entities.Product;
-import com.fpt.petstore.services.ProductLogic;
+import com.fpt.petstore.services.PetStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,14 +12,15 @@ import java.util.List;
 public class AppController {
 
   @Autowired
-  private ProductLogic productLogic;
+  private PetStoreService petStoreService;
+
   @GetMapping("/")
   public String viewHome(){
     return "redirect:/trang-chu";
   }
   @GetMapping("/trang-chu")
-  public String viewHOme2(ModelMap model){
-    List<Product> list = productLogic.findAllProducts();
+  public String viewHome2(ModelMap model){
+    List<Product> list = petStoreService.findAllProducts();
     model.addAttribute("listProduct",list);
     return "index";
   }
@@ -44,12 +44,7 @@ public class AppController {
   public String viewProductDetail(){
     return "product-details";
   }
-  @GetMapping("/product")
-  public String viewProduct(ModelMap model){
-    List<Product> list = productLogic.findAllProducts();
-    model.addAttribute("listProduct",list);
-    return "product";
-  }
+
   @GetMapping("/cart")
   public String viewsCart(){
     return "cart";

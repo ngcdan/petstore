@@ -25,4 +25,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
   @Modifying
   @Query("delete from Customer c where c.code=:code")
   void deleteCustomer(@Param("code") String code);
+
+  @Query(value = "Select * from Customer where email like ?1 and password like ?2",nativeQuery = true)
+  Customer customerLogin(String email,String password);
 }

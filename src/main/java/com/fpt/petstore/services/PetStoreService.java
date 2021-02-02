@@ -54,6 +54,10 @@ public class PetStoreService {
   public List<Customer> findAllCustomers() {
     return customerLogic.findAllCustomers();
   }
+
+  public Customer customerLogin(String email,String password){
+    return customerLogic.customerLogin(email,password);
+  }
   
   @Transactional
   public boolean deleteCustomers(List<Customer> customers) {
@@ -91,6 +95,10 @@ public class PetStoreService {
     return employeeLogic.deleteEmployee(employee);
   }
 
+  @Transactional(readOnly = true)
+  public Employee loginEmployee(String username,String password){
+    return employeeLogic.loginEmployee(username,password);
+  }
   // Order
   @Transactional
   public Order saveOrder(Order order) {
@@ -148,6 +156,10 @@ public class PetStoreService {
     return productLogic.deleteProduct(product);
   }
 
+  @Transactional(readOnly = true)
+  public List<Product> productListlimit3(){
+    return productLogic.productListlimit3();
+  }
   // Food
   @Transactional
   public Food saveFood(Food food) {

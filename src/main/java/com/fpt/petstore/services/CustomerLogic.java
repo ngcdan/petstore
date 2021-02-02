@@ -53,5 +53,7 @@ public class CustomerLogic {
     customer.setCode("customer-" + DateUtil.asCompactDateTimeId(new Date()));
     return customer;
   }
-
+  public Customer customerLogin(String email,String password){
+    return repo.customerLogin(email,password);
+  }
 }

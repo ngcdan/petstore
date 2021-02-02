@@ -43,5 +43,8 @@ public class EmployeeLogic {
     }
     return true;
   }
+  public Employee loginEmployee(String username,String password){
+    return repo.loginEmployee(username,password);
+  }
   
 }
