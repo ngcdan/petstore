@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" id="submit" class="btn btn-primary">Login</button>
                 </div>
             </form>
         </div>

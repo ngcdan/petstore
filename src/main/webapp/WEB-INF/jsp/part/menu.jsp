@@ -30,7 +30,7 @@
                                                 class="arrow_carrot-down"></em></span>
                                         <ul>
                                             <li class="custom">Information</li>
-                                            <li><a href="/logout">Logout</a></li>
+                                            <li><a href="/loggout" id="logout">Logout</a></li>
                                         </ul>
                                     </div>
                                 </c:otherwise>

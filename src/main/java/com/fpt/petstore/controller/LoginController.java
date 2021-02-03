@@ -1,17 +1,15 @@
 package com.fpt.petstore.controller;
 
 import com.fpt.petstore.entities.Customer;
-import com.fpt.petstore.entities.Employee;
 import com.fpt.petstore.services.PetStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
@@ -20,9 +18,10 @@ import java.util.Map;
  */
 @Controller
 public class LoginController {
-    private final String redirect = "redirect:/";
+    private static final String redirect = "redirect:/";
     @Autowired
     private PetStoreService petStoreService;
+
 
     @PostMapping(value = {"/login"})
     public String login(@RequestParam Map<String, String> m, RedirectAttributes rA, HttpSession session) {
@@ -40,9 +39,9 @@ public class LoginController {
 
     }
 
-    @GetMapping(value = {"/logout"})
-    public String logout(HttpSession session) {
+    @GetMapping(value = {"/loggout"})
+    public String viewLogout(HttpSession session) {
         session.removeAttribute("customer");
-        return redirect;
+        return "redirect:/trang-chu";
     }
 }
