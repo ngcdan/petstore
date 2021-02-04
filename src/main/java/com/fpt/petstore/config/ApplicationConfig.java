@@ -37,7 +37,7 @@ public class ApplicationConfig extends WebSecurityConfigurerAdapter {
     http.csrf().disable();
     http.headers().cacheControl(); 
     http.cors();
+//    http.authorizeRequests().anyRequest().authenticated().and().httpBasic().and().logout();
 
   }
-
 }
