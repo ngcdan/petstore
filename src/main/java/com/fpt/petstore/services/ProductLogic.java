@@ -3,10 +3,13 @@
  */
 package com.fpt.petstore.services;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import com.fpt.petstore.entities.Product;
@@ -40,7 +43,7 @@ public class ProductLogic {
   }
 
   public List<Product> findAllProducts() {
-    return repo.findAll();
+    return (List<Product>) repo.findAll();
   }
 
   public boolean deleteProduct(Product product) {
@@ -61,8 +64,18 @@ public class ProductLogic {
     product.setCode("product-" + product.getName() + DateUtil.asCompactDateTimeId(new Date()));
     return product;
   }
-  public List<Product> productListlimit3(){
-    return repo.listProductLimit3();
+  public Integer countProduct(){
+    return repo.countProduct();
   }
-
+  public List<Integer> calculateTotalPage(int totalProduct, int productPerPage) {
+    List<Integer> listPage = new ArrayList<>();
+    int totalPage = (totalProduct % productPerPage == 0) ? totalProduct / productPerPage : (totalProduct / productPerPage) + 1;
+    for (int i = 0; i < totalPage; i++) {
+      listPage.add(i);
+    }
+    return listPage;
+  }
+  public Page<Product> listProductperPage(Pageable pageable){
+    return repo.listProductbyPage(pageable);
+  }
 }

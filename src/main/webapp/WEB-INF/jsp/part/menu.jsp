@@ -29,8 +29,8 @@
                                         <span>Hello <strong style="color:#e53637">${customer.fullName}</strong> <em
                                                 class="arrow_carrot-down"></em></span>
                                         <ul>
-                                            <li class="custom">Information</li>
-                                            <li><a href="/loggout" id="logout">Logout</a></li>
+                                            <li class="custom">Thông tin</li>
+                                            <li><a href="/loggout" id="logout">Đăng xuất</a></li>
                                         </ul>
                                     </div>
                                 </c:otherwise>
@@ -52,14 +52,14 @@
                 <nav class="header__menu mobile-menu">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/product">Product</a>
+                        <li><a href="/ve-chung-toi">About Us</a></li>
+                        <li><a href="/san-pham/1">Product</a>
                             <ul class="dropdown">
-                                <li><a href="/product-details">Shop Details</a></li>
+                                <li><a href="/chi-tiet-san-pham">Shop Details</a></li>
                             </ul>
                         </li>
                         <li><a href="/blog">Blog</a></li>
-                        <li><a href="/contact">Contacts</a></li>
+                        <li><a href="/lien-he">Contacts</a></li>
                     </ul>
                 </nav>
             </div>
@@ -67,7 +67,7 @@
                 <div class="header__nav__option">
                     <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
                     <a href="#"><img src="img/icon/heart.png" alt=""></a>
-                    <a href="/cart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                    <a href="/gio-hang"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
                     <div class="price">$0.00</div>
                 </div>
             </div>

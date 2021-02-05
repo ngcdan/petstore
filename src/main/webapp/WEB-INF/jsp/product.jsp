@@ -1,9 +1,11 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
 <head>
+
     <jsp:include page="part/header.jsp" />
     <title>Sản phẩm</title>
 
@@ -125,10 +127,10 @@
                         <c:forEach var="p" items="${listProduct}">
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="img/product/${p.pic}">
+                                    <div class="product__item__pic set-bg" data-setbg="../img/product/${p.pic}">
                                         <ul class="product__hover">
-                                            <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                            <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                                            <li><a href="#"><img src="../img/icon/heart.png" alt=""></a></li>
+                                            <li><a href="#"><img src="../img/icon/search.png" alt=""></a></li>
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
@@ -140,17 +142,21 @@
                             </div>
                         </c:forEach>
                     </div>
-
                 <div class="row">
                         <div class="col-lg-12">
-
                               <div class="product__pagination">
-                                  <button type="button" class="btn btn-success btn-lg">Show more</button>
-                                 <%-- <a class="active" href="#">1</a>
-                                  <a href="#">2</a>
-                                  <a href="#">3</a>
-                                  <span>...</span>
-                                  <a href="#">21</a>--%>
+                              <c:forEach var ="state" items="${pageSize}">
+                                  <c:choose >
+                                      <c:when test="${(state+1) eq currentPage}">
+                                          <a class="active" href="/san-pham/${state+1}">${state+1}</a>
+                                      </c:when>
+                                      <c:otherwise>
+                                          <a href="/san-pham/${state+1}">${state+1}</a>
+                                      </c:otherwise>
+                                  </c:choose>
+                              </c:forEach>
+
+
                               </div>
                           </div>
                       </div>

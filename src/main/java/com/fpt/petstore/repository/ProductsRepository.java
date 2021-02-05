@@ -5,8 +5,11 @@ package com.fpt.petstore.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
@@ -18,13 +21,16 @@ import com.fpt.petstore.entities.Product.ProductType;
  */
 
 @Repository
-public interface ProductsRepository extends JpaRepository<Product, Long>{
-  
+public interface ProductsRepository extends PagingAndSortingRepository<Product, Long> {
+
   @Query(
-      "SELECT p FROM Product p WHERE p.code = :code")
+          "SELECT p FROM Product p WHERE p.code = :code")
   public Product getByCode(@Param("code") String code);
-  
+
   public List<Product> findByType(ProductType productType);
-  @Query(value = "Select * from Product limit 3",nativeQuery = true)
-  List<Product> listProductLimit3();
+
+  @Query(value = "select * from product", nativeQuery = true)
+  Page<Product> listProductbyPage(Pageable pageable);
+  @Query(value = "select count(*) from Product", nativeQuery = true)
+  Integer countProduct();
 }

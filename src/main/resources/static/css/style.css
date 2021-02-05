@@ -349,7 +349,21 @@ ol {
 .header__top__links a:hover {
 	color:#e53637;
 }
+.custom a  {
+	font-size: 13px;
+	margin-right: 28px;
+	display: inline-block;
+}
 
+.custom a:hover{
+	color: #e53637;
+}
+.custom1{
+	display: inline-block;
+}
+.custom1 a:hover{
+	color: #e53637;
+}
 .header__top__hover a {
 	color: black;
 	font-size: 13px;

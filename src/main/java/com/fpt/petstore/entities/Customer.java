@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fpt.petstore.util.DateUtil;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,6 +23,7 @@ uniqueConstraints = {
 })
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
+@AllArgsConstructor
 @NoArgsConstructor
 public class Customer extends AbstractPersistable<Long> {
 

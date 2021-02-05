@@ -8,7 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
-
+import static com.fpt.petstore.entities.ConstVariable.redirect;
 @Controller
 public class AppController {
 
@@ -17,7 +17,7 @@ public class AppController {
 
     @GetMapping(value = {"/"})
     public String viewHome() {
-        return "redirect:/trang-chu";
+        return redirect+"trang-chu";
     }
 
     @GetMapping("/trang-chu")
@@ -27,7 +27,7 @@ public class AppController {
         return "index";
     }
 
-    @GetMapping("/about")
+    @GetMapping("/ve-chung-toi")
     public String viewAbout() {
         return "about";
     }
@@ -37,28 +37,28 @@ public class AppController {
         return "blog";
     }
 
-    @GetMapping("/blog-detail")
+    @GetMapping("/chi-tiet-blog")
     public String viewBlogDetails() {
         return "blog-detail";
     }
 
-    @GetMapping("/checkout")
+    @GetMapping("/thanh-toan")
     public String viewCheckout() {
         return "checkout";
     }
 
-    @GetMapping("/product-details")
+    @GetMapping("/chi-tiet-san-pham")
     public String viewProductDetail() {
         return "product-details";
     }
 
 
-    @GetMapping("/cart")
+    @GetMapping("/gio-hang")
     public String viewsCart() {
         return "cart";
     }
 
-    @GetMapping("/contact")
+    @GetMapping("/lien-he")
     public String viewContact() {
         return "contact";
     }

@@ -21,7 +21,7 @@
                         <h4>Shopping Cart</h4>
                         <div class="breadcrumb__links">
                             <a href="/">Home</a>
-                            <a href="/shop">Shop</a>
+                            <a href="/san-pham">Product</a>
                             <span>Shopping Cart</span>
                         </div>
                     </div>
@@ -157,7 +157,7 @@
                             <li>Subtotal <span>$ 169.50</span></li>
                             <li>Total <span>$ 169.50</span></li>
                         </ul>
-                        <a href="/checkout" class="primary-btn">Proceed to checkout</a>
+                        <a href="/thanh-toan" class="primary-btn">Proceed to checkout</a>
                     </div>
                 </div>
             </div>

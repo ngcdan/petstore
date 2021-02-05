@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     $('#submit').click(function(){
         if(checkCookie()){
-            setCookie('customer',$('#email'),1);
+            setCookie('customer',$('#email')[0].value,1);
         }
     });
     $('#logout').click(function(){
@@ -41,11 +41,9 @@ $(document).ready(function () {
         var user=getCookie('customer');
         if (user != "") {
             alert("Welcome again " + user);
+            return false;
         } else {
-            user = $('#email');
-            if (user != "" && user != null) {
-                setCookie("customer", user, 1);
-            }
+            return true;
         }
     }
 });

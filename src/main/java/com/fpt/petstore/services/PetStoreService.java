@@ -6,6 +6,8 @@ package com.fpt.petstore.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -155,11 +157,19 @@ public class PetStoreService {
   public boolean deleteProduct(Product product) {
     return productLogic.deleteProduct(product);
   }
-
   @Transactional(readOnly = true)
-  public List<Product> productListlimit3(){
-    return productLogic.productListlimit3();
+  public Integer countProduct(){
+    return productLogic.countProduct();
   }
+  @Transactional(readOnly = true)
+  public List<Integer> calculateTotalPage(int totalProduct,int productPerpage){
+    return productLogic.calculateTotalPage(totalProduct,productPerpage);
+  }
+  @Transactional
+  public Page<Product> listProductbyPage(Pageable page){
+    return productLogic.listProductperPage(page);
+  }
+
   // Food
   @Transactional
   public Food saveFood(Food food) {
