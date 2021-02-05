@@ -79,10 +79,21 @@ public class PetStoreData {
   public static Customer customer_19 = new Customer("Võ Hoàng Phương");
 
   public static Customer customer_20 = new Customer("Trần Minh Phương");
+  public static Customer customer_21 = new Customer("Võ Khải Hoàng Ca");
+  public static Customer customer_22 = new Customer("Hà Thị Thùy Chi");
+  public static Customer customer_23 = new Customer("Lê Văn Minh Châu");
+  public static Customer customer_24 = new Customer("Nguyễn Linh Chi");
+  public static Customer customer_25 = new Customer("Lê Thị Phương Chi");
+  public static Customer customer_26 = new Customer("Nguyễn Duy Chinh");
+  public static Customer customer_27 = new Customer("Nguyễn Thế Chiến");
+  public static Customer customer_28 = new Customer("Trần Đức Thịnh");
+  public static Customer customer_29 = new Customer("Trần Viễn Chinh");
+  public static Customer customer_30 = new Customer("Bùi Văn Chương");
 
   public static Customer[] ALL_CUSTOMERS = { customer_1, customer_2, customer_3, customer_4, customer_5, customer_6,
       customer_10, customer_11, customer_12, customer_13, customer_14, customer_15, customer_16, customer_17,
-      customer_18, customer_19, customer_20, customer_7, customer_8, customer_9 };
+      customer_18, customer_19, customer_20, customer_7, customer_8, customer_9, customer_21, customer_22, customer_23,
+      customer_24, customer_25, customer_26, customer_27, customer_28, customer_29, customer_30 };
 
   // Employee
   public static Employee employee_1  = new Employee("Phạm Võ Hoài Anh");
@@ -95,20 +106,9 @@ public class PetStoreData {
   public static Employee employee_8  = new Employee("Lê Thái Bình");
   public static Employee employee_9  = new Employee("Nguyễn Thái Bình");
   public static Employee employee_10 = new Employee("Đinh Hồng Châu");
-  public static Employee employee_11 = new Employee("Võ Khải Hoàng Ca");
-  public static Employee employee_12 = new Employee("Hà Thị Thùy Chi");
-  public static Employee employee_13 = new Employee("Lê Văn Minh Châu");
-  public static Employee employee_14 = new Employee("Nguyễn Linh Chi");
-  public static Employee employee_15 = new Employee("Lê Thị Phương Chi");
-  public static Employee employee_16 = new Employee("Nguyễn Duy Chinh");
-  public static Employee employee_17 = new Employee("Nguyễn Thế Chiến");
-  public static Employee employee_18 = new Employee("Trần Đức Thịnh");
-  public static Employee employee_19 = new Employee("Trần Viễn Chinh");
-  public static Employee employee_20 = new Employee("Bùi Văn Chương");
 
   public static Employee[] ALL_EMPLOYEES = { employee_1, employee_2, employee_3, employee_4, employee_5, employee_6,
-      employee_10, employee_11, employee_12, employee_13, employee_14, employee_15, employee_16, employee_17,
-      employee_18, employee_19, employee_20, employee_7, employee_8, employee_9 };
+      employee_10, employee_7, employee_8, employee_9 };
 
   static public List<Customer> createDataCustomer() {
     List<Customer> customers = new ArrayList<>();
@@ -151,11 +151,16 @@ public class PetStoreData {
   public static Food   food_5    = new Food("Food_name_5", 100).withDes("description");
   public static Food[] ALL_FOODS = { food_1, food_2, food_3, food_4, food_5 };
   // Products
-  public static Product   product_1    = new Product("BioLine Catnip").withPrice(200).withDescription("des").withPic("catnip.jpg");
-  public static Product   product_2    = new Product("Vita Prima Hamster Food").withPrice(200).withDescription("des").withPic("hamster-food.jpg");
-  public static Product   product_3    = new Product("Dr.Kyan Predogen").withPrice(200).withDescription("des").withPic("suacho1.jpg");
-  public static Product   product_4    = new Product("Ganador Premium").withPrice(200).withDescription("des").withPic("thucan-cho1.jpg");
-  public static Product   product_5    = new Product("JerHigh").withPrice(200).withDescription("des").withPic("thucan-cho2.png");
+  public static Product   product_1    = new Product("BioLine Catnip").withPrice(200).withDescription("des")
+      .withPic("catnip.jpg");
+  public static Product   product_2    = new Product("Vita Prima Hamster Food").withPrice(200).withDescription("des")
+      .withPic("hamster-food.jpg");
+  public static Product   product_3    = new Product("Dr.Kyan Predogen").withPrice(200).withDescription("des")
+      .withPic("suacho1.jpg");
+  public static Product   product_4    = new Product("Ganador Premium").withPrice(200).withDescription("des")
+      .withPic("thucan-cho1.jpg");
+  public static Product   product_5    = new Product("JerHigh").withPrice(200).withDescription("des")
+      .withPic("thucan-cho2.png");
   public static Product[] ALL_PRODUCTS = { product_1, product_2, product_3, product_4, product_5 };
 
   public static Order order_1  = new Order("order_1 ");
@@ -186,7 +191,7 @@ public class PetStoreData {
   public static List<Order> createDataOrder() {
     List<Order> orders = new ArrayList<>();
     for (Order order : ALL_ORDERS) {
-      order.withCustomer(customer_1).withEmployee(employee_1).withPayment(new Payment("VietComBank"))
+      order.withCustomer(customer_1).withEmployee(employee_1).withPayment(new Payment("Vietcombank"))
           .withOrderItem(new OrderItem().withFood(food_1)).withOrderItem(new OrderItem().withFood(food_1))
           .withOrderItem(new OrderItem().withProduct(product_1));
       order.withTotal(order.getOrderItems());

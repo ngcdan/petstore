@@ -17,27 +17,24 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableTransactionManagement
 public class ApplicationConfig extends WebSecurityConfigurerAdapter {
 
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    //    http.authorizeRequests().anyRequest().authenticated().and().httpBasic().and().logout();
+    http.authorizeRequests().antMatchers("/").permitAll();
+    http.headers().cacheControl(); 
+    http.cors();
+    http.csrf().disable();
+  }
+
   @Bean 
   CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
     configuration.setAllowCredentials(true);
     configuration.addAllowedOrigin("http://localhost:3001");
     configuration.addAllowedHeader("*");
-    configuration.addAllowedMethod("GET");
-    configuration.addAllowedMethod("POST");
-    configuration.addAllowedMethod("PUT");
-    configuration.addAllowedMethod("DELETE");
+    configuration.addAllowedMethod("*");
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     source.registerCorsConfiguration("/**", configuration);
     return source;
-  }
-
-  @Override
-  protected void configure(HttpSecurity http) throws Exception {
-    http.csrf().disable();
-    http.headers().cacheControl(); 
-    http.cors();
-//    http.authorizeRequests().anyRequest().authenticated().and().httpBasic().and().logout();
-
   }
 }
