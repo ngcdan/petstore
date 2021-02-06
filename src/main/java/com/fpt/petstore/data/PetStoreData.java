@@ -114,8 +114,8 @@ public class PetStoreData {
     List<Customer> customers = new ArrayList<>();
     for (int i = 0; i < ALL_CUSTOMERS.length; i++) {
       Customer customer = ALL_CUSTOMERS[i];
-      customer.setEmail(EMAILS[i]);
-      customer.setPhone(PHONES[i]);
+      customer.setEmail(EMAILS[new Random().nextInt(EMAILS.length)]);
+      customer.setPhone(PHONES[new Random().nextInt(PHONES.length)]);
       customer.setAddress(ADDRESSES[new Random().nextInt(ADDRESSES.length)]);
       customer.setPassword("password");
       customers.add(customer);
@@ -131,7 +131,7 @@ public class PetStoreData {
 
   static public List<Employee> createDataEmployee() {
     List<Employee> employees = new ArrayList<>();
-    for (int i = 0; i < ALL_CUSTOMERS.length; i++) {
+    for (int i = 0; i < ALL_EMPLOYEES.length; i++) {
       Employee employee = ALL_EMPLOYEES[i];
       employee.setUsername(removeAccent(employee.getFullName().replaceAll("\\s", "").toLowerCase()));
       employee.setEmail(EMAILS[i]);

@@ -8,6 +8,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -34,8 +36,11 @@ public class Food extends AbstractPersistable<Long> {
 
   private String code;
 
+  @NotNull
   private String name;
 
+  @NotNull
+  @DecimalMin(value = "0")
   private int price;
 
   private String pic;

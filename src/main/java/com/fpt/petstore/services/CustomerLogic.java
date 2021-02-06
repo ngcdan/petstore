@@ -37,20 +37,26 @@ public class CustomerLogic {
     return repo.findAll();
   }
 
-  public void deleteCustomer(String code) {
-    repo.deleteCustomer(code);
+  public boolean deleteCustomer(String code) {
+    deleteCustomer(code);
+    return true;
+  }
+
+  public boolean deleteCustomer(Long id) {
+    repo.deleteById(id);
+    return true;
   }
 
   public boolean deleteCustomers(List<Customer> customers) {
     for(Customer sel : customers) {
-      deleteCustomer(sel.getCode());
+      deleteCustomer(sel.getId());
     }
     return true;
   }
 
   public Customer generateCode(Customer customer) {
     if(customer == null) return null;
-    customer.setCode("customer-" + DateUtil.asCompactDateTimeId(new Date()));
+    customer.setCode("cus-" + DateUtil.asCompactDateTimeId(new Date()));
     return customer;
   }
   public Customer customerLogin(String email,String password){

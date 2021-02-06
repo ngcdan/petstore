@@ -6,6 +6,8 @@ package com.fpt.petstore.entities;
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -29,12 +31,15 @@ import lombok.Setter;
 @Setter @Getter
 public class OrderItem extends AbstractPersistable<Long> {
 
+  @NotNull
   String name;
   String label;
   String description;
 
   double quantity = 1;
 
+  @NotNull
+  @DecimalMin(value = "0")
   double total;
 
   String currency = "VND";

@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -62,6 +64,8 @@ public class Order extends AbstractPersistable<Long> {
   @JoinColumn(name = "orderId", referencedColumnName = "id")
   private List<OrderItem> orderItems;
 
+  @NotNull
+  @DecimalMin(value = "0")
   private int total;
 
   private String note;

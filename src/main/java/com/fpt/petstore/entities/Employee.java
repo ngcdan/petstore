@@ -11,6 +11,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -37,10 +38,12 @@ uniqueConstraints = {
 public class Employee extends AbstractPersistable<Long> {
   static public enum UserRole { Admin, User };
 
+  @NotBlank(message = "Username is mandatory")
   private String username;
   private String password;
   private String fullName;
 
+  @NotBlank(message = "Email is mandatory")
   @Column(name = "email", nullable = false,updatable = false)
   private String email;
 

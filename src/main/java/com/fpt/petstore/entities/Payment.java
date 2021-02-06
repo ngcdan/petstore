@@ -8,6 +8,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -31,10 +33,13 @@ public class Payment extends AbstractPersistable<Long> {
   
   static public enum TransactionType { Cash, Wire, CreditCard, CustomerCredit }
   
+  @NotNull
   private String bankAccountId;
   
   private TransactionType transactionType = TransactionType.Cash;
   
+  @NotNull
+  @DecimalMin(value = "0")
   private double amount; // so tien ( co the thanh toan nhieu lan hoac nhieu kieu )
   
   private String currency = "VND";

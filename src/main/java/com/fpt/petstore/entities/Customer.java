@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -19,7 +20,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "customer",
 uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"code", "phone", "email"})
+    @UniqueConstraint(columnNames = {"code"})
 })
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
@@ -30,7 +31,10 @@ public class Customer extends AbstractPersistable<Long> {
   static public enum Gender { Male, Female};
 
   private String code;
+  
+  @NotBlank(message = "Email is mandatory")
   private String email;
+  
   private String phone;
   private String password;
   private String fullName;

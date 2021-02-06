@@ -20,6 +20,12 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
   @Query(
       "SELECT e FROM Employee e WHERE e.username = :username")
   public Employee getByUsername(@Param("username") String username);
+  
+  Boolean existsByUsername(String username);
+  
+  Boolean existsByEmail(String email);
+  
+  // TODO: code thua
   @Query(value = "Select * from Employee where username like ?1 and password like ?2",nativeQuery = true)
   Employee loginEmployee(String username,String password);
 }
