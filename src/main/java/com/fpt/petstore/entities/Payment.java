@@ -36,6 +36,7 @@ public class Payment extends AbstractPersistable<Long> {
   @NotNull
   private String bankAccountId;
   
+  @NotNull
   private TransactionType transactionType = TransactionType.Cash;
   
   @NotNull
@@ -47,7 +48,6 @@ public class Payment extends AbstractPersistable<Long> {
   @JsonFormat(pattern = DateUtil.COMPACT_DATETIME_FORMAT)
   private Date  transactionDate = new Date();
   
-  @Getter @Setter
   @Column(length = 65536)
   private String          note;
   

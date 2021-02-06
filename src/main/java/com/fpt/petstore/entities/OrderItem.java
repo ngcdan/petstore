@@ -3,6 +3,7 @@
  */
 package com.fpt.petstore.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
@@ -34,8 +35,11 @@ public class OrderItem extends AbstractPersistable<Long> {
   @NotNull
   String name;
   String label;
+  
+  @Column(length=1024 * 32)
   String description;
 
+  @DecimalMin(value = "0")
   double quantity = 1;
 
   @NotNull

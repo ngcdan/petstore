@@ -3,14 +3,11 @@
  */
 package com.fpt.petstore.http.rest.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,7 +37,7 @@ public class Controller {
 
   @Autowired
   PetStoreService service;
-  
+
   @Autowired
   CustomerRepository repo;
 
@@ -50,10 +47,10 @@ public class Controller {
     return service.getCustomerByCode(code);
   }
 
-//  @DeleteMapping("customer/{id}")
-//  public @ResponseBody boolean deleteCustomerById(@PathVariable("id") Long id) {
-//    return service.deleteCustomer(id);
-//  }
+  @DeleteMapping("customer/{id}")
+  public @ResponseBody boolean deleteCustomerById(@PathVariable("id") Long id) {
+    return service.deleteCustomer(id);
+  }
 
   @GetMapping("customers")
   public @ResponseBody List<Customer> findAllCustomers() {
@@ -61,17 +58,8 @@ public class Controller {
   }
 
   @PutMapping("customer")
-  public @ResponseBody Customer saveCustomer(@RequestBody Customer customer) {
+  public @ResponseBody Customer saveCustomer(@Valid @RequestBody Customer customer) {
     return service.saveCustomer(customer);
-  }
-
-  @DeleteMapping("customer/{code}")
-  public ResponseEntity<Map<String, Boolean>> deleteCustomer(@PathVariable String code) {
-    Customer customer = service.getCustomerByCode(code);
-    repo.delete(customer);
-    Map<String, Boolean> response = new HashMap<>();
-    response.put("deleted", Boolean.TRUE);
-    return ResponseEntity.ok(response);
   }
 
   @DeleteMapping("customers")
@@ -95,14 +83,14 @@ public class Controller {
     return service.saveEmployee(employee);
   }
 
-  @DeleteMapping("employee")
-  public @ResponseBody boolean deleteEmployee(Employee employee) {
-    return service.deleteEmployee(employee);
-  }
-
   @DeleteMapping("employees")
   public @ResponseBody boolean deleteEmployees(List<Employee> employees) {
     return service.deleteEmployees(employees);
+  }
+
+  @DeleteMapping("employee/{id}")
+  public @ResponseBody boolean deleteEmployeeById(@PathVariable("id") Long id) {
+    return service.deleteEmployeeById(id);
   }
 
   // Product
@@ -117,13 +105,13 @@ public class Controller {
   }
 
   @PutMapping("product")
-  public @ResponseBody Product saveProduct(@RequestBody Product product) {
+  public @ResponseBody Product saveProduct(@Valid @RequestBody Product product) {
     return service.saveProduct(product);
   }
 
-  @DeleteMapping("product")
-  public @ResponseBody boolean deleteProduct(Product product) {
-    return service.deleteProduct(product);
+  @DeleteMapping("product/{id}")
+  public @ResponseBody boolean deleteProductById(@PathVariable("id") Long id) {
+    return service.deleteProductById(id);
   }
 
   @DeleteMapping("products")
@@ -153,18 +141,18 @@ public class Controller {
   }
 
   @PutMapping("food")
-  public @ResponseBody Food saveFood(@RequestBody Food food) {
+  public @ResponseBody Food saveFood(@Valid @RequestBody Food food) {
     return service.saveFood(food);
-  }
-
-  @DeleteMapping("food")
-  public @ResponseBody boolean deleteFood(Food food) {
-    return service.deleteFood(food);
   }
 
   @DeleteMapping("foods")
   public @ResponseBody boolean deleteFoods(List<Food> foods) {
     return service.deleteFoods(foods);
+  }
+
+  @DeleteMapping("food/{id}")
+  public @ResponseBody boolean deleteFoodById(@PathVariable("id") Long id) {
+    return service.deleteFoodById(id);
   }
 
   // Order
@@ -183,13 +171,13 @@ public class Controller {
     return service.saveOrder(order);
   }
 
-  @DeleteMapping("order")
-  public @ResponseBody boolean deleteOrder(Order order) {
-    return service.deleteOrder(order);
-  }
-
   @DeleteMapping("orders")
   public @ResponseBody boolean deleteOrders(List<Order> orders) {
     return service.deleteOrders(orders);
+  }
+
+  @DeleteMapping("order/{id}")
+  public @ResponseBody boolean deleteOrderById(@PathVariable("id") Long id) {
+    return service.deleteOrderById(id);
   }
 }

@@ -24,8 +24,4 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
   Boolean existsByUsername(String username);
   
   Boolean existsByEmail(String email);
-  
-  // TODO: code thua
-  @Query(value = "Select * from Employee where username like ?1 and password like ?2",nativeQuery = true)
-  Employee loginEmployee(String username,String password);
 }

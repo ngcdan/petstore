@@ -3,6 +3,7 @@
  */
 package com.fpt.petstore.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -34,6 +35,7 @@ public class Food extends AbstractPersistable<Long> {
 
   static public enum FoodType {DRY, SNACK, MILK};
 
+  @NotNull
   private String code;
 
   @NotNull
@@ -45,6 +47,7 @@ public class Food extends AbstractPersistable<Long> {
 
   private String pic;
 
+  @Column(length=1024 * 32)
   private String description;
   
   @Enumerated(EnumType.STRING)

@@ -43,14 +43,14 @@ public class FoodLogic {
     return repo.findAll();
   }
 
-  public boolean deleteFood(Food food ) {
-    repo.delete(food);
+  public boolean deleteFoodById(Long id) {
+    repo.deleteById(id);
     return true;
   }
 
   public boolean deleteFoods(List<Food> foods) {
     for (Food sel : foods) {
-      deleteFood(sel);
+      deleteFoodById(sel.getId());
     }
     return true;
   }

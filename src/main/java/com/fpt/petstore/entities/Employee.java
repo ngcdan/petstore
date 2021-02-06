@@ -12,6 +12,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -41,6 +42,7 @@ public class Employee extends AbstractPersistable<Long> {
   @NotBlank(message = "Username is mandatory")
   private String username;
   private String password;
+  @NotNull
   private String fullName;
 
   @NotBlank(message = "Email is mandatory")
