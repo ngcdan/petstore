@@ -25,12 +25,10 @@ public class PetStoreApplication implements CommandLineRunner {
   @Autowired
   PetStoreService service;
 
-  PetStoreData data;
-
   @Override
   public void run(String... args) throws Exception {
     createCustomerData(PetStoreData.createDataCustomer());
-    createEmployeeData(PetStoreData.createDataEmployee());
+    createEmployeeData(PetStoreData.ALL_EMPLOYEES);
     createFoodData(PetStoreData.ALL_FOODS);
     createProductData(PetStoreData.ALL_PRODUCTS);
     createOrderData(PetStoreData.createDataOrder());
@@ -42,7 +40,7 @@ public class PetStoreApplication implements CommandLineRunner {
     }
   }
 
-  void createEmployeeData(List<Employee> employees) {
+  void createEmployeeData(Employee[] employees) {
     for (Employee employee : employees) {
       service.saveEmployee(employee);
     }

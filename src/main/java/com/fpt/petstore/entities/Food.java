@@ -62,5 +62,4 @@ public class Food extends AbstractPersistable<Long> {
     this.description = des;
     return this;
   }
-
 }
