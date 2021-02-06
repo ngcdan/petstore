@@ -24,7 +24,6 @@ uniqueConstraints = {
 })
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Customer extends AbstractPersistable<Long> {
 
@@ -34,7 +33,6 @@ public class Customer extends AbstractPersistable<Long> {
   
   @NotBlank(message = "Email is mandatory")
   private String email;
-  
   private String phone;
   private String password;
   private String fullName;
@@ -49,5 +47,15 @@ public class Customer extends AbstractPersistable<Long> {
 
   public Customer(String fullName) {
     this.fullName = fullName;
+  }
+
+  public Customer(@NotBlank(message = "Email is mandatory") String email, String phone, String password, String fullName, String avatarUrl, Gender gender, String address) {
+    this.email = email;
+    this.phone = phone;
+    this.password = password;
+    this.fullName = fullName;
+    this.avatarUrl = avatarUrl;
+    this.gender = gender;
+    this.address = address;
   }
 }

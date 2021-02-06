@@ -11,7 +11,7 @@
 
 <body>
 <jsp:include page="part/menu.jsp" />
-
+    <h1>${messRes}</h1>
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="hero__slider owl-carousel">

@@ -45,7 +45,7 @@
                 <p>${error1}</p>
                <div  class="custom1"> <a href="#"  data-target="#loginModal" data-toggle="modal" data-dismiss="modal">Quay lại</a></div>
             </div>
-            <form:form modelAttribute="customer" action="/register" method="post">
+            <form action="/register" method="post">
                 <div class="modal-body">
                     <div class="mb-3">
                         <input type="email" placeholder="Nhập Email" class="form-control" name="email" />
@@ -71,16 +71,13 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <input type="date" placeholder="Nhập ngày sinh" class="form-control" name="birthDay" />
-                    </div>
-                    <div class="mb-3">
                         <input type="text" placeholder="Nhập địa chỉ" class="form-control" name="address" />
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit"  class="btn btn-danger custom">Đăng ký</button>
                 </div>
-            </form:form>
+            </form>
         </div>
     </div>
 </div>
