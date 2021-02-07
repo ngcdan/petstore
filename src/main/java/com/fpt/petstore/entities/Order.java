@@ -42,7 +42,7 @@ public class Order extends AbstractPersistable<Long> {
 
 
   static public enum State {
-    PENDING, PROCESS, DONE, CANCEL
+    PAID, DUE, CANCEL
   };
 
   @NotNull
@@ -76,7 +76,7 @@ public class Order extends AbstractPersistable<Long> {
   private String currency = "VND";
 
   @Enumerated(EnumType.STRING)
-  private State state = State.PROCESS;
+  private State state = State.PAID;
 
   public Order(String label) {
     this.label = label;
