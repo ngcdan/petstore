@@ -38,14 +38,14 @@ public class OrderLogic {
     return repo.findAll();
   }
 
-  public boolean deleteOrder(Order order) {
-    repo.delete(order);
+  public boolean deleteOrderById(Long id) {
+    repo.deleteById(id);
     return true;
   }
 
   public boolean deleteOrders(List<Order> orders) {
     for (Order sel : orders) {
-      deleteOrder(sel);
+      deleteOrderById(sel.getId());
     }
     return true;
   }

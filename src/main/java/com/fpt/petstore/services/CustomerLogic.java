@@ -37,11 +37,6 @@ public class CustomerLogic {
     return repo.findAll();
   }
 
-  public boolean deleteCustomer(String code) {
-    deleteCustomer(code);
-    return true;
-  }
-
   public boolean deleteCustomer(Long id) {
     repo.deleteById(id);
     return true;

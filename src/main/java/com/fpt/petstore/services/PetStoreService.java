@@ -68,11 +68,6 @@ public class PetStoreService {
   }
 
   @Transactional
-  public boolean deleteCustomer(String code) {
-    return customerLogic.deleteCustomer(code);
-  }
-
-  @Transactional
   public boolean deleteCustomer(Long id) {
     return customerLogic.deleteCustomer(id);
   }
@@ -99,14 +94,10 @@ public class PetStoreService {
   }
 
   @Transactional
-  public boolean deleteEmployee(Employee employee) {
-    return employeeLogic.deleteEmployee(employee);
+  public boolean deleteEmployeeById(Long id) {
+    return employeeLogic.deleteEmployeeById(id);
   }
 
-  @Transactional(readOnly = true)
-  public Employee loginEmployee(String username,String password){
-    return employeeLogic.loginEmployee(username,password);
-  }
   // Order
   @Transactional
   public Order saveOrder(Order order) {
@@ -129,8 +120,8 @@ public class PetStoreService {
   }
 
   @Transactional
-  public boolean deleteOrder(Order order) {
-    return orderLogic.deleteOrder(order);
+  public boolean deleteOrderById(Long id) {
+    return orderLogic.deleteOrderById(id);
   }
 
   // Product 
@@ -160,9 +151,10 @@ public class PetStoreService {
   }
 
   @Transactional
-  public boolean deleteProduct(Product product) {
-    return productLogic.deleteProduct(product);
+  public boolean deleteProductById(Long id) {
+    return productLogic.deleteProductById(id);
   }
+
   @Transactional(readOnly = true)
   public Integer countProduct(){
     return productLogic.countProduct();
@@ -203,7 +195,7 @@ public class PetStoreService {
   }
 
   @Transactional
-  public boolean deleteFood(Food food) {
-    return foodLogic.deleteFood(food);
+  public boolean deleteFoodById(Long id) {
+    return foodLogic.deleteFoodById(id);
   }
 }

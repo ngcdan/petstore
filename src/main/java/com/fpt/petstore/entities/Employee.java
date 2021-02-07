@@ -12,6 +12,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -28,10 +29,11 @@ import lombok.Setter;
  */
 
 @Entity
-@Table(name = "employee",
-uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"username", "email"})
-})
+@Table(name = "employee"
+//uniqueConstraints = {
+//    @UniqueConstraint(columnNames = {"username", "email"})
+//}
+)
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
 @NoArgsConstructor
@@ -40,7 +42,10 @@ public class Employee extends AbstractPersistable<Long> {
 
   @NotBlank(message = "Username is mandatory")
   private String username;
-  private String password;
+
+  private String password = "password";
+
+  @NotNull
   private String fullName;
 
   @NotBlank(message = "Email is mandatory")
@@ -75,5 +80,20 @@ public class Employee extends AbstractPersistable<Long> {
 
   public Employee(String fullName) {
     this.fullName = fullName;
+  }
+
+  public Employee withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public Employee withAddress(String address) {
+    this.address = address;
+    return this;
+  }
+
+  public Employee withUsername(String username) {
+    this.username = username;
+    return this;
   }
 }

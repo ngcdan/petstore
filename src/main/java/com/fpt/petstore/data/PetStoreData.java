@@ -95,21 +95,6 @@ public class PetStoreData {
       customer_18, customer_19, customer_20, customer_7, customer_8, customer_9, customer_21, customer_22, customer_23,
       customer_24, customer_25, customer_26, customer_27, customer_28, customer_29, customer_30 };
 
-  // Employee
-  public static Employee employee_1  = new Employee("Phạm Võ Hoài Anh");
-  public static Employee employee_2  = new Employee("Hồ Thanh Bình");
-  public static Employee employee_3  = new Employee("Nguyễn Thái Bình");
-  public static Employee employee_4  = new Employee("Bùi Thái Chánh");
-  public static Employee employee_5  = new Employee("Đỗ Đình Biên");
-  public static Employee employee_6  = new Employee("Nguyễn Phước Biển");
-  public static Employee employee_7  = new Employee("Lê Minh Chánh");
-  public static Employee employee_8  = new Employee("Lê Thái Bình");
-  public static Employee employee_9  = new Employee("Nguyễn Thái Bình");
-  public static Employee employee_10 = new Employee("Đinh Hồng Châu");
-
-  public static Employee[] ALL_EMPLOYEES = { employee_1, employee_2, employee_3, employee_4, employee_5, employee_6,
-      employee_10, employee_7, employee_8, employee_9 };
-
   static public List<Customer> createDataCustomer() {
     List<Customer> customers = new ArrayList<>();
     for (int i = 0; i < ALL_CUSTOMERS.length; i++) {
@@ -123,25 +108,20 @@ public class PetStoreData {
     return customers;
   };
 
-  public static String removeAccent(String s) {
-    String  temp    = Normalizer.normalize(s, Normalizer.Form.NFD);
-    Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
-    return pattern.matcher(temp).replaceAll("");
-  }
+  // Employee
+  public static Employee employee_1  = new Employee("Phạm Võ Hoài Anh").withAddress("Hải Phòng").withEmail("hoaianh@gmail.com").withUsername("phamvohoaianh");
+  public static Employee employee_2  = new Employee("Hồ Thanh Bình").withAddress("Hải Phòng").withEmail("hothanhbinh@gmail.com").withUsername("hothanhbinh");;
+  public static Employee employee_3  = new Employee("Nguyễn Thái Bình").withAddress("Hải Phòng").withEmail("nguyenthaibinh@gmail.com").withUsername("nguyenthaibinh");
+  public static Employee employee_4  = new Employee("Bùi Thái Chánh").withAddress("Hải Phòng").withEmail("buithaichanh@gmail.com").withUsername("buithaichanh");
+  public static Employee employee_5  = new Employee("Đỗ Đình Biên").withAddress("Hải Phòng").withEmail("dodinhvien@gmail.com").withUsername("dodinhvien");
+  public static Employee employee_6  = new Employee("Nguyễn Phước Biển").withAddress("Hà Nội").withEmail("nguyenphuocbien@gmail.com").withUsername("nguyenphuocbien");
+  public static Employee employee_7  = new Employee("Lê Minh Chánh").withAddress("Hà Nội").withEmail("leminhchanh@gmail.com").withUsername("leminhchanh");
+  public static Employee employee_8  = new Employee("Lê Thái Bình").withAddress("Hà Nội").withEmail("lethaibinh@gmail.com").withUsername("lethaibinh");
+  public static Employee employee_9  = new Employee("Nguyễn Thái Bình").withAddress("Hà Nội").withEmail("nguyenthaibinh@gmail.com").withUsername("nguyenthaibinh");
+  public static Employee employee_10 = new Employee("Đinh Hồng Châu").withAddress("Hà Nội").withEmail("dinhhongchaugmail.com").withUsername("dinhhongchau");
 
-  static public List<Employee> createDataEmployee() {
-    List<Employee> employees = new ArrayList<>();
-    for (int i = 0; i < ALL_EMPLOYEES.length; i++) {
-      Employee employee = ALL_EMPLOYEES[i];
-      employee.setUsername(removeAccent(employee.getFullName().replaceAll("\\s", "").toLowerCase()));
-      employee.setEmail(EMAILS[i]);
-      employee.setPhone(PHONES[i]);
-      employee.setAddress(ADDRESSES[new Random().nextInt(ADDRESSES.length)]);
-      employee.setPassword("password");
-      employees.add(employee);
-    }
-    return employees;
-  };
+  public static Employee[] ALL_EMPLOYEES = { employee_1, employee_2, employee_3, employee_4, employee_5, employee_6,
+      employee_10, employee_7, employee_8, employee_9 };
 
   // Food
   public static Food   food_1    = new Food("Food_name_1", 100).withDes("description");
@@ -150,6 +130,7 @@ public class PetStoreData {
   public static Food   food_4    = new Food("Food_name_4", 100).withDes("description");
   public static Food   food_5    = new Food("Food_name_5", 100).withDes("description");
   public static Food[] ALL_FOODS = { food_1, food_2, food_3, food_4, food_5 };
+
   // Products
   public static Product   product_1    = new Product("BioLine Catnip").withPrice(200).withDescription("des")
       .withPic("catnip.jpg");
@@ -195,7 +176,6 @@ public class PetStoreData {
           .withOrderItem(new OrderItem().withFood(food_1)).withOrderItem(new OrderItem().withFood(food_1))
           .withOrderItem(new OrderItem().withProduct(product_1));
       order.withTotal(order.getOrderItems());
-
       orders.add(order);
     }
     return orders;

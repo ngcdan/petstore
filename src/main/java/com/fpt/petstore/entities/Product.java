@@ -3,6 +3,7 @@
  */
 package com.fpt.petstore.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -33,6 +34,7 @@ public class Product extends AbstractPersistable<Long> {
 
   static public enum ProductType {CLOTHES, CAT, DOG, HAMSTER, LEASH };
 
+  @NotNull
   private String code;
 
   @NotNull
@@ -44,6 +46,7 @@ public class Product extends AbstractPersistable<Long> {
 
   private String pic;
 
+  @Column(length=1024 * 32)
   private String description;
 
   @Enumerated(EnumType.STRING)
@@ -52,12 +55,12 @@ public class Product extends AbstractPersistable<Long> {
   public Product(String name) {
     this.name = name;
   }
-  
+
   public Product withPrice(int price) {
     this.price = price;
     return this;
   }
-  
+
   public Product withDescription(String des) {
     this.description = des;
     return this;

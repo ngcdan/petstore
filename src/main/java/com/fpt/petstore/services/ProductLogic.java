@@ -46,15 +46,14 @@ public class ProductLogic {
     return (List<Product>) repo.findAll();
   }
 
-  public boolean deleteProduct(Product product) {
-    repo.delete(product);
+  public boolean deleteProductById(Long id) {
+    repo.deleteById(id);
     return true;
   }
 
-
   public boolean deleteProducts(List<Product> products) {
     for( Product sel : products) {
-      deleteProduct(sel);
+      deleteProductById(sel.getId());
     }
     return true;
   }
@@ -64,9 +63,11 @@ public class ProductLogic {
     product.setCode("product-" + product.getName() + DateUtil.asCompactDateTimeId(new Date()));
     return product;
   }
+  
   public Integer countProduct(){
     return repo.countProduct();
   }
+  
   public List<Integer> calculateTotalPage(int totalProduct, int productPerPage) {
     List<Integer> listPage = new ArrayList<>();
     int totalPage = (totalProduct % productPerPage == 0) ? totalProduct / productPerPage : (totalProduct / productPerPage) + 1;
@@ -75,6 +76,7 @@ public class ProductLogic {
     }
     return listPage;
   }
+  
   public Page<Product> listProductperPage(Pageable pageable){
     return repo.listProductbyPage(pageable);
   }

@@ -16,35 +16,31 @@ import com.fpt.petstore.repository.EmployeeRepository;
  */
 @Component
 public class EmployeeLogic {
-  
+
   @Autowired
   EmployeeRepository repo;
-  
+
   public Employee saveEmployee(Employee employee) {
     return repo.save(employee);
   }
-  
+
   public Employee getEmployeeByUsername(String username) {
     return repo.getByUsername(username);
   }
-  
+
   public List<Employee> findAllEmployees() {
     return repo.findAll();
   }
-  
-  public boolean deleteEmployee(Employee employee) {
-    repo.delete(employee);
+
+  public boolean deleteEmployeeById(Long id) {
+    repo.deleteById(id);
     return true;
   }
-  
+
   public boolean deleteEmployees(List<Employee> employees) {
     for(Employee sel : employees) {
-      deleteEmployee(sel);
+      deleteEmployeeById(sel.getId());
     }
     return true;
   }
-  public Employee loginEmployee(String username,String password){
-    return repo.loginEmployee(username,password);
-  }
-  
 }

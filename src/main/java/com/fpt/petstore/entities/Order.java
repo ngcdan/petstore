@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -44,6 +45,7 @@ public class Order extends AbstractPersistable<Long> {
     PENDING, PROCESS, DONE, CANCEL
   };
 
+  @NotNull
   private String code;
 
   private String label;
@@ -68,6 +70,7 @@ public class Order extends AbstractPersistable<Long> {
   @DecimalMin(value = "0")
   private int total;
 
+  @Column(length=1024 * 32)
   private String note;
 
   private String currency = "VND";
