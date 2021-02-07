@@ -11,7 +11,7 @@
 
 <body>
 <jsp:include page="part/menu.jsp" />
-
+<h1>${messRes}</h1>
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="hero__slider owl-carousel">
@@ -121,58 +121,36 @@
         </div>
     </section>
     <!-- Banner Section End -->
-
-    <!-- Product Section Begin -->
+<!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="filter__controls">
-                        <li class="active" data-filter="*">Sản Phẩm Bán Chạy</li>
-                        <li data-filter=".new-arrivals">Sản Phẩm Mới</li>
-                        <li data-filter=".hot-sales">Hot Sales</li>
+                        <li class="active" data-filter="*">Best Sellers</li>
                     </ul>
                 </div>
             </div>
             <div class="row product__filter">
+                <c:forEach var="p" items="${listProduct}">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/b.jpg">
-                            <span class="label">New</span>
+                        <div class="product__item__pic set-bg" data-setbg="img/product/${p.pic}">
                             <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a><span>Yêu Thích</span></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>So Sánh</span></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a><span>Tìm Kiếm</span></li>
+                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6>CAGE</h6>
+                            <h6>${p.name}</h6>
                             <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>100.000 VNĐ</h5>
-                            <div class="product__color__select">
-                                <label for="pc-1">
-                                    <input type="radio" id="pc-1">
-                                </label>
-                                <label class="active black" for="pc-2">
-                                    <input type="radio" id="pc-2">
-                                </label>
-                                <label class="grey" for="pc-3">
-                                    <input type="radio" id="pc-3">
-                                </label>
-                            </div>
+                            <h5>$${p.price}</h5>
                         </div>
                     </div>
                 </div>
+                </c:forEach>
             </div>
         </div>
-        
     </section>
     <!-- Product Section End -->
 

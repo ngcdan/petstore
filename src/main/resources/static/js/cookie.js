@@ -2,7 +2,7 @@
  * Created by Nizis on 2/3/2021.
  */
 $(document).ready(function () {
-
+	"use strict"
     $('#submit').click(function(){
         if(checkCookie()){
             setCookie('customer',$('#email')[0].value,1);
