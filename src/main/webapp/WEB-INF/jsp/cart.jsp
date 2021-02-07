@@ -4,7 +4,7 @@
 
 <head>
     <jsp:include page="part/header.jsp" />
-    <title>Cart</title>
+    <title>Male-Fashion | Template</title>
 
 </head>
 
@@ -21,7 +21,7 @@
                         <h4>Shopping Cart</h4>
                         <div class="breadcrumb__links">
                             <a href="/">Home</a>
-                            <a href="/san-pham">Product</a>
+                            <a href="/shop">Shop</a>
                             <span>Shopping Cart</span>
                         </div>
                     </div>
@@ -164,7 +164,7 @@
         </div>
     </section>
     <!-- Shopping Cart Section End -->
-<jsp:include page="part/end.jsp" />
+<jsp:include page="part/footer.jsp" />
 <jsp:include page="part/modal.jsp" />
 <jsp:include page="part/script.jsp" />
 </body>

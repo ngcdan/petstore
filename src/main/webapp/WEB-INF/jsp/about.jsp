@@ -38,6 +38,7 @@
                 </div>
             </div>
         </div>
+        <!-- 
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="about__item">
@@ -61,6 +62,7 @@
                 </div>
             </div>
         </div>
+         -->
     </div>
 </section>
 <!-- About Section End -->
@@ -72,16 +74,18 @@
             <div class="col-lg-6 p-0">
                 <div class="testimonial__text">
                     <span class="icon_quotations"></span>
-                    <p>“Going out after work? Take your butane curling iron with you to the office, heat it up,
-                        style your hair before you leave the office and you won’t have to make a trip back home.”
+                    <p>“ – Cửa hàng PETS chuyên hoạt động trong lĩnh vực chăm sóc và làm đẹp cho thú cưng. 
+                    Chúng tôi tự hào với đội ngũ nhân viên kinh nghiệm, được đào tạo bài bản, chuyên nghiệp từ các chuyên gia hàng đầu về lĩnh vực chăm sóc thú cưng tại các nước phát triển trên thế giới. 
+                    Ca hàng của chúng tôi cung cấp tất cả sản phẩm các loại thức ăn, đồ dùng, thực phẩm chức năng, thuốc… 
+                    cần thiết cho những chú chó, chú mèo của bạn.”
                     </p>
-                    <div class="testimonial__author">
+                    <div class="testimonial__author"> 
                         <div class="testimonial__author__pic">
                             <img src="img/about/testimonial-author.jpg" alt="">
                         </div>
                         <div class="testimonial__author__text">
-                            <h5>Augusta Schultz</h5>
-                            <p>Fashion Design</p>
+                            <h5>Thanh Phương</h5>
+                            <p>Store Owner</p>
                         </div>
                     </div>
                 </div>
@@ -101,25 +105,25 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="counter__item">
                     <div class="counter__item__number">
-                        <h2 class="cn_num">102</h2>
+                        <h2 class="cn_num">99</h2>
                     </div>
-                    <span>Our <br/>Clients</span>
+                    <span>Khách <br/>Hàng</span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="counter__item">
                     <div class="counter__item__number">
-                        <h2 class="cn_num">30</h2>
+                        <h2 class="cn_num">10</h2>
                     </div>
-                    <span>Total <br/>Categories</span>
+                    <span>Mặt <br/>Hàng</span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="counter__item">
                     <div class="counter__item__number">
-                        <h2 class="cn_num">102</h2>
+                        <h2 class="cn_num">8</h2>
                     </div>
-                    <span>In <br/>Country</span>
+                    <span>Đối <br/>Tác</span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
@@ -128,7 +132,7 @@
                         <h2 class="cn_num">98</h2>
                         <strong>%</strong>
                     </div>
-                    <span>Happy <br/>Customer</span>
+                    <span>Sự <br/>Hài Lòng</span>
                 </div>
             </div>
         </div>
@@ -142,34 +146,41 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <span>Our Team</span>
-                    <h2>Meet Our Team</h2>
+                    <span>Đội Ngũ Nhân Viên Của PETS</span>
+                    <h2>Các Thành Viên</h2>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-2 col-md-6 col-sm-6">
                 <div class="team__item">
                     <img src="img/about/team-1.jpg" alt="">
-                    <h4>John Smith</h4>
-                    <span>Fashion Design</span>
+                    <h4>Lưu Nguyễn Thanh Phương</h4>
+                    <span>Thành Viên</span>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-2 col-md-6 col-sm-6">
                 <div class="team__item">
                     <img src="img/about/team-2.jpg" alt="">
-                    <h4>Christine Wise</h4>
-                    <span>C.E.O</span>
+                    <h4>Nguyễn Tấn Trọng</h4>
+                    <span>Thành Viên</span>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-4 col-md-5 col-sm-5">
+                <div class="team__item">
+                    <img src="img/about/team-3.jpg" alt="">
+                    <h4>Nguyễn Thị Thanh Phương</h4>
+                    <span>Nhóm Trưởng</span>
+                </div>
+            </div>
+             <div class="col-lg-2 col-md-6 col-sm-6">
                 <div class="team__item">
                     <img src="img/about/team-3.jpg" alt="">
                     <h4>Sean Robbins</h4>
                     <span>Manager</span>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-2 col-md-6 col-sm-6">
                 <div class="team__item">
                     <img src="img/about/team-4.jpg" alt="">
                     <h4>Lucy Myers</h4>
@@ -187,41 +198,41 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <span>Partner</span>
-                    <h2>Happy Clients</h2>
+                    <span>Đối Tác</span>
+                    <h2>Các Đối Tác Chính</h2>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/client-1.png" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/a.jpg" alt=""></a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/client-2.png" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/client-2.jpg" alt=""></a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/client-3.png" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/client-3.jpg" alt=""></a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/client-4.png" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/client-4.jpg" alt=""></a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/client-5.png" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/client-5.jpg" alt=""></a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/client-6.png" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/client-6.jpg" alt=""></a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/client-7.png" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/client-7.jpg" alt=""></a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/client-8.png" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/client-1.jpg" alt=""></a>
             </div>
         </div>
     </div>
 </section>
 <!-- Client Section End -->
-<jsp:include page="part/end.jsp"/>
+<jsp:include page="part/footer.jsp"/>
 <jsp:include page="part/modal.jsp"/>
 <jsp:include page="part/script.jsp"/>
 </body>

@@ -18,11 +18,9 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-9 text-center">
                     <div class="blog__hero__text">
-                        <h2>Are you one of the thousands of Iphone owners who has no idea</h2>
+                        <h2>Kush</h2>
                         <ul>
-                            <li>By Deercreative</li>
-                            <li>February 21, 2019</li>
-                            <li>8 Comments</li>
+                            <li>16 February 2020 - NOW</li>
                         </ul>
                     </div>
                 </div>
@@ -45,37 +43,33 @@
                         <div class="blog__details__share">
                             <span>share</span>
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/PETS-Coffee-And-Services-100166812056116"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#" class="youtube"><i class="fa fa-youtube-play"></i></a></li>
-                                <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
                             </ul>
                         </div>
                         <div class="blog__details__text">
-                            <p>Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the
-                                occurrence of early aging sings on the skin and keeps the skin younger, tighter and
-                                healthier. It reduces the wrinkles and loosening of skin. This cream nourishes the skin
-                                and brings back the glow that had lost in the run of hectic years.</p>
-                            <p>The most essential ingredient that makes hydroderm so effective is Vyo-Serum, which is a
-                                product of natural selected proteins. This concentrate works actively in bringing about
-                                the natural youthful glow of the skin. It tightens the skin along with its moisturizing
-                                effect on the skin. The other important ingredient, making hydroderm so effective is
-                                “marine collagen” which along with Vyo-Serum helps revitalize the skin.</p>
+                            <p>Kush thuộc giống chó Corgi tên đầy đủ là Pembroke Welsh Corgi. Trong đó, theo tiếng Wales được dịch ra là "chú chó lùn" - 
+                            tên gọi này đúng như hình dáng bên ngoài của Corgi và gắn liền với tên địa phương tìm thấy chúng tại Pembrokeshire, xứ Wales. </p>
+                            <p>Theo như nhiều tài liệu lưu trữ, các nhà nghiên cứu chỉ ra rằng giống chó Corgi đã có niên đại lên đến 3000 năm.
+                             Chú Corgi đầu tiên được ghi nhận tại xứ Wales và có khả năng cao là phát triển từ giống chó Vallhunds của Thụy Điển
+                              trong thời kì tiền Viking. Nếu chỉ nhìn ngoại hình, bạn cũng sẽ thấy Corgi có nét giống với các giống chó họ hàng gần
+                               của chúng như Alaska (Alaskan Malamute), Samoyed, Husky Sibir, Phốc Sóc (Pomeranian),… hay một số giống chó Bắc Âu khác. </p>
                         </div>
                         <div class="blog__details__quote">
                             <i class="fa fa-quote-left"></i>
-                            <p>“When designing an advertisement for a particular product many things should be
-                                researched like where it should be displayed.”</p>
-                            <h6>_ John Smith _</h6>
+                            <p>“Chó là bạn, không phải là thức ăn.”</p>
+                            
                         </div>
                         <div class="blog__details__text">
-                            <p>Vyo-Serum along with tightening the skin also reduces the fine lines indicating aging of
-                                skin. Problems like dark circles, puffiness, and crow’s feet can be control from the
-                                strong effects of this serum.</p>
-                            <p>Hydroderm is a multi-functional product that helps in reducing the cellulite and giving
-                                the body a toned shape, also helps in cleansing the skin from the root and not letting
-                                the pores clog, nevertheless also let’s sweeps out the wrinkles and all signs of aging
-                                from the sensitive near the eyes.</p>
+                            <p>Giống chó Corgi vốn dĩ được sử dụng vào hoạt động chăn gia súc dù cho dáng vẻ của chúng nhỏ nhắn
+                             và có vẻ không-hợp-cho-lắm. Tuy nhiên, trong trường hợp này, bốn chân ngắn và thấp bé lại là lợi thế
+                              bởi Corgi sẽ khó lòng “dính” những cú đá hậu nguy hiểm của các loài gia súc lớn. Khi đi chăn, nếu có con gia súc
+                               nào đi lạc, Corgi sẽ nhanh chóng cắn vào chân để kéo chúng quay lại đàn.</p>
+                            <p>Về sau, hoạt động chăn nuôi gia súc ở châu Âu không còn phổ biến như trước nên Corgi cũng ít được sử dụng để chăn súc.
+                             Tuy nhiên, bởi sự thông minh và ngoại hình đáng yêu mà nhiều gia đình đã nuôi Corgi như một người bạn trong nhà.
+                              Tại Việt Nam, chó Corgi chỉ được đưa về từ khoảng năm 2010 nhưng đã nhanh chóng gây lên một “cơn sốt” trong thế giới thú cưng
+                               khiến các bạn trẻ cực kì hứng thú.</p>
                         </div>
                         <div class="blog__details__option">
                             <div class="row">
@@ -85,20 +79,19 @@
                                             <img src="img/blog/details/blog-author.jpg" alt="">
                                         </div>
                                         <div class="blog__details__author__text">
-                                            <h5>Aiden Blair</h5>
+                                            <h5>Thanh Phương</h5>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="blog__details__tags">
-                                        <a href="#">#Fashion</a>
-                                        <a href="#">#Trending</a>
-                                        <a href="#">#2020</a>
+                                        <a href="#">#Kush</a>
+                                        <a href="#">#Corgi</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="blog__details__btns">
+                       <!--  <div class="blog__details__btns">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <a href="" class="blog__details__btns__item">
@@ -113,7 +106,7 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        </div>   -->
                         <div class="blog__details__comment">
                             <h4>Leave A Comment</h4>
                             <form action="#">
@@ -138,9 +131,10 @@
                 </div>
             </div>
         </div>
+         
     </section>
     <!-- Blog Details Section End -->
-<jsp:include page="part/end.jsp" />
+<jsp:include page="part/footer.jsp" />
 <jsp:include page="part/modal.jsp" />
 <jsp:include page="part/script.jsp" />
 </body>
