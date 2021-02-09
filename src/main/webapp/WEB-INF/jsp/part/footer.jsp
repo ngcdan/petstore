@@ -11,10 +11,9 @@
 					</div>
 					<p>Welcome To PETS Coffee And Services</p>
 			 <div class="hero__social1">
-                                    <a href="https://www.facebook.com/PETS-Coffee-And-Services-100166812056116"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a   href="https://www.facebook.com/PETS-Coffee-And-Services-100166812056116" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
                                     </div>
                                    
               </div>
