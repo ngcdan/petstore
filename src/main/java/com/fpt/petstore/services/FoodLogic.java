@@ -25,7 +25,7 @@ public class FoodLogic {
   FoodRepository repo;
 
   public Food saveFood(Food food) {
-    if(food.getId() == null) {
+    if(food.getId() == null && food.getCode() == null ) {
       food = generateCode(food);
     }
     return repo.save(food);

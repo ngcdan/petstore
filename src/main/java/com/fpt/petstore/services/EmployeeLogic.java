@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fpt.petstore.entities.Employee;
+import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.repository.EmployeeRepository;
 
 /**
@@ -19,6 +20,9 @@ public class EmployeeLogic {
 
   @Autowired
   EmployeeRepository repo;
+
+  @Autowired
+  OrderLogic orderLogic;
 
   public Employee saveEmployee(Employee employee) {
     return repo.save(employee);
@@ -33,6 +37,12 @@ public class EmployeeLogic {
   }
 
   public boolean deleteEmployeeById(Long id) {
+    Employee employee = repo.getOne(id);
+    if(employee == null) return false;
+    List<Order> orders = orderLogic.findOrdersByEmployee(employee);
+    for (Order order : orders) {
+      order.setEmployee(null);
+    }
     repo.deleteById(id);
     return true;
   }

@@ -24,6 +24,7 @@ import com.fpt.petstore.entities.Food.FoodType;
 import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.Product;
 import com.fpt.petstore.entities.Product.ProductType;
+import com.fpt.petstore.exception.ResourceNotFoundException;
 import com.fpt.petstore.repository.CustomerRepository;
 import com.fpt.petstore.services.PetStoreService;
 
@@ -43,13 +44,17 @@ public class Controller {
 
   // Customer
   @GetMapping("customer/{code}")
-  public @ResponseBody Customer getCustomerByCode(@PathVariable("code") String code) {
-    return service.getCustomerByCode(code);
+  public @ResponseBody Customer getCustomerByCode(@PathVariable("code") String code) throws ResourceNotFoundException {
+    Customer customer = service.getCustomerByCode(code);
+    if(customer == null) throw new ResourceNotFoundException("Customer not found with:: " + code);
+    return customer;
   }
 
   @DeleteMapping("customer/{id}")
-  public @ResponseBody boolean deleteCustomerById(@PathVariable("id") Long id) {
-    return service.deleteCustomer(id);
+  public @ResponseBody boolean deleteCustomerById(@PathVariable("id") Long id) throws ResourceNotFoundException {
+    boolean deleteCustomer = service.deleteCustomer(id);
+    if(deleteCustomer == false) throw new ResourceNotFoundException("Customer not found with:: " + id);
+    return deleteCustomer;
   }
 
   @GetMapping("customers")

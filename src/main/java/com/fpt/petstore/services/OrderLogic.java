@@ -9,6 +9,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.fpt.petstore.entities.Customer;
+import com.fpt.petstore.entities.Employee;
 import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.repository.OrderRepository;
 import com.fpt.petstore.util.DateUtil;
@@ -54,6 +56,14 @@ public class OrderLogic {
     if(order == null) return null;
     order.setCode("order-" + DateUtil.asCompactDateTimeId(new Date()));
     return order;
+  }
+  
+  public List<Order> findOrdersByCustomer(Customer customer) {
+    return repo.findOrdersByCustomer(customer.getCode());
+  }
+  
+  public List<Order> findOrdersByEmployee(Employee employee) {
+    return repo.findOrdersByEmployee(employee.getUsername());
   }
 
 }

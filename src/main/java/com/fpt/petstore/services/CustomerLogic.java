@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fpt.petstore.entities.Customer;
+import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.repository.CustomerRepository;
 import com.fpt.petstore.util.DateUtil;
 
@@ -21,6 +22,9 @@ public class CustomerLogic {
 
   @Autowired
   CustomerRepository repo;
+  
+  @Autowired 
+  OrderLogic orderLogic;
 
   public Customer saveCustomer(Customer customer) {
     if(customer.getId() == null ) {
@@ -38,6 +42,12 @@ public class CustomerLogic {
   }
 
   public boolean deleteCustomer(Long id) {
+    Customer customer = repo.getOne(id);
+    if(customer == null) return false;
+    List<Order> orders = orderLogic.findOrdersByCustomer(customer);
+    for (Order order : orders) {
+      order.setCustomer(null);
+    }
     repo.deleteById(id);
     return true;
   }

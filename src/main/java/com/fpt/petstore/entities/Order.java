@@ -50,12 +50,12 @@ public class Order extends AbstractPersistable<Long> {
 
   private String label;
 
-  @ManyToOne(optional = false)
-  @JoinColumn(name = "customerId")
+  @ManyToOne(optional = true)
+  @JoinColumn(name = "customerId", nullable = true) // this is a bug when delete order
   private Customer customer;
 
-  @ManyToOne(optional = false)
-  @JoinColumn(name = "employeeId")
+  @ManyToOne(optional = true)
+  @JoinColumn(name = "employeeId", nullable = true)
   private Employee employee;
 
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)

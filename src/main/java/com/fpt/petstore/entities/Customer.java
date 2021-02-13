@@ -21,7 +21,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "customer",
 uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"code"})
+    @UniqueConstraint(columnNames = {"code", "email"})
 })
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
@@ -29,18 +29,18 @@ uniqueConstraints = {
 public class Customer extends AbstractPersistable<Long> {
 
   static public enum Gender { Male, Female};
-  
+
   @NotNull
   private String code;
-  
+
   @NotBlank(message = "Email is mandatory")
   private String email;
   private String phone;
-  private String password;
-  
+  private String password = "password";
+
   @NotNull
   private String fullName;
-  
+
   @Column(nullable = true, length = 64)
   private String avatarUrl;
 
@@ -53,6 +53,21 @@ public class Customer extends AbstractPersistable<Long> {
 
   public Customer(String fullName) {
     this.fullName = fullName;
+  }
+
+  public Customer withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public Customer withPhone(String phone) {
+    this.phone = phone;
+    return this;
+  }
+
+  public Customer withAddress(String address) {
+    this.address = address;
+    return this;
   }
 
   public Customer(String email, String phone, String password, String fullName, String avatarUrl, Gender gender, String address) {

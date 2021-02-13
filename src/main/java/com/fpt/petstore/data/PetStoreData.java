@@ -3,15 +3,14 @@
  */
 package com.fpt.petstore.data;
 
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.regex.Pattern;
 
 import com.fpt.petstore.entities.Customer;
 import com.fpt.petstore.entities.Employee;
 import com.fpt.petstore.entities.Food;
+import com.fpt.petstore.entities.Food.FoodType;
 import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.OrderItem;
 import com.fpt.petstore.entities.Payment;
@@ -24,71 +23,43 @@ import com.fpt.petstore.entities.Product;
 public class PetStoreData {
 
   static String[] ADDRESSES = { "Hà Nội", "Hải Phòng", "Thành phố Hồ Chí Minh", "Quảng Ninh", "Bạc Liêu", "Tây Ninh",
-      "Tuyên Quang" };
-  static String[] EMAILS    = { "Donec.porttitor.tellus@maurisaliquameu.com", "non.ante@purus.com",
-      "dis@gravidamolestiearcu.co.uk", "Fusce@congueaaliquet.net", "arcu.imperdiet.ullamcorper@ac.edu",
-      "posuere.enim.nisl@sagittisaugue.co.uk", "Cum@erat.ca", "iaculis.enim.sit@luctus.org", "Cras@Integerin.edu",
-      "lectus.pede.ultrices@nuncsitamet.edu", "bibendum.ullamcorper@Curabitursed.ca", "inceptos.hymenaeos@velit.edu",
-      "nisi.magna@enimSednulla.edu", "Aliquam.vulputate.ullamcorper@dolorsit.edu",
-      "mauris.rhoncus.id@PraesentluctusCurabitur.com", "Proin.non@odioa.edu", "orci.consectetuer@dui.ca",
-      "vel@etlaciniavitae.ca", "massa@nibhenim.co.uk", "sem.egestas@Crasvehiculaaliquet.edu",
-      "eu.tellus@interdumlibero.org", "feugiat@neque.org", "neque.vitae@quisarcuvel.org", "dictum@euarcu.com",
-      "netus.et.malesuada@tinciduntaliquamarcu.edu", "auctor.Mauris.vel@luctusipsumleo.edu" };
+  "Tuyên Quang" };
 
   static String[] PHONES = { "+84971523160", "+84972350852", "+84978343191", "+84977443785", "+84975830117",
       "+84975097604", "+84979002974", "+84976505077", "+84971541554", "+84978486367", "+84974829834", "+84979422506",
       "+84978504106", "+84979234893", "+84972099083", "+84979622655", "+84974686801", "+84979802671", "+84976458859",
       "+84978813980", "+84973094635", "+84979158307", "+84979386528", "+84974214735", "+84974443744" };
 
-  public static Customer customer_1 = new Customer("Nguyễn Hữu Đức");
-
-  public static Customer customer_2 = new Customer("Le Van Duc");
-
-  public static Customer customer_3 = new Customer("Nguyen Dinh Tien");
-
-  public static Customer customer_4 = new Customer("Tran Thi Hang");
-
-  public static Customer customer_5 = new Customer("Võ Thanh Sanh");
-
-  public static Customer customer_6 = new Customer("Phạm Minh Quân");
-
-  public static Customer customer_7 = new Customer("Trương Trọng Quân");
-
-  public static Customer customer_8 = new Customer("Nguyễn Vũ Ngọc Quyên");
-
-  public static Customer customer_9 = new Customer("Phan Duy Quốc");
-
-  public static Customer customer_10 = new Customer("Nguyễn Thị Như Quỳnh");
-
-  public static Customer customer_11 = new Customer("Lê Hoàng Quân");
-
-  public static Customer customer_12 = new Customer("Đinh Văn Phượng");
-
-  public static Customer customer_13 = new Customer("Nguyễn Xuân Sang");
-
-  public static Customer customer_14 = new Customer("Lê Phú Quý");
-
-  public static Customer customer_15 = new Customer("Lý Quốc Quyền");
-
-  public static Customer customer_16 = new Customer("Bùi Minh Quân");
-
-  public static Customer customer_17 = new Customer("Nguyễn Ngọc Sơn");
-
-  public static Customer customer_18 = new Customer("Bùi Duy Qúy");
-
-  public static Customer customer_19 = new Customer("Võ Hoàng Phương");
-
-  public static Customer customer_20 = new Customer("Trần Minh Phương");
-  public static Customer customer_21 = new Customer("Võ Khải Hoàng Ca");
-  public static Customer customer_22 = new Customer("Hà Thị Thùy Chi");
-  public static Customer customer_23 = new Customer("Lê Văn Minh Châu");
-  public static Customer customer_24 = new Customer("Nguyễn Linh Chi");
-  public static Customer customer_25 = new Customer("Lê Thị Phương Chi");
-  public static Customer customer_26 = new Customer("Nguyễn Duy Chinh");
-  public static Customer customer_27 = new Customer("Nguyễn Thế Chiến");
-  public static Customer customer_28 = new Customer("Trần Đức Thịnh");
-  public static Customer customer_29 = new Customer("Trần Viễn Chinh");
-  public static Customer customer_30 = new Customer("Bùi Văn Chương");
+  public static Customer customer_1 = new Customer("Nguyễn Hữu Đức").withEmail("nguyenhuuduc11@gmail.com");
+  public static Customer customer_2 = new Customer("Le Van Duc").withEmail("levanduc@11@gmail.com");
+  public static Customer customer_3 = new Customer("Nguyen Dinh Tien").withEmail("nguyendinhtien@gmail.com");
+  public static Customer customer_4 = new Customer("Tran Thi Hang").withEmail("tranthihang@gmail.com");
+  public static Customer customer_5 = new Customer("Võ Thanh Sanh").withEmail("vothanhsanh@gmail.com");
+  public static Customer customer_6 = new Customer("Phạm Minh Quân").withEmail("phamminhquan@gmail.com");
+  public static Customer customer_7 = new Customer("Trương Trọng Quân").withEmail("truongtrongquan11@gmail.com");
+  public static Customer customer_8 = new Customer("Nguyễn Vũ Ngọc Quyên").withEmail("nguyenvungocquyen@gmail.com");
+  public static Customer customer_9 = new Customer("Phan Duy Quốc").withEmail("phanduyquoc@gmail.com");
+  public static Customer customer_10 = new Customer("Nguyễn Thị Như Quỳnh").withEmail("nguyenthinhuquyen@gmail.com");
+  public static Customer customer_11 = new Customer("Lê Hoàng Quân").withEmail("lehoangquan19090@gmail.com");
+  public static Customer customer_12 = new Customer("Đinh Văn Phượng").withEmail("dinhvanphuong12@gmail.com");
+  public static Customer customer_13 = new Customer("Nguyễn Xuân Sang").withEmail("nguyenxuansang@gmail.com");
+  public static Customer customer_14 = new Customer("Lê Phú Quý").withEmail("lephuquy@gmail.com");
+  public static Customer customer_15 = new Customer("Lý Quốc Quyền").withEmail("lyquocquyen@gmail.com");
+  public static Customer customer_16 = new Customer("Bùi Minh Quân").withEmail("buiminhquan11@gmail.com");
+  public static Customer customer_17 = new Customer("Nguyễn Ngọc Sơn").withEmail("nguyenngocson@gmail.com");
+  public static Customer customer_18 = new Customer("Bùi Duy Qúy").withEmail("buiduyquy@gmail.com");
+  public static Customer customer_19 = new Customer("Võ Hoàng Phương").withEmail("vohoangphuong@gmail.com");
+  public static Customer customer_20 = new Customer("Trần Minh Phương").withEmail("tranminhphuong@gmail.com");
+  public static Customer customer_21 = new Customer("Võ Khải Hoàng Ca").withEmail("vokhaihoangka@gmail.com");
+  public static Customer customer_22 = new Customer("Hà Thị Thùy Chi").withEmail("hathithuychi@gmail.com");
+  public static Customer customer_23 = new Customer("Lê Văn Minh Châu").withEmail("levanminhchau@gmail.com");
+  public static Customer customer_24 = new Customer("Nguyễn Linh Chi").withEmail("lelinhchi@gmail.com");
+  public static Customer customer_25 = new Customer("Lê Thị Phương Chi").withEmail("lethiphuongchi@gmail.com");
+  public static Customer customer_26 = new Customer("Nguyễn Duy Chinh").withEmail("nguyenduychinh@gmail.com");
+  public static Customer customer_27 = new Customer("Nguyễn Thế Chiến").withEmail("nguyenthechien@gmail.com");
+  public static Customer customer_28 = new Customer("Trần Đức Thịnh").withEmail("tranducthinh@gmail.com");
+  public static Customer customer_29 = new Customer("Trần Viễn Chinh").withEmail("tranvienchinh@gmail.com");
+  public static Customer customer_30 = new Customer("Bùi Văn Chương").withEmail("buivanchuong@gmail.com");
 
   public static Customer[] ALL_CUSTOMERS = { customer_1, customer_2, customer_3, customer_4, customer_5, customer_6,
       customer_10, customer_11, customer_12, customer_13, customer_14, customer_15, customer_16, customer_17,
@@ -99,10 +70,8 @@ public class PetStoreData {
     List<Customer> customers = new ArrayList<>();
     for (int i = 0; i < ALL_CUSTOMERS.length; i++) {
       Customer customer = ALL_CUSTOMERS[i];
-      customer.setEmail(EMAILS[new Random().nextInt(EMAILS.length)]);
       customer.setPhone(PHONES[new Random().nextInt(PHONES.length)]);
       customer.setAddress(ADDRESSES[new Random().nextInt(ADDRESSES.length)]);
-      customer.setPassword("password");
       customers.add(customer);
     }
     return customers;
@@ -124,12 +93,67 @@ public class PetStoreData {
       employee_10, employee_7, employee_8, employee_9 };
 
   // Food
-  public static Food   food_1    = new Food("Food_name_1", 100).withDes("description");
-  public static Food   food_2    = new Food("Food_name_2", 100).withDes("description");
-  public static Food   food_3    = new Food("Food_name_3", 100).withDes("description");
-  public static Food   food_4    = new Food("Food_name_4", 100).withDes("description");
-  public static Food   food_5    = new Food("Food_name_5", 100).withDes("description");
-  public static Food[] ALL_FOODS = { food_1, food_2, food_3, food_4, food_5 };
+  public static Food   food_1    = new Food("Purina Pro Plan Focus Sensitive Skin & Stomach Adult Dog Food - Salmon & Rice", 300000).
+      withDes("Nurture your dog's sensitive skin and stomach with Purina Pro Plan FOCUS Sensitive "
+          + "Skin & Stomach Salmon & Rice Formula adult dry dog food. Nutrient-rich salmon is the "
+          + "first ingredient and a primary source of protein in this formula. Also containing prebiotic fiber,"
+          + " this dog food for sensitive stomach boasts a highly-digestible formula that nourishes the beneficial "
+          + "bacteria found in your dog's intestine, helping to promote his digestive health.").withType(FoodType.DRY);
+
+
+  public static Food   food_2    = new Food("Purina Pro Plan Essentials Shredded Blend Adult Dry Dog Food - Chicken & Rice", 500000).
+      withDes("Get your dog excited about mealtime when you serve him Purina Pro Plan Brand Dog Food Shredded Blend Chicken & "
+          + "Rice Formula adult dry dog food. Real chicken as the first ingredient and rice, which is an excellent source "
+          + "of carbohydrates for energy, along with other high-quality ingredients create a wholesome meal with great flavor").withType(FoodType.DRY);
+
+  public static Food   food_3    = new Food("THỨC ĂN HẠT CHO MÈO PURITY INDOOR 10kg FITMIN", 200000).withDes("Thức ăn hạt cho mèo Purity Indoor FITMIN "
+      + "sử dụng công thức Grain Free (Công thức này sử dụng đậu Hà Lan và khoai tây, "
+      + "không chứa ngũ cốc hay bất kì các chất gây dị ứng tiềm ẩn nào) nên cực kì an toàn cho các bé nhạy cảm với thức ăn.").withType(FoodType.MILK);
+
+  public static Food   food_4    = new Food("SNACK CHO CHÓ VỊ VIỆT QUẤT BLUEBERRY 70G PRAMA", 50000).
+      withDes("Ưu đãi dành riêng cho khách hàng đặt trước Online:\n"
+          + " Giữ hàng tại Shop cho khách đặt hàng online\n"
+          + " Giao hàng toàn quốc\n"
+          + " Tư vấn miễn phí 24/7\n"
+          + " Bảo hành nhanh chóng").withType(FoodType.SNACK);
+
+  public static Food   food_5    = new Food("SNACK CHO CHÓ VỊ XOÀI MANGO 70G PRAMA", 50000).withDes("Ưu đãi dành riêng cho khách hàng đặt trước Online:\n"
+      + " Giữ hàng tại Shop cho khách đặt hàng online\n"
+      + " Giao hàng toàn quốc\n"
+      + " Tư vấn miễn phí 24/7\n"
+      + " Bảo hành nhanh chóng").withType(FoodType.SNACK);
+
+  public static Food   food_6    = new Food("SNACK CHO CHÓ VỊ DÂU STRAWBERRY 70G PRAMA", 50000).withDes("Ưu đãi dành riêng cho khách hàng đặt trước Online:\n"
+      + " Giữ hàng tại Shop cho khách đặt hàng online\n"
+      + " Giao hàng toàn quốc\n"
+      + " Tư vấn miễn phí 24/7\n"
+      + " Bảo hành nhanh chóng").withType(FoodType.SNACK);
+
+  public static Food   food_7    = new Food("PATE CHO CHÓ VỊ THỊT BÒ VÀ GAN BÒ BEEF & BEEF LIVER IN JELLY 70G MARIA", 50000).withDes("Ưu đãi dành riêng cho khách hàng đặt trước Online:\n"
+      + " Giữ hàng tại Shop cho khách đặt hàng online\n"
+      + " Giao hàng toàn quốc\n"
+      + " Tư vấn miễn phí 24/7\n"
+      + " Bảo hành nhanh chóng").withType(FoodType.SNACK);
+
+  public static Food   food_8    = new Food("PATE CHO CHÓ VỊ THỊT GÀ VÀ TIM CỪU CHICKEN WITH LAMB HEART IN JELLY 70G MARIA", 29000).withDes("Ưu đãi dành riêng cho khách hàng đặt trước Online:\n"
+      + " Giữ hàng tại Shop cho khách đặt hàng online\n"
+      + " Giao hàng toàn quốc\n"
+      + " Tư vấn miễn phí 24/7\n"
+      + " Bảo hành nhanh chóng").withType(FoodType.SNACK);
+
+  public static Food   food_9    = new Food("SNACK CHO CHÓ VỊ XOÀI MANGO 70G PRAMA", 50000).withDes("Ưu đãi dành riêng cho khách hàng đặt trước Online:\n"
+      + " Giữ hàng tại Shop cho khách đặt hàng online\n"
+      + " Giao hàng toàn quốc\n"
+      + " Tư vấn miễn phí 24/7\n"
+      + " Bảo hành nhanh chóng").withType(FoodType.SNACK);
+
+  public static Food   food_10    = new Food("SNACK CHO CHÓ VỊ XOÀI MANGO 70G PRAMA", 50000).withDes("Ưu đãi dành riêng cho khách hàng đặt trước Online:\n"
+      + " Giữ hàng tại Shop cho khách đặt hàng online\n"
+      + " Giao hàng toàn quốc\n"
+      + " Tư vấn miễn phí 24/7\n"
+      + " Bảo hành nhanh chóng").withType(FoodType.SNACK);
+
+  public static Food[] ALL_FOODS = { food_1, food_2, food_3, food_4, food_5, food_6, food_7, food_8, food_9, food_10 };
 
   // Products
   public static Product   product_1    = new Product("BioLine Catnip").withPrice(200).withDescription("des")
@@ -173,8 +197,8 @@ public class PetStoreData {
     List<Order> orders = new ArrayList<>();
     for (Order order : ALL_ORDERS) {
       order.withCustomer(customer_1).withEmployee(employee_1).withPayment(new Payment("Vietcombank"))
-          .withOrderItem(new OrderItem().withFood(food_1)).withOrderItem(new OrderItem().withFood(food_1))
-          .withOrderItem(new OrderItem().withProduct(product_1));
+      .withOrderItem(new OrderItem().withFood(food_1)).withOrderItem(new OrderItem().withFood(food_1))
+      .withOrderItem(new OrderItem().withProduct(product_1));
       order.withTotal(order.getOrderItems());
       orders.add(order);
     }
