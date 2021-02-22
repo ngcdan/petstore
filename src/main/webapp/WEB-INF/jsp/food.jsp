@@ -7,7 +7,7 @@
 <head>
 
     <jsp:include page="part/header.jsp" />
-    <title>Sản phẩm</title>
+    <title>Thức ăn - đồ uống</title>
 
 
 </head>

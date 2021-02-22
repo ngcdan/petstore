@@ -63,8 +63,11 @@
                                    
                                 </ul>
                             </li> -->
-                              <li><a href="/san-pham/1">Sản Phẩm</a>
-                               
+                              <li><a href="javascript:void(0)">Sản Phẩm</a>
+                                  <ul class="dropdown">
+                                      <li><a href="/vat-pham-thu-cung/1">Vật phẩm thú cưng</a></li>
+                                      <li><a href="/food/1">Thức ăn - đồ uống</a></li>
+                                  </ul>
                             </li>
                             <li><a href="/blog">Blog</a></li>
                             <li><a href="/lien-he">Liên Hệ</a></li>
@@ -73,9 +76,9 @@
                 </div>
                 <div class="col-lg-2 col-md-1">
                     <div class="header__nav__option">
-                        <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                        <a href="#"><img src="img/icon/heart.png" alt=""></a>
-                        <a href="/gio-hang"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                        <a href="#" class="search-switch"><img src="/img/icon/search.png" alt=""></a>
+                        <a href="#"><img src="/img/icon/heart.png" alt=""></a>
+                        <a href="/gio-hang"><img src="/img/icon/cart.png" alt=""> <span>0</span></a>
                         <div class="price">0VNĐ</div>
                     </div>
                 </div>
