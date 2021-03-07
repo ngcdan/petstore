@@ -88,8 +88,6 @@
                         <td>Tổng tiền</td>
                         <td></td>
                     </tr>
-
-
                     <c:forEach var="p" items="${listCart}">
                         <tr>
                             <input type="hidden" name="productid" value="${p.value.product.id}"/>
@@ -98,7 +96,6 @@
                             <td><input type="number" name="quantity" value="${p.value.quantity}"/></td>
                             <td>${p.value.product.price}${p.value.food.price}</td>
                             <td>${p.value.total}</td>
-
                         </tr>
                     </c:forEach>
 
