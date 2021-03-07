@@ -3,14 +3,14 @@
 <html lang="zxx">
 
 <head>
-    <jsp:include page="part/header.jsp" />
+    <jsp:include page="part/head.jsp" />
     <title>Details</title>
 
 
 </head>
 
 <body>
-<jsp:include page="part/menu.jsp" />
+<jsp:include page="part/header.jsp" />
 
     <!-- Shop Details Section Begin -->
     <section class="shop-details">

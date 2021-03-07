@@ -3,13 +3,13 @@
 <html lang="zxx">
 
 <head>
-    <jsp:include page="part/header.jsp" />
+    <jsp:include page="part/head.jsp" />
     <title>Liên hệ</title>
 
 </head>
 
 <body>
-<jsp:include page="part/menu.jsp" />
+<jsp:include page="part/header.jsp" />
 
     <!-- Map Begin -->
     <div class="map">

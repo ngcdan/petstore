@@ -3,21 +3,12 @@
  */
 package com.fpt.petstore.data;
 
+import com.fpt.petstore.entities.*;
+import com.fpt.petstore.entities.Food.FoodType;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import com.fpt.petstore.entities.Customer;
-import com.fpt.petstore.entities.Employee;
-import com.fpt.petstore.entities.Food;
-import com.fpt.petstore.entities.Food.FoodType;
-import com.fpt.petstore.entities.Order;
-import com.fpt.petstore.entities.OrderItem;
-import com.fpt.petstore.entities.Payment;
-import com.fpt.petstore.entities.Product;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 
 /**
  * @author linuss

@@ -3,13 +3,13 @@
 <html lang="zxx">
 
 <head>
-    <jsp:include page="part/header.jsp" />
+    <jsp:include page="part/head.jsp" />
     <title>Thanh toán</title>
 
 </head>
 
 <body>
-<jsp:include page="part/menu.jsp" />
+<jsp:include page="part/header.jsp" />
 
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">

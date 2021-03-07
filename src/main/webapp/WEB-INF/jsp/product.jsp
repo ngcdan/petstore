@@ -6,14 +6,14 @@
 
 <head>
 
-    <jsp:include page="part/header.jsp" />
+    <jsp:include page="part/head.jsp" />
     <title>${title}</title>
 
 
 </head>
 
 <body>
-<jsp:include page="part/menu.jsp" />
+<jsp:include page="part/header.jsp" />
 
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option" >

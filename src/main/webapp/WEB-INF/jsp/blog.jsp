@@ -3,13 +3,13 @@
 <html lang="zxx">
 
 <head>
-    <jsp:include page="part/header.jsp" />
+    <jsp:include page="part/head.jsp" />
     <title>Blog</title>
 
 </head>
 
 <body>
-<jsp:include page="part/menu.jsp" />
+<jsp:include page="part/header.jsp" />
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-blog set-bg" data-setbg="img/breadcrumb-bg1.jpg">
         <div class="container">
