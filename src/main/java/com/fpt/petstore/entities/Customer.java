@@ -2,17 +2,14 @@ package com.fpt.petstore.entities;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.NotBlank;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fpt.petstore.util.DateUtil;
+import com.fpt.petstore.entities.Employee.UserRole;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,9 +17,9 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "customer",
-uniqueConstraints = {
+  uniqueConstraints = {
     @UniqueConstraint(columnNames = {"code", "email"})
-})
+  })
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
 @NoArgsConstructor
@@ -33,12 +30,12 @@ public class Customer extends AbstractPersistable<Long> {
   @NotNull
   private String code;
 
-  @NotBlank(message = "Email is mandatory")
+  @NotNull
+  private String username;
+
   private String email;
   private String phone;
-  private String password = "password";
-
-  @NotNull
+  private String password;
   private String fullName;
 
   @Column(nullable = true, length = 64)
@@ -50,6 +47,11 @@ public class Customer extends AbstractPersistable<Long> {
   private Gender gender = Gender.Male;
 
   private String address;
+
+  private boolean isVerified;
+
+  @Enumerated(EnumType.STRING)
+  private UserRole role = UserRole.ROLE_User;
 
   public Customer(String fullName) {
     this.fullName = fullName;
@@ -67,6 +69,11 @@ public class Customer extends AbstractPersistable<Long> {
 
   public Customer withAddress(String address) {
     this.address = address;
+    return this;
+  }
+
+  public Customer withPassword(String password) {
+    this.password = password;
     return this;
   }
 

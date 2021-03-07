@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.fpt.petstore.repository;
 
@@ -17,13 +17,16 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
-  @Query(
-      "SELECT c FROM Customer c WHERE c.code = :code")
-  public Customer getByCode(@Param("code") String code);
+  @Query( "SELECT c FROM Customer c WHERE c.code = :code")
+  Customer getByCode(@Param("code") String code);
 
   @Modifying
   @Query("delete from Customer c where c.code=:code")
   void deleteCustomer(@Param("code") String code);
+
+  boolean existsCustomersByUsername(String username);
+  Customer findByEmail(String email);
+  Customer findByUsername(String username);
 
   @Query(value = "Select * from Customer where email like ?1 and password like ?2",nativeQuery = true)
   Customer customerLogin(String email,String password);

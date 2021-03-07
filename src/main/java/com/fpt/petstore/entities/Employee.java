@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.fpt.petstore.entities;
 
@@ -29,28 +29,22 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "employee"
-//uniqueConstraints = {
-//    @UniqueConstraint(columnNames = {"username", "email"})
-//}
+  //uniqueConstraints = {
+  //    @UniqueConstraint(columnNames = {"username", "email"})
+  //}
 )
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
 @NoArgsConstructor
 public class Employee extends AbstractPersistable<Long> {
-  static public enum UserRole { Admin, User };
-
-  @NotBlank(message = "Username is mandatory")
-  private String username;
-
-  private String password = "password";
+  static public enum UserRole { ROLE_Admin, ROLE_User };
 
   @NotNull
+  private String username;
+
+  private String password;
   private String fullName;
-
-  @NotBlank(message = "Email is mandatory")
-  @Column(name = "email", nullable = false,updatable = false)
   private String email;
-
   private String phone;
 
   @JsonFormat(pattern = DateUtil.COMPACT_DATE_FORMAT)
@@ -74,7 +68,7 @@ public class Employee extends AbstractPersistable<Long> {
   private String maritalStatus = "Single";
 
   @Enumerated(EnumType.STRING)
-  private UserRole role = UserRole.User;
+  private UserRole role = UserRole.ROLE_User;
 
   public Employee(String fullName) {
     this.fullName = fullName;
@@ -92,6 +86,11 @@ public class Employee extends AbstractPersistable<Long> {
 
   public Employee withUsername(String username) {
     this.username = username;
+    return this;
+  }
+
+  public Employee withPassword(String password) {
+    this.password = password;
     return this;
   }
 }
