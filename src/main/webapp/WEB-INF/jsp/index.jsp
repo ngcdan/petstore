@@ -144,7 +144,7 @@
                         <div class="product__item__text">
                             <h6>${p.name}</h6>
                             <a href="#" class="add-cart">+ Add To Cart</a>
-                            <h5>$${p.price}</h5>
+                            <h5>${p.price}VNĐ</h5>
                         </div>
                     </div>
                 </div>

@@ -1,15 +1,5 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page pageEncoding="UTF-8" %>
-<!-- Search Begin -->
-<div class="search-model">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-switch">+</div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
-        </form>
-    </div>
-</div>
-<!-- Search End -->
 <!--Login Modal-->
 <!-- Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel12" aria-hidden="true">
@@ -83,23 +73,40 @@
 </div>
 
 <!-- Cart -->
-<div class="modal fade right" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel23" aria-hidden="true">
     <div class="modal-dialog modal-side modal-top-right">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel23">Modal title</h5>
-                <button
-                        type="button"
-                        class="btn-close"
-                        data-mdb-dismiss="modal"
-                        aria-label="Close"
-                ></button>
+                <h5 class="modal-title" id="exampleModalLabel23">Cart title</h5>
             </div>
-            <div class="modal-body">...</div>
+            <div class="modal-body">
+                <table style="margin: auto;">
+                    <tr>
+                        <td>Tên sản phẩm</td>
+                        <td>Số Lượng</td>
+                        <td>Giá sản phẩm</td>
+                        <td>Tổng tiền</td>
+                        <td></td>
+                    </tr>
+
+
+                    <c:forEach var="p" items="${listCart}">
+                        <tr>
+                            <input type="hidden" name="productid" value="${p.value.product.id}"/>
+                            <input type="hidden" name="id" value="${p.value.food.id}"/>
+                            <td>${p.value.product.name}${p.value.food.name}</td>
+                            <td><input type="number" name="quantity" value="${p.value.quantity}"/></td>
+                            <td>${p.value.product.price}${p.value.food.price}</td>
+                            <td>${p.value.total}</td>
+
+                        </tr>
+                    </c:forEach>
+
+
+                </table>
+
+            </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
-                    Close
-                </button>
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>

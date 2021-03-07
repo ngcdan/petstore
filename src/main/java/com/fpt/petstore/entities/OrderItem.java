@@ -3,10 +3,7 @@
  */
 package com.fpt.petstore.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Index;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 
@@ -35,18 +32,37 @@ public class OrderItem extends AbstractPersistable<Long> {
   @NotNull
   String name;
   String label;
+  String category;
   
   @Column(length=1024 * 32)
   String description;
 
   @DecimalMin(value = "0")
-  double quantity = 1;
+  double quantity=1;
 
   @NotNull
   @DecimalMin(value = "0")
   double total;
 
   String currency = "VND";
+  @ManyToOne(optional = true)
+  @JoinColumn(name = "productId", nullable = true)
+  private Product product;
+  @ManyToOne(optional = true)
+  @JoinColumn(name = "foodId", nullable = true)
+  private Food food;
+
+  public OrderItem(Product product, @NotNull @DecimalMin(value = "0") double total ) {
+    this.product = product;
+    this.total = total;
+
+  }
+
+  public OrderItem( Food food,@NotNull @DecimalMin(value = "0") double total) {
+    this.food = food;
+    this.total = total;
+
+  }
 
   public OrderItem withProduct(Product product) {
     this.name = product.getName();
@@ -54,7 +70,6 @@ public class OrderItem extends AbstractPersistable<Long> {
     this.total += product.getPrice();
     return this;
   }
-
   public OrderItem withFood(Food food) {
     this.name = food.getName();
     this.label = food.getName();

@@ -32,4 +32,5 @@ public interface ProductsRepository extends PagingAndSortingRepository<Product, 
   Page<Product> listProductbyPage(Pageable pageable);
   @Query(value = "select count(*) from Product", nativeQuery = true)
   Integer countProduct();
+  Product findById(long id);
 }

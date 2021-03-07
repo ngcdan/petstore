@@ -2096,7 +2096,7 @@ ol {
 -----------------------*/
 
 .breadcrumb-option {
-	background-image:url("../img/dogebanner.png") ;
+	background-image:url("../img/bg.png") ;
 	height: 250px;
 	padding: 40px 0;
 	padding-top: 100px;
@@ -2126,7 +2126,7 @@ ol {
 
 .breadcrumb__links span {
 	font-size: 15px;
-	color: #b7b7b7;
+	color: #153E7E;
 	display: inline-block;
 }
 

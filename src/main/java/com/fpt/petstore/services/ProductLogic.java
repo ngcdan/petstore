@@ -80,4 +80,7 @@ public class ProductLogic {
   public Page<Product> listProductperPage(Pageable pageable){
     return repo.listProductbyPage(pageable);
   }
+  public Product findbyProductId(long id){
+    return repo.findById(id);
+  }
 }

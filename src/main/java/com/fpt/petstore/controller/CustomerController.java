@@ -4,6 +4,7 @@ import static com.fpt.petstore.entities.ConstVariable.redirect;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +28,14 @@ public class CustomerController {
 
 
     @PostMapping(value = {"/login"})
-    public String login(@RequestParam Map<String, String> m, RedirectAttributes rA, HttpSession session) {
+    public String login(@RequestParam Map<String, String> m, RedirectAttributes rA, HttpSession session, HttpServletRequest request) {
+        String referer = request.getHeader("Referer");
         String email = m.get("email");
         String password = m.get("password");
         Customer customer = petStoreService.customerLogin(email, password);
         if (customer != null) {
             session.setAttribute("customer", customer);
-            return "index";
+            return "redirect:"+referer;
         } else {
             rA.addFlashAttribute("error", "Sai Email hoặc mật khẩu");
             return redirect;
@@ -43,9 +45,10 @@ public class CustomerController {
     }
 
     @GetMapping(value = {"/loggout"})
-    public String viewLogout(HttpSession session) {
+    public String viewLogout(HttpSession session,HttpServletRequest request) {
+        String referer = request.getHeader("Referer");
         session.removeAttribute("customer");
-        return redirect;
+        return "redirect:"+referer;
     }
     @PostMapping(value = "/register")
     public String doARegister(@RequestParam Map<String,String> m, RedirectAttributes redirectAttributes){

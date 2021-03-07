@@ -168,6 +168,10 @@ public class PetStoreService {
     return productLogic.listProductperPage(page);
   }
 
+  @Transactional
+  public Product findbyProductId(long id){
+    return productLogic.findbyProductId(id);
+  }
   // Food
   @Transactional
   public Food saveFood(Food food) {
@@ -197,5 +201,18 @@ public class PetStoreService {
   @Transactional
   public boolean deleteFoodById(Long id) {
     return foodLogic.deleteFoodById(id);
+  }
+
+  @Transactional(readOnly = true)
+  public Integer countFood(){
+    return foodLogic.countFood();
+  }
+  @Transactional
+  public Page<Food> listFoodPerPage(Pageable page) {
+    return foodLogic.listFoodbyPage(page);
+  }
+  @Transactional
+  public Food findbyFoodId(long id){
+    return foodLogic.findbyId(id);
   }
 }

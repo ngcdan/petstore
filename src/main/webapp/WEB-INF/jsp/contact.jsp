@@ -4,7 +4,7 @@
 
 <head>
     <jsp:include page="part/header.jsp" />
-    <title>Contact</title>
+    <title>Liên hệ</title>
 
 </head>
 

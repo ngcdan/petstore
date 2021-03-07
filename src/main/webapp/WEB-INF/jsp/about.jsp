@@ -4,7 +4,7 @@
 
 <head>
     <jsp:include page="part/header.jsp"/>
-    <title>About us</title>
+    <title>Về chúng tôi</title>
 </head>
 
 <body>
@@ -16,10 +16,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb__text">
-                    <h4>About Us</h4>
+                    <h4>Về chúng tôi</h4>
                     <div class="breadcrumb__links">
-                        <a href="/">Home</a>
-                        <span>About Us</span>
+                        <a href="/">Trang chủ</a>
+                        <span>Về chúng tôi</span>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                     </p>
                     <div class="testimonial__author"> 
                         <div class="testimonial__author__pic">
-                            <img src="img/about/testimonial-author.jpg" alt="">
+                            <img src="/img/about/testimonial-author.jpg" alt="">
                         </div>
                         <div class="testimonial__author__text">
                             <h5>Thanh Phương</h5>

@@ -4,7 +4,7 @@
 
 <head>
     <jsp:include page="part/header.jsp" />
-    <title>Checkout</title>
+    <title>Thanh toán</title>
 
 </head>
 
