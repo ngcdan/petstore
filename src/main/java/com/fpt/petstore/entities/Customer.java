@@ -16,23 +16,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "customer",
-  uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"code", "email"})
-  })
+@Table(name = "customer")
 @JsonInclude(Include.NON_NULL)
-@Setter @Getter
+@Setter
+@Getter
 @NoArgsConstructor
 public class Customer extends AbstractPersistable<Long> {
 
-  static public enum Gender { Male, Female};
+  static public enum Gender {Male, Female};
 
   @NotNull
   private String code;
-
-  @NotNull
   private String username;
-
   private String email;
   private String phone;
   private String password;
@@ -58,32 +53,23 @@ public class Customer extends AbstractPersistable<Long> {
   }
 
   public Customer withEmail(String email) {
-    this.email = email;
-    return this;
+    this.email = email; return this;
   }
 
   public Customer withPhone(String phone) {
-    this.phone = phone;
-    return this;
+    this.phone = phone; return this;
   }
 
   public Customer withAddress(String address) {
-    this.address = address;
-    return this;
+    this.address = address; return this;
   }
 
   public Customer withPassword(String password) {
-    this.password = password;
-    return this;
+    this.password = password; return this;
   }
 
   public Customer(String email, String phone, String password, String fullName, String avatarUrl, Gender gender, String address) {
-    this.email = email;
-    this.phone = phone;
-    this.password = password;
-    this.fullName = fullName;
-    this.avatarUrl = avatarUrl;
-    this.gender = gender;
-    this.address = address;
+    this.email = email; this.phone = phone; this.password = password; this.fullName = fullName;
+    this.avatarUrl = avatarUrl; this.gender = gender; this.address = address;
   }
 }
