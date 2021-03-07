@@ -37,7 +37,7 @@ public class CustomerController {
             session.setAttribute("customer", customer);
             return "redirect:"+referer;
         } else {
-            rA.addFlashAttribute("error", "Sai Email hoặc mật khẩu");
+            rA.addFlashAttribute("error123", "Sai Email hoặc mật khẩu");
             return redirect;
         }
 

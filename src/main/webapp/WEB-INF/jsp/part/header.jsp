@@ -70,9 +70,6 @@
                         </li>
                         <li><a href="/blog">Blog</a></li>
                         <li><a href="/lien-he">Liên Hệ</a></li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/logout">Logout</a>
-                        </li>
                     </ul>
                 </nav>
             </div>

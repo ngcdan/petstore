@@ -29,7 +29,7 @@ public class PetStoreData {
     withVerified(true).
     withEmail("nguyenhuuduc11@gmail.com");
 
-  public static Customer customer_2 = new Customer("Le Van Duc").withEmail("levanduc@11@gmail.com");
+  public static Customer customer_2 = new Customer("Le Van Duc").withEmail("levanduc11@gmail.com").withPassword("12345");
   public static Customer customer_3 = new Customer("Nguyen Dinh Tien").withEmail("nguyendinhtien@gmail.com");
   public static Customer customer_4 = new Customer("Tran Thi Hang").withEmail("tranthihang@gmail.com");
   public static Customer customer_5 = new Customer("Võ Thanh Sanh").withEmail("vothanhsanh@gmail.com");
