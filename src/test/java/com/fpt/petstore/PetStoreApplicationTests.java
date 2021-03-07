@@ -59,7 +59,7 @@ class PetStoreApplicationTests {
 	
 	@Test
 	public void testFindOrderByCustomer() throws Exception {
-	  List<Order> orders = orderRepo.findOrdersByCustomer(PetStoreData.customer_1.getCode());
+	  List<Order> orders = orderRepo.findOrdersByCustomer(PetStoreData.customer_2.getCode());
 	  System.out.println("==========================================");
 	  assertNotNull(orders);
     assertTrue(orders.size() == 20);

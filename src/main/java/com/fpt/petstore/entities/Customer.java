@@ -68,6 +68,16 @@ public class Customer extends AbstractPersistable<Long> {
     this.password = password; return this;
   }
 
+  public Customer withUsername(String username) {
+    this.username = username;
+    return this;
+  }
+
+  public Customer withVerified(boolean verified) {
+    this.isVerified = verified;
+    return this;
+  }
+
   public Customer(String email, String phone, String password, String fullName, String avatarUrl, Gender gender, String address) {
     this.email = email; this.phone = phone; this.password = password; this.fullName = fullName;
     this.avatarUrl = avatarUrl; this.gender = gender; this.address = address;

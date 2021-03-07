@@ -14,19 +14,30 @@ import com.fpt.petstore.entities.Food;
 import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.Product;
 import com.fpt.petstore.services.PetStoreService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 public class PetStoreApplication implements CommandLineRunner {
+  PetStoreData data = new PetStoreData();
 
   public static void main(String[] args) {
     SpringApplication.run(PetStoreApplication.class, args);
   }
-  
+
   @Autowired
   PetStoreService service;
 
+  @Autowired
+  PasswordEncoder passwordEncoder;
+
   @Override
   public void run(String... args) throws Exception {
+
+    Customer customer = data.customer_1;
+    customer.withPassword(passwordEncoder.encode("pass"));
+
+    service.saveCustomer(data.customer_1);
+
     createCustomerData(PetStoreData.createDataCustomer());
     createEmployeeData(PetStoreData.ALL_EMPLOYEES);
     createFoodData(PetStoreData.ALL_FOODS);
