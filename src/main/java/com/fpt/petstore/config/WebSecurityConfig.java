@@ -36,7 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests().
       antMatchers("/console/**").permitAll().
-      mvcMatchers("/login").permitAll().
+      mvcMatchers("/login", "/trang-chu", "/").permitAll().
       anyRequest().authenticated().
       and().formLogin().loginPage("/login").defaultSuccessUrl("/").failureUrl("/login?error").
       and().logout().logoutUrl("/logout").logoutSuccessUrl("/login").
