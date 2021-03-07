@@ -58,6 +58,7 @@ public class Employee extends AbstractPersistable<Long> {
 
   private String avatarUrl;
 
+  @Enumerated(EnumType.STRING)
   private Gender gender = Gender.Male;
 
   private String address;
@@ -71,8 +72,6 @@ public class Employee extends AbstractPersistable<Long> {
 
   @Column(name = "marital_status")
   private String maritalStatus = "Single";
-
-  private boolean enabled=true;
 
   @Enumerated(EnumType.STRING)
   private UserRole role = UserRole.User;
