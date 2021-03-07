@@ -18,6 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 public class PetStoreApplication implements CommandLineRunner {
+
   PetStoreData data = new PetStoreData();
 
   public static void main(String[] args) {
