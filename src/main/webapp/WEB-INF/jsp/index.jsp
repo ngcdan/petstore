@@ -121,86 +121,12 @@
         </div>
     </section>
     <!-- Banner Section End -->
-<!-- Product Section Begin -->
-    <section class="product spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="filter__controls">
-                        <li class="active" data-filter="*">Best Sellers</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row product__filter">
-                <c:forEach var="p" items="${listProduct}">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/${p.pic}">
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>${p.name}</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <h5>${p.price}VNĐ</h5>
-                        </div>
-                    </div>
-                </div>
-                </c:forEach>
-            </div>
-        </div>
-    </section>
-    <!-- Product Section End -->
-
-<%--    <!-- Categories Section Begin -->
-    <section class="categories spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="categories__text">
-                        <h2>Clothings Hot <br /> <span>Shoe Collection</span> <br /> Accessories</h2>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="categories__hot__deal">
-                        <img src="img/product-sale.png" alt="">
-                        <div class="hot__deal__sticker">
-                            <span>Sale Of</span>
-                            <h5>$29.99</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 offset-lg-1">
-                    <div class="categories__deal__countdown">
-                        <span>Deal Of The Week</span>
-                        <h2>Multi-pocket Chest Bag Black</h2>
-                        <div class="categories__deal__countdown__timer" id="countdown">
-                            <div class="cd-item">
-                                <span>3</span>
-                                <p>Days</p>
-                            </div>
-                            <div class="cd-item">
-                                <span>1</span>
-                                <p>Hours</p>
-                            </div>
-                            <div class="cd-item">
-                                <span>50</span>
-                                <p>Minutes</p>
-                            </div>
-                            <div class="cd-item">
-                                <span>18</span>
-                                <p>Seconds</p>
-                            </div>
-                        </div>
-                        <a href="#" class="primary-btn">Shop now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Categories Section End -->--%>
+<ul class="filter__controls">
+    <li class="active" data-filter="*">MENU</li>
+</ul>
+<div class="container">
+    <img src="img/a.jpg" alt="">
+</div>
 
     <!-- Instagram Section Begin -->
     <section class="instagram spad">
@@ -271,7 +197,7 @@
                         <div class="blog__item__text">
                             <span><img src="img/icon/calendar.png" alt=""> 16 February 2020</span>
                             <h5>Mango</h5>
-                            <a href="/chi-tiet-blog">ĐỌC THÊM</a>
+                            <a href="/">ĐỌC THÊM</a>
                         </div>
                     </div>
                     

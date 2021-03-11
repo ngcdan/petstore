@@ -34,10 +34,6 @@ public class PetStoreApplication implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
 
-    Customer customer = data.customer_1;
-    customer.withPassword(passwordEncoder.encode("pass"));
-
-    service.saveCustomer(data.customer_1);
 
     createCustomerData(PetStoreData.createDataCustomer());
     createEmployeeData(PetStoreData.ALL_EMPLOYEES);
