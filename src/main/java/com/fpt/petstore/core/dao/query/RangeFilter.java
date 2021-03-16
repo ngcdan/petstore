@@ -1,12 +1,12 @@
-package com.openfreightone.module.core.dao.query;
+package com.fpt.petstore.core.dao.query;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import com.fpt.petstore.util.StringUtil;
 import lombok.Getter;
 import lombok.Setter;
-import com.openfreightone.util.text.StringUtil;
 
 @JsonInclude(Include.NON_NULL)
 public class RangeFilter extends Filter {
@@ -66,7 +66,7 @@ public class RangeFilter extends Filter {
   }
   
   @JsonIgnore
-  public boolean isApplied() { return !StringUtil.isEmpty(fromValue) || !StringUtil.isEmpty(toValue); }
+  public boolean isApplied() { return ! StringUtil.isEmpty(fromValue) || !StringUtil.isEmpty(toValue); }
   
   public void mergeValue(RangeFilter other) {
     assertSameFilter(other);

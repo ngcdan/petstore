@@ -1,4 +1,4 @@
-package com.openfreightone.module.core.dao;
+package com.fpt.petstore.core.dao;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

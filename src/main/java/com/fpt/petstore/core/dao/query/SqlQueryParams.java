@@ -1,4 +1,4 @@
-package com.openfreightone.module.core.dao.query;
+package com.fpt.petstore.core.dao.query;
 
 import java.util.ArrayList;
 import java.util.HashMap;

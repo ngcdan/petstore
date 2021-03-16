@@ -1,4 +1,4 @@
-package com.openfreightone.util;
+package com.fpt.petstore.util;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;

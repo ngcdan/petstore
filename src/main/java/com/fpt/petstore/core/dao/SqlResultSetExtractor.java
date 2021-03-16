@@ -1,4 +1,4 @@
-package com.openfreightone.module.core.dao;
+package com.fpt.petstore.core.dao;
 
 import java.beans.BeanInfo;
 import java.beans.Introspector;
@@ -9,10 +9,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fpt.petstore.util.StringUtil;
 import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.ResultSetExtractor;
 
-import com.openfreightone.util.text.StringUtil;
+import org.springframework.jdbc.core.ResultSetExtractor;
 
 public class SqlResultSetExtractor implements ResultSetExtractor<SqlSelectView> {
   private String[]     field;

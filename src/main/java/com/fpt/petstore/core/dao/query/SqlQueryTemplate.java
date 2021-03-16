@@ -1,4 +1,4 @@
-package com.openfreightone.module.core.dao.query;
+package com.fpt.petstore.core.dao.query;
 
 import java.beans.PropertyDescriptor;
 import java.beans.Transient;
@@ -7,13 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.openfreightone.module.common.ClientInfo;
-import com.openfreightone.util.BeanInspector;
-import com.openfreightone.util.text.StringUtil;
-
+import com.fpt.petstore.util.BeanInspector;
+import com.fpt.petstore.util.StringUtil;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -346,7 +343,7 @@ public class SqlQueryTemplate extends SqlQueryParams {
     return this;
   }
 
-  public String toSql(ClientInfo client) { 
+  public String toSql() {
     StringBuilder b = new StringBuilder();
     b.append("SELECT ");
     b.append("\n");
@@ -391,7 +388,7 @@ public class SqlQueryTemplate extends SqlQueryParams {
         b.append(selOuterJoin);
       }
     }
-    String filterClauses = buildClauses(client);
+    String filterClauses = buildClauses();
     if(filterClauses != null) {
       b.append("\n");
       b.append("WHERE\n").
@@ -427,7 +424,7 @@ public class SqlQueryTemplate extends SqlQueryParams {
     return  b.toString(); 
   }
 
-  String buildClauses(ClientInfo client) {
+  String buildClauses() {
     StringBuilder b = new StringBuilder();
     
     if(joins != null && joins.size() > 0) {
