@@ -1,29 +1,33 @@
 /**
- * 
+ *
  */
 package com.fpt.petstore.services;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import com.fpt.petstore.entities.Product;
+import com.fpt.petstore.core.dao.DAOService;
+import com.fpt.petstore.core.dao.query.SimpleFilter;
+import com.fpt.petstore.core.dao.query.SqlQueryParams;
+import com.fpt.petstore.core.dao.query.SqlQueryTemplate;
+import com.fpt.petstore.entities.Food;
+import com.fpt.petstore.entities.Food.FoodType;
+import com.fpt.petstore.repository.FoodRepository;
+import com.fpt.petstore.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
-import com.fpt.petstore.entities.Food;
-import com.fpt.petstore.entities.Food.FoodType;
-import com.fpt.petstore.repository.FoodRepository;
-import com.fpt.petstore.util.DateUtil;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import static com.fpt.petstore.core.dao.query.Filter.FilterType.STRING_LIKE;
 
 /**
  * @author linuss
  */
 
 @Component
-public class FoodLogic {
+public class FoodLogic extends DAOService {
 
   @Autowired
   FoodRepository repo;
@@ -68,7 +72,22 @@ public class FoodLogic {
     return repo.countFood();
   }
 
+  SqlQueryTemplate createMasterInvoiceQuery(SqlQueryParams params) {
+    SqlQueryTemplate.EntityTable TABLE = new SqlQueryTemplate.EntityTable(Food.class, "m");
+    SqlQueryTemplate query = new SqlQueryTemplate("accounting", "MasterInvoice", "Search Master Invoices").
+      SELECT_FROM(TABLE).
+      FILTER(new SimpleFilter("search", STRING_LIKE, "m.code LIKE :search")).
+      ORDERBY(new String[] { "path" }, "path", "DESC");
+    if (params != null) {
+      query.mergeValue(params);
+    }
+    return query;
+  }
 
+  List<Map<String, Object>> searchMasterInvoices(SqlQueryParams params) {
+    SqlQueryTemplate query = createMasterInvoiceQuery(params);
+    return query(query).getMapRecords();
+  }
 
   public Page<Food> listFoodbyPage(Pageable pageable) {
     return repo.listFoodbyPage(pageable);
