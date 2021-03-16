@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.fpt.petstore.repository;
 
 import com.fpt.petstore.entities.Customer;
