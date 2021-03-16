@@ -27,6 +27,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author linuss
+ */
+
 @Repository
 public class JDBCDAOSupport extends org.springframework.jdbc.core.support.JdbcDaoSupport {
   static final Logger logger = LoggerFactory.getLogger(JDBCDAOSupport.class);

@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.persistence.Table;
 import java.util.List;
 
+/**
+ * @author linuss
+ */
+
 public class DAOService {
 	@Autowired
 	protected JDBCDAOSupport daoSupport;

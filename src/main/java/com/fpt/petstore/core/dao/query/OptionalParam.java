@@ -8,10 +8,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * @author Tuan Nguyen
- *         tuan.nguyen@ahaysoft.com
- *
+ * @author linuss
  */
+
 @NoArgsConstructor
 @Getter @Setter
 public class OptionalParam {

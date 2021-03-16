@@ -72,12 +72,12 @@ public class FoodLogic extends DAOService {
     return repo.countFood();
   }
 
-  SqlQueryTemplate createMasterInvoiceQuery(SqlQueryParams params) {
+  SqlQueryTemplate createFoodQuery(SqlQueryParams params) {
     SqlQueryTemplate.EntityTable TABLE = new SqlQueryTemplate.EntityTable(Food.class, "m");
-    SqlQueryTemplate query = new SqlQueryTemplate("accounting", "MasterInvoice", "Search Master Invoices").
+    SqlQueryTemplate query = new SqlQueryTemplate("petstore", "food", "Search foods").
       SELECT_FROM(TABLE).
       FILTER(new SimpleFilter("search", STRING_LIKE, "m.code LIKE :search")).
-      ORDERBY(new String[] { "path" }, "path", "DESC");
+      ORDERBY(new String[] { "code" }, "code", "DESC");
     if (params != null) {
       query.mergeValue(params);
     }
@@ -85,7 +85,7 @@ public class FoodLogic extends DAOService {
   }
 
   public List<Map<String, Object>> searchMasterInvoices(SqlQueryParams params) {
-    SqlQueryTemplate query = createMasterInvoiceQuery(params);
+    SqlQueryTemplate query = createFoodQuery(params);
     return query(query).getMapRecords();
   }
 

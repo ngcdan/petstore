@@ -20,6 +20,10 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import javax.sql.DataSource;
 import java.util.HashMap;
 
+/**
+ * @author linuss
+ */
+
 @Configuration
 @ComponentScan(basePackages = { "com.fpt.petstore" })
 @EnableConfigurationProperties

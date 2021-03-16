@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.fpt.petstore.entities;
 
 import java.util.Date;

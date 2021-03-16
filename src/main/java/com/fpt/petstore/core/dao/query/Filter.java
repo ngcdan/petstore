@@ -5,7 +5,6 @@ import com.fpt.petstore.util.StringUtil;
 import lombok.Getter;
 import lombok.Setter;
 
-
 abstract public class Filter {
   static public enum FilterType {STRING, STRING_LIKE, DATE, INTEGER, LONG, DOUBLE }
 
