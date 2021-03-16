@@ -10,6 +10,7 @@ import com.fpt.petstore.core.dao.query.Filter;
 import com.fpt.petstore.core.dao.query.SimpleFilter;
 import com.fpt.petstore.core.dao.query.SqlQueryParams;
 import com.fpt.petstore.services.FoodLogic;
+import com.fpt.petstore.services.OrderLogic;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -35,6 +36,9 @@ class PetStoreApplicationTests {
 
 	@Autowired
 	OrderRepository orderRepo;
+
+	@Autowired
+	OrderLogic orderLogic;
 
 	@Autowired
 	FoodLogic foodLogic;
@@ -82,6 +86,18 @@ class PetStoreApplicationTests {
 		List<Map<String, Object>> maps = foodLogic.searchMasterInvoices(searchParams);
 		assertNotNull(maps);
 		System.out.println(maps);
+	}
+
+	@Test
+	public void testSearchOrder() throws Exception {
+		SqlQueryParams searchParams =
+			new SqlQueryParams().
+				FILTER(new SimpleFilter("search", Filter.FilterType.STRING_LIKE).withValue("*")).
+				ORDERBY(new String[] { "code" }, "code", "DESC");
+
+		List<Map<String, Object>> orders = orderLogic.searchOrders(searchParams);
+		assertNotNull(orders);
+		assertTrue(orders.size() > 0);
 	}
 
 }
