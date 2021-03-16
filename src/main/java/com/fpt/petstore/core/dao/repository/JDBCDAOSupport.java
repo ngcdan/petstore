@@ -1,12 +1,13 @@
-package com.openfreightone.module.core.dao.repository;
+package com.fpt.petstore.core.dao.repository;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import javax.persistence.Table;
-import javax.sql.DataSource;
-
+import com.fpt.petstore.core.dao.SqlResultSetExtractor;
+import com.fpt.petstore.core.dao.SqlSelectView;
+import com.fpt.petstore.core.dao.SqlUpdate;
+import com.fpt.petstore.core.dao.query.OptionFilter;
+import com.fpt.petstore.core.dao.query.RangeFilter;
+import com.fpt.petstore.core.dao.query.SimpleFilter;
+import com.fpt.petstore.core.dao.query.SqlQueryTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +21,11 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
-import com.openfreightone.module.common.ClientInfo;
-import com.openfreightone.module.core.dao.SqlResultSetExtractor;
-import com.openfreightone.module.core.dao.SqlSelectView;
-import com.openfreightone.module.core.dao.SqlUpdate;
-import com.openfreightone.module.core.dao.query.OptionFilter;
-import com.openfreightone.module.core.dao.query.RangeFilter;
-import com.openfreightone.module.core.dao.query.SimpleFilter;
-import com.openfreightone.module.core.dao.query.SqlQueryTemplate;
-import com.openfreightone.util.dataformat.DataSerializer;
+import javax.persistence.Table;
+import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Repository
 public class JDBCDAOSupport extends org.springframework.jdbc.core.support.JdbcDaoSupport {
@@ -45,7 +42,7 @@ public class JDBCDAOSupport extends org.springframework.jdbc.core.support.JdbcDa
     namedJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
   }
   
-  private Map<String, Object> createParameters(ClientInfo client, SqlQueryTemplate query) {
+  private Map<String, Object> createParameters(SqlQueryTemplate query) {
     Map<String, Object> parameters = new HashMap<String, Object>();
 
     SqlQueryTemplate.InFilter inFilter = query.getInFilter();
@@ -84,60 +81,25 @@ public class JDBCDAOSupport extends org.springframework.jdbc.core.support.JdbcDa
     return parameters ;
   }
   
-  public SqlSelectView query(ClientInfo client, SqlQueryTemplate query) {
-    Map<String, Object> parameters = createParameters(client, query);
-    String sql = query.toSql(client);
-    
-    if(logger.isDebugEnabled()) {
-      StringBuilder b = new StringBuilder("\n");
-      b.append("Params: ").append(DataSerializer.JSON.toString(parameters)).append("\n").
-        append("Select Fields: ").append(DataSerializer.JSON.toString(query.selectFields())).append("\n").
-        append("SQL: ").append(sql);
-      logger.debug(b.toString());
-    }
+  public SqlSelectView query(SqlQueryTemplate query) {
+    Map<String, Object> parameters = createParameters(query);
+    String sql = query.toSql();
     return namedJdbcTemplate.query(sql, parameters, new SqlResultSetExtractor(query.selectFields()));
   }
   
-  public <T> List<T> query(ClientInfo client, SqlQueryTemplate query, Class<T> type) {
-    Map<String, Object> parameters = createParameters(client, query);
-    String sql = query.toSql(client);
-    StringBuilder b = new StringBuilder("\n");
-    if(logger.isDebugEnabled()) {
-      b.append("Params: ").append(DataSerializer.JSON.toString(parameters)).append("\n").
-        append("Select Fields: ").append(DataSerializer.JSON.toString(query.selectFields())).append("\n").
-        append("SQL: ").append(sql);
-      logger.debug(b.toString());
-    }
+  public <T> List<T> query(SqlQueryTemplate query, Class<T> type) {
+    Map<String, Object> parameters = createParameters(query);
+    String sql = query.toSql();
     return namedJdbcTemplate.query(sql, parameters, new BeanPropertyRowMapper<>(type));
   }
-  
-  public <T> List<Map<String, Object>> queryForList(ClientInfo client, SqlQueryTemplate query) {
-    Map<String, Object> parameters = createParameters(client, query);
-    String sql = query.toSql(client);
-    StringBuilder b = new StringBuilder("\n");
-    if(logger.isDebugEnabled()) {
-      b.append("Params: ").append(DataSerializer.JSON.toString(parameters)).append("\n").
-      append("Select Fields: ").append(DataSerializer.JSON.toString(query.selectFields())).append("\n").
-      append("SQL: ").append(sql);
-      logger.debug(b.toString());
-    }
-    return namedJdbcTemplate.queryForList(sql, parameters);
-  }
-  
-  public <T> List<T> query(ClientInfo client, SqlQueryTemplate query, RowMapper<T> mapper) {
-    Map<String, Object> parameters = createParameters(client, query);
-    String sql = query.toSql(client);
-    if(logger.isDebugEnabled()) {
-      StringBuilder b = new StringBuilder("\n");
-      b.append("Params: ").append(DataSerializer.JSON.toString(parameters)).append("\n").
-        append("Select Fields: ").append(DataSerializer.JSON.toString(query.selectFields())).append("\n").
-        append("SQL: ").append(sql);
-      logger.debug(b.toString());
-    }
+
+  public <T> List<T> query(SqlQueryTemplate query, RowMapper<T> mapper) {
+    Map<String, Object> parameters = createParameters(query);
+    String sql = query.toSql();
     return namedJdbcTemplate.query(sql, parameters, mapper);
   }
 
-  public void update(ClientInfo client, SqlUpdate<?> sqlUpdate) {
+  public void update(SqlUpdate<?> sqlUpdate) {
     if(sqlUpdate.getEntities().size() == 0) return;
     String sql = sqlUpdate.toUpdateSql();
     List<SqlUpdate.UpdateEntity> updateEntities = sqlUpdate.getEntities();

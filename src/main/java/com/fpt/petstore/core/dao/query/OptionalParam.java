@@ -1,9 +1,8 @@
-package com.openfreightone.module.core.dao.query;
+package com.fpt.petstore.core.dao.query;
 
-import org.hsqldb.lib.StringUtil;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import com.fpt.petstore.util.StringUtil;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,7 +24,7 @@ public class OptionalParam {
   }
   
   @JsonIgnore
-  public boolean hasValue() { return !StringUtil.isEmpty(value); }
+  public boolean hasValue() { return ! StringUtil.isEmpty(value); }
   
   public String format(String template) {
     if(value == null) return null;

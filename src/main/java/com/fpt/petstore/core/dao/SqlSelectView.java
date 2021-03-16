@@ -1,4 +1,4 @@
-package com.openfreightone.module.core.dao;
+package com.fpt.petstore.core.dao;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,10 +17,9 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fpt.petstore.util.DateUtil;
+import com.fpt.petstore.util.StringUtil;
 
-import com.openfreightone.util.text.DateUtil;
-import com.openfreightone.util.text.StringUtil;
-import com.openfreightone.util.text.TabularFormater;
 
 public class SqlSelectView {
   private String[]   columns;
@@ -72,14 +71,6 @@ public class SqlSelectView {
   
   public SqlMapRecord getMapRecord(int row) { return new SqlMapRecord(columns, values[row]); }
   
-  public void dump() { dump(null); }
-  
-  public void dump(String title) {
-    TabularFormater tFormater = new TabularFormater(columns);
-    if(title != null) tFormater.setTitle(title);
-    tFormater.addRows(values);
-    System.out.println(tFormater.getFormattedText());
-  }
 
   static public class CellDeserializer extends JsonDeserializer<Object> {
     public Object deserialize(JsonParser jsonParser, DeserializationContext ctx) throws IOException {

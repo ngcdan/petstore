@@ -1,4 +1,4 @@
-package com.openfreightone.module.core.dao.query;
+package com.fpt.petstore.core.dao.query;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;

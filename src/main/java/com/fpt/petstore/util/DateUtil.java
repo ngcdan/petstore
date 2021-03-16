@@ -9,6 +9,13 @@ public class DateUtil {
   final static public String LOCAL_DATETIME_FORMAT   = "dd/MM/yyyy@HH:mm:ss";  // sample 31/07/2020@11:26:07
   final static public String COMPACT_DATETIME_FORMAT = "dd/MM/yyyy@HH:mm:ssZ";
   final static public String COMPACT_DATE_FORMAT = "dd/MM/yyyy";// sample 31/07/2020
+
+  private static final ThreadLocal<SimpleDateFormat> COMPACT_DATETIME = new ThreadLocal<SimpleDateFormat>() {
+    @Override
+    protected SimpleDateFormat initialValue() {
+      return new SimpleDateFormat(COMPACT_DATETIME_FORMAT);
+    }
+  };
   
   final static public SimpleDateFormat TIME_WITHOUT_SECOND        = new SimpleDateFormat("HH:mm");
   final static public SimpleDateFormat TIME                       = new SimpleDateFormat("HH:mm:ss");
@@ -33,6 +40,20 @@ public class DateUtil {
     } catch (ParseException e) {
       throw new RuntimeException(exp);
     }
+  }
+
+  static public Date parseCompactDateTime(String exp) {
+    try {
+      if(StringUtil.isEmpty(exp)) return null;
+      return COMPACT_DATETIME.get().parse(exp) ;
+    } catch (ParseException e) {
+      throw new RuntimeException(exp);
+    }
+  }
+
+  static public String asCompactDateTime(Date date) {
+    if(date == null) return null;
+    return COMPACT_DATETIME.get().format(date) ;
   }
 
   public static boolean isCompactDateFormat(String exp) {
