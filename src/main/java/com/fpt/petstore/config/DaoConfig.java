@@ -40,8 +40,8 @@ public class DaoConfig {
 
 	@Bean("datasource")
 	public DataSource dataSource(
-		@Value("${db.jdbc.driver:org.hsqldb.jdbcDriver}") String jdbcDriver,
-		@Value("${db.jdbc.url:jdbc:hsqldb:mem:testdb}") String jdbcUrl,
+		@Value("${db.jdbc.driver:org.h2.Driver}") String jdbcDriver,
+		@Value("${db.jdbc.url:jdbc:h2:mem:testdb}") String jdbcUrl,
 		@Value("${db.jdbc.username:sa}")  String jdbcUser,
 		@Value("${db.jdbc.password:}") String jdbcPassword) {
 		HikariDataSource ds = new HikariDataSource();
@@ -56,7 +56,7 @@ public class DaoConfig {
 	@Bean("entityManagerFactory")
 	public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(
 		@Value("${hibernate.hbm2ddl.auto:update}") String hbm2ddlAuto,
-		@Value("${hibernate.dialect:org.hibernate.dialect.HSQLDialect}") String hibernateDialect,
+		@Value("${hibernate.dialect:org.hibernate.dialect.H2Dialect}") String hibernateDialect,
 		@Value("${hibernate.show_sql:false}") String hibernateShowSql,
 		@Qualifier("datasource") DataSource ds,
 		@Qualifier("validator") LocalValidatorFactoryBean validator) {
