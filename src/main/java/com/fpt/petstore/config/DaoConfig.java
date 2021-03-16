@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
@@ -20,11 +21,13 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 
 @Configuration
+@ComponentScan(basePackages = { "com.fpt.petstore" })
 @EnableConfigurationProperties
 @EnableTransactionManagement
 @EnableJpaRepositories(
 	basePackages = {
-		"com.fpt.petstore.core.dao.repository"
+		"com.fpt.petstore.core.dao.repository",
+		"com.fpt.petstore.repository"
 	}
 )
 @EnableAspectJAutoProxy(proxyTargetClass=true)

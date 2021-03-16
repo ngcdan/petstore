@@ -84,7 +84,7 @@ public class FoodLogic extends DAOService {
     return query;
   }
 
-  List<Map<String, Object>> searchMasterInvoices(SqlQueryParams params) {
+  public List<Map<String, Object>> searchMasterInvoices(SqlQueryParams params) {
     SqlQueryTemplate query = createMasterInvoiceQuery(params);
     return query(query).getMapRecords();
   }
