@@ -81,8 +81,8 @@ public class OrderLogic extends DAOService {
         new SqlQueryTemplate.Field("c.fullName",   "customerFullName"),
         new SqlQueryTemplate.Field("e.username", "employeeUsername"),
         new SqlQueryTemplate.Field("e.fullName",   "employeeFullName")).
-      JOIN(new SqlQueryTemplate.Join("LEFT JOIN", Customer.class, "c").ON("c.id = i.customerId")).
-      JOIN(new SqlQueryTemplate.Join("LEFT JOIN", Employee.class, "e").ON("e.id = i.employeeId")).
+      JOIN(new SqlQueryTemplate.Join("LEFT JOIN", Customer.class, "c").ON("c.id = o.customerId")).
+      JOIN(new SqlQueryTemplate.Join("LEFT JOIN", Employee.class, "e").ON("e.id = o.employeeId")).
       FILTER(new SimpleFilter("search", STRING_LIKE, searchFields)).
       ORDERBY(new String[] { "code" }, "code", "DESC");
     if (params != null) {
