@@ -45,7 +45,7 @@
         <div class="row">
             <div class="col-lg-2 col-md-1">
                 <div class="header__logo">
-                    <a href="/"><img src="img/logo1.png" alt=""></a>
+                    <a href="/"><img src="/img/logo1.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-8 col-md-1">
