@@ -5,18 +5,14 @@ package com.fpt.petstore.services;
 
 import java.util.List;
 
+import com.fpt.petstore.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fpt.petstore.entities.Customer;
-import com.fpt.petstore.entities.Employee;
-import com.fpt.petstore.entities.Food;
 import com.fpt.petstore.entities.Food.FoodType;
-import com.fpt.petstore.entities.Order;
-import com.fpt.petstore.entities.Product;
 import com.fpt.petstore.entities.Product.ProductType;
 
 /**

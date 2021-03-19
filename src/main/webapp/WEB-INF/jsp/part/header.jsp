@@ -13,23 +13,23 @@
             <div class="row">
                 <div class="col-lg-6 col-md-7">
                     <div class="header__top__left">
-                        <p>Miễn phí ship khi đơn hàng trên 500.000 VNĐ</p>
+                        <p>Mua những vật dụng thú cưng chỉ có tại PetStore</p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-5">
                     <div class="header__top__right">
-                        <h4 style="color:white">${error}</h4>
                         <div class="header__top__links">
                             <c:choose>
                                 <c:when test="${customer.email == null}">
-                                    <a href="#" data-target="#loginModal" data-toggle="modal">Sign in</a>
+                                    <a href="#" data-target="#loginModal" data-toggle="modal">Đăng nhập</a>
                                 </c:when>
                                 <c:otherwise>
-                                    <div class="header__top__hover">
+                                    <div style="width:230px" class="header__top__hover">
                                         <span>Hello <strong style="color:#e53637">${customer.fullName}</strong> <em
                                             class="arrow_carrot-down"></em></span>
                                         <ul>
-                                            <li class="custom">Thông tin</li>
+                                            <li class="custom"><a href="/information">Thông tin</a></li>
+                                            <li class="custom"><a href="/lich-su-giao-dich">Lịch sử giao dịch</a></li>
                                             <li><a href="/loggout" id="logout">Đăng xuất</a></li>
                                         </ul>
                                     </div>
@@ -75,13 +75,10 @@
             </div>
             <div class="col-lg-2 col-md-1">
                 <div class="header__nav__option">
-                    <a href="#"><img src="/img/icon/heart.png" alt=""></a>
-                    <a  href="javascript:void(0)" data-toggle="modal" data-target="#cartModal"><img src="/img/icon/cart.png" alt=""> <span>0</span></a>
-                    <div class="price">0VNĐ</div>
+                        <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal2"><i class="fa fa-cart-plus"></i></button>
                 </div>
             </div>
         </div>
-        <div class="canvas__open"><i class="fa fa-bars"></i></div>
     </div>
 </header>
 <!-- Header Section End -->

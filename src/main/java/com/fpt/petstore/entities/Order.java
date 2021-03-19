@@ -5,6 +5,7 @@ package com.fpt.petstore.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -118,4 +119,14 @@ public class Order extends AbstractPersistable<Long> {
     return this;
   }
 
+  public Order(@NotNull String code, String label, Customer customer, List<Payment> payments, List<OrderItem> orderItems, @NotNull @DecimalMin(value = "0") int total, String note, State state) {
+    this.code = code;
+    this.label = label;
+    this.customer = customer;
+    this.payments = payments;
+    this.orderItems = orderItems;
+    this.total = total;
+    this.note = note;
+    this.state = state;
+  }
 }

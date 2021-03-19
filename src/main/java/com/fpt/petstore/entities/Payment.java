@@ -31,28 +31,26 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Payment extends AbstractPersistable<Long> {
   
-  static public enum TransactionType { Cash, Wire, CreditCard, CustomerCredit }
+  static public enum TransactionType { Cash, Wire, ATM, CustomerCredit }
   
   @NotNull
   private String bankAccountId;
   
   @NotNull
   private TransactionType transactionType = TransactionType.Cash;
-  
-  @NotNull
-  @DecimalMin(value = "0")
-  private double amount; // so tien ( co the thanh toan nhieu lan hoac nhieu kieu )
-  
+
   private String currency = "VND";
   
   @JsonFormat(pattern = DateUtil.COMPACT_DATETIME_FORMAT)
   private Date  transactionDate = new Date();
-  
-  @Column(length = 65536)
-  private String          note;
+
   
   public Payment(String bankAccount) {
     this.bankAccountId = bankAccount;
   }
 
+  public Payment(@NotNull String bankAccountId, @NotNull TransactionType transactionType) {
+    this.bankAccountId = bankAccountId;
+    this.transactionType = transactionType;
+  }
 }

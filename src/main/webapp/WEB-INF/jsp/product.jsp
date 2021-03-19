@@ -9,7 +9,6 @@
     <jsp:include page="part/head.jsp" />
     <title>${title}</title>
 
-
 </head>
 
 <body>
@@ -71,7 +70,7 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="shop__product__option__left">
-                                    <p>Showing 1–12 of 126 results</p>
+                                    <p>Showing ${productPerPage} of ${numberProduct} results</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
@@ -127,10 +126,11 @@
                               <c:forEach var ="state" items="${pageSize}">
                                   <c:choose >
                                       <c:when test="${(state+1) eq currentPage}">
-                                          <a class="active" href="/vat-pham-thu-cung/${state+1}">${state+1}</a>
+
+                                          <a class="active" href="/shop/${category}/${state+1}">${state+1}</a>
                                       </c:when>
                                       <c:otherwise>
-                                          <a href="/vat-pham-thu-cung/${state+1}">${state+1}</a>
+                                          <a href="/shop/${category}/${state+1}">${state+1}</a>
                                       </c:otherwise>
                                   </c:choose>
                               </c:forEach>

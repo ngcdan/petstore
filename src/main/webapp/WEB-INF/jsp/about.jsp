@@ -81,7 +81,7 @@
                     </p>
                     <div class="testimonial__author"> 
                         <div class="testimonial__author__pic">
-                            <img src="/img/about/testimonial-author.jpg" alt="">
+                            <img src="/img/about/customer-default.jpg" alt="">
                         </div>
                         <div class="testimonial__author__text">
                             <h5>Thanh Phương</h5>
@@ -154,35 +154,35 @@
         <div class="row">
             <div class="col-lg-2 col-md-6 col-sm-6">
                 <div class="team__item">
-                    <img src="img/about/team-1.jpg" alt="">
+                    <img src="/img/about/customer-default.jpg" alt="">
                     <h4>Lưu Nguyễn Thanh Phương</h4>
                     <span>Thành Viên</span>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-6">
                 <div class="team__item">
-                    <img src="img/about/team-2.jpg" alt="">
+                    <img src="/img/about/customer-default.jpg" alt="">
                     <h4>Nguyễn Tấn Trọng</h4>
                     <span>Thành Viên</span>
                 </div>
             </div>
             <div class="col-lg-4 col-md-5 col-sm-5">
                 <div class="team__item">
-                    <img src="img/about/team-3.jpg" alt="">
+                    <img src="/img/about/customer-default.jpg" alt="">
                     <h4>Nguyễn Thị Thanh Phương</h4>
                     <span>Nhóm Trưởng</span>
                 </div>
             </div>
              <div class="col-lg-2 col-md-6 col-sm-6">
                 <div class="team__item">
-                    <img src="img/about/team-3.jpg" alt="">
+                    <img src="/img/about/customer-default.jpg" alt="">
                     <h4>Sean Robbins</h4>
                     <span>Manager</span>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-6">
                 <div class="team__item">
-                    <img src="img/about/team-4.jpg" alt="">
+                    <img src="/img/about/customer-default.jpg" alt="">
                     <h4>Lucy Myers</h4>
                     <span>Delivery</span>
                 </div>

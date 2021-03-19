@@ -7,7 +7,7 @@
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="footer__about">
 					<div class="footer__logo">
-						<a href="#"><img src="img/m.png" alt=""></a>
+						<a href="#"><img src="/img/m.png" alt=""></a>
 					</div>
 					<p>Welcome To PETS Coffee And Services</p>
 			 <div class="hero__social1">

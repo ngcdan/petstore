@@ -32,17 +32,19 @@ public class OrderItem extends AbstractPersistable<Long> {
   @NotNull
   String name;
   String label;
-  String category;
+
+  String category;//giu cai nay lai tui lam cai kia ay k co van de gi dau
   
   @Column(length=1024 * 32)
   String description;
 
   @DecimalMin(value = "0")
-  double quantity=1;
+  int quantity=1; // kiem tra item trung name thi quantity +=1
+  // ko trung thi set quantity la 1
 
   @NotNull
   @DecimalMin(value = "0")
-  double total;
+  int total;
 
   String currency = "VND";
   @ManyToOne(optional = true)
@@ -52,16 +54,15 @@ public class OrderItem extends AbstractPersistable<Long> {
   @JoinColumn(name = "foodId", nullable = true)
   private Food food;
 
-  public OrderItem(Product product, @NotNull @DecimalMin(value = "0") double total ) {
+  public OrderItem(Product product, @NotNull @DecimalMin(value = "0") int total ) {
     this.product = product;
     this.total = total;
 
   }
 
-  public OrderItem( Food food,@NotNull @DecimalMin(value = "0") double total) {
+  public OrderItem( Food food,@NotNull @DecimalMin(value = "0") int total) {
     this.food = food;
     this.total = total;
-
   }
 
   public OrderItem withProduct(Product product) {
@@ -82,12 +83,12 @@ public class OrderItem extends AbstractPersistable<Long> {
     return this;
   }
 
-  public OrderItem withQuantity(double quantity) {
+  public OrderItem withQuantity(int quantity) {
     this.quantity = quantity;
     return this;
   }
 
-  public OrderItem withTotal(double total) {
+  public OrderItem withTotal(int total) {
     this.total = total;
     return this;
   }

@@ -10,3 +10,13 @@
 <script src="/js/mixitup.min.js"></script>
 <script src="/js/owl.carousel.min.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/notifications.js"></script>
+<script src="/js/messageNotification.js"></script>
+<script src="/js/500er.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function() {
+        if ("${messageNotification}" !== "" || "${messageNotification}" !== null) {
+            clickMessage("${messageNotification}","${themeNotification}","${titleNotification}");
+        }
+    });
+</script>

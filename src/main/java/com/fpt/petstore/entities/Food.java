@@ -45,7 +45,7 @@ public class Food extends AbstractPersistable<Long> {
   @DecimalMin(value = "0")
   private int price;
 
-  private String pic;
+  private String pic="snack.jpg";
 
   @Column(length=1024 * 32)
   private String description;
