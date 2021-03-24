@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.fpt.petstore.data;
 
 import com.fpt.petstore.entities.*;

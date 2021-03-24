@@ -22,6 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 		Customer customer =
 			Optional.of(customerRepo.findByUsername(username)).orElseThrow(() -> new UsernameNotFoundException(username));
-		return User.withUsername(customer.getUsername()).password(customer.getPassword()).authorities(String.valueOf(customer.getRole())).disabled(!customer.isVerified()).build();
+		return User.withUsername(customer.getUsername()).password(customer.getPassword()).authorities(String.valueOf(
+			customer.getRole())).disabled(!customer.isVerified()).build();
 	}
 }

@@ -99,5 +99,4 @@ class PetStoreApplicationTests {
 		assertNotNull(orders);
 		assertTrue(orders.size() > 0);
 	}
-
 }

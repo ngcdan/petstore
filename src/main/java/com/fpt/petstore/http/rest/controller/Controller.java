@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.fpt.petstore.http.rest.controller;
 
 import java.util.List;
