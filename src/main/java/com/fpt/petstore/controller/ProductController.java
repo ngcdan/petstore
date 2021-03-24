@@ -58,8 +58,11 @@ public class ProductController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
             //set attribute session
             session.setAttribute("listCart", listCart);
+        }
+
             if (category.equalsIgnoreCase(CATEGORY_PRODUCT)) {
 
                 Integer countproduct = petStoreService.countProduct();
@@ -91,7 +94,7 @@ public class ProductController {
                     return "/error/404error";
                 }
             }
-        }
+
         return "product";
     }
 
