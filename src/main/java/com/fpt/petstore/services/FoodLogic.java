@@ -68,6 +68,7 @@ public class FoodLogic extends DAOService {
     food.setCode("food-" + food.getName() + DateUtil.asCompactDateTimeId(new Date()));
     return food;
   }
+
   public Integer countFood(){
     return repo.countFood();
   }
