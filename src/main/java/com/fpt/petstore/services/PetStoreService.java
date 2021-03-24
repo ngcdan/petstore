@@ -51,6 +51,10 @@ public class PetStoreService {
   }
 
   @Transactional
+  public Customer findCustomerbyEmail(String email){
+    return customerLogic.findCustomerbyEmail(email);
+  }
+  @Transactional
   public Customer customerLogin(String email,String password){
     return customerLogic.customerLogin(email,password);
   }

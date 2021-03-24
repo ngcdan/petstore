@@ -56,7 +56,7 @@ public class AppController {
     }
 
     @GetMapping(value = {"/"})
-    public String viewHome(ModelMap modelMap, HttpSession session) {
+    public String viewHome() {
 
         return redirect + "trang-chu";
     }

@@ -1,14 +1,17 @@
 package com.fpt.petstore.controller;
 
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fpt.petstore.entities.*;
 import com.fpt.petstore.services.CookieService;
+import com.fpt.petstore.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -40,36 +43,53 @@ public class ProductController {
     @Autowired
     private CookieService cookieService;
     @GetMapping("/{category}/{page}")
-    public String viewProduct(@PathVariable(value = "category") String category, @PathVariable(value = "page") int page, ModelMap model) {
-        if (category.equalsIgnoreCase(CATEGORY_PRODUCT)) {
-            //phan trang cho cart
-            Integer countproduct = petStoreService.countProduct();
-            Page<Product> listProductbyPage = petStoreService.listProductbyPage(PageRequest.of(page - 1, PRODUCTPERPAGE));
-            List<Integer> listPage = petStoreService.calculateTotalPage(countproduct, PRODUCTPERPAGE);
-            model.addAttribute("pageSize", listPage);
-            model.addAttribute("listProduct", listProductbyPage.getContent());
-            model.addAttribute("currentPage", page);
-            model.addAttribute("category", CATEGORY_PRODUCT);
-            model.addAttribute("title", TITLE_PRODUCT);
-            model.addAttribute("numberProduct",countproduct);
-            model.addAttribute("productPerPage",PRODUCTPERPAGE);
-
-            if (page > listPage.size()) {
-                return "error/404error";
+    public String viewProduct(@PathVariable(value = "category") String category, @PathVariable(value = "page") int page, ModelMap model,HttpSession session) {
+        //phan trang cho cart
+        String listCartAsJson = cookieService.getValue("listCart", "");
+        //if json list cart is empty
+        if (!StringUtil.isEmpty(listCartAsJson) && session.getAttribute("listCart") == null) {
+            Map<String, OrderItem> listCart = null;
+            try {
+                //decode json cookie and set to name session
+                listCartAsJson = URLDecoder.decode(listCartAsJson, StandardCharsets.UTF_8.toString());
+                //doc value json
+                listCart = new ObjectMapper().readValue(listCartAsJson, new TypeReference<Map<String, OrderItem>>() {
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } else {
-            Integer countFood = petStoreService.countFood();
-            Page<Food> listFoodperPage = petStoreService.listFoodPerPage(PageRequest.of(page - 1, PRODUCTPERPAGE));
-            List<Integer> listPage = petStoreService.calculateTotalPage(petStoreService.countFood(), PRODUCTPERPAGE);
-            model.addAttribute("pageSize", listPage);
-            model.addAttribute("listProduct", listFoodperPage.getContent());
-            model.addAttribute("currentPage", page);
-            model.addAttribute("category", CATEGORY_FOOD);
-            model.addAttribute("title", TITLE_FOOD);
-            model.addAttribute("numberProduct",countFood);
-            model.addAttribute("productPerPage",PRODUCTPERPAGE);
-            if (page > listPage.size()) {
-                return "/error/404error";
+            //set attribute session
+            session.setAttribute("listCart", listCart);
+            if (category.equalsIgnoreCase(CATEGORY_PRODUCT)) {
+
+                Integer countproduct = petStoreService.countProduct();
+                Page<Product> listProductbyPage = petStoreService.listProductbyPage(PageRequest.of(page - 1, PRODUCTPERPAGE));
+                List<Integer> listPage = petStoreService.calculateTotalPage(countproduct, PRODUCTPERPAGE);
+                model.addAttribute("pageSize", listPage);
+                model.addAttribute("listProduct", listProductbyPage.getContent());
+                model.addAttribute("currentPage", page);
+                model.addAttribute("category", CATEGORY_PRODUCT);
+                model.addAttribute("title", TITLE_PRODUCT);
+                model.addAttribute("numberProduct", countproduct);
+                model.addAttribute("productPerPage", PRODUCTPERPAGE);
+
+                if (page > listPage.size()) {
+                    return "error/404error";
+                }
+            } else {
+                Integer countFood = petStoreService.countFood();
+                Page<Food> listFoodperPage = petStoreService.listFoodPerPage(PageRequest.of(page - 1, PRODUCTPERPAGE));
+                List<Integer> listPage = petStoreService.calculateTotalPage(petStoreService.countFood(), PRODUCTPERPAGE);
+                model.addAttribute("pageSize", listPage);
+                model.addAttribute("listProduct", listFoodperPage.getContent());
+                model.addAttribute("currentPage", page);
+                model.addAttribute("category", CATEGORY_FOOD);
+                model.addAttribute("title", TITLE_FOOD);
+                model.addAttribute("numberProduct", countFood);
+                model.addAttribute("productPerPage", PRODUCTPERPAGE);
+                if (page > listPage.size()) {
+                    return "/error/404error";
+                }
             }
         }
         return "product";

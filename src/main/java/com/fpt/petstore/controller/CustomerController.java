@@ -55,6 +55,7 @@ public class CustomerController {
 
     @PostMapping(value = "/register")
     public String doARegister(@RequestParam Map<String, String> m, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+
         String referer = request.getHeader("Referer");
         String password = m.get("password");
         String confirm = m.get("confirmPassword");
@@ -63,7 +64,15 @@ public class CustomerController {
         String gender = m.get("radio");
         String address = m.get("address");
         String fullName = m.get("fullName");
+
         Customer customer = new Customer(email, phoneNumber, password, fullName, "", Customer.Gender.valueOf(gender), address);
+        Customer customer1 = petStoreService.findCustomerbyEmail(email);
+        if(customer1!=null){
+            redirectAttributes.addFlashAttribute(messageNotification, "Email trùng đã bị trùng. Vui lòng nhập email khác");
+            redirectAttributes.addFlashAttribute(themeNotification, "error");
+            redirectAttributes.addFlashAttribute(titleNotification, "Lỗi");
+            return redirectRefer + referer;
+        }
         if (email==null || password.equals("") || confirm.equals("") || phoneNumber.equals("") || gender.equals("") || address.equals("") || fullName.equals("")) {
             redirectAttributes.addFlashAttribute(messageNotification, "Không được để trống");
             redirectAttributes.addFlashAttribute(themeNotification, "error");
