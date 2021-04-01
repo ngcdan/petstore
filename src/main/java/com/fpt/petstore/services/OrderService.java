@@ -1,6 +1,7 @@
 package com.fpt.petstore.services;
 
 import com.fpt.petstore.core.dao.query.SqlQueryParams;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,6 +11,7 @@ import java.util.Map;
 @Service
 public class OrderService {
 
+	@Autowired
 	OrderLogic logic;
 
 	@Transactional(readOnly = true)
