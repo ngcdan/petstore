@@ -38,7 +38,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Order extends AbstractPersistable<Long> {
 
-
   static public enum State {
     PAID, DUE, CANCEL
   };
