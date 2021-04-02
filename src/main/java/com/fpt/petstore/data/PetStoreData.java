@@ -216,31 +216,30 @@ public class PetStoreData {
     .withPic("thucan-cho2.png");
   public static Product[] ALL_PRODUCTS = { product_1, product_2, product_3, product_4, product_5 };
 
-  public static Order order_1  = new Order("order_1 ");
-  public static Order order_2  = new Order("order_2 ");
-  public static Order order_3  = new Order("order_3 ");
-  public static Order order_4  = new Order("order_4 ");
-  public static Order order_5  = new Order("order_5 ");
-  public static Order order_6  = new Order("order_6 ");
-  public static Order order_7  = new Order("order_7 ");
-  public static Order order_8  = new Order("order_8 ");
-  public static Order order_9  = new Order("order_9 ");
-  public static Order order_10 = new Order("order_10");
-  public static Order order_11 = new Order("order_11");
-  public static Order order_12 = new Order("order_12");
-  public static Order order_13 = new Order("order_13");
-  public static Order order_14 = new Order("order_14");
-  public static Order order_15 = new Order("order_15");
-  public static Order order_16 = new Order("order_16");
-  public static Order order_17 = new Order("order_17");
-  public static Order order_18 = new Order("order_18");
-  public static Order order_19 = new Order("order_19");
-  public static Order order_20 = new Order("order_20");
+  public static Order order_1  = new Order("order_1 ").withCreatedTime("12/12/2020 18:20:20");
+  public static Order order_2  = new Order("order_2 ").withCreatedTime("11/6/2020 10:20:20");
+  public static Order order_3  = new Order("order_3 ").withCreatedTime("13/5/2020 12:20:20");
+  public static Order order_4  = new Order("order_4 ").withCreatedTime("14/3/2020 13:20:20");
+  public static Order order_5  = new Order("order_5 ").withCreatedTime("15/2/2020 14:20:20");
+  public static Order order_6  = new Order("order_6 ").withCreatedTime("16/4/2020 15:20:20");
+  public static Order order_7  = new Order("order_7 ").withCreatedTime("17/7/2020 16:20:20");
+  public static Order order_8  = new Order("order_8 ").withCreatedTime("18/6/2020 16:20:20");
+  public static Order order_9  = new Order("order_9 ").withCreatedTime("19/5/2020 17:20:20");
+  public static Order order_10 = new Order("order_10").withCreatedTime("20/1/2020 18:20:20");
+  public static Order order_11 = new Order("order_11").withCreatedTime("21/3/2020 13:20:20");
+  public static Order order_12 = new Order("order_12").withCreatedTime("22/4/2020 12:20:20");
+  public static Order order_13 = new Order("order_13").withCreatedTime("23/3/2020 11:20:20");
+  public static Order order_14 = new Order("order_14").withCreatedTime("23/2/2020 12:20:20");
+  public static Order order_15 = new Order("order_15").withCreatedTime("25/7/2020 13:20:20");
+  public static Order order_16 = new Order("order_16").withCreatedTime("24/6/2020 14:20:20");
+  public static Order order_17 = new Order("order_17").withCreatedTime("26/5/2020 15:20:20");
+  public static Order order_18 = new Order("order_18").withCreatedTime("10/4/2020 15:20:20");
+  public static Order order_19 = new Order("order_19").withCreatedTime("22/3/2020 13:20:20");
+  public static Order order_20 = new Order("order_20").withCreatedTime("10/1/2020 12:20:20");
 
   public static Order[] ALL_ORDERS = { order_1, order_2, order_3, order_4, order_5, order_6, order_10, order_11,
     order_12, order_13, order_14, order_15, order_16, order_17, order_18, order_19, order_20, order_7, order_8,
     order_9 };
-
   public static List<Order> createDataOrder() {
     List<Order> orders = new ArrayList<>();
     for (Order order : ALL_ORDERS) {

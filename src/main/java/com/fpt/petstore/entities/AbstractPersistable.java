@@ -44,10 +44,10 @@ public abstract class AbstractPersistable<PK extends Serializable> implements Pe
   }
 
   @JsonFormat(pattern = DateUtil.LOCAL_DATETIME_FORMAT)
-  private Date createdTime;
+  protected Date createdTime;
 
   @JsonFormat(pattern = DateUtil.LOCAL_DATETIME_FORMAT)
-  private Date updatedTime;
+  protected Date updatedTime;
   
   @PrePersist
   protected void prePersist() {

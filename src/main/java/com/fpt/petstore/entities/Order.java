@@ -1,5 +1,9 @@
 package com.fpt.petstore.entities;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -112,6 +116,17 @@ public class Order extends AbstractPersistable<Long> {
     if (orderItems == null)
       orderItems = new ArrayList<>();
     orderItems.add(item);
+    return this;
+  }
+  public Order withCreatedTime(String date)  {
+    String pattern = "dd/MM/yyyy HH:mm:ss";
+    try{
+      DateFormat df = new SimpleDateFormat(pattern);
+      Date formattDate =  df.parse(date);
+      this.createdTime = formattDate;
+    }catch(Exception e){
+      e.printStackTrace();
+    }
     return this;
   }
 
