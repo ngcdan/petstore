@@ -13,18 +13,7 @@ import java.util.Random;
  */
 
 public class PetStoreData {
-  static String[] ADDRESSES = { "Hà Nội", "Hải Phòng", "Thành phố Hồ Chí Minh", "Quảng Ninh", "Bạc Liêu", "Tây Ninh",
-    "Tuyên Quang" };
-
-  static String[] PHONES = { "+84971523160", "+84972350852", "+84978343191", "+84977443785", "+84975830117",
-    "+84975097604", "+84979002974", "+84976505077", "+84971541554", "+84978486367", "+84974829834", "+84979422506",
-    "+84978504106", "+84979234893", "+84972099083", "+84979622655", "+84974686801", "+84979802671", "+84976458859",
-    "+84978813980", "+84973094635", "+84979158307", "+84979386528", "+84974214735", "+84974443744" };
-
-  public Customer customer_1 = new Customer("Nguyễn Hữu Đức").
-    withUsername("customer").
-    withVerified(true).
-    withEmail("nguyenhuuduc11@gmail.com");
+ 
 
   public static Customer customer_2 = new Customer("Nguyen Van Nhat").withEmail("vannhat98@gmail.com").withPassword("12345").withBirthday("12-09-1998").withAddress("342-9B Thoai Ngoc Hau").withPhone("0345471020");
   public static Customer customer_3 = new Customer("Nguyen Tan Trong").withEmail("trongnt@gmail.com").withPassword("12345").withBirthday("30-01-2000").withAddress("54 Le Van Si").withPhone("0851235898");

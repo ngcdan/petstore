@@ -30,7 +30,6 @@ public class Customer extends AbstractPersistable<Long> {
 
   @NotNull
   private String code;
-  private String username;
   private String email;
   private String phone;
   private String password;
@@ -71,10 +70,6 @@ public class Customer extends AbstractPersistable<Long> {
     this.password = password; return this;
   }
 
-  public Customer withUsername(String username) {
-    this.username = username;
-    return this;
-  }
 
   public Customer withVerified(boolean verified) {
     this.isVerified = verified;

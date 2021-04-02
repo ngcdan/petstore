@@ -33,8 +33,7 @@ public class OrderItem extends AbstractPersistable<Long> {
   String name;
   String label;
 
-  String category;//giu cai nay lai tui lam cai kia ay k co van de gi dau
-  
+
   @Column(length=1024 * 32)
   String description;
 
