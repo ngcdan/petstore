@@ -235,11 +235,7 @@ public class ProductController {
             }
             List<OrderItem> listOrderItem = new ArrayList<>(listCart.values());
             String note = map.get("note");
-            String email = map.get("email");
-            String fullName = map.get("fullName");
-            String phoneNumber = map.get("phoneNumber");
-            String address = map.get("address");
-            Customer customer1 = new Customer(email, phoneNumber, customer.getPassword(), fullName, customer.getAvatarUrl(), customer.getGender(), address);
+
             if (transaction.equals("COD")) {
 
                 Payment payment = new Payment(transaction, Payment.TransactionType.Cash);
@@ -248,7 +244,7 @@ public class ProductController {
 
                 orderTransaction.add(payment);
 
-                Order order = new Order("order_" + randomNum, "order-" + randomNum, customer1, orderTransaction, listOrderItem, totalPrice, note, Order.State.PAID);
+                Order order = new Order("order_" + randomNum, "order-" + randomNum, customer, orderTransaction, listOrderItem, totalPrice, note, Order.State.PAID);
                 petStoreService.saveOrder(order);
 
             } else {
@@ -258,7 +254,7 @@ public class ProductController {
 
                 orderTransaction.add(payment);
 
-                Order order = new Order("order_" + randomNum, "order" + randomNum, customer1, orderTransaction, listOrderItem, totalPrice, note, Order.State.PAID);
+                Order order = new Order("order_" + randomNum, "order-" + randomNum, customer, orderTransaction, listOrderItem, totalPrice, note, Order.State.PAID);
                 petStoreService.saveOrder(order);
             }
             session.removeAttribute("listCart");
