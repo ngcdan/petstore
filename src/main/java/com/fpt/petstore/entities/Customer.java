@@ -19,17 +19,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name =)
+@Table(name = "customer")
 @JsonInclude(Include.NON_NULL)
-@Setter
-@Getter
-@NoArgsConstructor
+@Setter @Getter @NoArgsConstructor
 public class Customer extends AbstractPersistable<Long> {
 
   static public enum Gender {Male, Female};
 
   @NotNull
   private String code;
+  private String username;
   private String email;
   private String phone;
   private String password;
@@ -70,11 +69,6 @@ public class Customer extends AbstractPersistable<Long> {
     this.password = password; return this;
   }
 
-
-  public Customer withVerified(boolean verified) {
-    this.isVerified = verified;
-    return this;
-  }
   public Customer withBirthday(String birthday){
     this.birthday = DateUtil.parseCompactDate(birthday);
     return this;
