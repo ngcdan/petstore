@@ -80,7 +80,17 @@ public class ProductLogic {
   public Page<Product> listProductperPage(Pageable pageable){
     return repo.listProductbyPage(pageable);
   }
+
+
   public Product findbyProductId(long id){
     return repo.findById(id);
+  }
+
+
+  public List<Product> findProductbyName(String name){
+    return repo.findProductByNamee(name);
+  }
+  public List<Product> findProductbyPrice(long price){
+    return repo.findProductbyPrice(price);
   }
 }

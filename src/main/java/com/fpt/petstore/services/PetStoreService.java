@@ -121,6 +121,10 @@ public class PetStoreService {
     return orderLogic.deleteOrderById(id);
   }
 
+  @Transactional
+  public List<Order> listOrderbyId(long id){
+    return orderLogic.listOrderbyId(id);
+  }
   // Product 
   @Transactional
   public Product saveProduct(Product product) {
@@ -137,6 +141,10 @@ public class PetStoreService {
     return productLogic.findProductByType(productType);
   }
 
+  @Transactional(readOnly = true)
+  public List<Product> findProductsByName(String name){
+    return productLogic.findProductbyName(name);
+  }
   @Transactional(readOnly = true)
   public Product getProductByCode(String code) {
     return productLogic.getProductByCode(code);
@@ -169,6 +177,10 @@ public class PetStoreService {
   public Product findbyProductId(long id){
     return productLogic.findbyProductId(id);
   }
+  @Transactional
+  public List<Product> findProductbyPrice(long price){
+    return productLogic.findProductbyPrice(price);
+  }
   // Food
   @Transactional
   public Food saveFood(Food food) {
@@ -190,6 +202,14 @@ public class PetStoreService {
     return foodLogic.getFoodByCode(code);
   }
 
+  @Transactional
+  public List<Food> findFoodbyPrice(long price){
+    return foodLogic.findFoodbyPrice(price);
+  }
+  @Transactional
+  public List<Food> findFoodbyName(String name){
+    return foodLogic.findFoodbyName(name);
+  }
   @Transactional
   public boolean deleteFoods(List<Food> foods) {
     return foodLogic.deleteFoods(foods);

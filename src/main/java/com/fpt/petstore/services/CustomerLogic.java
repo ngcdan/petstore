@@ -67,7 +67,10 @@ public class CustomerLogic {
   public Customer findCustomerbyEmail(String email){
     return repo.findByEmail(email);
   }
+
+
   public Customer customerLogin(String email,String password){
     return repo.customerLogin(email,password);
   }
+
 }

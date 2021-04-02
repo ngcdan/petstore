@@ -400,7 +400,7 @@ ol {
 	cursor: pointer;
 }
 
-.header__top__hover span i {
+.header__top__hover span em {
 	font-size: 20px;
 	position: relative;
 	top: 3px;

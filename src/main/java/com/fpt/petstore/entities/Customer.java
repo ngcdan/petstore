@@ -1,6 +1,8 @@
 package com.fpt.petstore.entities;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -38,7 +40,7 @@ public class Customer extends AbstractPersistable<Long> {
   private String avatarUrl="customer-default.jpg";
 
   @JsonFormat(pattern = DateUtil.COMPACT_DATE_FORMAT)
-  private Date birthday ;
+  private LocalDate birthday ;
 
   private Gender gender = Gender.Male;
 
@@ -79,10 +81,10 @@ public class Customer extends AbstractPersistable<Long> {
     return this;
   }
   public Customer withBirthday(String birthday){
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    DateTimeFormatter dateTimeFormatter =DateTimeFormatter.ofPattern("dd-MM-yyyy");
     try{
-      Date strDate = simpleDateFormat.parse(birthday);
-      this.birthday = strDate;
+      LocalDate localDate = LocalDate.parse(birthday,dateTimeFormatter);
+      this.birthday = localDate;
     }catch(Exception e){
       e.printStackTrace();
     }

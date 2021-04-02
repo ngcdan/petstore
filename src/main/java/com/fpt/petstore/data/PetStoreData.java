@@ -26,35 +26,35 @@ public class PetStoreData {
     withVerified(true).
     withEmail("nguyenhuuduc11@gmail.com");
 
-  public static Customer customer_2 = new Customer("Nguyen Van Nhat").withEmail("vannhat98@gmail.com").withPassword("12345").withBirthday("12/09/1998").withAddress("342/9B Thoai Ngoc Hau").withPhone("0345471020");
-  public static Customer customer_3 = new Customer("Nguyen Tan Trong").withEmail("trongnt@gmail.com").withPassword("12345").withBirthday("30/01/2000").withAddress("54 Le Van Si").withPhone("0851235898");
-  public static Customer customer_4 = new Customer("Tran Dai Hung").withEmail("trandaihung@gmail.com").withPassword("12345").withBirthday("06/12/2000").withAddress("11 Tran Hung Dao").withPhone("0914565476");
-  public static Customer customer_5 = new Customer("Vo Thanh Truong").withEmail("vothanhtruong@gmail.com").withPassword("12345").withBirthday("06/09/2000").withAddress("235 Le Lai").withPhone("0917657212");
-  public static Customer customer_6 = new Customer("Luu Nguyen Thanh Phuong").withEmail("phuonglnt@gmail.com").withPassword("12345").withBirthday("21/12/2000").withAddress("248 Le Van Si").withPhone("0928494156");
-  public static Customer customer_7 = new Customer("Nguyen Thi Thanh Phuong").withEmail("phuongntt01@gmail.com").withPassword("12345").withBirthday("01/01/2000").withAddress("175/82 Huynh Van Banh").withPhone("0794930056");
-  public static Customer customer_8 = new Customer("Nguyen Chi Hoa").withEmail("nguyenchihoa98@gmail.com").withPassword("12345").withBirthday("22/09/1998").withAddress("78 To Ki").withPhone("0335579595");
-  public static Customer customer_9 = new Customer("Nguyen Vu Thien Nguyen").withEmail("nguyenvuthiennguyen@gmail.com").withPassword("12345").withBirthday("02/02/1986").withAddress("233 Le Van Si").withPhone("0967513214");
-  public static Customer customer_10 = new Customer("Bui Thi Phuong Thanh").withEmail("kellybui@gmail.com").withPassword("12345").withBirthday("29/06/2000").withAddress("44 Nguyen Thi Minh Khai").withPhone("0915648654");
-  public static Customer customer_11 = new Customer("Nguyen Duy Phuong").withEmail("nguyenduyphuong@gmail.com").withPassword("12345").withBirthday("12/01/1999").withAddress("79 To Ki").withPhone("0954765122");
-  public static Customer customer_12 = new Customer("Đinh Văn Phượng").withEmail("dinhvanphuong12@gmail.com").withPassword("12345").withBirthday("13/09/1989").withAddress("55 Tran Huy Lieu").withPhone("0942314842");
-  public static Customer customer_13 = new Customer("Nguyễn Xuân Sang").withEmail("nguyenxuansang@gmail.com").withPassword("12345").withBirthday("22/01/1993").withAddress("23 Nguyen Van Troi").withPhone("0953214561");
-  public static Customer customer_14 = new Customer("Lê Phú Quý").withEmail("lephuquy@gmail.com").withPassword("12345").withBirthday("02/01/1996").withAddress("842 Truong Sa").withPhone("0923548965");
-  public static Customer customer_15 = new Customer("Lý Quốc Quyền").withEmail("lyquocquyen@gmail.com").withPassword("12345").withBirthday("23/05/1995").withAddress("111 Nguyen Phi Khanh").withPhone("0915231545");
-  public static Customer customer_16 = new Customer("Bùi Minh Quân").withEmail("buiminhquan11@gmail.com").withPassword("12345").withBirthday("05/01/1999").withAddress("562 Hoang Sa").withPhone("093566512");
-  public static Customer customer_17 = new Customer("Nguyễn Ngọc Sơn").withEmail("nguyenngocson@gmail.com").withPassword("12345").withBirthday("06/01/1979").withAddress("101 Nguyen Trai").withPhone("0923265548");
-  public static Customer customer_18 = new Customer("Bùi Duy Qúy").withEmail("buiduyquy@gmail.com").withPassword("12345").withBirthday("08/03/1999").withAddress("556 Hai Ba Trung").withPhone("0938623132");
-  public static Customer customer_19 = new Customer("Võ Hoàng Phương").withEmail("vohoangphuong@gmail.com").withPassword("12345").withBirthday("30/01/1998").withAddress("456 Vo Thi Sau").withPhone("0923548461");
-  public static Customer customer_20 = new Customer("Trần Minh Phương").withEmail("tranminhphuong@gmail.com").withPassword("12345").withBirthday("28/02/1999").withAddress("96 Nguyen Kiem").withPhone("0945213786");
-  public static Customer customer_21 = new Customer("Võ Khải Hoàng Ca").withEmail("vokhaihoangka@gmail.com").withPassword("12345").withBirthday("27/05/1979").withAddress("45 Pham Van Dong").withPhone("0956232542");
-  public static Customer customer_22 = new Customer("Hà Thị Thùy Chi").withEmail("hathithuychi@gmail.com").withPassword("12345").withBirthday("26/07/1977").withAddress("215 Nguyen Thai Son").withPhone("0923254821");
-  public static Customer customer_23 = new Customer("Lê Văn Minh Châu").withEmail("levanminhchau@gmail.com").withPassword("12345").withBirthday("07/01/1994").withAddress("24 Thoai Ngoc Hau").withPhone("0993214521");
-  public static Customer customer_24 = new Customer("Nguyễn Linh Chi").withEmail("lelinhchi@gmail.com").withPassword("12345").withBirthday("17/01/1969").withAddress("333 Nguyen Kiem").withPhone("0956231545");
-  public static Customer customer_25 = new Customer("Lê Thị Phương Chi").withEmail("lethiphuongchi@gmail.com").withPassword("12345").withBirthday("03/01/1968").withAddress("69 Hoang Hoa Tham").withPhone("0955695462");
-  public static Customer customer_26 = new Customer("Nguyễn Duy Chinh").withEmail("nguyenduychinh@gmail.com").withPassword("12345").withBirthday("10/01/1996").withAddress("79 Dong Den").withPhone("0822655132");
-  public static Customer customer_27 = new Customer("Nguyễn Thế Chiến").withEmail("nguyenthechien@gmail.com").withPassword("12345").withBirthday("31/03/1999").withAddress("363 D1").withPhone("0956254852");
-  public static Customer customer_28 = new Customer("Trần Đức Thịnh").withEmail("tranducthinh@gmail.com").withPassword("12345").withBirthday("14/02/1993").withAddress("86 D5").withPhone("0912315486");
-  public static Customer customer_29 = new Customer("Trần Viễn Chinh").withEmail("tranvienchinh@gmail.com").withPassword("12345").withBirthday("14/03/1999").withAddress("686 Bui Dinh Tuy").withPhone("0925486512");
-  public static Customer customer_30 = new Customer("Bùi Văn Chương").withEmail("buivanchuong@gmail.com").withPassword("12345").withBirthday("17/10/1999").withAddress("214 Nguyen Trai").withPhone("0934561234");
+  public static Customer customer_2 = new Customer("Nguyen Van Nhat").withEmail("vannhat98@gmail.com").withPassword("12345").withBirthday("12-09-1998").withAddress("342-9B Thoai Ngoc Hau").withPhone("0345471020");
+  public static Customer customer_3 = new Customer("Nguyen Tan Trong").withEmail("trongnt@gmail.com").withPassword("12345").withBirthday("30-01-2000").withAddress("54 Le Van Si").withPhone("0851235898");
+  public static Customer customer_4 = new Customer("Tran Dai Hung").withEmail("trandaihung@gmail.com").withPassword("12345").withBirthday("06-12-2000").withAddress("11 Tran Hung Dao").withPhone("0914565476");
+  public static Customer customer_5 = new Customer("Vo Thanh Truong").withEmail("vothanhtruong@gmail.com").withPassword("12345").withBirthday("06-09-2000").withAddress("235 Le Lai").withPhone("0917657212");
+  public static Customer customer_6 = new Customer("Luu Nguyen Thanh Phuong").withEmail("phuonglnt@gmail.com").withPassword("12345").withBirthday("21-12-2000").withAddress("248 Le Van Si").withPhone("0928494156");
+  public static Customer customer_7 = new Customer("Nguyen Thi Thanh Phuong").withEmail("phuongntt01@gmail.com").withPassword("12345").withBirthday("01-01-2000").withAddress("175-82 Huynh Van Banh").withPhone("0794930056");
+  public static Customer customer_8 = new Customer("Nguyen Chi Hoa").withEmail("nguyenchihoa98@gmail.com").withPassword("12345").withBirthday("22-09-1998").withAddress("78 To Ki").withPhone("0335579595");
+  public static Customer customer_9 = new Customer("Nguyen Vu Thien Nguyen").withEmail("nguyenvuthiennguyen@gmail.com").withPassword("12345").withBirthday("02-02-1986").withAddress("233 Le Van Si").withPhone("0967513214");
+  public static Customer customer_10 = new Customer("Bui Thi Phuong Thanh").withEmail("kellybui@gmail.com").withPassword("12345").withBirthday("29-06-2000").withAddress("44 Nguyen Thi Minh Khai").withPhone("0915648654");
+  public static Customer customer_11 = new Customer("Nguyen Duy Phuong").withEmail("nguyenduyphuong@gmail.com").withPassword("12345").withBirthday("12-01-1999").withAddress("79 To Ki").withPhone("0954765122");
+  public static Customer customer_12 = new Customer("Đinh Văn Phượng").withEmail("dinhvanphuong12@gmail.com").withPassword("12345").withBirthday("13-09-1989").withAddress("55 Tran Huy Lieu").withPhone("0942314842");
+  public static Customer customer_13 = new Customer("Nguyễn Xuân Sang").withEmail("nguyenxuansang@gmail.com").withPassword("12345").withBirthday("22-01-1993").withAddress("23 Nguyen Van Troi").withPhone("0953214561");
+  public static Customer customer_14 = new Customer("Lê Phú Quý").withEmail("lephuquy@gmail.com").withPassword("12345").withBirthday("02-01-1996").withAddress("842 Truong Sa").withPhone("0923548965");
+  public static Customer customer_15 = new Customer("Lý Quốc Quyền").withEmail("lyquocquyen@gmail.com").withPassword("12345").withBirthday("23-05-1995").withAddress("111 Nguyen Phi Khanh").withPhone("0915231545");
+  public static Customer customer_16 = new Customer("Bùi Minh Quân").withEmail("buiminhquan11@gmail.com").withPassword("12345").withBirthday("05-01-1999").withAddress("562 Hoang Sa").withPhone("093566512");
+  public static Customer customer_17 = new Customer("Nguyễn Ngọc Sơn").withEmail("nguyenngocson@gmail.com").withPassword("12345").withBirthday("06-01-1979").withAddress("101 Nguyen Trai").withPhone("0923265548");
+  public static Customer customer_18 = new Customer("Bùi Duy Qúy").withEmail("buiduyquy@gmail.com").withPassword("12345").withBirthday("08-03-1999").withAddress("556 Hai Ba Trung").withPhone("0938623132");
+  public static Customer customer_19 = new Customer("Võ Hoàng Phương").withEmail("vohoangphuong@gmail.com").withPassword("12345").withBirthday("30-01-1998").withAddress("456 Vo Thi Sau").withPhone("0923548461");
+  public static Customer customer_20 = new Customer("Trần Minh Phương").withEmail("tranminhphuong@gmail.com").withPassword("12345").withBirthday("28-02-1999").withAddress("96 Nguyen Kiem").withPhone("0945213786");
+  public static Customer customer_21 = new Customer("Võ Khải Hoàng Ca").withEmail("vokhaihoangka@gmail.com").withPassword("12345").withBirthday("27-05-1979").withAddress("45 Pham Van Dong").withPhone("0956232542");
+  public static Customer customer_22 = new Customer("Hà Thị Thùy Chi").withEmail("hathithuychi@gmail.com").withPassword("12345").withBirthday("26-07-1977").withAddress("215 Nguyen Thai Son").withPhone("0923254821");
+  public static Customer customer_23 = new Customer("Lê Văn Minh Châu").withEmail("levanminhchau@gmail.com").withPassword("12345").withBirthday("07-01-1994").withAddress("24 Thoai Ngoc Hau").withPhone("0993214521");
+  public static Customer customer_24 = new Customer("Nguyễn Linh Chi").withEmail("lelinhchi@gmail.com").withPassword("12345").withBirthday("17-01-1969").withAddress("333 Nguyen Kiem").withPhone("0956231545");
+  public static Customer customer_25 = new Customer("Lê Thị Phương Chi").withEmail("lethiphuongchi@gmail.com").withPassword("12345").withBirthday("03-01-1968").withAddress("69 Hoang Hoa Tham").withPhone("0955695462");
+  public static Customer customer_26 = new Customer("Nguyễn Duy Chinh").withEmail("nguyenduychinh@gmail.com").withPassword("12345").withBirthday("10-01-1996").withAddress("79 Dong Den").withPhone("0822655132");
+  public static Customer customer_27 = new Customer("Nguyễn Thế Chiến").withEmail("nguyenthechien@gmail.com").withPassword("12345").withBirthday("31-03-1999").withAddress("363 D1").withPhone("0956254852");
+  public static Customer customer_28 = new Customer("Trần Đức Thịnh").withEmail("tranducthinh@gmail.com").withPassword("12345").withBirthday("14-02-1993").withAddress("86 D5").withPhone("0912315486");
+  public static Customer customer_29 = new Customer("Trần Viễn Chinh").withEmail("tranvienchinh@gmail.com").withPassword("12345").withBirthday("14-03-1999").withAddress("686 Bui Dinh Tuy").withPhone("0925486512");
+  public static Customer customer_30 = new Customer("Bùi Văn Chương").withEmail("buivanchuong@gmail.com").withPassword("12345").withBirthday("17-10-1999").withAddress("214 Nguyen Trai").withPhone("0934561234");
 
   public static Customer[] ALL_CUSTOMERS = { customer_2, customer_3, customer_4, customer_5, customer_6,
     customer_10, customer_11, customer_12, customer_13, customer_14, customer_15, customer_16, customer_17,
@@ -70,7 +70,7 @@ public class PetStoreData {
     return customers;
   };
 
-  // Employee
+  /* Employee */
   public static Employee employee_1  = new Employee("Phạm Võ Hoài Anh").withAddress("Hải Phòng").withEmail("hoaianh@gmail.com").withPassword("12345").withUsername("phamvohoaianh");
   public static Employee employee_2  = new Employee("Hồ Thanh Bình").withAddress("Hải Phòng").withEmail("hothanhbinh@gmail.com").withPassword("12345").withUsername("hothanhbinh");
   public static Employee employee_3  = new Employee("Nguyễn Thái Bình").withAddress("Hải Phòng").withEmail("nguyenthaibinh@gmail.com").withPassword("12345").withUsername("nguyenthaibinh");

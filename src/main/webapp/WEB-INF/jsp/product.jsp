@@ -38,11 +38,40 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="shop__sidebar">
-                        <div class="shop__sidebar__search">
-                            <form action="#">
-                                <input type="text" placeholder="Search...">
-                                <button type="submit"><span class="icon_search"></span></button>
-                            </form>
+                        <div class="shop__sidebar__search m-auto">
+                            <c:choose>
+                                <c:when test="${category=='vat-pham-thu-cung'}">
+                                    <form id="formSearch" action="/shop/searchProduct" method="post">
+                                        <div class="shop__product__option__right m-auto float-left">
+                                            <p>Tìm kiếm theo: </p>
+                                            <select name="select">
+                                                <option value="price">Giá tiền</option>
+                                                <option value="productName">Tên Sản phẩm</option>
+                                            </select>
+                                        </div>
+                                        <br/> <br/>
+                                        <input type="text" name="search" placeholder="Search...">
+                                        <br/><br/><br/>
+                                        <button type="submit" onclick="findProduct(event)">Tìm kiếm</button>
+                                    </form>
+                                </c:when>
+                                <c:otherwise>
+                                    <form action="/shop/searchProduct" method="post">
+                                        <div class="shop__product__option__right m-auto float-left">
+                                            <p>Tìm kiếm theo: </p>
+                                            <select name="option">
+                                                <option  value="price">Giá tiền</option>
+                                                <option  value="productName">Tên Sản phẩm</option>
+                                            </select>
+                                        </div>
+                                        <br/> <br/>
+                                        <input type="text" name="search" placeholder="Search...">
+                                        <br/><br/><br/>
+                                        <button type="submit" onclick="findProduct(event)">Tìm kiếm</button>
+                                    </form>
+                                </c:otherwise>
+                            </c:choose>
+
                         </div>
                         <div class="shop__sidebar__accordion">
                             <div class="accordion" id="accordionExample">
@@ -84,7 +113,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" id="listProduct">
                         <c:forEach var="p" items="${listProduct}">
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
@@ -120,7 +149,7 @@
                             </div>
                         </c:forEach>
                     </div>
-                <div class="row">
+                <div class="row" id="page">
                         <div class="col-lg-12">
                               <div class="product__pagination">
                               <c:forEach var ="state" items="${pageSize}">

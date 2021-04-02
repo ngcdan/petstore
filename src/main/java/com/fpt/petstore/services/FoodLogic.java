@@ -96,4 +96,11 @@ public class FoodLogic extends DAOService {
   public Food findbyId(long id){
     return repo.findById(id);
   }
+  public List<Food> findFoodbyName(String name){
+    return  repo.findfoodByNamee(name);
+  }
+  public List<Food> findFoodbyPrice(long price){
+    return repo.findfoodbyPrice(price);
+  }
+
 }

@@ -24,8 +24,8 @@
                                     <a href="#" data-target="#loginModal" data-toggle="modal">Đăng nhập</a>
                                 </c:when>
                                 <c:otherwise>
-                                    <div style="width:230px" class="header__top__hover">
-                                        <span>Hello <strong style="color:#e53637">${customer.fullName}</strong> <em
+                                    <div style="width:240px;" class="header__top__hover">
+                                        <span>Chào <strong style="color:#e53637">${customer.fullName}</strong>   <em
                                             class="arrow_carrot-down"></em></span>
                                         <ul>
                                             <li class="custom"><a href="/information">Thông tin</a></li>

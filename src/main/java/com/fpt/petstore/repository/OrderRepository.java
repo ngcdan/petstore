@@ -28,5 +28,7 @@ public interface OrderRepository extends JpaRepository<Order, Long>{
   
   @Query("SELECT o FROM Order o WHERE o.employee.username = :username")
   public List<Order> findOrdersByEmployee(@Param("username") String username);
-  
+
+  @Query(value = "select * from Orders where customerId= ?1",nativeQuery = true)
+  public List<Order> listOrderbyId(long id);
 }

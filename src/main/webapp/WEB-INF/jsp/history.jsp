@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -31,57 +33,32 @@
 <table class="content-table">
     <thead>
     <tr>
-        <th>Mã Sản Phẩm</th>
-        <th>Tên Sản Phẩm</th>
+        <th>Mã Đơn hàng</th>
+        <th>Tên Đơn hàng</th>
         <th>Ngày Đặt</th>
-        <th>Ngày Giao</th>
-        <th>Tên Khách Hàng</th>
         <th>Tổng Tiền</th>
-        <th>Action</th>
+        <th>Xem chi tiết</th>
     </tr>
     </thead>
 
-
+<c:forEach items="${listOrder}" var="o">
     <tr>
-        <td>MSP1</td>
-        <td>Lồng thú cưng</td>
-        <td>21/12/2000</td>
-        <td>23/12/2000</td>
-        <td>Lưu Nguyễn Thanh Phương</td>
-        <td>500.000 VNĐ</td>
+        <td>${o.code}</td>
+        <td>${o.label}</td>
+        <td><fmt:formatDate value="${o.createdTime}" pattern="dd/MM/yyyy HH:mm:ss" /></td>
+
+        <td>${o.total} ${o.currency}</td>
         <td class="row">
             <div class="button_admin">
-                <a data-toggle="tooltip" data-placement="top" title="See Detail" href="/lien-he}"
+                <a data-toggle="tooltip" data-placement="top" title="See Detail"
                    type="button" class="button_see" class="btn"><i
                         class='fa fa-eye'></i> </a>
-
-                <a type="button" data-toggle="modal" data-target="#${st.count}1" title="Xóa"
-                   type="button" class="button_delete" class="btn"><i
-                        class='fa fa-trash'></i></a>
 
             </div>
         </td>
     </tr>
+</c:forEach>
 
-    <tr>
-        <td>MSP1</td>
-        <td>Lồng thú cưng</td>
-        <td>21/12/2000</td>
-        <td>23/12/2000</td>
-        <td>Lưu Nguyễn Thanh Phương</td>
-        <td>500.000 VNĐ</td>
-        <td class="row">
-            <div class="button_admin">
-                <a data-toggle="tooltip" data-placement="top" title="Xem chi tiết" href="#"
-                   type="button" class="button_see" class="btn"><i
-                        class='fa fa-eye'></i> </a>
-
-                <a type="button" data-toggle="modal" data-target="#${st.count}1" title="Xóa"
-                   type="button" class="button_delete" class="btn"><i
-                        class='fa fa-trash'></i></a>
-            </div>
-        </td>
-    </tr>
 </table>
 <br>
 </body>

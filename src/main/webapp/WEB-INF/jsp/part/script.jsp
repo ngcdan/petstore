@@ -13,10 +13,18 @@
 <script src="/js/notifications.js"></script>
 <script src="/js/messageNotification.js"></script>
 <script src="/js/500er.js" type="text/javascript"></script>
+<script src="/js/search.js" type="text/javascript"></script>
 <script>
     $(document).ready(function() {
+        var themeNotif = "${themeNotification}";
         if ("${messageNotification}" !== "" || "${messageNotification}" !== null) {
             clickMessage("${messageNotification}","${themeNotification}","${titleNotification}");
+        }
+        if(themeNotif === "warning"){
+            setTimeout(function() {
+                //your code to be executed after 1 second
+                $('#loginModal').modal('show');
+            }, 1000);
         }
     });
 </script>

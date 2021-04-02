@@ -70,6 +70,9 @@ public class OrderLogic extends DAOService {
   public List<Order> findOrdersByEmployee(Employee employee) {
     return repo.findOrdersByEmployee(employee.getUsername());
   }
+  public List<Order> listOrderbyId(long id){
+    return repo.listOrderbyId(id);
+  }
 
   SqlQueryTemplate createOrderQuery(SqlQueryParams params) {
     String[] searchFields = {"o.code", "o.label", "c.username", "c.fullName", "e.email", "e.username", "e.fullName" };

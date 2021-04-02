@@ -33,4 +33,8 @@ public interface ProductsRepository extends PagingAndSortingRepository<Product, 
   @Query(value = "select count(*) from Product", nativeQuery = true)
   Integer countProduct();
   Product findById(long id);
+  @Query(value="SELECT * FROM PRODUCT where Upper(name) like UPPER(CONCAT('%',?1,'%'))",nativeQuery = true)
+  List<Product> findProductByNamee(String name);
+  @Query(value="select * from product where price = ?1",nativeQuery = true)
+  List<Product> findProductbyPrice(long price);
 }

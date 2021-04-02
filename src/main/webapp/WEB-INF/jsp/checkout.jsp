@@ -64,7 +64,7 @@
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Email<span>*</span></p>
-                                     <input type="text" name="email" value="<c:if test="${customer.email!=null}">${customer.email}</c:if>" placeholder="Nhập địa chỉ email của bạn">
+                                     <input type="email" name="email" value="<c:if test="${customer.email!=null}">${customer.email}</c:if>" placeholder="Nhập địa chỉ email của bạn">
                                 </div>
                             </div>
                         </div>

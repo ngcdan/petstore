@@ -81,9 +81,11 @@ public class AppController {
     }
 
     @GetMapping("/information")
-    public String viewInfo(HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+    public String viewInfo(ModelMap modelMap,HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request) {
         Customer customer = (Customer) session.getAttribute("customer");
         if (customer != null) {
+            Customer customer1 = petStoreService.getCustomerByCode(customer.getCode());
+            modelMap.addAttribute("customerr",customer1);
             return "information";
         } else {
             redirectAttributes.addFlashAttribute(messageNotification, "Chức năng chỉ dành cho người đăng nhập");
@@ -141,9 +143,12 @@ public class AppController {
     }
 
     @GetMapping("/lich-su-giao-dich")
-    public String viewsHistory(HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+    public String viewsHistory(ModelMap modelMap,HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request) {
         Customer customer = (Customer) session.getAttribute("customer");
         if (customer != null) {
+            long customerId=customer.getId();
+            List<Order> listOrder = petStoreService.listOrderbyId(customerId);
+            modelMap.addAttribute("listOrder",listOrder);
             return "history";
         } else {
             redirectAttributes.addFlashAttribute(messageNotification, "Chức năng chỉ dành cho người đăng nhập");

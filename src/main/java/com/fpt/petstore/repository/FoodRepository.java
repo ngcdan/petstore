@@ -34,4 +34,8 @@ public interface FoodRepository extends PagingAndSortingRepository<Food, Long> {
   @Query(value = "select count(*) from Food", nativeQuery = true)
   Integer countFood();
   Food findById(long id);
+  @Query(value="SELECT * FROM Food where Upper(name) like UPPER(CONCAT('%',?1,'%'))",nativeQuery = true)
+  List<Food> findfoodByNamee(String name);
+  @Query(value="select * from Food where price = ?1",nativeQuery = true)
+  List<Food> findfoodbyPrice(long price);
 }
