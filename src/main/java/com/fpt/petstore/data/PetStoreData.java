@@ -207,7 +207,19 @@ public class PetStoreData {
 
 
   //TODO: set Customer and Employee, OrderItem, Food, Product, Payment
-  public static Order order_1  = new Order("order_1").withCreatedTime("12/12/2020 18:20:20");
+  public static Order order_1  = new Order("order_1").
+	  withEmployee(employee_2).
+	  withCustomer(customer_3).
+	  withOrderItem(new OrderItem().withFood(food_2)).
+	  withOrderItem(new OrderItem().withFood(food_5)).
+	  withOrderItem(new OrderItem().withFood(food_3)).
+	  withOrderItem(new OrderItem().withProduct(product_1)).
+	  withOrderItem(new OrderItem().withProduct(product_2)).
+	  withPayment(new Payment("Vietcombank")).
+	  withCreatedTime( "12/12/2020 18:20:20");
+
+
+
   public static Order order_2  = new Order("order_2").withCreatedTime("11/6/2020 10:20:20");
   public static Order order_3  = new Order("order_3").withCreatedTime("13/5/2020 12:20:20");
   public static Order order_4  = new Order("order_4").withCreatedTime("14/3/2020 13:20:20");
@@ -233,13 +245,16 @@ public class PetStoreData {
     order_9 };
 
   //TODO: remove
+	@Deprecated
   public static List<Order> createDataOrder() {
     List<Order> orders = new ArrayList<>();
     for (Order order : ALL_ORDERS) {
-      order.withCustomer(customer_2).withEmployee(employee_1).withPayment(new Payment("Vietcombank"))
-        .withOrderItem(new OrderItem().withFood(food_1)).withOrderItem(new OrderItem().withFood(food_1))
-        .withOrderItem(new OrderItem().withProduct(product_1));
-      orders.add(order);
+      order.
+	      withPayment(new Payment("Vietcombank")).
+	      withOrderItem(new OrderItem().withFood(food_1)).
+	      withOrderItem(new OrderItem().withFood(food_1)).
+	      withOrderItem(new OrderItem().withProduct(product_1));
+		    orders.add(order);
     }
     return orders;
   }
