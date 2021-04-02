@@ -174,7 +174,11 @@
                                                 </div>
                                             </td>
                                             <td class="cart__price">${p.value.total} VND</td>
-                                            <td class="cart__close"><i class="fa fa-close"></i></td>
+                                                <c:if test="${not empty p.value.product.code}"> <td class="cart__close"><a href="/shop/delete/${p.value.product.code}"><i
+                                                        class="fa fa-close"></i></a></td></c:if>
+                                                <c:if test="${not empty p.value.food.code}"> <td class="cart__close"><a href="/shop/delete/${p.value.food.code}"><i
+                                                        class="fa fa-close"></i></a></td></c:if>
+
                                         </tr>
                                         </c:forEach>
                                         </tbody>

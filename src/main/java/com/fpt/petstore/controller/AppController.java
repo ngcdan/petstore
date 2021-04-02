@@ -125,7 +125,7 @@ public class AppController {
     @GetMapping("/gio-hang")
     public String viewsCart(HttpSession session, ModelMap modelMap) {
         getCookie(session);
-      
+
         return "cart";
     }
 
