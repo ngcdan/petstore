@@ -58,6 +58,7 @@ public class PetStoreData {
     return customers;
   };
 
+  //TODO: missing phone field
   /* Employee */
   public static Employee employee_1  = new Employee("Phạm Võ Hoài Anh").withAddress("Hải Phòng").withEmail("hoaianh@gmail.com").withPassword("12345").withUsername("phamvohoaianh");
   public static Employee employee_2  = new Employee("Hồ Thanh Bình").withAddress("Hải Phòng").withEmail("hothanhbinh@gmail.com").withPassword("12345").withUsername("hothanhbinh");
@@ -204,6 +205,9 @@ public class PetStoreData {
     .withPic("thucan-cho2.png");
   public static Product[] ALL_PRODUCTS = { product_1, product_2, product_3, product_4, product_5 };
 
+
+  //TODO: set Customer and Employee, OrderItem, Food, Product, Payment
+	//TODO: caculate total Order
   public static Order order_1  = new Order("order_1 ").withCreatedTime("12/12/2020 18:20:20");
   public static Order order_2  = new Order("order_2 ").withCreatedTime("11/6/2020 10:20:20");
   public static Order order_3  = new Order("order_3 ").withCreatedTime("13/5/2020 12:20:20");
@@ -228,6 +232,8 @@ public class PetStoreData {
   public static Order[] ALL_ORDERS = { order_1, order_2, order_3, order_4, order_5, order_6, order_10, order_11,
     order_12, order_13, order_14, order_15, order_16, order_17, order_18, order_19, order_20, order_7, order_8,
     order_9 };
+
+  //TODO: remove
   public static List<Order> createDataOrder() {
     List<Order> orders = new ArrayList<>();
     for (Order order : ALL_ORDERS) {
