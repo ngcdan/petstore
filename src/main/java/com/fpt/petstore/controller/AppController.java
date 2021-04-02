@@ -125,13 +125,7 @@ public class AppController {
     @GetMapping("/gio-hang")
     public String viewsCart(HttpSession session, ModelMap modelMap) {
         getCookie(session);
-        Map<String, OrderItem> listCart = (Map<String, OrderItem>) session.getAttribute("listCart");
-        int totalPrice = 0;
-        for (OrderItem orderItem : listCart.values()) {
-            totalPrice += orderItem.getTotal();
-        }
-        modelMap.addAttribute("totalPrice", totalPrice);
-
+      
         return "cart";
     }
 
