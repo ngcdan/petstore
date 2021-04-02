@@ -62,6 +62,10 @@ public class Food extends AbstractPersistable<Long> {
     this.description = des;
     return this;
   }
+  public Food withPic(String pic) {
+	  this.pic=pic;
+	  return this;
+  }
   
   public Food withType(FoodType type) {
     this.foodType = type;

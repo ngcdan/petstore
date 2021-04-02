@@ -1,6 +1,8 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -126,21 +128,67 @@
                                     <div class="product__item__text">
                                         <h6>${p.name}</h6>
                                         <a href="/shop/addtocart/${category}/${p.code}" class="add-cart">+ Add To Cart</a>
-                                        <h5>${p.price}VNĐ</h5>
+                                        <h5><fmt:formatNumber value="${p.price}" type="currency" currencySymbol=""/>
+                                        VNĐ</h5>
                                     </div>
                                     <div class="modallll">
                                         <div class="modal fade right" id="cartModal${p.id}" tabindex="-1" aria-labelledby="exampleModalLabel${p.id}" aria-hidden="true">
                                             <div class="modal-dialog modal-side modal-top-right">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel${p.id}">Modal title</h5>
+                                                        <h5 class="modal-title text-center" id="exampleModalLabel${p.id}">Chi tiết sản phẩm </h5>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <input type="text" value="${p.name}"/>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                                    </div>
+													<div class="row">
+
+														<div class="col-lg-3 col-md-3"></div>
+														<div class="col-lg-6 col-md-9">
+															<div class="tab-content">
+																<div class="tab-pane active" id="tabs-1" role="tabpanel">
+																	<div class="product__details__pic__item">
+																		<img src="/img/product/${p.pic }" alt="">
+																	</div>
+																</div>
+
+															</div>
+														</div>
+
+														<div class="product__details__content">
+															<div class="container">
+																<div class="row d-flex justify-content-center">
+																	<div class="col-lg-8">
+																		<div class="product__details__text">
+																			<h4>${p.name }</h4>
+																			<div class="rating">
+																				<i class="fa fa-star"></i> <i class="fa fa-star"></i>
+																				<i class="fa fa-star"></i> <i class="fa fa-star"></i>
+																				<i class="fa fa-star-o"></i>
+
+																			</div>
+																			<h3><fmt:formatNumber value="${p.price}" type="currency" currencySymbol=""/>
+                                        VNĐ</h3>
+																			<p>${p.description }</p>
+
+
+																			<a href="/shop/addtocart/${category}/${p.code}" class="primary-btn">add to cart</a>
+																		</div>
+																		<br>
+																	
+																	</div>
+																</div>
+															</div>
+
+
+
+															<br>
+
+
+														</div>
+
+													</div>
+
+												</div>
+                                              
                                                 </div>
                                             </div>
                                         </div>
