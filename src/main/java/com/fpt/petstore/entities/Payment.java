@@ -35,6 +35,8 @@ public class Payment extends AbstractPersistable<Long> {
   
   @NotNull
   private String bankAccountId;
+
+  private Double amount;
   
   @NotNull
   private TransactionType transactionType = TransactionType.Cash;
