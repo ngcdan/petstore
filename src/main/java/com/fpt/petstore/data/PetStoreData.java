@@ -207,16 +207,15 @@ public class PetStoreData {
 
 
   //TODO: set Customer and Employee, OrderItem, Food, Product, Payment
-	//TODO: caculate total Order
-  public static Order order_1  = new Order("order_1 ").withCreatedTime("12/12/2020 18:20:20");
-  public static Order order_2  = new Order("order_2 ").withCreatedTime("11/6/2020 10:20:20");
-  public static Order order_3  = new Order("order_3 ").withCreatedTime("13/5/2020 12:20:20");
-  public static Order order_4  = new Order("order_4 ").withCreatedTime("14/3/2020 13:20:20");
-  public static Order order_5  = new Order("order_5 ").withCreatedTime("15/2/2020 14:20:20");
-  public static Order order_6  = new Order("order_6 ").withCreatedTime("16/4/2020 15:20:20");
-  public static Order order_7  = new Order("order_7 ").withCreatedTime("17/7/2020 16:20:20");
-  public static Order order_8  = new Order("order_8 ").withCreatedTime("18/6/2020 16:20:20");
-  public static Order order_9  = new Order("order_9 ").withCreatedTime("19/5/2020 17:20:20");
+  public static Order order_1  = new Order("order_1").withCreatedTime("12/12/2020 18:20:20");
+  public static Order order_2  = new Order("order_2").withCreatedTime("11/6/2020 10:20:20");
+  public static Order order_3  = new Order("order_3").withCreatedTime("13/5/2020 12:20:20");
+  public static Order order_4  = new Order("order_4").withCreatedTime("14/3/2020 13:20:20");
+  public static Order order_5  = new Order("order_5").withCreatedTime("15/2/2020 14:20:20");
+  public static Order order_6  = new Order("order_6").withCreatedTime("16/4/2020 15:20:20");
+  public static Order order_7  = new Order("order_7").withCreatedTime("17/7/2020 16:20:20");
+  public static Order order_8  = new Order("order_8").withCreatedTime("18/6/2020 16:20:20");
+  public static Order order_9  = new Order("order_9").withCreatedTime("19/5/2020 17:20:20");
   public static Order order_10 = new Order("order_10").withCreatedTime("20/1/2020 18:20:20");
   public static Order order_11 = new Order("order_11").withCreatedTime("21/3/2020 13:20:20");
   public static Order order_12 = new Order("order_12").withCreatedTime("22/4/2020 12:20:20");
@@ -240,7 +239,6 @@ public class PetStoreData {
       order.withCustomer(customer_2).withEmployee(employee_1).withPayment(new Payment("Vietcombank"))
         .withOrderItem(new OrderItem().withFood(food_1)).withOrderItem(new OrderItem().withFood(food_1))
         .withOrderItem(new OrderItem().withProduct(product_1));
-      order.withTotal(order.getOrderItems());
       orders.add(order);
     }
     return orders;

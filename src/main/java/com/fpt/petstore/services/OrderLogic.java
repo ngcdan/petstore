@@ -8,13 +8,10 @@ import com.fpt.petstore.core.dao.DAOService;
 import com.fpt.petstore.core.dao.query.SimpleFilter;
 import com.fpt.petstore.core.dao.query.SqlQueryParams;
 import com.fpt.petstore.core.dao.query.SqlQueryTemplate;
-import com.fpt.petstore.entities.Food;
+import com.fpt.petstore.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.fpt.petstore.entities.Customer;
-import com.fpt.petstore.entities.Employee;
-import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.repository.OrderRepository;
 import com.fpt.petstore.util.DateUtil;
 
@@ -33,6 +30,15 @@ public class OrderLogic extends DAOService {
   public Order saveOrder(Order order) {
     if(order.getId() == null ) {
       order = generateCode(order);
+    }
+
+    int total = order.getTotal();
+    List<OrderItem> items = order.getOrderItems();
+    if(total == 0 && items != null) {
+    	for(OrderItem item: items) {
+    	  total += item.getTotal();
+      }
+    	order.setTotal(total);
     }
     return repo.save(order);
   }
@@ -59,7 +65,7 @@ public class OrderLogic extends DAOService {
 
   public Order generateCode(Order order) {
     if(order == null) return null;
-    order.setCode("order-" + DateUtil.asCompactDateTimeId(new Date()));
+    order.setCode("or-" + DateUtil.asCompactDateTimeId(new Date()));
     return order;
   }
 
