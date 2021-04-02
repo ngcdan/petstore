@@ -22,8 +22,7 @@ import com.fpt.petstore.entities.Product.ProductType;
 @Repository
 public interface ProductsRepository extends PagingAndSortingRepository<Product, Long> {
 
-  @Query(
-          "SELECT p FROM Product p WHERE p.code = :code")
+  @Query( "SELECT p FROM Product p WHERE p.code = :code")
   public Product getByCode(@Param("code") String code);
 
   public List<Product> findByType(ProductType productType);

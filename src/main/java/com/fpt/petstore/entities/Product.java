@@ -50,7 +50,7 @@ public class Product extends AbstractPersistable<Long> {
   private String description;
 
   @Enumerated(EnumType.STRING)
-  private ProductType type = ProductType.CLOTHES;
+  private ProductType type;
 
   public Product(String name) {
     this.name = name;

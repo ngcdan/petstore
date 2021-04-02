@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "customer")
+@Table(name =)
 @JsonInclude(Include.NON_NULL)
 @Setter
 @Getter
@@ -39,9 +39,9 @@ public class Customer extends AbstractPersistable<Long> {
   private String avatarUrl="customer-default.jpg";
 
   @JsonFormat(pattern = DateUtil.COMPACT_DATE_FORMAT)
-  private LocalDate birthday ;
+  private Date birthday;
 
-  private Gender gender = Gender.Male;
+  private Gender gender;
 
   private String address;
 
@@ -76,13 +76,7 @@ public class Customer extends AbstractPersistable<Long> {
     return this;
   }
   public Customer withBirthday(String birthday){
-    DateTimeFormatter dateTimeFormatter =DateTimeFormatter.ofPattern("dd-MM-yyyy");
-    try{
-      LocalDate localDate = LocalDate.parse(birthday,dateTimeFormatter);
-      this.birthday = localDate;
-    }catch(Exception e){
-      e.printStackTrace();
-    }
+    this.birthday = DateUtil.parseCompactDate(birthday);
     return this;
   }
 

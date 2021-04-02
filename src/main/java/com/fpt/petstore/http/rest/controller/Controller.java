@@ -1,29 +1,16 @@
 package com.fpt.petstore.http.rest.controller;
 
-import java.util.List;
-
-import javax.validation.Valid;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.fpt.petstore.entities.Customer;
-import com.fpt.petstore.entities.Employee;
-import com.fpt.petstore.entities.Food;
+import com.fpt.petstore.entities.*;
 import com.fpt.petstore.entities.Food.FoodType;
-import com.fpt.petstore.entities.Order;
-import com.fpt.petstore.entities.Product;
-import com.fpt.petstore.entities.Product.ProductType;
 import com.fpt.petstore.exception.ResourceNotFoundException;
 import com.fpt.petstore.repository.CustomerRepository;
 import com.fpt.petstore.services.PetStoreService;
+import com.fpt.petstore.services.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @author linuss
@@ -38,6 +25,9 @@ public class Controller {
 
   @Autowired
   CustomerRepository repo;
+
+  @Autowired
+  ProductService productService;
 
   // Customer
   @GetMapping("customer/{code}")
@@ -95,14 +85,15 @@ public class Controller {
     return service.deleteEmployeeById(id);
   }
 
-  // Product
   @GetMapping("product/{code}")
-  public @ResponseBody Product getProductByCode(@PathVariable("code") String code) {
-    return service.getProductByCode(code);
+  public @ResponseBody
+  Product getProductByCode(@PathVariable("code") String code) {
+    return productService.getProduct(code);
   }
 
   @GetMapping("products")
-  public @ResponseBody List<Product> findAllProducts() {
+  public @ResponseBody
+  List<Product> findAllProducts() {
     return service.findAllProducts();
   }
 
@@ -122,11 +113,11 @@ public class Controller {
   }
 
   @GetMapping("products/{productType}")
-  public @ResponseBody List<Product> findProductsByProductType(@PathVariable("productType") ProductType productType) {
+  public @ResponseBody List<Product> findProductsByProductType(@PathVariable("productType") Product.ProductType productType) {
     return service.findProductsByType(productType);
   }
 
-  // Food
+    // Food
   @GetMapping("food/{code}")
   public @ResponseBody Food getFoodByCode(@PathVariable("code") String code) {
     return service.getFoodByCode(code);
