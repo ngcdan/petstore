@@ -63,47 +63,9 @@ public class OrderItem extends AbstractPersistable<Long> {
 	}
 
 	@Deprecated
-	public OrderItem( Food food, int total) {
+	public OrderItem(Food food, int total) {
 		this.food = food;
 		this.total = total;
-	}
-
-	public OrderItem(Order order, Food food) { }
-
-	public void addProduct(Order order, Product product) {
-		if(product == null) throw new IllegalArgumentException("Expected Product not null!");
-
-		List<OrderItem> orderItems = order.getOrderItems();
-		if(orderItems != null) {
-			for(OrderItem item : orderItems) {
-				if(item.getName().equals(product.getName())) {
-					item.quantity = item.quantity + 1;
-				}
-				item.quantity = 1;
-				item.name = product.getName();
-				item.label = "Product Item";
-				item.description = "Product Item " + product.getName();
-			}
-		}
-		this.total = quantity * product.getPrice();
-			this.type = ItemType.PRODUCT;
-
-		if(this.product == null || !(this.product.getName().equals(product.getName()))) {
-			this.quantity = 1;
-			this.name = product.getName();
-			this.label = "Product Item";
-			this.description = "Product Item " + product.getName();
-		} else {
-			this.quantity = this.quantity + 1;
-		}
-		this.total = quantity * product.getPrice();
-		this.type = ItemType.PRODUCT;
-	}
-
-	public OrderItem addFood(Food food) {
-		this.quantity = this.quantity + 1;
-		this.total = this.quantity * food.getPrice();
-		return this;
 	}
 
 	public OrderItem newOrderItem(Food food) {
@@ -113,6 +75,16 @@ public class OrderItem extends AbstractPersistable<Long> {
 		this.quantity = 1;
 		this.total = food.getPrice();
 		this.type = ItemType.FOOD;
+		return this;
+	}
+
+	public OrderItem newOrderItem(Product product) {
+		this.name = product.getName();
+		this.label = "Product Item";
+		this.description = "Product Item " + product.getName();
+		this.quantity = 1;
+		this.total = food.getPrice();
+		this.type = ItemType.PRODUCT;
 		return this;
 	}
 }

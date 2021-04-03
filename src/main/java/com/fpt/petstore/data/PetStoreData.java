@@ -3,10 +3,8 @@ package com.fpt.petstore.data;
 import com.fpt.petstore.entities.*;
 import com.fpt.petstore.entities.Food.FoodType;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * @author linuss
@@ -211,8 +209,8 @@ public class PetStoreData {
 	  withEmployee(employee_2).
 	  withCustomer(customer_3).
 	  withState(Order.State.DUE).
-	  withOrderItem(food_1).
-	  withOrderItem(food_1);
+	  addOrderItem(food_1).
+	  addOrderItem(food_1);
 
   public  Order order_2  = new Order("order_2").withCreatedTime("11/6/2020 10:20:20");
   public  Order order_3  = new Order("order_3").withCreatedTime("13/5/2020 12:20:20");

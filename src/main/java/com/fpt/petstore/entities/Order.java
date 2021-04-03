@@ -1,12 +1,10 @@
 package com.fpt.petstore.entities;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -124,6 +122,8 @@ public class Order extends AbstractPersistable<Long> {
     return this;
   }
 
+
+  @Deprecated
   public Order withCreatedTime(String date)  {
 
     //TODO: remove | using DateUtil
@@ -138,7 +138,7 @@ public class Order extends AbstractPersistable<Long> {
     return this;
   }
 
-  public Order withOrderItem(Food food) {
+  public Order addOrderItem(Food food) {
     if(food == null) throw new IllegalArgumentException("Expected food not null!");
 
     List<OrderItem> orderItems = this.getOrderItems();
@@ -146,11 +146,30 @@ public class Order extends AbstractPersistable<Long> {
       this.withOrderItem(new OrderItem().newOrderItem(food));
     } else {
       for(OrderItem item: orderItems) {
-        if(item.getName().equals(food.getName())) {
+        if(item.getName().equals(food.getName())) { //TODO: check name enough not to need check type
           item.setQuantity(item.getQuantity() + 1);
           item.setTotal(item.getQuantity() * food.getPrice());
-        } else {
-          this.withOrderItem(new OrderItem().newOrderItem(food));
+        }
+      }
+    }
+    return this;
+  }
+
+  public Order addOrderItem(Product product) {
+    if(product == null) throw new IllegalArgumentException("Expected product not null!");
+
+    List<OrderItem> orderItems = this.getOrderItems();
+    if(orderItems == null || orderItems.isEmpty()) {
+      this.withOrderItem(new OrderItem().newOrderItem(product));
+    } else {
+      for(OrderItem item: orderItems) {
+        if(item.getType().equals(OrderItem.ItemType.PRODUCT)) {
+          if(item.getName().equals(product.getName())) {
+            item.setQuantity(item.getQuantity() + 1);
+            item.setTotal(item.getQuantity() * product.getPrice());
+          } else {
+            this.withOrderItem(new OrderItem().newOrderItem(product));
+          }
         }
       }
     }
