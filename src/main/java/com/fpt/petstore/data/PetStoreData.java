@@ -42,6 +42,7 @@ public class PetStoreData {
 		withPhone("0914565476").
 		withGender(Customer.Gender.Male);
 
+	//TODO: missing field username
 	public Customer customer_5 = new Customer("Vo Thanh Truong").withEmail("vothanhtruong@gmail.com").withPassword("12345").withBirthday("06/09/2000").withAddress("235 Le Lai").withPhone("0917657212").withGender(Customer.Gender.Female);
 	public Customer customer_6 = new Customer("Luu Nguyen Thanh Phuong").withEmail("phuonglnt@gmail.com").withPassword("12345").withBirthday("21/12/2000").withAddress("248 Le Van Si").withPhone("0928494156").withGender(Customer.Gender.Male);
 	public Customer customer_7 = new Customer("Nguyen Thi Thanh Phuong").withEmail("phuongntt01@gmail.com").withPassword("12345").withBirthday("01/01/2000").withAddress("175-82 Huynh Van Banh").withPhone("0794930056").withGender(Customer.Gender.Female);
