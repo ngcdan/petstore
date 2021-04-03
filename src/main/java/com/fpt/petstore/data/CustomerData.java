@@ -3,7 +3,7 @@ package com.fpt.petstore.data;
 import com.fpt.petstore.entities.Customer;
 
 public class CustomerData {
-	public Customer customer_2 = new Customer("Nguyen Van Nhat").withEmail("vannhat98@gmail.com").withPassword("12345").withBirthday("12/09/1998").withAddress("342-9B Thoai Ngoc Hau").withPhone("0345471020").withGender(Customer.Gender.Male);
+	public Customer customer_2 = new Customer("Nguyen Van Nhat").withEmail("vannhat98@gmail.com").withPassword("12345").withBirthday("12/12/1998").withAddress("342-9B Thoai Ngoc Hau").withPhone("0345471020").withGender(Customer.Gender.Male);
 	public Customer customer_3 = new Customer("Nguyen Tan Trong").withEmail("trongnt@gmail.com").withPassword("12345").withBirthday("30/01/2000").withAddress("54 Le Van Si").withPhone("0851235898").withGender(Customer.Gender.Female);
 	public Customer customer_4 = new Customer("Tran Dai Hung").withEmail("trandaihung@gmail.com").withPassword("12345").withBirthday("06/12/2000").withAddress("11 Tran Hung Dao").withPhone("0914565476").withGender(Customer.Gender.Male);
 	public Customer customer_5 = new Customer("Vo Thanh Truong").withEmail("vothanhtruong@gmail.com").withPassword("12345").withBirthday("06/09/2000").withAddress("235 Le Lai").withPhone("0917657212").withGender(Customer.Gender.Female);

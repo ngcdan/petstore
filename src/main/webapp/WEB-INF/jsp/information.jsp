@@ -58,7 +58,8 @@
                             <div class="form-group row">
                                 <label class="col-md-4 control-label">Ngày sinh:</label>
                                 <div class="col-md-8">
-                                       <input class="form-control" type="date" name="birthday" value="${customerr.birthday}"/>
+
+                                       <input class="form-control" type="date" name="birthday" value="<fmt:formatDate value="${customerr.birthday}" pattern="yyyy-MM-dd"/>"/>
                                 </div>
                             </div>
                             <div class="form-group row">

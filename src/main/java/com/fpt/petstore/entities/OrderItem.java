@@ -38,7 +38,7 @@ public class OrderItem extends AbstractPersistable<Long> {
 	String description;
 
 	@DecimalMin(value = "0")
-	int quantity;
+	int quantity=1;
 
 	@NotNull
 	@DecimalMin(value = "0")

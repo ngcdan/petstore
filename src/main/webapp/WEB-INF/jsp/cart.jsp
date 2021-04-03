@@ -99,7 +99,7 @@
                                                     </c:when>
                                                     <c:otherwise>
                                                         <input type="text" name="productQuantity"
-                                                               value="${p.value.quantity}">
+                                                               value="${p.value.quantity+1}">
                                                     </c:otherwise>
                                                 </c:choose>
                                             </div>
@@ -139,7 +139,8 @@
                 <div class="cart__total">
                     <h6>Tổng tiền giỏ hàng của bạn</h6>
                     <ul>
-                        <li>Tổng cộng <span>${totalPrice}VNĐ</span></li>
+
+                       <li>Tổng cộng <span> ${totalPrice} VNĐ</span></li>
                     </ul>
                     <a href="/thanh-toan" class="primary-btn">Tiến đến thanh toán</a>
                 </div>

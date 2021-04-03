@@ -77,7 +77,7 @@ public class AppController {
         return "blog";
     }
 
-    //TODO : check again
+
     @GetMapping("/information")
     public String viewInfo(ModelMap modelMap,HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request) {
         Customer customer = (Customer) session.getAttribute("customer");
@@ -123,6 +123,15 @@ public class AppController {
     @GetMapping("/gio-hang")
     public String viewsCart(HttpSession session, ModelMap modelMap) {
         getCookie(session);
+
+       int totalPrice=0;
+      Map<String, OrderItem> listCart = (Map<String, OrderItem>) session.getAttribute("listCart");
+      if(listCart!=null){
+          for (OrderItem cart : listCart.values()) {
+              totalPrice += cart.getTotal();
+          }
+      }
+        modelMap.addAttribute("totalPrice",totalPrice);
 
         return "cart";
     }
