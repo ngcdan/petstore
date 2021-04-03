@@ -13,7 +13,7 @@ public class DateUtil {
   private static final ThreadLocal<SimpleDateFormat> COMPACT_DATETIME = new ThreadLocal<SimpleDateFormat>() {
     @Override
     protected SimpleDateFormat initialValue() {
-      return new SimpleDateFormat(COMPACT_DATETIME_FORMAT);
+      return new SimpleDateFormat(LOCAL_DATETIME_FORMAT);
     }
   };
   
@@ -65,5 +65,4 @@ public class DateUtil {
       return false;
     } 
   }
-    public static Date parse(String exp) { return DateUtil.parseCompactDate(exp); }
 }

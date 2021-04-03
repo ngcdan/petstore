@@ -19,6 +19,7 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -78,6 +79,9 @@ public class Order extends AbstractPersistable<Long> {
   @Enumerated(EnumType.STRING)
   private State state;
 
+  @JsonFormat(pattern = DateUtil.LOCAL_DATETIME_FORMAT)
+  private Date  transactionDate = new Date();
+
   public Order(String code, String label) {
     this.code = code;
     this.label = label;
@@ -123,9 +127,8 @@ public class Order extends AbstractPersistable<Long> {
     return this;
   }
 
-
-  public Order withCreatedTime(String date)  {
-    this.createdTime = DateUtil.parseCompactDate(date);
+  public Order withTransactionDate(String exp) {
+    this.transactionDate = DateUtil.parseCompactDateTime(exp);
     return this;
   }
 

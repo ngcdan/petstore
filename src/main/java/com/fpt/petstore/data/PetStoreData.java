@@ -225,6 +225,7 @@ public class PetStoreData {
 		.withPic("thucan-cho2.png");
 	public static Product[] ALL_PRODUCTS = { product_1, product_2, product_3, product_4, product_5 };
 
+	//TODO: mau data cho Order
 	public static Order order_1  = new Order("order_1").
 		withEmployee(employee_10).
 		withCustomer(customer_4).
@@ -236,7 +237,7 @@ public class PetStoreData {
 		addOrderItem(product_3).
 		addOrderItem(product_1).
 		withPayment(new Payment("COD")).
-		withCreatedTime("12/12/2020 18:20:20");
+		withTransactionDate("12/12/2020@18:20:20");
 
 	public static Order order_2  = new Order("order_2").
 		withEmployee(employee_10).
@@ -246,7 +247,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withPayment(new Payment("COD"))
-		.withCreatedTime("11/6/2020 10:20:20");
+		.withTransactionDate("11/6/2020@10:20:20");
 	public static Order order_3  = new Order("order_3").
 		withEmployee(employee_10).
 		withCustomer(customer_5).
@@ -254,7 +255,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("COD")).withCreatedTime("13/5/2021 12:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("13/5/2021@12:20:20");
 	public static Order order_4  = new Order("order_4").
 		withEmployee(employee_10).
 		withState(Order.State.DUE).
@@ -262,7 +263,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("COD")).withCreatedTime("14/3/2020 13:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("14/3/2020@13:20:20");
 	public static Order order_5  = new Order("order_5").
 		withEmployee(employee_10).
 		withState(Order.State.DUE).
@@ -270,7 +271,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("COD")).withCreatedTime("15/2/2020 14:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("15/2/2020@14:20:20");
 	public static Order order_6  = new Order("order_6").
 		withEmployee(employee_10).
 		withCustomer(customer_6).
@@ -278,7 +279,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("16/4/2020 15:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("16/4/2020@15:20:20");
 	public static Order order_7  = new Order("order_7").
 		withEmployee(employee_7).
 		withState(Order.State.DUE).
@@ -286,7 +287,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("17/7/2020 16:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("17/7/2020@16:20:20");
 	public static Order order_8  = new Order("order_8").
 		withEmployee(employee_7).
 		withCustomer(customer_7).
@@ -294,7 +295,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("18/6/2020 16:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("18/6/2020@16:20:20");
 	public static Order order_9  = new Order("order_9").
 		withEmployee(employee_7).
 		withCustomer(customer_8).
@@ -302,7 +303,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("19/5/2020 17:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("19/5/2020@17:20:20");
 	public static Order order_10 = new Order("order_10").
 		withEmployee(employee_7).
 		withState(Order.State.DUE).
@@ -310,7 +311,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("20/1/2020 18:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("20/1/2020@18:20:20");
 	public static Order order_11 = new Order("order_11").
 		withEmployee(employee_7).
 		withCustomer(customer_10).
@@ -318,7 +319,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("21/3/2020 13:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("21/3/2020@13:20:20");
 	public static Order order_12 = new Order("order_12").
 		withEmployee(employee_8).
 		withState(Order.State.DUE).
@@ -326,7 +327,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("22/4/2020 12:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("22/4/2020@12:20:20");
 	public static Order order_13 = new Order("order_13").
 		withEmployee(employee_8).
 		withState(Order.State.DUE).
@@ -334,7 +335,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("COD")).withCreatedTime("23/3/2020 11:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("23/3/2020@11:20:20");
 	public static Order order_14 = new Order("order_14").
 		withEmployee(employee_8).
 		withState(Order.State.DUE).
@@ -342,7 +343,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("COD")).withCreatedTime("23/2/2020 12:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("23/2/2020@12:20:20");
 	public static Order order_15 = new Order("order_15").
 		withEmployee(employee_8).
 		withCustomer(customer_11).
@@ -350,7 +351,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("COD")).withCreatedTime("25/7/2020 13:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("25/7/2020@13:20:20");
 	public static Order order_16 = new Order("order_16").
 		withEmployee(employee_8).
 		withCustomer(customer_11).
@@ -358,7 +359,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("COD")).withCreatedTime("24/6/2020 14:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("24/6/2020@14:20:20");
 	public static Order order_17 = new Order("order_17").
 		withEmployee(employee_3).
 		withCustomer(customer_12).
@@ -366,7 +367,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("COD")).withCreatedTime("26/5/2020 15:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("26/5/2020@15:20:20");
 	public static Order order_18 = new Order("order_18").
 		withEmployee(employee_3).
 		withCustomer(customer_12).
@@ -374,7 +375,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		withState(Order.State.DUE).
 		addOrderItem(food_3).
-		withPayment(new Payment("COD")).withCreatedTime("10/4/2020 15:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("10/4/2020@15:20:20");
 	public static Order order_19 = new Order("order_19").
 		withEmployee(employee_3).
 		withCustomer(customer_13).
@@ -382,7 +383,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("22/3/2020 13:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("22/3/2020@13:20:20");
 	public static Order order_20 = new Order("order_20").
 		withEmployee(employee_3).
 		withCustomer(customer_13).
@@ -390,7 +391,7 @@ public class PetStoreData {
 		addOrderItem(food_20).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("10/1/2020 12:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("10/1/2020@12:20:20");
 
 	public static Order order_41  = new Order("order_41").
 		withEmployee(employee_5).
@@ -400,9 +401,7 @@ public class PetStoreData {
 		withState(Order.State.DUE).
 		addOrderItem(food_3).
 		withPayment(new Payment("Vietcombank")).
-		withCreatedTime( "12/12/2020 18:20:20");
-
-
+		withTransactionDate( "12/12/2020@18:20:20");
 
 	public static Order order_42  = new Order("order_42").
 		withEmployee(employee_5).
@@ -412,7 +411,7 @@ public class PetStoreData {
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
 		withPayment(new Payment("COD"))
-		.withCreatedTime("11/6/2020 10:20:20");
+		.withTransactionDate("11/6/2020@10:20:20");
 	public static Order order_43  = new Order("order_43").
 		withEmployee(employee_5).
 		withCustomer(customer_15).
@@ -420,7 +419,7 @@ public class PetStoreData {
 		addOrderItem(food_16).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("13/5/2020 12:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("13/5/2020@12:20:20");
 	public static Order order_44  = new Order("order_44").
 		withEmployee(employee_3).
 		withCustomer(customer_15).
@@ -428,7 +427,7 @@ public class PetStoreData {
 		addOrderItem(food_4).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("14/3/2020 13:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("14/3/2020@13:20:20");
 	public static Order order_45  = new Order("order_45").
 		withEmployee(employee_3).
 		withCustomer(customer_16).
@@ -436,7 +435,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.CANCEL).
-		withPayment(new Payment("COD")).withCreatedTime("15/2/2020 14:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("15/2/2020@14:20:20");
 	public static Order order_46  = new Order("order_46").
 		withEmployee(employee_3).
 		withCustomer(customer_16).
@@ -444,7 +443,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.CANCEL).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("16/4/2020 15:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("16/4/2020@15:20:20");
 	public static Order order_47  = new Order("order_47").
 		withEmployee(employee_1).
 		withCustomer(customer_16).
@@ -452,7 +451,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("17/7/2020 16:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("17/7/2020@16:20:20");
 	public static Order order_48  = new Order("order_48").
 		withEmployee(employee_1).
 		withCustomer(customer_16).
@@ -460,7 +459,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.PAID).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("18/6/2020 16:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("18/6/2020@16:20:20");
 	public static Order order_49  = new Order("order_49").
 		withEmployee(employee_1).
 		withCustomer(customer_16).
@@ -468,14 +467,14 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.CANCEL).
-		withPayment(new Payment("COD")).withCreatedTime("19/5/2020 17:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("19/5/2020@17:20:20");
 	public static Order order_50 = new Order("order_50").
 		withEmployee(employee_1).
 		withCustomer(customer_20).
 		addOrderItem(food_2).
 		addOrderItem(food_5).
 		addOrderItem(food_3).
-		withPayment(new Payment("COD")).withCreatedTime("20/1/2020 18:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("20/1/2020@18:20:20");
 	public static Order order_51 = new Order("order_51").
 		withEmployee(employee_8).
 		withCustomer(customer_16).
@@ -483,7 +482,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.CANCEL).
-		withPayment(new Payment("COD")).withCreatedTime("21/3/2020 13:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("21/3/2020@13:20:20");
 	public static Order order_52 = new Order("order_52").
 		withEmployee(employee_8).
 		withCustomer(customer_16).
@@ -491,7 +490,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("22/4/2020 12:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("22/4/2020@12:20:20");
 	public static Order order_63 = new Order("order_63").
 		withEmployee(employee_8).
 		withCustomer(customer_16).
@@ -499,7 +498,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("23/3/2021 11:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("23/3/2021@11:20:20");
 	public static Order order_62 = new Order("order_62").
 		withEmployee(employee_8).
 		withCustomer(customer_16).
@@ -507,7 +506,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("23/2/2021 12:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("23/2/2021@12:20:20");
 	public static Order order_61 = new Order("order_61").
 		withEmployee(employee_9).
 		withCustomer(customer_16).
@@ -515,7 +514,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("25/7/2020 13:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("25/7/2020@13:20:20");
 	public static Order order_560 = new Order("order_560").
 		withEmployee(employee_9).
 		withCustomer(customer_17).
@@ -523,7 +522,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("24/6/2020 14:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("24/6/2020@14:20:20");
 	public static Order order_571 = new Order("order_571").
 		withEmployee(employee_9).
 		withCustomer(customer_17).
@@ -531,7 +530,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("26/5/2020 15:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("26/5/2020@15:20:20");
 	public static Order order_581 = new Order("order_581").
 		withEmployee(employee_9).
 		withCustomer(customer_17).
@@ -539,7 +538,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.PAID).
-		withPayment(new Payment("COD")).withCreatedTime("10/4/2020 15:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("10/4/2020@15:20:20");
 	public static Order order_591 = new Order("order_591").
 		withEmployee(employee_9).
 		withCustomer(customer_17).
@@ -547,7 +546,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("22/3/2020 13:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("22/3/2020@13:20:20");
 	public static Order order_60 = new Order("order_60").
 		withEmployee(employee_9).
 		withCustomer(customer_18).
@@ -555,7 +554,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.CANCEL).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("10/1/2020 12:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("10/1/2020@12:20:20");
 
 	public static Order order_21  = new Order("order_21").
 		withEmployee(employee_3).
@@ -564,7 +563,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_4).
 		withPayment(new Payment("COD")).
-		withCreatedTime( "12/12/2020 18:20:20");
+		withTransactionDate( "12/12/2020@18:20:20");
 
 	public static Order order_22  = new Order("order_22").
 		withEmployee(employee_4).
@@ -573,7 +572,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		withState(Order.State.DUE).
 		withPayment(new Payment("ATM"))
-		.withCreatedTime("11/6/2020 10:20:20");
+		.withTransactionDate("11/6/2020@10:20:20");
 	public static Order order_23  = new Order("order_23").
 		withEmployee(employee_10).
 		withCustomer(customer_10).
@@ -581,7 +580,7 @@ public class PetStoreData {
 		addOrderItem(food_10).
 		addOrderItem(food_20).
 		withState(Order.State.CANCEL).
-		withPayment(new Payment("COD")).withCreatedTime("13/5/2020 12:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("13/5/2020@12:20:20");
 	public static Order order_24  = new Order("order_24").
 		withEmployee(employee_4).
 		withCustomer(customer_18).
@@ -589,7 +588,7 @@ public class PetStoreData {
 		addOrderItem(food_2).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("14/3/2020 13:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("14/3/2020@13:20:20");
 	public static Order order_25  = new Order("order_25").
 		withEmployee(employee_4).
 		withCustomer(customer_18).
@@ -597,7 +596,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("15/2/2020 14:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("15/2/2020@14:20:20");
 	public static Order order_26  = new Order("order_26").
 		withEmployee(employee_4).
 		withCustomer(customer_18).
@@ -605,13 +604,13 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.PAID).
-		withPayment(new Payment("ATM")).withCreatedTime("16/4/2020 15:20:20");
+		withPayment(new Payment("ATM")).withTransactionDate("16/4/2020@15:20:20");
 	public static Order order_27  = new Order("order_27").
 		withEmployee(employee_10).
 		withCustomer(customer_5).
 		addOrderItem(food_15).
 		addOrderItem(food_3).withState(Order.State.PAID).
-		withPayment(new Payment("COD")).withCreatedTime("17/7/2020 16:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("17/7/2020@16:20:20");
 	public static Order order_28  = new Order("order_28").
 		withEmployee(employee_4).
 		withCustomer(customer_18).
@@ -619,7 +618,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("18/6/2020 16:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("18/6/2020@16:20:20");
 	public static Order order_29  = new Order("order_29").
 		withEmployee(employee_5).
 		withCustomer(customer_2).
@@ -627,7 +626,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("19/5/2020 17:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("19/5/2020@17:20:20");
 	public static Order order_30 = new Order("order_30").
 		withEmployee(employee_5).
 		withCustomer(customer_2).
@@ -635,7 +634,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("20/1/2020 18:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("20/1/2020@18:20:20");
 	public static Order order_31 = new Order("order_31").
 		withEmployee(employee_5).
 		withCustomer(customer_2).
@@ -643,7 +642,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("21/3/2020 13:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("21/3/2020@13:20:20");
 	public static Order order_32 = new Order("order_32").
 		withEmployee(employee_5).
 		withCustomer(customer_2).
@@ -651,7 +650,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		withState(Order.State.DUE).
 		addOrderItem(food_3).
-		withPayment(new Payment("COD")).withCreatedTime("22/4/2020 12:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("22/4/2020@12:20:20");
 	public static Order order_53 = new Order("order_53").
 		withEmployee(employee_5).
 		withCustomer(customer_2).
@@ -659,7 +658,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		withState(Order.State.DUE).
 		addOrderItem(food_3).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("23/3/2020 11:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("23/3/2020@11:20:20");
 	public static Order order_54 = new Order("order_54").
 		withEmployee(employee_5).
 		withCustomer(customer_2).
@@ -667,7 +666,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("23/2/2020 12:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("23/2/2020@12:20:20");
 	public static Order order_55 = new Order("order_55").
 		withEmployee(employee_2).
 		withCustomer(customer_4).
@@ -675,7 +674,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.CANCEL).
-		withPayment(new Payment("COD")).withCreatedTime("25/7/2020 13:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("25/7/2020@13:20:20");
 	public static Order order_56 = new Order("order_56").
 		withEmployee(employee_5).
 		withCustomer(customer_4).
@@ -683,7 +682,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.PAID).
-		withPayment(new Payment("COD")).withCreatedTime("24/6/2020 14:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("24/6/2020@14:20:20");
 	public static Order order_57 = new Order("order_57").
 		withEmployee(employee_5).
 		withCustomer(customer_4).
@@ -691,7 +690,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("26/5/2020 15:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("26/5/2020@15:20:20");
 	public static Order order_58 = new Order("order_58").
 		withEmployee(employee_5).
 		withCustomer(customer_4).
@@ -699,7 +698,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("10/4/2020 15:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("10/4/2020@15:20:20");
 	public static Order order_59 = new Order("order_59").
 		withEmployee(employee_5).
 		withCustomer(customer_4).
@@ -707,7 +706,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("22/3/2020 20:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("22/3/2020@20:20:20");
 	public static Order order_64 = new Order("order_64").
 		withEmployee(employee_5).
 		withCustomer(customer_4).
@@ -715,7 +714,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("10/1/2020 18:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("10/1/2020@18:20:20");
 
 	public static Order order_65  = new Order("order_65").
 		withEmployee(employee_5).
@@ -724,7 +723,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("15/2/2020 14:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("15/2/2020@14:20:20");
 	public static Order order_66  = new Order("order_66").
 		withEmployee(employee_6).
 		withCustomer(customer_5).
@@ -732,7 +731,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("16/4/2020 15:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("16/4/2020@15:20:20");
 	public static Order order_67  = new Order("order_67").
 		withEmployee(employee_6).
 		withCustomer(customer_5).
@@ -740,7 +739,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("17/7/2020 16:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("17/7/2020@16:20:20");
 	public static Order order_68  = new Order("order_68").
 		withEmployee(employee_6).
 		withCustomer(customer_5).
@@ -748,7 +747,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("18/6/2020 16:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("18/6/2020@16:20:20");
 	public static Order order_69  = new Order("order_69").
 		withEmployee(employee_2).
 		withCustomer(customer_5).
@@ -756,7 +755,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("19/5/2020 17:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("19/5/2020@17:20:20");
 	public static Order order_70 = new Order("order_70").
 		withEmployee(employee_2).
 		withCustomer(customer_6).
@@ -764,7 +763,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("20/1/2020 18:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("20/1/2020@18:20:20");
 	public static Order order_71 = new Order("order_71").
 		withEmployee(employee_2).
 		withCustomer(customer_6).
@@ -772,7 +771,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("21/3/2020 13:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("21/3/2020@13:20:20");
 	public static Order order_72 = new Order("order_72").
 		withEmployee(employee_4).
 		withCustomer(customer_6).
@@ -780,7 +779,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("22/4/2020 12:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("22/4/2020@12:20:20");
 	public static Order order_73 = new Order("order_73").
 		withEmployee(employee_4).
 		withCustomer(customer_6).
@@ -788,7 +787,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("23/3/2020 11:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("23/3/2020@11:20:20");
 	public static Order order_74 = new Order("order_74").
 		withEmployee(employee_4).
 		withCustomer(customer_6).
@@ -796,7 +795,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("23/2/2020 12:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("23/2/2020@12:20:20");
 	public static Order order_75 = new Order("order_75").
 		withEmployee(employee_9).
 		withCustomer(customer_6).
@@ -804,7 +803,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("25/7/2020 13:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("25/7/2020@13:20:20");
 	public static Order order_76 = new Order("order_76").
 		withEmployee(employee_9).
 		withCustomer(customer_2).
@@ -812,7 +811,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("24/6/2020 14:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("24/6/2020@14:20:20");
 	public static Order order_77 = new Order("order_77").
 		withEmployee(employee_9).
 		withCustomer(customer_6).
@@ -820,7 +819,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("26/5/2020 15:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("26/5/2020@15:20:20");
 	public static Order order_78 = new Order("order_78").
 		withEmployee(employee_10).
 		withCustomer(customer_6).
@@ -828,7 +827,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("10/4/2020 15:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("10/4/2020@15:20:20");
 	public static Order order_79 = new Order("order_79").
 		withEmployee(employee_10).
 		withCustomer(customer_7).
@@ -836,7 +835,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.PAID).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("22/3/2020 13:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("22/3/2020@13:20:20");
 	public static Order order_80 = new Order("order_80").
 		withEmployee(employee_10).
 		withCustomer(customer_20).
@@ -844,7 +843,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.CANCEL).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("10/1/2020 12:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("10/1/2020@12:20:20");
 
 	public static Order order_81  = new Order("order_81").
 		withEmployee(employee_10).
@@ -854,7 +853,7 @@ public class PetStoreData {
 		addOrderItem(food_3).
 		withState(Order.State.CANCEL).
 		withPayment(new Payment("Vietcombank")).
-		withCreatedTime( "12/12/2020 18:20:20");
+		withTransactionDate( "12/12/2020@18:20:20");
 
 	public static Order order_82  = new Order("order_82").
 		withEmployee(employee_4).
@@ -864,7 +863,7 @@ public class PetStoreData {
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
 		withPayment(new Payment("COD"))
-		.withCreatedTime("11/6/2020 10:20:20");
+		.withTransactionDate("11/6/2020@10:20:20");
 	public static Order order_83  = new Order("order_83").
 		withEmployee(employee_4).
 		withCustomer(customer_20).
@@ -872,7 +871,7 @@ public class PetStoreData {
 		addOrderItem(food_16).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("13/5/2020 12:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("13/5/2020@12:20:20");
 	public static Order order_84  = new Order("order_84").
 		withEmployee(employee_4).
 		withCustomer(customer_20).
@@ -880,7 +879,7 @@ public class PetStoreData {
 		addOrderItem(food_4).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("14/3/2020 13:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("14/3/2020@13:20:20");
 	public static Order order_85  = new Order("order_85").
 		withEmployee(employee_4).
 		withCustomer(customer_20).
@@ -888,7 +887,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("15/2/2020 14:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("15/2/2020@14:20:20");
 	public static Order order_86  = new Order("order_86").
 		withEmployee(employee_2).
 		withCustomer(customer_20).
@@ -896,7 +895,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("16/4/2020 15:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("16/4/2020@15:20:20");
 	public static Order order_87  = new Order("order_87").
 		withEmployee(employee_2).
 		withCustomer(customer_20).
@@ -904,7 +903,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("17/7/2020 16:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("17/7/2020@16:20:20");
 	public static Order order_88  = new Order("order_88").
 		withEmployee(employee_2).
 		withCustomer(customer_20).
@@ -912,7 +911,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("18/6/2020 16:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("18/6/2020@16:20:20");
 	public static Order order_91 = new Order("order_91").
 		withEmployee(employee_1).
 		withCustomer(customer_20).
@@ -920,7 +919,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("20/1/2020 18:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("20/1/2020@18:20:20");
 	public static Order order_90 = new Order("order_90").
 		withEmployee(employee_2).
 		withCustomer(customer_20).
@@ -928,7 +927,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("21/3/2020 13:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("21/3/2020@13:20:20");
 	public static Order order_89 = new Order("order_89").
 		withEmployee(employee_2).
 		withCustomer(customer_20).
@@ -936,7 +935,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("22/4/2020 12:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("22/4/2020@12:20:20");
 	public static Order order_92 = new Order("order_92").
 		withEmployee(employee_2).
 		withCustomer(customer_20).
@@ -944,7 +943,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("23/3/2021 11:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("23/3/2021@11:20:20");
 	public static Order order_93 = new Order("order_93").
 		withEmployee(employee_2).
 		withCustomer(customer_20).
@@ -952,7 +951,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("23/2/2021 12:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("23/2/2021@12:20:20");
 	public static Order order_94 = new Order("order_94").
 		withEmployee(employee_2).
 		withCustomer(customer_11).
@@ -960,7 +959,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("25/7/2020 13:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("25/7/2020@13:20:20");
 	public static Order order_95 = new Order("order_95").
 		withEmployee(employee_2).
 		withCustomer(customer_11).
@@ -968,7 +967,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("24/6/2020 14:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("24/6/2020@14:20:20");
 	public static Order order_96 = new Order("order_96").
 		withEmployee(employee_2).
 		withCustomer(customer_11).
@@ -976,7 +975,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("26/5/2020 15:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("26/5/2020@15:20:20");
 	public static Order order_97 = new Order("order_97").
 		withEmployee(employee_2).
 		withCustomer(customer_11).
@@ -984,7 +983,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("COD")).withCreatedTime("10/4/2020 15:20:20");
+		withPayment(new Payment("COD")).withTransactionDate("10/4/2020@15:20:20");
 	public static Order order_98 = new Order("order_98").
 		withEmployee(employee_2).
 		withCustomer(customer_11).
@@ -992,7 +991,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("22/3/2020 13:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("22/3/2020@13:20:20");
 	public static Order order_99 = new Order("order_99").
 		withEmployee(employee_2).
 		withCustomer(customer_11).
@@ -1000,7 +999,7 @@ public class PetStoreData {
 		addOrderItem(food_5).
 		addOrderItem(food_3).
 		withState(Order.State.DUE).
-		withPayment(new Payment("Vietcombank")).withCreatedTime("10/1/2020 12:20:20");
+		withPayment(new Payment("Vietcombank")).withTransactionDate("10/1/2020@12:20:20");
 	public static Order[] ALL_ORDERS = { order_1, order_2, order_3, order_4, order_5, order_6, order_10, order_11,
 		order_12, order_13, order_14, order_15, order_16, order_17, order_18, order_19, order_20, order_7, order_8,
 		order_9,order_21, order_22, order_23, order_24, order_25, order_26, order_30, order_31,
