@@ -3,6 +3,7 @@ package com.fpt.petstore;
 import java.util.Arrays;
 import java.util.List;
 
+import com.fpt.petstore.data.ProductData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,6 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class PetStoreApplication implements CommandLineRunner {
 
   PetStoreData data = new PetStoreData();
+  ProductData _DATA_PRODUCT = new ProductData();
 
   public static void main(String[] args) {
     SpringApplication.run(PetStoreApplication.class, args);
@@ -35,11 +37,11 @@ public class PetStoreApplication implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
 
-    createCustomerData(PetStoreData.createDataCustomer());
+    createCustomerData(Arrays.asList(data.ALL_CUSTOMERS));
     createEmployeeData(PetStoreData.ALL_EMPLOYEES);
     createFoodData(PetStoreData.ALL_FOODS);
-    createProductData(PetStoreData.ALL_PRODUCTS);
-    createOrderData(Arrays.asList(data.ALL_ORDERS.clone()));
+    createProductData(_DATA_PRODUCT.ALL_PRODUCTS);
+    createOrderData(Arrays.asList(data.ALL_ORDERS));
   }
 
   void createCustomerData(List<Customer> customers) {

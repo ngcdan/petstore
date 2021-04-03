@@ -70,14 +70,6 @@ class PetStoreApplicationTests {
 	}
 
 	@Test
-	public void testFindOrderByCustomer() throws Exception {
-		List<Order> orders = orderRepo.findOrdersByCustomer(PetStoreData.customer_2.getCode());
-		System.out.println("==========================================");
-		assertNotNull(orders);
-		assertTrue(orders.size() == 20);
-	}
-
-	@Test
 	public void testSearch() throws Exception {
 		SqlQueryParams searchParams =
 			new SqlQueryParams().
