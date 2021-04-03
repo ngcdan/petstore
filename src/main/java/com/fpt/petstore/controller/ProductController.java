@@ -198,7 +198,7 @@ public class ProductController {
             redirectAttributes.addFlashAttribute(titleNotification, "Lỗi");
             return redirect + "thanh-toan";
         } else {
-            int randomNum = ThreadLocalRandom.current().nextInt(0, 123 + 1);
+            int randomNum = ThreadLocalRandom.current().nextInt(516, 59881 + 1);
             Map<String, OrderItem> listCart = (Map<String, OrderItem>) session.getAttribute("listCart");
 
             Customer customer = (Customer) session.getAttribute("customer");
@@ -235,6 +235,7 @@ public class ProductController {
             }
             List<OrderItem> listOrderItem = new ArrayList<>(listCart.values());
             String note = map.get("note");
+            String code = "order_"+randomNum;
 
             if (transaction.equals("COD")) {
 
@@ -244,7 +245,7 @@ public class ProductController {
 
                 orderTransaction.add(payment);
 
-                Order order = new Order("order_" + randomNum, "order-" + randomNum, customer, orderTransaction, listOrderItem, totalPrice, note, Order.State.PAID);
+                Order order = new Order(code, "order-" + randomNum, customer, orderTransaction, listOrderItem, totalPrice, note, Order.State.PAID);
                 petStoreService.saveOrder(order);
 
             } else {

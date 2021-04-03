@@ -107,18 +107,19 @@
                             <div class="checkout__input__checkbox">
                                 <label for="COD">
                                     Thanh toán COD
-                                    <input type="radio" value="COD" id="COD" name="transaction" onclick="myFunction()"/>
+                                    <input type="radio" required value="COD" id="COD" name="transaction" onclick="myFunction()"/>
                                     <span class="checkmark"></span>
                                 </label>
                                 <label for="ATM">
                                     ATM
-                                    <input type="radio" value="ATM" id="ATM" name="transaction" onclick="myFunction()"/>
+                                    <input type="radio" required value="ATM" id="ATM" name="transaction" onclick="myFunction()"/>
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
+                            <p id="text2" style="display:none"> <strong>Vui lòng Chọn hình thức thanh toán</strong></p>
                             <p id="text" style="display:none">Chuyển qua tài khoản Sacombank TK: <strong>0501 0913
                                 6686</strong> với cú pháp: <br/><strong><em>Mua hàng Petstore</em></strong></p>
-                            <button type="submit" class="site-btn">Đặt ngay</button>
+                            <button type="submit" onclick="myFunction()" id="submit" class="site-btn">Đặt ngay</button>
                         </div>
                     </div>
                 </div>
@@ -136,6 +137,13 @@
         var checkBox = document.getElementById("ATM");
         var checkBoxCOD = document.getElementById("COD");
         var text = document.getElementById("text");
+        var text2=document.getElementById("text2");
+
+        if($("#submit").click && !$('input[name="transaction"]').is(':checked')){
+            text2.style.display = "block";
+        }else{
+            text2.style.display = "none";
+        }
         if (checkBox.checked) {
             text.style.display = "block";
         } else if (checkBoxCOD.checked) {
