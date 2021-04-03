@@ -18,12 +18,8 @@ import javax.validation.constraints.NotNull;
 public class BaseProduct extends AbstractPersistable<Long> {
 
 	@NotNull
-	protected String code;
-
-	@NotNull
 	protected String name;
 
-	@NotNull
 	protected String sortName;
 
 	@NotNull
@@ -34,11 +30,6 @@ public class BaseProduct extends AbstractPersistable<Long> {
 
 	@Column(length=1024 * 32)
 	protected String description;
-
-	public <T extends BaseProduct> T withCode(String code) {
-		this.code = code;
-		return (T) this;
-	}
 
 	public <T extends BaseProduct> T withName(String name) {
 		this.name = name;
