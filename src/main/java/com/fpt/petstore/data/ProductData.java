@@ -5,12 +5,14 @@ import com.fpt.petstore.entities.Product;
 public class ProductData {
 
 	//TODO: đổi tên product _1 do trùng với tên food_1
-	public Product product_1 = new Product("Bánh thưởng cho chó dạng que vị việt quất WUJI Jerky Stick Blueberry").
+	public Product product_1 =
+		new Product("Bánh thưởng cho chó dạng que vị việt quất WUJI Jerky Stick Blueberry").withProductType(Product.ProductType.DOG).
 		withPrice(500000).
 		withDescription("des").
 		withPic("food.jpg");
 
-	public Product   product_2    = new Product("Vita Prima Hamster Food").withPrice(200).withDescription("des")
+	public Product   product_2    =
+		new Product("Vita Prima Hamster Food").withProductType(Product.ProductType.CAT).withPrice(200).withDescription("des")
 		.withPic("hamster-food.jpg");
 	public Product   product_3    = new Product("Dr.Kyan Predogen").withPrice(200).withDescription("des")
 		.withPic("suacho1.jpg");
