@@ -91,7 +91,16 @@ public class PetStoreData {
 
 	public Customer[] ALL_CUSTOMERS = {customer_2, customer_3, customer_4, customer_5, customer_6, customer_10, customer_11, customer_12, customer_13, customer_14, customer_15, customer_16, customer_17, customer_18, customer_19, customer_20, customer_7, customer_8, customer_9, customer_21, customer_22, customer_23, customer_24, customer_25, customer_26, customer_27, customer_28, customer_29, customer_30, customer_31, customer_32, customer_33, customer_34, customer_35, customer_36, customer_37, customer_38, customer_39, customer_40, customer_41, customer_42, customer_43, customer_44, customer_45, customer_46, customer_47, customer_48, customer_49, customer_50};
 
-	public Employee employee_1 = new Employee("Phạm Võ Hoài Anh").withAddress("Hải Phòng").withEmail("hoaianh@gmail.com").withPassword("12345").withUsername("phamvohoaianh").withPhone("09168860230");
+	public Employee employee_1 = new Employee("Phạm Võ Hoài Anh").
+		withAddress("Hải Phòng").
+		withEmail("hoaianh@gmail.com").
+		withPassword("12345").
+		withUsername("phamvohoaianh").
+		withBirthday("00/00/0000").
+		withGender(BaseAccount.Gender.Female).
+		withPhone("09168860230");
+
+	//TODO: missing field birthday | gender
 	public Employee employee_2 = new Employee("Hồ Thanh Bình").withAddress("Hải Phòng").withEmail("hothanhbinh@gmail.com").withPassword("12345").withUsername("hothanhbinh").withPhone("09107256361");
 	public Employee employee_3 = new Employee("Nguyễn Thái Bình").withAddress("Hải Phòng").withEmail("nguyenthaibinh@gmail.com").withPassword("12345").withUsername("nguyenthaibinh").withPhone("09854798553");
 	public Employee employee_4 = new Employee("Bùi Thái Chánh").withAddress("Hải Phòng").withEmail("buithaichanh@gmail.com").withPassword("12345").withUsername("buithaichanh").withPhone("09518022006");
