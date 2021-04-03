@@ -83,7 +83,7 @@ public class OrderItem extends AbstractPersistable<Long> {
 		this.label = "Product Item";
 		this.description = "Product Item " + product.getName();
 		this.quantity = 1;
-		this.total = food.getPrice();
+		this.total = product.getPrice();
 		this.type = ItemType.PRODUCT;
 		return this;
 	}

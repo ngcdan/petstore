@@ -136,11 +136,16 @@ public class Order extends AbstractPersistable<Long> {
     if(orderItems == null || orderItems.isEmpty()) {
       this.withOrderItem(new OrderItem().newOrderItem(food));
     } else {
+      boolean isDuplicate = false;
       for(OrderItem item: orderItems) {
         if(item.getName().equals(food.getName())) { //TODO: check name enough not to need check type
+          isDuplicate = true;
           item.setQuantity(item.getQuantity() + 1);
           item.setTotal(item.getQuantity() * food.getPrice());
         }
+      }
+      if(isDuplicate) {
+        this.withOrderItem(new OrderItem().newOrderItem(food));
       }
     }
     return this;
@@ -153,15 +158,16 @@ public class Order extends AbstractPersistable<Long> {
     if(orderItems == null || orderItems.isEmpty()) {
       this.withOrderItem(new OrderItem().newOrderItem(product));
     } else {
+      boolean isDuplicate = false;
       for(OrderItem item: orderItems) {
-        if(item.getType().equals(OrderItem.ItemType.PRODUCT)) {
-          if(item.getName().equals(product.getName())) {
-            item.setQuantity(item.getQuantity() + 1);
-            item.setTotal(item.getQuantity() * product.getPrice());
-          } else {
-            this.withOrderItem(new OrderItem().newOrderItem(product));
-          }
+        if(item.getName().equals(product.getName())) {
+          isDuplicate = true;
+          item.setQuantity(item.getQuantity() + 1);
+          item.setTotal(item.getQuantity() * product.getPrice());
         }
+      }
+      if(isDuplicate) {
+        this.withOrderItem(new OrderItem().newOrderItem(product));
       }
     }
     return this;
