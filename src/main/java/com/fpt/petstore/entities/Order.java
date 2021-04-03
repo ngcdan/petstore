@@ -52,7 +52,7 @@ public class Order extends AbstractPersistable<Long> {
   private String label;
 
   @ManyToOne(optional = true)
-  @JoinColumn(name = "customerId", nullable = true) // this is a bug when delete order
+  @JoinColumn(name = "customerId", nullable = true)
   private Customer customer;
 
   @ManyToOne(optional = true)

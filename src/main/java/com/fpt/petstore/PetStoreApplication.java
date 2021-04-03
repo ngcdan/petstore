@@ -1,15 +1,11 @@
 package com.fpt.petstore;
 
-import java.util.Arrays;
-import java.util.List;
-
-import com.fpt.petstore.data.ProductData;
+import com.fpt.petstore.data.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.fpt.petstore.data.PetStoreData;
 import com.fpt.petstore.entities.Customer;
 import com.fpt.petstore.entities.Employee;
 import com.fpt.petstore.entities.Food;
@@ -21,8 +17,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @SpringBootApplication
 public class PetStoreApplication implements CommandLineRunner {
 
-  PetStoreData data = new PetStoreData();
+  PetStoreData _DATA_ORDER = new PetStoreData();
   ProductData _DATA_PRODUCT = new ProductData();
+  EmployeeData _DATA_EMPLOYEE = new EmployeeData();
+  CustomerData _DATA_CUSTOMER = new CustomerData();
+  FoodData _DATA_FOOD = new FoodData();
 
   public static void main(String[] args) {
     SpringApplication.run(PetStoreApplication.class, args);
@@ -37,11 +36,11 @@ public class PetStoreApplication implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
 
-    createCustomerData(data.ALL_CUSTOMERS);
-    createEmployeeData(data.ALL_EMPLOYEES);
-    createFoodData(PetStoreData.ALL_FOODS);
+    createCustomerData(_DATA_ORDER.ALL_CUSTOMERS);
+    createEmployeeData(_DATA_ORDER.ALL_EMPLOYEES);
+    createFoodData(_DATA_FOOD.ALL_FOODS);
     createProductData(_DATA_PRODUCT.ALL_PRODUCTS);
-    createOrderData(data.ALL_ORDERS);
+    createOrderData(_DATA_ORDER.ALL_ORDERS);
   }
 
   void createCustomerData(Customer[] customers) {
