@@ -73,7 +73,10 @@ public class Customer extends AbstractPersistable<Long> {
     this.birthday = DateUtil.parseCompactDate(birthday);
     return this;
   }
-
+  public Customer withGender(Gender gender){
+    this.gender = gender;
+    return this;
+  }
   public Customer(String email, String phone, String password, String fullName, String avatarUrl, Gender gender, String address) {
     this.email = email; this.phone = phone; this.password = password; this.fullName = fullName;
     this.avatarUrl = avatarUrl; this.gender = gender; this.address = address;

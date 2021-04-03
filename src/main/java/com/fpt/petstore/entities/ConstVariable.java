@@ -7,7 +7,7 @@ package com.fpt.petstore.entities;
  */
 public class ConstVariable {
     public static final String redirect = "redirect:/";
-    public static final int PRODUCTPERPAGE = 6;
+    public static final int PRODUCTPERPAGE = 12;
  
    public static final String redirectRefer = "redirect:";
     public static final String titleNotification = "titleNotification";

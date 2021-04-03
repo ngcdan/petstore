@@ -22,6 +22,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import com.fpt.petstore.util.DateUtil;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -123,18 +124,8 @@ public class Order extends AbstractPersistable<Long> {
   }
 
 
-  @Deprecated
   public Order withCreatedTime(String date)  {
-
-    //TODO: remove | using DateUtil
-    String pattern = "dd/MM/yyyy HH:mm:ss";
-    try{
-      DateFormat df = new SimpleDateFormat(pattern);
-      Date formattDate =  df.parse(date);
-      this.createdTime = formattDate;
-    }catch(Exception e){
-      e.printStackTrace();
-    }
+    this.createdTime = DateUtil.parseCompactDate(date);
     return this;
   }
 

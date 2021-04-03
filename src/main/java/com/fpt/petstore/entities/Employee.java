@@ -86,6 +86,10 @@ public class Employee extends AbstractPersistable<Long> {
     return this;
   }
 
+  public Employee withPhone(String phone){
+    this.phone=phone;
+    return this;
+  }
   public Employee withPassword(String password) {
     this.password = password;
     return this;
