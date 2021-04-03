@@ -1,5 +1,6 @@
 package com.fpt.petstore;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,12 +35,11 @@ public class PetStoreApplication implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
 
-
     createCustomerData(PetStoreData.createDataCustomer());
     createEmployeeData(PetStoreData.ALL_EMPLOYEES);
     createFoodData(PetStoreData.ALL_FOODS);
     createProductData(PetStoreData.ALL_PRODUCTS);
-    createOrderData(PetStoreData.createDataOrder());
+    createOrderData(Arrays.asList(data.ALL_ORDERS.clone()));
   }
 
   void createCustomerData(List<Customer> customers) {

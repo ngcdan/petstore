@@ -77,14 +77,20 @@ public class Order extends AbstractPersistable<Long> {
   private String currency = "VND";
 
   @Enumerated(EnumType.STRING)
-  private State state = State.PAID;
+  private State state;
 
-  public Order(String label) {
+  public Order(String code, String label) {
+    this.code = code;
     this.label = label;
+  }
+
+  public Order(String code) {
+    this.code = code;
   }
 
   public Order withCustomer(Customer customer) {
     this.customer = customer;
+    this.label = "Order for " + customer.getFullName();
     return this;
   }
 
@@ -93,15 +99,13 @@ public class Order extends AbstractPersistable<Long> {
     return this;
   }
 
-  public Order withTotal(List<OrderItem> items) {
-    for (OrderItem item : items) {
-      this.total += item.getTotal();
-    }
+  public Order withNote(String note) {
+    this.note = note;
     return this;
   }
 
-  public Order withNote(String note) {
-    this.note = note;
+  public Order withState(State state) {
+    this.state = state;
     return this;
   }
 
@@ -113,12 +117,16 @@ public class Order extends AbstractPersistable<Long> {
   }
 
   public Order withOrderItem(OrderItem item) {
-    if (orderItems == null)
+    if (orderItems == null) {
       orderItems = new ArrayList<>();
+    }
     orderItems.add(item);
     return this;
   }
+
   public Order withCreatedTime(String date)  {
+
+    //TODO: remove | using DateUtil
     String pattern = "dd/MM/yyyy HH:mm:ss";
     try{
       DateFormat df = new SimpleDateFormat(pattern);
@@ -129,6 +137,26 @@ public class Order extends AbstractPersistable<Long> {
     }
     return this;
   }
+
+  public Order withOrderItem(Food food) {
+    if(food == null) throw new IllegalArgumentException("Expected food not null!");
+
+    List<OrderItem> orderItems = this.getOrderItems();
+    if(orderItems == null || orderItems.isEmpty()) {
+      this.withOrderItem(new OrderItem().newOrderItem(food));
+    } else {
+      for(OrderItem item: orderItems) {
+        if(item.getName().equals(food.getName())) {
+          item.setQuantity(item.getQuantity() + 1);
+          item.setTotal(item.getQuantity() * food.getPrice());
+        } else {
+          this.withOrderItem(new OrderItem().newOrderItem(food));
+        }
+      }
+    }
+    return this;
+  }
+
 
   public Order(@NotNull String code, String label, Customer customer, List<Payment> payments, List<OrderItem> orderItems, @NotNull @DecimalMin(value = "0") int total, String note, State state) {
     this.code = code;

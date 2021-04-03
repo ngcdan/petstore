@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.fpt.petstore.entities;
 
 import javax.persistence.*;
@@ -13,82 +11,108 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 /**
  * @author linuss
  */
 
 @Entity
 @Table(
-    name = "order_item",
-    indexes = {
-        @Index(columnList="name")
-    }
-    )
+	name = "order_item",
+	indexes = {
+		@Index(columnList="name")
+	}
+)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @NoArgsConstructor
 @Setter @Getter
 public class OrderItem extends AbstractPersistable<Long> {
+	static enum ItemType { FOOD, PRODUCT};
 
-  @NotNull
-  String name;
-  String label;
+	@NotNull
+	String name;
+	String label;
 
+	@Column(length=1024 * 32)
+	String description;
 
-  @Column(length=1024 * 32)
-  String description;
+	@DecimalMin(value = "0")
+	int quantity;
 
-  @DecimalMin(value = "0")
-  int quantity=1; // kiem tra item trung name thi quantity +=1
-  // ko trung thi set quantity la 1
+	@NotNull
+	@DecimalMin(value = "0")
+	int total;
 
-  @NotNull
-  @DecimalMin(value = "0")
-  int total;
+	@Enumerated(EnumType.STRING)
+	private ItemType type;
 
-  String currency = "VND";
-  @ManyToOne(optional = true)
-  @JoinColumn(name = "productId", nullable = true)
-  private Product product;
-  @ManyToOne(optional = true)
-  @JoinColumn(name = "foodId", nullable = true)
-  private Food food;
+	String currency = "VND";
 
-  public OrderItem(Product product, @NotNull @DecimalMin(value = "0") int total ) {
-    this.product = product;
-    this.total = total;
+	@ManyToOne(optional = true)
+	@JoinColumn(name = "productId", nullable = true)
+	private Product product;
 
-  }
+	@ManyToOne(optional = true)
+	@JoinColumn(name = "foodId", nullable = true)
+	private Food food;
 
-  public OrderItem( Food food,@NotNull @DecimalMin(value = "0") int total) {
-    this.food = food;
-    this.total = total;
-  }
+	public OrderItem(Product product, int total ) {
+		this.product = product;
+		this.total = total;
+	}
 
-  public OrderItem withProduct(Product product) {
-    this.name = product.getName();
-    this.label = product.getName();
-    this.total += product.getPrice();
-    return this;
-  }
-  public OrderItem withFood(Food food) {
-    this.name = food.getName();
-    this.label = food.getName();
-    this.total += food.getPrice();
-    return this;
-  }
+	@Deprecated
+	public OrderItem( Food food, int total) {
+		this.food = food;
+		this.total = total;
+	}
 
-  public OrderItem withDescription(String description) {
-    this.description = description;
-    return this;
-  }
+	public OrderItem(Order order, Food food) { }
 
-  public OrderItem withQuantity(int quantity) {
-    this.quantity = quantity;
-    return this;
-  }
+	public void addProduct(Order order, Product product) {
+		if(product == null) throw new IllegalArgumentException("Expected Product not null!");
 
-  public OrderItem withTotal(int total) {
-    this.total = total;
-    return this;
-  }
+		List<OrderItem> orderItems = order.getOrderItems();
+		if(orderItems != null) {
+			for(OrderItem item : orderItems) {
+				if(item.getName().equals(product.getName())) {
+					item.quantity = item.quantity + 1;
+				}
+				item.quantity = 1;
+				item.name = product.getName();
+				item.label = "Product Item";
+				item.description = "Product Item " + product.getName();
+			}
+		}
+		this.total = quantity * product.getPrice();
+			this.type = ItemType.PRODUCT;
+
+		if(this.product == null || !(this.product.getName().equals(product.getName()))) {
+			this.quantity = 1;
+			this.name = product.getName();
+			this.label = "Product Item";
+			this.description = "Product Item " + product.getName();
+		} else {
+			this.quantity = this.quantity + 1;
+		}
+		this.total = quantity * product.getPrice();
+		this.type = ItemType.PRODUCT;
+	}
+
+	public OrderItem addFood(Food food) {
+		this.quantity = this.quantity + 1;
+		this.total = this.quantity * food.getPrice();
+		return this;
+	}
+
+	public OrderItem newOrderItem(Food food) {
+		this.name = food.getName();
+		this.label = "Food Item";
+		this.description = "Food Item " + food.getName();
+		this.quantity = 1;
+		this.total = food.getPrice();
+		this.type = ItemType.FOOD;
+		return this;
+	}
 }

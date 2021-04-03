@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.fpt.petstore.entities;
 
 import javax.persistence.Column;
@@ -26,7 +23,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "food",
 uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"code"})
+    @UniqueConstraint(columnNames = {"id", "code", "name"})
 })
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter
@@ -51,7 +48,7 @@ public class Food extends AbstractPersistable<Long> {
   private String description;
   
   @Enumerated(EnumType.STRING)
-  private FoodType foodType = FoodType.DRY;
+  private FoodType foodType;
 
   public Food(String name, int price) {
     this.name  = name;
@@ -62,6 +59,7 @@ public class Food extends AbstractPersistable<Long> {
     this.description = des;
     return this;
   }
+
   public Food withPic(String pic) {
 	  this.pic=pic;
 	  return this;
