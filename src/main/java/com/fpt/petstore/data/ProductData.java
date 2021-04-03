@@ -5,7 +5,7 @@ import com.fpt.petstore.entities.Product;
 public class ProductData {
 
 	//TODO: đổi tên product _1 do trùng với tên food_1
-	public Product product_1    = new Product("Bánh thưởng cho chó dạng que vị việt quất WUJI Jerky Stick Blueberry").
+	public Product product_1 = new Product("Bánh thưởng cho chó dạng que vị việt quất WUJI Jerky Stick Blueberry").
 		withPrice(500000).
 		withDescription("des").
 		withPic("food.jpg");
