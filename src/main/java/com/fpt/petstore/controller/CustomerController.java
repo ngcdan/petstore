@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.fpt.petstore.entities.BaseAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,8 +43,6 @@ public class CustomerController {
             rA.addFlashAttribute(titleNotification, "Lỗi");
             return "redirect:" + referer;
         }
-
-
     }
 
     @GetMapping(value = {"/loggout"})
@@ -55,7 +54,6 @@ public class CustomerController {
 
     @PostMapping(value = "/register")
     public String doARegister(@RequestParam Map<String, String> m, RedirectAttributes redirectAttributes, HttpServletRequest request) {
-
         String referer = request.getHeader("Referer");
         String password = m.get("password");
         String confirm = m.get("confirmPassword");
@@ -65,7 +63,15 @@ public class CustomerController {
         String address = m.get("address");
         String fullName = m.get("fullName");
 
-        Customer customer = new Customer(email, phoneNumber, password, fullName, "", Customer.Gender.valueOf(gender), address);
+        Customer customer = new Customer(fullName).
+          withUsername(""). //TODO: fix missing field
+          withPassword(password).
+          withPhone(phoneNumber).
+          withAddress(address).
+          withAvartar("").
+          withGender(BaseAccount.Gender.valueOf(gender)).
+          withEmail(email);
+
         Customer customer1 = petStoreService.findCustomerbyEmail(email);
         if(customer1!=null){
             redirectAttributes.addFlashAttribute(messageNotification, "Email trùng đã bị trùng. Vui lòng nhập email khác");
@@ -91,7 +97,5 @@ public class CustomerController {
             redirectAttributes.addFlashAttribute(titleNotification, "Lỗi");
             return redirectRefer + referer;
         }
-
-
     }
 }

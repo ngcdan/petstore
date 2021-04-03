@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  * @author linuss
@@ -15,9 +16,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "employee"
-  //uniqueConstraints = {
-  //    @UniqueConstraint(columnNames = {"username", "email"})
-  //}
+//  uniqueConstraints = {
+//      @UniqueConstraint(columnNames = {"username", "email"})
+//  }
 )
 @JsonInclude(Include.NON_NULL)
 @Setter @Getter

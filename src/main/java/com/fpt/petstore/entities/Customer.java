@@ -18,9 +18,4 @@ public class Customer extends BaseAccount {
   public Customer(String fullName) {
     this.fullName = fullName;
   }
-
-  public Customer(String email, String phone, String password, String fullName, String avatarUrl, Gender gender, String address) {
-    this.email = email; this.phone = phone; this.password = password; this.fullName = fullName;
-    this.avatarUrl = avatarUrl; this.gender = gender; this.address = address;
-  }
 }
