@@ -23,6 +23,7 @@ public class BaseProduct extends AbstractPersistable<Long> {
 	@NotNull
 	protected String name;
 
+	@NotNull
 	protected String sortName;
 
 	@NotNull
