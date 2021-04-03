@@ -28,10 +28,6 @@ public class OrderLogic extends DAOService {
   OrderRepository repo;
 
   public Order saveOrder(Order order) {
-    if(order.getId() == null ) {
-      order = generateCode(order);
-    }
-
     int total = order.getTotal();
     List<OrderItem> items = order.getOrderItems();
     if(total == 0 && items != null) {
@@ -61,12 +57,6 @@ public class OrderLogic extends DAOService {
       deleteOrderById(sel.getId());
     }
     return true;
-  }
-
-  public Order generateCode(Order order) {
-    if(order == null) return null;
-    order.setCode("or-" + DateUtil.asCompactDateTimeId(new Date()));
-    return order;
   }
 
   public List<Order> findOrdersByCustomer(Customer customer) {

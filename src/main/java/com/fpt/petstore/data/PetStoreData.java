@@ -236,8 +236,12 @@ public class PetStoreData {
 		addOrderItem(product_3).
 		addOrderItem(product_3).
 		addOrderItem(product_1).
-		withPayment(new Payment("COD")).
-		withTransactionDate("12/12/2020@18:20:20");
+		withPayment( // Payment : thanh toan
+			new Payment("Tien Mat").
+				withAmount(200).
+				withTransactionDate("12/12/2020@18:20:20"). //Ngay ngay thanh toan
+				withTransactionType(Payment.TransactionType.Cash)).
+		withTransactionDate("12/12/2020@18:20:20"); //Ngay in hoa don
 
 	public static Order order_2  = new Order("order_2").
 		withEmployee(employee_10).

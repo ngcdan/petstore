@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -27,24 +29,37 @@ public class Payment extends AbstractPersistable<Long> {
   static public enum TransactionType { Cash, Wire, ATM, CustomerCredit }
   
   @NotNull
-  private String bankAccountId;
+  private String bankAccountId; //TODO: VD: Vietcombank | Tien Mat
 
-  private Double amount;
+  private double amount;
   
-  @NotNull
-  private TransactionType transactionType = TransactionType.Cash;
+  @Enumerated(EnumType.STRING)
+  private TransactionType transactionType;
 
   private String currency = "VND";
   
   @JsonFormat(pattern = DateUtil.COMPACT_DATETIME_FORMAT)
-  private Date  transactionDate = new Date();
+  private Date  transactionDate;
 
-  
   public Payment(String bankAccount) {
     this.bankAccountId = bankAccount;
   }
 
-  public Payment(@NotNull String bankAccountId, @NotNull TransactionType transactionType) {
+  public Payment withTransactionDate(String exp) {
+    this.transactionDate = DateUtil.parseCompactDateTime(exp);
+    return this;
+  }
+
+  public Payment withAmount(double amount) {
+    this.amount = amount;
+    return this;
+  }
+
+  public Payment withTransactionType(TransactionType type) {
+    this.transactionType = type;
+    return this;
+  }
+  public Payment(String bankAccountId, TransactionType transactionType) {
     this.bankAccountId = bankAccountId;
     this.transactionType = transactionType;
   }

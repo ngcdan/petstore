@@ -94,6 +94,9 @@ public class Order extends AbstractPersistable<Long> {
   public Order withCustomer(Customer customer) {
     this.customer = customer;
     this.label = "Order for " + customer.getFullName();
+    if(note == null) {
+      this.note = "Order for " + customer.getFullName();
+    }
     return this;
   }
 
@@ -147,7 +150,7 @@ public class Order extends AbstractPersistable<Long> {
           item.setTotal(item.getQuantity() * food.getPrice());
         }
       }
-      if(isDuplicate) {
+      if(!isDuplicate) {
         this.withOrderItem(new OrderItem().newOrderItem(food));
       }
     }
@@ -169,7 +172,7 @@ public class Order extends AbstractPersistable<Long> {
           item.setTotal(item.getQuantity() * product.getPrice());
         }
       }
-      if(isDuplicate) {
+      if(!isDuplicate) {
         this.withOrderItem(new OrderItem().newOrderItem(product));
       }
     }
