@@ -41,8 +41,8 @@ public class PetStoreService {
   }
 
   @Transactional(readOnly = true)
-  public Customer getCustomerByCode(String code) {
-    return customerLogic.getCustomerByCode(code);
+  public Customer getCustomerByUsername(String username) {
+    return customerLogic.getCustomerByUsername(username);
   }
 
   @Transactional(readOnly = true)

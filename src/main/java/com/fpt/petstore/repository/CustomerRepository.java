@@ -14,12 +14,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
-  @Query( "SELECT c FROM Customer c WHERE c.code = :code")
-  Customer getByCode(@Param("code") String code);
-
-  @Modifying
-  @Query("delete from Customer c where c.code=:code")
-  void deleteCustomer(@Param("code") String code);
+  @Query( "SELECT c FROM Customer c WHERE c.username = :username")
+  Customer getByUsername(@Param("username") String username);
 
   boolean existsCustomersByUsername(String username);
   Customer findByEmail(String email);

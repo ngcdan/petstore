@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.fpt.petstore.repository;
 
 import java.util.List;
@@ -23,8 +20,8 @@ public interface OrderRepository extends JpaRepository<Order, Long>{
       "SELECT o FROM Order o WHERE o.code = :code")
   public Order getByCode(@Param("code") String code);
   
-  @Query("SELECT o FROM Order o WHERE o.customer.code = :code")
-  public List<Order> findOrdersByCustomer(@Param("code") String code);
+  @Query("SELECT o FROM Order o WHERE o.customer.username = :username")
+  public List<Order> findOrdersByCustomer(@Param("username") String username);
   
   @Query("SELECT o FROM Order o WHERE o.employee.username = :username")
   public List<Order> findOrdersByEmployee(@Param("username") String username);

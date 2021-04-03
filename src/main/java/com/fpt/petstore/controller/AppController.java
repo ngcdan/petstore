@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fpt.petstore.entities.Customer;
 import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.OrderItem;
-import com.fpt.petstore.entities.Product;
 import com.fpt.petstore.services.CookieService;
 import com.fpt.petstore.services.PetStoreService;
 import com.fpt.petstore.util.StringUtil;
@@ -17,10 +16,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -80,11 +77,12 @@ public class AppController {
         return "blog";
     }
 
+    //TODO : check again
     @GetMapping("/information")
     public String viewInfo(ModelMap modelMap,HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request) {
         Customer customer = (Customer) session.getAttribute("customer");
         if (customer != null) {
-            Customer customer1 = petStoreService.getCustomerByCode(customer.getCode());
+            Customer customer1 = petStoreService.getCustomerByUsername(customer.getUsername());
             modelMap.addAttribute("customerr",customer1);
             return "information";
         } else {

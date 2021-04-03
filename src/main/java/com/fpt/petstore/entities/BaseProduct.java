@@ -17,6 +17,9 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class BaseProduct extends AbstractPersistable<Long> {
 
+	@Deprecated
+	protected String code;
+
 	@NotNull
 	protected String name;
 

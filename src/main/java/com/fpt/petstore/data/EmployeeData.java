@@ -3,7 +3,12 @@ package com.fpt.petstore.data;
 import com.fpt.petstore.entities.Employee;
 
 public class EmployeeData {
-	public Employee employee_1 = new Employee("Phạm Võ Hoài Anh").withAddress("Hải Phòng").withEmail("hoaianh@gmail.com").withPassword("12345").withUsername("phamvohoaianh").withPhone("09168860230");
+	public Employee employee_1 = new Employee("Phạm Võ Hoài Anh").
+		withAddress("Hải Phòng").
+		withEmail("hoaianh@gmail.com").
+		withPassword("12345").
+		withUsername("phamvohoaianh").
+		withPhone("09168860230");
 	public Employee employee_2 = new Employee("Hồ Thanh Bình").withAddress("Hải Phòng").withEmail("hothanhbinh@gmail.com").withPassword("12345").withUsername("hothanhbinh").withPhone("09107256361");
 	public Employee employee_3 = new Employee("Nguyễn Thái Bình").withAddress("Hải Phòng").withEmail("nguyenthaibinh@gmail.com").withPassword("12345").withUsername("nguyenthaibinh").withPhone("09854798553");
 	public Employee employee_4 = new Employee("Bùi Thái Chánh").withAddress("Hải Phòng").withEmail("buithaichanh@gmail.com").withPassword("12345").withUsername("buithaichanh").withPhone("09518022006");

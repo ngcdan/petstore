@@ -60,7 +60,7 @@ public class OrderLogic extends DAOService {
   }
 
   public List<Order> findOrdersByCustomer(Customer customer) {
-    return repo.findOrdersByCustomer(customer.getCode());
+    return repo.findOrdersByCustomer(customer.getUsername());
   }
 
   public List<Order> findOrdersByEmployee(Employee employee) {

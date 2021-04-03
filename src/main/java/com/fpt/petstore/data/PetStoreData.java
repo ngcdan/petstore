@@ -15,9 +15,33 @@ import java.util.List;
 
 public class PetStoreData {
 
-	public Customer customer_2 = new Customer("Nguyen Van Nhat").withEmail("vannhat98@gmail.com").withPassword("12345").withBirthday("12/09/1998").withAddress("342-9B Thoai Ngoc Hau").withPhone("0345471020").withGender(Customer.Gender.Male);
-	public Customer customer_3 = new Customer("Nguyen Tan Trong").withEmail("trongnt@gmail.com").withPassword("12345").withBirthday("30/01/2000").withAddress("54 Le Van Si").withPhone("0851235898").withGender(Customer.Gender.Female);
-	public Customer customer_4 = new Customer("Tran Dai Hung").withEmail("trandaihung@gmail.com").withPassword("12345").withBirthday("06/12/2000").withAddress("11 Tran Hung Dao").withPhone("0914565476").withGender(Customer.Gender.Male);
+	public Customer customer_2 = new Customer("Nguyen Van Nhat").
+		withUsername("nguyenvannhat").
+		withEmail("vannhat98@gmail.com").
+		withPassword("12345").
+		withBirthday("12/09/1998").
+		withAddress("342-9B Thoai Ngoc Hau").
+		withPhone("0345471020").
+		withGender(Customer.Gender.Male);
+
+	public Customer customer_3 = new Customer("Nguyen Tan Trong").
+		withUsername("nguyentantrong").
+		withEmail("trongnt@gmail.com").
+		withPassword("12345").
+		withBirthday("30/01/2000").
+		withAddress("54 Le Van Si").
+		withPhone("0851235898").
+		withGender(Customer.Gender.Female);
+
+	public Customer customer_4 = new Customer("Tran Dai Hung").
+		withUsername("trandaihung").
+		withEmail("trandaihung@gmail.com").
+		withPassword("12345").
+		withBirthday("06/12/2000").
+		withAddress("11 Tran Hung Dao").
+		withPhone("0914565476").
+		withGender(Customer.Gender.Male);
+
 	public Customer customer_5 = new Customer("Vo Thanh Truong").withEmail("vothanhtruong@gmail.com").withPassword("12345").withBirthday("06/09/2000").withAddress("235 Le Lai").withPhone("0917657212").withGender(Customer.Gender.Female);
 	public Customer customer_6 = new Customer("Luu Nguyen Thanh Phuong").withEmail("phuonglnt@gmail.com").withPassword("12345").withBirthday("21/12/2000").withAddress("248 Le Van Si").withPhone("0928494156").withGender(Customer.Gender.Male);
 	public Customer customer_7 = new Customer("Nguyen Thi Thanh Phuong").withEmail("phuongntt01@gmail.com").withPassword("12345").withBirthday("01/01/2000").withAddress("175-82 Huynh Van Banh").withPhone("0794930056").withGender(Customer.Gender.Female);

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.fpt.petstore.services;
 
 import java.util.Date;
@@ -27,14 +24,11 @@ public class CustomerLogic {
   OrderLogic orderLogic;
 
   public Customer saveCustomer(Customer customer) {
-    if(customer.getId() == null ) {
-      customer = generateCode(customer);      
-    }
     return repo.save(customer);
   }
 
-  public Customer getCustomerByCode(String code) {
-    return repo.getByCode(code);
+  public Customer getCustomerByUsername(String username) {
+    return repo.getByUsername(username);
   }
 
   public List<Customer> findAllCustomers() {
@@ -59,15 +53,9 @@ public class CustomerLogic {
     return true;
   }
 
-  public Customer generateCode(Customer customer) {
-    if(customer == null) return null;
-    customer.setCode("cus-" + DateUtil.asCompactDateTimeId(new Date()));
-    return customer;
-  }
   public Customer findCustomerbyEmail(String email){
     return repo.findByEmail(email);
   }
-
 
   public Customer customerLogin(String email,String password){
     return repo.customerLogin(email,password);

@@ -32,7 +32,7 @@ public class Controller {
   // Customer
   @GetMapping("customer/{code}")
   public @ResponseBody Customer getCustomerByCode(@PathVariable("code") String code) throws ResourceNotFoundException {
-    Customer customer = service.getCustomerByCode(code);
+    Customer customer = service.getCustomerByUsername(code);
     if(customer == null) throw new ResourceNotFoundException("Customer not found with:: " + code);
     return customer;
   }
