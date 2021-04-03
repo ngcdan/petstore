@@ -10,7 +10,7 @@ public class FoodData {
 		new Food("Bánh thưởng cho chó dạng que vị việt quất WUJI Jerky Stick Blueberry Flavor", 55000).
 			withType(Food.FoodType.DRY).
 			withSortName("Jerky-Blueberry-Flavor").
-			withDescription("NurCollagen làm giảm các dấu hiệu lão hóa, kẽm giúp duy trì tính toàn vẹn của da và lông,");
+			withDescription("NurCollagen làm giảm các dấu hiệu lão hóa, kẽm giúp duy trì tính toàn vẹn của da và lông");
 
 	public Food food_2 = new Food("Pate cho chó vị cơm gà IRIS Chicken & Rice", 60000).
 		withDescription("Đặc biệt với công thức chế biến riêng tạo nên khẩu phần ăn ngon miệng cho thú cưng, " + "cung cấp đầy đủ chất đạm, béo, Vitamin B1 và khoáng chất," + "kiểm soát trọng lượng của chó," + "bạn có thể dùng làm thức ăn chính hoặc ăn kết hợp với các loại thức ăn khác cũng được, " + "pate cho chó vị cơm gà IRIS Chicken & Rice làm hài lòng cả những chú chó kén ăn nhất.").withPic("food1.jpg");
