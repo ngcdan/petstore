@@ -37,14 +37,14 @@ public class PetStoreApplication implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
 
-    createCustomerData(Arrays.asList(data.ALL_CUSTOMERS));
-    createEmployeeData(PetStoreData.ALL_EMPLOYEES);
+    createCustomerData(data.ALL_CUSTOMERS);
+    createEmployeeData(data.ALL_EMPLOYEES);
     createFoodData(PetStoreData.ALL_FOODS);
     createProductData(_DATA_PRODUCT.ALL_PRODUCTS);
-    createOrderData(Arrays.asList(data.ALL_ORDERS));
+    createOrderData(data.ALL_ORDERS);
   }
 
-  void createCustomerData(List<Customer> customers) {
+  void createCustomerData(Customer[] customers) {
     for (Customer customer : customers) {
       service.saveCustomer(customer);
     }
@@ -68,7 +68,7 @@ public class PetStoreApplication implements CommandLineRunner {
     }
   }
 
-  void createOrderData(List<Order> orders) {
+  void createOrderData(Order[] orders) {
     for (Order order : orders) {
       service.saveOrder(order);
     }
