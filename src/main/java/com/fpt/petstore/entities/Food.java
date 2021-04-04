@@ -25,7 +25,7 @@ public class Food extends BaseProduct {
   static public enum FoodType {DRY, SNACK, MILK};
 
   @Enumerated(EnumType.STRING)
-  private FoodType foodType;
+  private FoodType type;
 
   public Food(String name, int price) {
     this.name  = name;
@@ -33,7 +33,7 @@ public class Food extends BaseProduct {
   }
   
   public Food withType(FoodType type) {
-    this.foodType = type;
+    this.type = type;
     return this;
   }
 }

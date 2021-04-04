@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.fpt.petstore.core.dao.query.Filter;
+import com.fpt.petstore.core.dao.query.OptionFilter;
 import com.fpt.petstore.core.dao.query.SimpleFilter;
 import com.fpt.petstore.core.dao.query.SqlQueryParams;
 import com.fpt.petstore.services.FoodLogic;
@@ -15,7 +16,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.fpt.petstore.data.PetStoreData;
 import com.fpt.petstore.entities.Food;
 import com.fpt.petstore.entities.Food.FoodType;
 import com.fpt.petstore.entities.Order;
@@ -45,7 +45,7 @@ class PetStoreApplicationTests {
 
 	@Test
 	public void testFood() throws Exception {
-		List<Food> foods = foodRepo.findByFoodType(FoodType.DRY);
+		List<Food> foods = foodRepo.findByType(FoodType.DRY);
 		System.out.println(foods);
 		assertNotNull(foods);
 		assertTrue(foods.size() > 0);
@@ -75,7 +75,7 @@ class PetStoreApplicationTests {
 			new SqlQueryParams().
 				FILTER(new SimpleFilter("search", Filter.FilterType.STRING_LIKE).withValue("*")).
 				ORDERBY(new String[] { "code" }, "code", "DESC");
-		List<Map<String, Object>> maps = foodLogic.searchMasterInvoices(searchParams);
+		List<Map<String, Object>> maps = foodLogic.searchFoods(searchParams);
 		assertNotNull(maps);
 		System.out.println(maps);
 	}
@@ -85,10 +85,21 @@ class PetStoreApplicationTests {
 		SqlQueryParams searchParams =
 			new SqlQueryParams().
 				FILTER(new SimpleFilter("search", Filter.FilterType.STRING_LIKE).withValue("*")).
+				FILTER(new OptionFilter("state", Filter.FilterType.STRING).withOption(Order.State.CANCEL)).
 				ORDERBY(new String[] { "code" }, "code", "DESC");
 
 		List<Map<String, Object>> orders = orderLogic.searchOrders(searchParams);
+		System.out.println(orders.size());
 		assertNotNull(orders);
 		assertTrue(orders.size() > 0);
+
+
+		SqlQueryParams searchParams2 =
+			new SqlQueryParams().
+				FILTER(new SimpleFilter("search", Filter.FilterType.STRING_LIKE).withValue("*")).
+				ORDERBY(new String[] { "code" }, "code", "DESC");
+
+		List<Map<String, Object>> listOrders = orderLogic.searchOrders(searchParams2);
+		System.out.println(listOrders.size());
 	}
 }

@@ -101,4 +101,9 @@ public class BaseAccount extends AbstractPersistable<Long> {
 		return (T) this;
 	}
 
+	public <T extends BaseAccount> T withRole(UserRole role) {
+		this.role = role;
+		return (T) this;
+	}
+
 }

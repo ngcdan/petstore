@@ -1,21 +1,19 @@
 package com.fpt.petstore.services;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
 import com.fpt.petstore.core.dao.DAOService;
-import com.fpt.petstore.core.dao.query.SimpleFilter;
-import com.fpt.petstore.core.dao.query.SqlQueryParams;
-import com.fpt.petstore.core.dao.query.SqlQueryTemplate;
-import com.fpt.petstore.entities.*;
+import com.fpt.petstore.core.dao.query.*;
+import com.fpt.petstore.entities.Customer;
+import com.fpt.petstore.entities.Employee;
+import com.fpt.petstore.entities.Order;
+import com.fpt.petstore.entities.OrderItem;
+import com.fpt.petstore.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.fpt.petstore.repository.OrderRepository;
-import com.fpt.petstore.util.DateUtil;
+import java.util.List;
+import java.util.Map;
 
-import static com.fpt.petstore.core.dao.query.Filter.FilterType.STRING_LIKE;
+import static com.fpt.petstore.core.dao.query.Filter.FilterType.*;
 
 /**
  * @author linuss
@@ -71,7 +69,7 @@ public class OrderLogic extends DAOService {
   }
 
   SqlQueryTemplate createOrderQuery(SqlQueryParams params) {
-    String[] searchFields = {"o.code", "o.label", "c.username", "c.fullName", "e.email", "e.username", "e.fullName" };
+    String[] searchFields = {"o.code", "o.label", "c.username", "c.fullName", "e.username", "e.fullName" };
     SqlQueryTemplate.EntityTable TABLE = new SqlQueryTemplate.EntityTable(Order.class, "o");
     SqlQueryTemplate query = new SqlQueryTemplate("petstore", "Order", "Search Orders").
       SELECT_FROM(TABLE).
@@ -82,7 +80,11 @@ public class OrderLogic extends DAOService {
         new SqlQueryTemplate.Field("e.fullName",   "employeeFullName")).
       JOIN(new SqlQueryTemplate.Join("LEFT JOIN", Customer.class, "c").ON("c.id = o.customerId")).
       JOIN(new SqlQueryTemplate.Join("LEFT JOIN", Employee.class, "e").ON("e.id = o.employeeId")).
-      FILTER(new SimpleFilter("search", STRING_LIKE, searchFields)).
+      FILTER(
+        new SimpleFilter("search", STRING_LIKE, searchFields).withCaseSensitive(false),
+        new OptionFilter("o", "state", STRING, Order.State.values(), true),
+        new RangeFilter("createTime", DATE),
+        new RangeFilter("transactionDate", DATE)).
       ORDERBY(new String[] { "code" }, "code", "DESC");
     if (params != null) {
       query.mergeValue(params);

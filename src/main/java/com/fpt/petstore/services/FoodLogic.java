@@ -33,9 +33,6 @@ public class FoodLogic extends DAOService {
   FoodRepository repo;
 
   public Food saveFood(Food food) {
-    if(food.getId() == null && food.getCode() == null ) {
-      food = generateCode(food);
-    }
     return repo.save(food);
   }
 
@@ -44,7 +41,7 @@ public class FoodLogic extends DAOService {
   }
 
   public List<Food> findFoodByType(FoodType foodType) {
-    return repo.findByFoodType(foodType);
+    return repo.findByType(foodType);
   }
 
   public List<Food> findAllFoods() {
@@ -63,12 +60,6 @@ public class FoodLogic extends DAOService {
     return true;
   }
 
-  public Food generateCode(Food food) {
-    if (food == null) return null;
-    food.setCode("food-" + food.getName() + DateUtil.asCompactDateTimeId(new Date()));
-    return food;
-  }
-
   public Integer countFood(){
     return repo.countFood();
   }
@@ -85,7 +76,7 @@ public class FoodLogic extends DAOService {
     return query;
   }
 
-  public List<Map<String, Object>> searchMasterInvoices(SqlQueryParams params) {
+  public List<Map<String, Object>> searchFoods(SqlQueryParams params) {
     SqlQueryTemplate query = createFoodQuery(params);
     return query(query).getMapRecords();
   }
@@ -97,10 +88,10 @@ public class FoodLogic extends DAOService {
     return repo.findById(id);
   }
   public List<Food> findFoodbyName(String name){
-    return  repo.findfoodByNamee(name);
+    return  repo.findfoodByName(name);
   }
   public List<Food> findFoodbyPrice(long price){
-    return repo.findfoodbyPrice(price);
+    return repo.findByPrice(price);
   }
 
 }
