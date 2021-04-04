@@ -38,7 +38,7 @@ public class Payment extends AbstractPersistable<Long> {
 
   private String currency = "VND";
   
-  @JsonFormat(pattern = DateUtil.COMPACT_DATETIME_FORMAT)
+  @JsonFormat(pattern = DateUtil.LOCAL_DATETIME_FORMAT)
   private Date  transactionDate;
 
   public Payment(String bankAccount) {

@@ -118,8 +118,9 @@ public class PetStoreData {
 		ProductData _DATA_PRODUCT = new ProductData();
 
 		//TODO: mau data cho Order
-	 Order order_1 = new Order("order_1").
+	 Order order_1 = new Order("order-1").
 			withEmployee(employee_2).
+			withCustomer(customer_2).
 			withState(Order.State.DUE).
 			addOrderItem(_DATA_FOOD.food_2).
 			addOrderItem(_DATA_FOOD.food_2).
@@ -130,12 +131,13 @@ public class PetStoreData {
 			withPayment( // Payment : thanh toan
 				new Payment("Tien Mat").
 					withAmount(200).
-					withTransactionDate("12/12/2020@18:20:20"). //Ngay ngay thanh toan
+					withTransactionDate("31/07/2020@11:26:07"). //Ngay ngay thanh toan
 					withTransactionType(Payment.TransactionType.Cash)).
 			withTransactionDate("12/12/2020@18:20:20"); //Ngay in hoa don
 
 		Order order_2 = new Order("order_2").
 			withEmployee(employee_1).
+			withCustomer(customer_2).
 			withState(Order.State.DUE).
 			addOrderItem(_DATA_FOOD.food_4).
 			addOrderItem(_DATA_FOOD.food_2).

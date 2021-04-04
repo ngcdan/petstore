@@ -36,15 +36,10 @@ import lombok.Setter;
 @Entity
 @Table(name = "orders", uniqueConstraints = { @UniqueConstraint(columnNames = { "code" }) })
 @JsonInclude(Include.NON_NULL)
-@Setter
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
+@Setter @Getter @NoArgsConstructor @AllArgsConstructor
 public class Order extends AbstractPersistable<Long> {
 
-  static public enum State {
-    PAID, DUE, CANCEL
-  };
+  static public enum State { PAID, DUE, CANCEL };
 
   @NotNull
   private String code;
@@ -80,7 +75,7 @@ public class Order extends AbstractPersistable<Long> {
   private State state;
 
   @JsonFormat(pattern = DateUtil.LOCAL_DATETIME_FORMAT)
-  private Date  transactionDate = new Date();
+  private Date  transactionDate;
 
   public Order(String code, String label) {
     this.code = code;
