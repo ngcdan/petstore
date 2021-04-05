@@ -14,6 +14,7 @@
 <script src="/js/messageNotification.js"></script>
 <script src="/js/500er.js" type="text/javascript"></script>
 <script src="/js/search.js" type="text/javascript"></script>
+<script src="/js/sort.js" type="text/javascript"></script>
 <script>
     $(document).ready(function() {
         var themeNotif = "${themeNotification}";
@@ -26,5 +27,7 @@
                 $('#loginModal').modal('show');
             }, 1000);
         }
+
+
     });
 </script>

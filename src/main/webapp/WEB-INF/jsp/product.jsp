@@ -75,25 +75,7 @@
                             </c:choose>
 
                         </div>
-                        <div class="shop__sidebar__accordion">
-                            <div class="accordion" id="accordionExample">
-                                <div class="card">
-                                    <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
-                                    </div>
-                                    <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="shop__sidebar__tags">
-                                                <a href="#">Chó</a>
-                                                <a href="#">Mèo</a>
-                                                <a href="#">Hamster</a>
-                                                <a href="#">Thỏ</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -107,9 +89,9 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="shop__product__option__right">
                                     <p>Sort by Price:</p>
-                                    <select>
-                                        <option value="">Tăng dần</option>
-                                        <option value="">Giảm dần</option>
+                                    <select id="sortSelected" onchange="sortPrice()">
+                                        <option value="tangdan">Tăng dần</option>
+                                        <option value="giamdan">Giảm dần</option>
                                     </select>
                                 </div>
                             </div>
@@ -127,9 +109,9 @@
                                     </div>
                                     <div class="product__item__text">
                                         <h6>${p.name}</h6>
-                                        <a href="/shop/addtocart/${category}/${p.code}" class="add-cart">+ Add To Cart</a>
-                                        <h5><fmt:formatNumber value="${p.price}" type="currency" currencySymbol=""/>
-                                        VNĐ</h5>
+                                        <a href="/shop/addtocart/${category}/${p.sortName}" class="add-cart">+ Add To Cart</a>
+                                        <h5><fmt:formatNumber value="${p.price}" type="number" />VNĐ</h5>
+                                        <input class="productPrice" type="hidden" value="${p.price}"/>
                                     </div>
                                     <div class="modallll">
                                         <div class="modal fade right" id="cartModal${p.id}" tabindex="-1" aria-labelledby="exampleModalLabel${p.id}" aria-hidden="true">
@@ -146,7 +128,7 @@
 															<div class="tab-content">
 																<div class="tab-pane active" id="tabs-1" role="tabpanel">
 																	<div class="product__details__pic__item">
-																		<img src="/img/product/${p.pic }" alt="">
+																		<img src="/img/product/${p.pic}" alt="">
 																	</div>
 																</div>
 
@@ -170,7 +152,7 @@
 																			<p>${p.description }</p>
 
 
-																			<a href="/shop/addtocart/${category}/${p.code}" class="primary-btn">add to cart</a>
+																			<a href="/shop/addtocart/${category}/${p.sortName}" class="primary-btn">add to cart</a>
 																		</div>
 																		<br>
 																	
