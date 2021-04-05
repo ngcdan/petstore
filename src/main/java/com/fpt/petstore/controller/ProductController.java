@@ -1,22 +1,25 @@
 package com.fpt.petstore.controller;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fpt.petstore.entities.*;
 import com.fpt.petstore.services.CookieService;
 import com.fpt.petstore.util.StringUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.repository.query.Param;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +41,8 @@ public class ProductController {
     private static final String CATEGORY_FOOD = "food";
     private static final String CATEGORY_PRODUCT = "vat-pham-thu-cung";
     private static final String TITLE_PRODUCT = "Vật phẩm thú cưng";
-    private static final String TITLE_FOOD = "Thức ăn - đồ uống";
+    private static final String TITLE_FOOD = "Thức ăn cho vật nuôi";
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
 
     @Autowired
     private PetStoreService petStoreService;
@@ -46,8 +50,8 @@ public class ProductController {
     private CookieService cookieService;
 
     @GetMapping("/{category}/{page}")
+    @SuppressWarnings("unchecked")
     public String viewProduct(@PathVariable(value = "category") String category, @PathVariable(value = "page") int page, ModelMap model, HttpSession session) {
-        //phan trang cho cart
         String listCartAsJson = cookieService.getValue("listCart", "");
         //if json list cart is empty
         if (!StringUtil.isEmpty(listCartAsJson) && session.getAttribute("listCart") == null) {
@@ -59,13 +63,13 @@ public class ProductController {
                 listCart = new ObjectMapper().readValue(listCartAsJson, new TypeReference<Map<String, OrderItem>>() {
                 });
             } catch (Exception e) {
-                e.printStackTrace();
+               LOGGER.error(e.getMessage());
             }
 
             //set attribute session
             session.setAttribute("listCart", listCart);
         }
-
+        //phan trang cho cart
         if (category.equalsIgnoreCase(CATEGORY_PRODUCT)) {
 
             Integer countproduct = petStoreService.countProduct();
@@ -105,11 +109,13 @@ public class ProductController {
         return "product";
     }
 
-    @GetMapping("/addtocart/{category}/{code}")
-    public String addToCart(@PathVariable("code") String code, @PathVariable("category") String category, HttpServletRequest request, HttpSession session, ModelMap modelMap, RedirectAttributes redirectAttributes) {
+    @GetMapping("/addtocart/{category}/{sortName}")
+    @SuppressWarnings("unchecked")
+    public String addToCart(@PathVariable("sortName") String sortName, @PathVariable("category") String category, HttpServletRequest request, HttpSession session, RedirectAttributes redirectAttributes) throws URISyntaxException {
         String referer = request.getHeader("Referer");
-        Product product = petStoreService.getProductByCode(code);
-        Food food = petStoreService.getFoodByCode(code);
+
+        Product product = petStoreService.getProductbySortName(sortName);
+        Food food = petStoreService.getFoodbySortName(sortName);
         //create map for session cart
         Map<String, OrderItem> listCart = (Map<String, OrderItem>) session.getAttribute("listCart");
         if (listCart == null) {
@@ -118,24 +124,24 @@ public class ProductController {
         }
         if (category.equalsIgnoreCase(CATEGORY_PRODUCT)) {
             //set cart
-            if (listCart.get(product.getCode()) != null) {
-                OrderItem cart = listCart.get(product.getCode());
+            if (listCart.get(product.getSortName()) != null) {
+                OrderItem cart = listCart.get(product.getSortName());
                 cart.setQuantity(cart.getQuantity() + 1);
                 cart.setTotal(cart.getQuantity() * product.getPrice());
-                listCart.put(product.getCode(), cart);
+                listCart.put(product.getSortName(), cart);
             } else {
                 OrderItem newCart = new OrderItem(product, product.getPrice());
-                listCart.put(product.getCode(), newCart);
+                listCart.put(product.getSortName(), newCart);
             }
         } else {
-            if (listCart.get(food.getCode()) != null) {
-                OrderItem cart = listCart.get(food.getCode());
+            if (listCart.get(food.getSortName()) != null) {
+                OrderItem cart = listCart.get(food.getSortName());
                 cart.setQuantity(cart.getQuantity() + 1);
                 cart.setTotal(cart.getQuantity() * food.getPrice());
-                listCart.put(food.getCode(), cart);
+                listCart.put(food.getSortName(), cart);
             } else {
                 OrderItem newCart = new OrderItem(food, food.getPrice());
-                listCart.put(food.getCode(), newCart);
+                listCart.put(food.getSortName(), newCart);
             }
         }
         session.setAttribute("listCart", listCart);
@@ -145,41 +151,47 @@ public class ProductController {
         redirectAttributes.addFlashAttribute(titleNotification, "Thành công");
         // update to cookie
         String listCartAsJson = "";
+
         try {
             //encoder json and write value as String to listcart
             listCartAsJson = URLEncoder.encode(new ObjectMapper().writeValueAsString(listCart), StandardCharsets.UTF_8.toString());
+
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage());
         }
         //create cookie
         cookieService.create("listCart", listCartAsJson, 24);
+
         return redirectRefer + referer;
     }
 
     @PostMapping("/updateCart")
+    @SuppressWarnings("unchecked")
     public String updateCart(HttpServletRequest request, HttpSession session, RedirectAttributes redirectAttributes) {
 
-        String[] productCodes = request.getParameterValues("productCode");
-        String[] foodCodes = request.getParameterValues("foodCode");
+        String[] productSortNames = request.getParameterValues("productSortName");
+        String[] foodSortNames = request.getParameterValues("foodSortName");
         String[] foodQuantity = request.getParameterValues("foodQuantity");
         String[] productQuantity = request.getParameterValues("productQuantity");
 
         Map<String, OrderItem> listCart = (Map<String, OrderItem>) session.getAttribute("listCart");
-
-        if (productCodes != null) {
-            for (int i = 0; i < productCodes.length; i++) {
-                OrderItem cart = listCart.get(productCodes[i]);
-                cart.setQuantity(Integer.parseInt(productQuantity[i]));
-                cart.setTotal(cart.getQuantity() * cart.getProduct().getPrice());
+        if(listCart!=null){
+            if (productSortNames != null) {
+                for (int i = 0; i < productSortNames.length; i++) {
+                    OrderItem cart = listCart.get(productSortNames[i]);
+                    cart.setQuantity(Integer.parseInt(productQuantity[i]));
+                    cart.setTotal(cart.getQuantity() * cart.getProduct().getPrice());
+                }
             }
+
+            if (foodSortNames != null) {
+                for (int i = 0; i < foodSortNames.length; i++) {
+                    OrderItem cart = listCart.get(foodSortNames[i]);
+                    cart.setQuantity(Integer.parseInt(foodQuantity[i]));
+                    cart.setTotal(cart.getQuantity() * cart.getFood().getPrice());
+                }
         }
 
-        if (foodCodes != null) {
-            for (int i = 0; i < foodCodes.length; i++) {
-                OrderItem cart = listCart.get(foodCodes[i]);
-                cart.setQuantity(Integer.parseInt(foodQuantity[i]));
-                cart.setTotal(cart.getQuantity() * cart.getFood().getPrice());
-            }
         }
         session.setAttribute("listCart", listCart);
         //notification javascript
@@ -190,6 +202,7 @@ public class ProductController {
     }
 
     @PostMapping("/checkkout")
+    @SuppressWarnings("unchecked")
     public String checkOut(@RequestParam Map<String, String> map, HttpSession session, RedirectAttributes redirectAttributes) {
         String transaction = map.get("transaction");
         if (transaction.equals("") || transaction == null) {
@@ -268,11 +281,12 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/delete/{code}")
-    public String deleteSanPham(@PathVariable("code") String code, HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+    @GetMapping("/delete/{sortName}")
+    @SuppressWarnings("unchecked")
+    public String deleteSanPham(@PathVariable("sortName") String sortName, HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request)  {
         String referer = request.getHeader("Referer");
         Map<String, OrderItem> listCart = (Map<String, OrderItem>) session.getAttribute("listCart");
-        listCart.remove(code);
+        listCart.remove(sortName);
         session.setAttribute("listCart", listCart);
         redirectAttributes.addFlashAttribute(messageNotification, "Xóa thành công");
         redirectAttributes.addFlashAttribute(themeNotification, "success");
@@ -283,14 +297,16 @@ public class ProductController {
     @PostMapping("/searchProduct")
     @ResponseBody
     public List<Product> findProductbyKeyWord(@RequestParam Map<String,String> m) {
-        List<Product> listSearchProduct = petStoreService.findProductsByName(m.get("search"));
+        String search= m.get("search");
+        List<Product> listSearchProduct = petStoreService.findProductsByName(search);
+
         return listSearchProduct;
     }
     @PostMapping(path = "/searchFood")
     @ResponseBody
     public List<Food> findFoodbyKeyword(@RequestParam Map<String,String> m) {
-
-        List<Food> listSearchFood = petStoreService.findFoodbyName(m.get("search"));
+        String search= m.get("search");
+        List<Food> listSearchFood = petStoreService.findFoodbyName(search);
 
         return listSearchFood;
     }

@@ -2,6 +2,7 @@ package com.fpt.petstore.repository;
 
 import com.fpt.petstore.entities.Food;
 import com.fpt.petstore.entities.Food.FoodType;
+import com.fpt.petstore.entities.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
@@ -34,6 +35,10 @@ public interface FoodRepository extends PagingAndSortingRepository<Food, Long> {
 
   @Query(value="SELECT * FROM Food where Upper(name) like UPPER(CONCAT('%',?1,'%'))",nativeQuery = true)
   List<Food> findfoodByName(String name);
+
+  @Query(value = "Select * from Food where sortName = ?1",nativeQuery = true)
+  public Food getbySortName(String sortName);
+
 
   @Query(value="select * from Food where price = ?1",nativeQuery = true)
   List<Food> findByPrice(long price);

@@ -56,17 +56,17 @@
                             <c:forEach items="${listCart}" var="p">
                                 <tr>
                                     <c:choose>
-                                        <c:when test="${not empty p.value.product.code}">
-                                            <input type="hidden" name="productCode" value="${p.value.product.code}"/>
+                                        <c:when test="${not empty p.value.product.sortName}">
+                                            <input type="hidden" name="productSortName" value="${p.value.product.sortName}"/>
                                         </c:when>
                                         <c:otherwise>
-                                            <input type="hidden" name="foodCode" value="${p.value.food.code}"/>
+                                            <input type="hidden" name="foodSortName" value="${p.value.food.sortName}"/>
                                         </c:otherwise>
                                     </c:choose>
                                     <td class="product__cart__item">
                                         <div class="product__cart__item__pic">
                                             <c:choose>
-                                                <c:when test="${not empty p.value.product.code}">
+                                                <c:when test="${not empty p.value.product.sortName}">
                                                     <img style="max-width:230px;max-height:95px;width:auto;height: auto;"
                                                          src="/img/product/${p.value.product.pic}" alt="">
                                                 </c:when>
@@ -78,7 +78,7 @@
                                         </div>
                                         <div class="product__cart__item__text">
                                             <c:choose>
-                                                <c:when test="${not empty p.value.product.code}">
+                                                <c:when test="${not empty p.value.product.sortName}">
                                                     <h6>${p.value.product.name}</h6>
                                                     <h5>${p.value.product.price}VNĐ</h5>
                                                 </c:when>
@@ -93,25 +93,25 @@
                                         <div class="quantity">
                                             <div class="pro-qty-2">
                                                 <c:choose>
-                                                    <c:when test="${not empty p.value.food.code}">
+                                                    <c:when test="${not empty p.value.food.sortName}">
                                                         <input type="text" name="foodQuantity"
                                                                value="${p.value.quantity}">
                                                     </c:when>
                                                     <c:otherwise>
                                                         <input type="text" name="productQuantity"
-                                                               value="${p.value.quantity+1}">
+                                                               value="${p.value.quantity}">
                                                     </c:otherwise>
                                                 </c:choose>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="cart__price"> ${p.value.total} VNĐ</td>
-                                    <c:if test="${not empty p.value.product.code}">
-                                        <td class="cart__close"><a href="/shop/delete/${p.value.product.code}"><i
+                                    <c:if test="${not empty p.value.product.sortName}">
+                                        <td class="cart__close"><a href="/shop/delete/${p.value.product.sortName}"><i
                                                 class="fa fa-close"></i></a></td>
                                     </c:if>
-                                    <c:if test="${not empty p.value.food.code}">
-                                        <td class="cart__close"><a href="/shop/delete/${p.value.food.code}"><i
+                                    <c:if test="${not empty p.value.food.sortName}">
+                                        <td class="cart__close"><a href="/shop/delete/${p.value.food.sortName}"><i
                                                 class="fa fa-close"></i></a></td>
                                     </c:if>
                                 </tr>

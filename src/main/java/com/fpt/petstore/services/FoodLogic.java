@@ -48,6 +48,9 @@ public class FoodLogic extends DAOService {
     return (List<Food>) repo.findAll();
   }
 
+  public Food getFoodbySortName(String sortName){
+    return repo.getbySortName(sortName);
+  }
   public boolean deleteFoodById(Long id) {
     repo.deleteById(id);
     return true;

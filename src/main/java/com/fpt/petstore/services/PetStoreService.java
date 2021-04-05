@@ -141,6 +141,10 @@ public class PetStoreService {
   public List<Product> findProductsByType(ProductType productType) {
     return productLogic.findProductByType(productType);
   }
+  @Transactional
+  public Product getProductbySortName(String sortName){
+    return productLogic.getProductbySortName(sortName);
+  }
 
   @Transactional(readOnly = true)
   public List<Product> findProductsByName(String name){
@@ -196,6 +200,11 @@ public class PetStoreService {
   @Transactional(readOnly = true)
   public List<Food> findFoodsByFoodType(FoodType foodType) {
     return foodLogic.findFoodByType(foodType);
+  }
+
+  @Transactional
+  public Food getFoodbySortName(String sortName){
+    return foodLogic.getFoodbySortName(sortName);
   }
 
   @Transactional(readOnly = true)

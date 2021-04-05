@@ -21,7 +21,7 @@ uniqueConstraints = {
 @NoArgsConstructor
 public class Product extends BaseProduct {
 
-  static public enum ProductType {CLOTHES, CAT, DOG, HAMSTER, LEASH };
+  static public enum ProductType {CLOTHES, CAT, DOG};
 
   @Enumerated(EnumType.STRING)
   private ProductType type;

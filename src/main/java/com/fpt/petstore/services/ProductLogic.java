@@ -33,7 +33,9 @@ public class ProductLogic {
     }
     return repo.save(product);
   }
-
+  public Product getProductbySortName(String sortName ){
+    return repo.getbySortName(sortName);
+  }
   public Product getProductByCode(String code) {
     return repo.getByCode(code);
   }

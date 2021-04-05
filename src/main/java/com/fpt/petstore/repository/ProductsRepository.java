@@ -25,6 +25,10 @@ public interface ProductsRepository extends PagingAndSortingRepository<Product, 
   @Query( "SELECT p FROM Product p WHERE p.code = :code")
   public Product getByCode(@Param("code") String code);
 
+  @Query(value = "Select * from Product where sortName = ?1",nativeQuery = true)
+    public Product getbySortName(String sortName);
+
+
   public List<Product> findByType(ProductType productType);
 
   @Query(value = "select * from product", nativeQuery = true)

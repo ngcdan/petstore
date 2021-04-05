@@ -152,17 +152,17 @@
                                             <c:forEach items="${listCart}" var="p">
                                             <td class="product__cart__item">
                                                 <div class="product__cart__item__pic">
-                                                    <c:if test="${not empty p.value.product.code}"> <img src="/img/product/${p.value.product.pic}" alt=""
+                                                    <c:if test="${not empty p.value.product.sortName}"> <img src="/img/product/${p.value.product.pic}" alt=""
                                                                                                          style="max-width:230px;max-height:95px;width:auto;height: auto;"></c:if>
-                                                    <c:if test="${not empty p.value.food.code}"> <img src="/img/product/${p.value.food.pic}" alt=""
+                                                    <c:if test="${not empty p.value.food.sortName}"> <img src="/img/product/${p.value.food.pic}" alt=""
                                                                                                          style="max-width:230px;max-height:85px;width:100px;height: auto;"></c:if>
                                                 </div>
                                                 <div class="product__cart__item__text ">
 
-                                                   <c:if test="${not empty p.value.product.code}"> <h6>${p.value.product.name}</h6></c:if>
-                                                    <c:if test="${not empty p.value.food.code}"> <h6>${p.value.food.name}</h6></c:if>
-                                                    <c:if test="${not empty p.value.product.code}"> <h5>${p.value.product.price} VND</h5></c:if>
-                                                    <c:if test="${not empty p.value.food.code}"> <h5>${p.value.food.price} VND</h5></c:if>
+                                                   <c:if test="${not empty p.value.product.sortName}"> <h6>${p.value.product.name}</h6></c:if>
+                                                    <c:if test="${not empty p.value.food.sortName}"> <h6>${p.value.food.name}</h6></c:if>
+                                                    <c:if test="${not empty p.value.product.sortName}"> <h5>${p.value.product.price} VND</h5></c:if>
+                                                    <c:if test="${not empty p.value.food.sortName}"> <h5>${p.value.food.price} VND</h5></c:if>
                                                 </div>
                                             </td>
 
@@ -174,9 +174,9 @@
                                                 </div>
                                             </td>
                                             <td class="cart__price">${p.value.total} VND</td>
-                                                <c:if test="${not empty p.value.product.code}"> <td class="cart__close"><a href="/shop/delete/${p.value.product.code}"><i
+                                                <c:if test="${not empty p.value.product.sortName}"> <td class="cart__close"><a href="/shop/delete/${p.value.product.sortName}"><i
                                                         class="fa fa-close"></i></a></td></c:if>
-                                                <c:if test="${not empty p.value.food.code}"> <td class="cart__close"><a href="/shop/delete/${p.value.food.code}"><i
+                                                <c:if test="${not empty p.value.food.sortName}"> <td class="cart__close"><a href="/shop/delete/${p.value.food.sortName}"><i
                                                         class="fa fa-close"></i></a></td></c:if>
 
                                         </tr>

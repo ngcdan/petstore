@@ -8,7 +8,7 @@ public class ProductData {
 	public Product product_1 =
 		new Product("Nệm cho Chó/Mèo hình chữ nhật BOBBY").
 			withProductType(Product.ProductType.DOG).
-			withSortName("Nệm cho Chó/Mèo").
+			withSortName("NệmchoChó-Mèo").
 			withPrice(450000).
 			withDescription("Nệm cho chó mèo hình chữ nhật được thiết kế dành riêng cho vật nuôi.").
 			withPic("product1.png");
@@ -16,7 +16,7 @@ public class ProductData {
 	public Product   product_2    =
 		new Product("Balo phi hành gia cho Chó/Mèo").
 		withProductType(Product.ProductType.CAT).
-		withSortName("Balo").
+		withSortName("Balo Phi hành gia").
 		withPrice(200000).
 		withDescription("Balo Phi Hành Gia Cho Chó Mèo có thiết kế thông minh, thông thoáng giúp cho thú cưng của bạn thoải mái và an toàn khi di chuyển."
 		  		+ " Vòm kính có thể thay thế bằng lưới nhựa và phù hợp với nhu cầu của bạn. "
@@ -26,7 +26,7 @@ public class ProductData {
 	public Product   product_3    =
 			new Product("Áo thời trang Tết cho Chó/Mèo").
 			withProductType(Product.ProductType.CAT).
-			withSortName("Quần áo thời trang").
+			withSortName("Quần áo thời trang Chó-Mèo").
 			withPrice(120000).
 			withDescription("Quần áo chó mèo sẽ giúp cho thú cưng trở nên sành điệu.").
 			withPic("product3.jpg");
@@ -34,7 +34,7 @@ public class ProductData {
 	public Product   product_4    =
 			new Product("Dây xích kỉ luật cho Chó").
 			withProductType(Product.ProductType.DOG).
-			withSortName("Dây xích").
+			withSortName("Dây xích Chó").
 			withPrice(90000).
 			withDescription("Dây xích kỷ luật cho chó phù hợp với thú cưng quá nghịch ngợm, "
 			  		+ "thích chạy nhảy khi đi ra ngoài hay những chú chó lớn hung hăng, chó mèo đang trong quá trình huấn luyện.").
@@ -43,16 +43,16 @@ public class ProductData {
 	public Product   product_5    =
 			new Product("Tã bỉm cho Chó/Mèo").
 			withProductType(Product.ProductType.DOG).
-			withSortName("Tã bỉm").
+			withSortName("Tã bỉm Chó-Mèo").
 			withPrice(140000).
 			withDescription("Tã bỉm cho chó mèo với thiết kế đặc biệt bên trong chứa chất kháng khuẩn cao, "
 			  		+ "có đầy đủ các kích thước khác nhau dành cho tất cả các giống chó từ nhỏ tới lớn.").
 			withPic("product5.jpg");
 	
 	public Product   product_6    =
-			new Product("Dầu tắm Chó/Mèo lông dài TRIXIE Langhaar Shampoo").
+			new Product("Dầu tắm Chó-Mèo lông dài TRIXIE Langhaar Shampoo").
 			withProductType(Product.ProductType.DOG).
-			withSortName("Dầu tắm").
+			withSortName("Dầu tắm TRIXIE Langhaar Shampoo").
 			withPrice(180000).
 			withDescription("Dầu tắm chó mèo lông dài TRIXIE Langhaar Shampoo dành cho tất cả các giống chó. "
 			  		+ "Đặc biệt là những giống chó có bộ lông dài và dày như Poodle, Phốc sóc, Alaska, Samoyed…").
@@ -61,7 +61,7 @@ public class ProductData {
 	public Product   product_7    =
 			new Product("Khay vệ sinh cho Chó/Mèo").
 			withProductType(Product.ProductType.CAT).
-			withSortName("Khay vệ sinh").
+			withSortName("Khay vệ sinh Chó-Mèo").
 			withPrice(390000).
 			withDescription("Khay vệ sinh cho chó thành cao IRIS với thiết kế hình vuông nhỏ gọn, thuận tiện cho việc cún cưng đi vệ sinh. ").
 			withPic("product7.jpg");
@@ -69,13 +69,13 @@ public class ProductData {
 	public Product   product_8    =
 			new Product("Nhà cho chó bằng nhựa dáng vuông").
 			withProductType(Product.ProductType.DOG).
-			withSortName("Nhà cho chó").
+			withSortName("Nhà cho chó nhựa dáng vuông").
 			withPrice(690000).
 			withDescription("Nhà cho chó bằng nhựa dáng vuông được sản xuất trên dây chuyền công nghệ hiện đại, sản phẩm với màu sắc đa dạng.").
 			withPic("product8.jpg");
 	
 	public Product   product_9    =
-			new Product("Bát ăn inox cho Chó/Mèo").
+			new Product("Bát ăn inox cho Chó-Mèo").
 			withProductType(Product.ProductType.DOG).
 			withSortName("Bát ăn inox").
 			withPrice(90000).
@@ -91,7 +91,7 @@ public class ProductData {
 			withPic("product10.jpg");
 		
 	public Product   product_11    =
-			new Product("Đồ chơi cho Chó/Mèo bằng bông chút chít ELITE hình con kỳ lân").
+			new Product("Đồ chơi cho Chó-Mèo bằng bông chút chít ELITE hình con kỳ lân").
 			withProductType(Product.ProductType.DOG).
 			withSortName("Đồ chơi chút chít").
 			withPrice(150000).
@@ -316,7 +316,7 @@ public class ProductData {
 	public Product   product_36    =
 			new Product("Bông Vụ Chứa Bánh Thưởng Pawise Play").
 			withProductType(Product.ProductType.DOG).
-			withSortName("Bông vụ").
+			withSortName("Bôngvụ").
 			withPrice(200000).
 			withDescription("Thương hiệu nổi tiếng ở Châu Âu và Mỹ." + 
 					"Thiết kế để nhét bánh thưởng bên trong nhằm kích thích chó chơi đùa.").
@@ -325,7 +325,7 @@ public class ProductData {
 	public Product   product_37    =
 			new Product("Máy Bắn Banh Tự Động AFP Interactives").
 			withProductType(Product.ProductType.DOG).
-			withSortName("Máy bắn banh").
+			withSortName("Máybắnbanh").
 			withPrice(626000).
 			withDescription("Thiết kế tại Pháp." + 
 					"Tự động bắn banh giúp chó chơi một mình." + 
@@ -337,7 +337,7 @@ public class ProductData {
 	public Product   product_38    =
 			new Product("Banh Dùng Cho Máy Bắn Tự Động AFP Interactives").
 			withProductType(Product.ProductType.DOG).
-			withSortName("Banh dùng cho máy bắn").
+			withSortName("Banhdùngchomáybắn").
 			withPrice(100000).
 			withDescription("Sản phẩm của Pháp." + 
 					"Được thiết kế đặc biệt hỗ trợ sự phát triển răng của chó." + 
@@ -348,7 +348,7 @@ public class ProductData {
 	public Product   product_39    =
 			new Product("Bàn Chải Đánh Răng Hai Đầu Cho Chó Mèo Beaphar Toothbrush").
 			withProductType(Product.ProductType.CAT).
-			withSortName("Bàn chải đánh răng").
+			withSortName("Bànchảiđánhrăng").
 			withPrice(112000).
 			withDescription("Thiết kế 2 đầu đặc biệt giúp chải răng cho chó mèo sạch hơn." + 
 					"Được thiết kế phù hợp với kẽ răng và kích cỡ răng của thú cưng.").
@@ -357,7 +357,7 @@ public class ProductData {
 	public Product   product_40    =
 			new Product("Kềm Cắt Móng Mon Ami Enzo").
 			withProductType(Product.ProductType.CAT).
-			withSortName("Kềm cắt móng").
+			withSortName("Kềmcắtmóng").
 			withPrice(60000).
 			withDescription(" Sản xuất tại Việt Nam." + 
 					"Thiết kế chuẩn, không gây khó chịu cho chó mèo khi sử dụng." + 

@@ -64,8 +64,8 @@
                         </li> -->
                         <li><a href="javascript:void(0)">Sản Phẩm</a>
                             <ul class="dropdown">
-                                <li><a href="/shop/vat-pham-thu-cung/1">Vật phẩm thú cưng</a></li>
-                                <li><a href="/shop/food/1">Thức ăn-đồ uống</a></li>
+                                <li><a href="/shop/vat-pham-thu-cung/1">Vật phẩm vật nuôi</a></li>
+                                <li><a href="/shop/food/1">Thức ăn cho vật nuôi</a></li>
                             </ul>
                         </li>
                         <li><a href="/blog">Blog</a></li>
