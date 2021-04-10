@@ -22,7 +22,7 @@ uniqueConstraints = {
 @NoArgsConstructor
 public class Food extends BaseProduct {
 
-  static public enum FoodType {DRY, SNACK, MILK};
+  static public enum FoodType {DRY, SNACK, MILK,WET};
 
   @Enumerated(EnumType.STRING)
   private FoodType type;
