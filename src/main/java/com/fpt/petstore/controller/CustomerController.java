@@ -41,6 +41,7 @@ public class CustomerController {
             rA.addFlashAttribute(messageNotification, "Sai Email hoặc mật khẩu");
             rA.addFlashAttribute(themeNotification, "error");
             rA.addFlashAttribute(titleNotification, "Lỗi");
+            rA.addFlashAttribute("callModal","callModal");
             return "redirect:" + referer;
         }
     }
@@ -64,25 +65,27 @@ public class CustomerController {
         String fullName = m.get("fullName");
 
         Customer customer = new Customer(fullName).
-          withUsername(""). //TODO: fix missing field
-          withPassword(password).
-          withPhone(phoneNumber).
-          withAddress(address).
-          withAvartar("").
-          withGender(BaseAccount.Gender.valueOf(gender)).
-          withEmail(email);
+                withUsername(email).
+                withPassword(password).
+                withPhone(phoneNumber).
+                withAddress(address).
+                withAvartar("customer-default.jpg").
+                withGender(BaseAccount.Gender.valueOf(gender)).
+                withEmail(email);
 
-        Customer customer1 = petStoreService.findCustomerbyEmail(email);
-        if(customer1!=null){
+        Customer customerExistCustomer = petStoreService.findCustomerbyEmail(email);
+        if(customerExistCustomer!=null){
             redirectAttributes.addFlashAttribute(messageNotification, "Email trùng đã bị trùng. Vui lòng nhập email khác");
             redirectAttributes.addFlashAttribute(themeNotification, "error");
             redirectAttributes.addFlashAttribute(titleNotification, "Lỗi");
+            redirectAttributes.addFlashAttribute("callModalRegister","callModalRegister");
             return redirectRefer + referer;
         }
-        if (email==null || password.equals("") || confirm.equals("") || phoneNumber.equals("") || gender.equals("") || address.equals("") || fullName.equals("")) {
+        if (email.equals("") || password.equals("") || confirm.equals("") || phoneNumber.equals("") || gender.equals("") || address.equals("") || fullName.equals("")) {
             redirectAttributes.addFlashAttribute(messageNotification, "Không được để trống");
             redirectAttributes.addFlashAttribute(themeNotification, "error");
             redirectAttributes.addFlashAttribute(titleNotification, "Lỗi");
+            redirectAttributes.addFlashAttribute("callModalRegister","callModalRegister");
             return redirectRefer + referer;
         }
         if (confirm.equals(password)) {
@@ -92,10 +95,16 @@ public class CustomerController {
             redirectAttributes.addFlashAttribute(titleNotification, "Thành công");
             return redirectRefer + referer;
         } else {
-            redirectAttributes.addFlashAttribute(messageNotification, "Lỗi");
+            redirectAttributes.addFlashAttribute(messageNotification, "Lỗi mật khẩu không trùng");
             redirectAttributes.addFlashAttribute(themeNotification, "error");
             redirectAttributes.addFlashAttribute(titleNotification, "Lỗi");
+            redirectAttributes.addFlashAttribute("callModalRegister","callModalRegister");
             return redirectRefer + referer;
         }
+    }
+    @PostMapping("/updateInfor")
+    public String updateInfor(HttpServletRequest request){
+        String referer = request.getHeader("Referer");
+        return redirectRefer + referer;
     }
 }
