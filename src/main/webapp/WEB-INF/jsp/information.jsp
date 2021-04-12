@@ -4,7 +4,7 @@
 <html lang="zxx">
 <head>
     <jsp:include page="part/head.jsp"/>
-    <title>About us</title>
+    <title>Thông tin chi tiết</title>
 </head>
 <jsp:include page="part/header.jsp"/>
 <body>
@@ -27,20 +27,18 @@
 <section>
     <div class="container">
         <form action="/updateInfor" method="post">
-        <div class="row">
+            <div class="row">
                 <div class="col-md-4">
                     <div class="box_image_logo">
                         <div class="my-account-litle">Ảnh đại diện</div>
                         <div>
                             <label for="photo_file"><img
                                     src="/img/about/${customerr.avatarUrl}" alt="">
-                            </label> <input type="file" style="text-decoration: none;"
-                                            class="btn btn-block" id="photo_file"/>
+                            </label> <input type="file" style="text-decoration: none;" class="btn btn-block"
+                                            id="photo_file"/>
                         </div>
-
                     </div>
                 </div>
-
                 <div class="col-md-8">
                     <div class="box_info_account2">
                         <br>
@@ -51,51 +49,47 @@
                             <div class="form-group row">
                                 <label class="col-md-4 control-label">Họ và tên:</label>
                                 <div class="col-md-8">
-                                    <input class="form-control" type="text" name="fullName" value="${customerr.fullName}"
+                                    <input class="form-control" type="text" name="fullName"
+                                           value="${customerr.fullName}"
                                            placeholder="Họ và tên">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-4 control-label">Ngày sinh:</label>
                                 <div class="col-md-8">
-
-                                       <input class="form-control" type="date" name="birthday" value="<fmt:formatDate value="${customerr.birthday}" pattern="yyyy-MM-dd"/>"/>
+                                    <input class="form-control" type="date" name="birthday"
+                                           value="<fmt:formatDate value="${customerr.birthday}" pattern="yyyy-MM-dd"/>"/>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-4 control-label">Điện thoại:</label>
                                 <div class="col-md-8">
                                     <input class="form-control numeric" type="text"
-                                           placeholder="Số điện thoại" name="phoneNumber" maxlength="11" value="${customerr.phone}">
+                                           placeholder="Số điện thoại" name="phoneNumber" maxlength="11"
+                                           value="${customerr.phone}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-4 control-label">Địa chỉ:</label>
                                 <div class="col-md-8">
                                     <input class="form-control numeric" type="text"
-                                           name="ngaysinh" placeholder="Địa Chỉ" value="${customerr.address}">
+                                           name="address" placeholder="Địa Chỉ" value="${customerr.address}">
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="form-group" style="margin-bottom: 40px;">
-                            <button class="btn nut text-uppercase">Update</button>
+                            <button class="btn nut text-uppercase" type="submit">Cập nhật</button>
                             <button class="btn nut1 text-uppercase" type="button"
                                     data-toggle="modal" data-target="#exampleModalChange">ĐỔI
                                 MẬT KHẨU
                             </button>
                             <br>
                         </div>
-
                     </div>
-
                 </div>
-
-        </div>
+            </div>
         </form>
     </div>
-
 </section>
 <!-- Client Section End -->
 

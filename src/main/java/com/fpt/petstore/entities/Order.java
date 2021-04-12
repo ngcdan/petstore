@@ -175,13 +175,12 @@ public class Order extends AbstractPersistable<Long> {
   }
 
 
-  public Order(@NotNull String code, String label, Customer customer, List<Payment> payments, List<OrderItem> orderItems, @NotNull @DecimalMin(value = "0") int total, String note, State state) {
+  public Order(@NotNull String code, String label, Customer customer, List<Payment> payments, List<OrderItem> orderItems, String note, State state) {
     this.code = code;
     this.label = label;
     this.customer = customer;
     this.payments = payments;
     this.orderItems = orderItems;
-    this.total = total;
     this.note = note;
     this.state = state;
   }

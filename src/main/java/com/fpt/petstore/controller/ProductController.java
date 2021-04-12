@@ -13,6 +13,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fpt.petstore.entities.*;
 import com.fpt.petstore.services.CookieService;
+import com.fpt.petstore.util.DateUtil;
 import com.fpt.petstore.util.StringUtil;
 
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +37,7 @@ import static com.fpt.petstore.entities.ConstVariable.*;
 /**
  * Created by Nizis on 2/2/2021.
  */
+@SuppressWarnings("unchecked")
 @Controller
 @RequestMapping("/shop")
 public class ProductController {
@@ -50,7 +53,6 @@ public class ProductController {
     private CookieService cookieService;
 
     @GetMapping("/{category}/{page}")
-    @SuppressWarnings("unchecked")
     public String viewProduct(@PathVariable(value = "category") String category, @PathVariable(value = "page") int page, ModelMap model, HttpSession session) {
         String listCartAsJson = cookieService.getValue("listCart", "");
         //if json list cart is empty
@@ -110,7 +112,6 @@ public class ProductController {
     }
 
     @GetMapping("/addtocart/{category}/{sortName}")
-    @SuppressWarnings("unchecked")
     public String addToCart(@PathVariable("sortName") String sortName, @PathVariable("category") String category, HttpServletRequest request, HttpSession session, RedirectAttributes redirectAttributes) throws URISyntaxException {
         String referer = request.getHeader("Referer");
 
@@ -166,7 +167,6 @@ public class ProductController {
     }
 
     @PostMapping("/updateCart")
-    @SuppressWarnings("unchecked")
     public String updateCart(HttpServletRequest request, HttpSession session, RedirectAttributes redirectAttributes) {
 
         String[] productSortNames = request.getParameterValues("productSortName");
@@ -202,7 +202,6 @@ public class ProductController {
     }
 
     @PostMapping("/checkkout")
-    @SuppressWarnings("unchecked")
     public String checkOut(@RequestParam Map<String, String> map, HttpSession session, RedirectAttributes redirectAttributes) {
         String transaction = map.get("transaction");
         if (transaction.equals("") || transaction == null) {
@@ -240,7 +239,7 @@ public class ProductController {
                 }
                 cart.setName(name + randomNum);
                 cart.setLabel(name + randomNum);
-                cart.setDescription("Ten san pham: " + name + "So luong: " + cart.getQuantity());
+                cart.setDescription("Ten san pham: " + name + " So luong: " + cart.getQuantity());
 
                 cart.setCurrency("VNĐ");
 
@@ -249,26 +248,26 @@ public class ProductController {
             List<OrderItem> listOrderItem = new ArrayList<>(listCart.values());
             String note = map.get("note");
             String code = "order_"+randomNum;
-
+            Date newDate = new Date();
             if (transaction.equals("COD")) {
 
-                Payment payment = new Payment(transaction, Payment.TransactionType.Cash);
+                Payment payment = new Payment(transaction, Payment.TransactionType.Cash,newDate);
 
                 List<Payment> orderTransaction = new ArrayList<>();
 
                 orderTransaction.add(payment);
 
-                Order order = new Order(code, "order-" + randomNum, customer, orderTransaction, listOrderItem, totalPrice, note, Order.State.PAID);
+                Order order = new Order(code, "order-" + DateUtil.asCompactDateTimeId(new Date()), customer, orderTransaction, listOrderItem, note, Order.State.DUE);
                 petStoreService.saveOrder(order);
 
             } else {
-                Payment payment = new Payment(transaction, Payment.TransactionType.ATM);
+                Payment payment = new Payment(transaction, Payment.TransactionType.ATM,newDate);
 
                 List<Payment> orderTransaction = new ArrayList<>();
 
                 orderTransaction.add(payment);
 
-                Order order = new Order("order_" + randomNum, "order-" + randomNum, customer, orderTransaction, listOrderItem, totalPrice, note, Order.State.PAID);
+                Order order = new Order("order_" + randomNum, "order-" + DateUtil.asCompactDateTimeId(new Date()), customer, orderTransaction, listOrderItem, note, Order.State.DUE);
                 petStoreService.saveOrder(order);
             }
             session.removeAttribute("listCart");
@@ -282,7 +281,6 @@ public class ProductController {
     }
 
     @GetMapping("/delete/{sortName}")
-    @SuppressWarnings("unchecked")
     public String deleteSanPham(@PathVariable("sortName") String sortName, HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request)  {
         String referer = request.getHeader("Referer");
         Map<String, OrderItem> listCart = (Map<String, OrderItem>) session.getAttribute("listCart");
@@ -294,20 +292,31 @@ public class ProductController {
         return redirectRefer + referer;
     }
 
-    @PostMapping("/searchProduct")
+    @PostMapping(path = "/searchProduct"/*, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE*/)
     @ResponseBody
     public List<Product> findProductbyKeyWord(@RequestParam Map<String,String> m) {
-        String search= m.get("search");
-        List<Product> listSearchProduct = petStoreService.findProductsByName(search);
+        String option = m.get("select");
+         String search= m.get("search");
+        List<Product> listSearchProduct = null;
+
+         if(option.equalsIgnoreCase("productName")){
+             listSearchProduct  = petStoreService.findProductsByName(search);
+
+         }
 
         return listSearchProduct;
     }
+
     @PostMapping(path = "/searchFood")
     @ResponseBody
-    public List<Food> findFoodbyKeyword(@RequestParam Map<String,String> m) {
+    public List<Food> findFoodbyKeyword(@RequestParam Map<String,String> m,RedirectAttributes redirectAttributes) {
         String search= m.get("search");
-        List<Food> listSearchFood = petStoreService.findFoodbyName(search);
+        String option = m.get("select");
 
+        List<Food> listSearchFood = null;
+        if(option.equalsIgnoreCase("productName")){
+            listSearchFood = petStoreService.findFoodbyName(search);
+        }
         return listSearchFood;
     }
 }

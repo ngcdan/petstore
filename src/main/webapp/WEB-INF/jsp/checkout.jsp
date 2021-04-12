@@ -47,24 +47,24 @@
                         <h6 class="checkout__title">Thông tin cá nhân</h6>
                         <div class="checkout__input">
                             <p>Họ và tên<span>*</span></p>
-                            <input type="text" name="fullName" value="<c:if test="${customer.email!=null}">${customer.fullName}</c:if>" placeholder="Nhập họ và tên của bạn"/>
+                            <input style="color:blue" type="text" name="fullName" readonly value="<c:if test="${customer.email!=null}">${customer.fullName}</c:if>" placeholder="Nhập họ và tên của bạn"/>
                         </div>
                         <div class="checkout__input">
                             <p>Địa chỉ<span>*</span></p>
-                            <input type="text" name="address" value="<c:if test="${customer.email!=null}">${customer.address}</c:if>" placeholder="Nhập địa chỉ của bạn"
+                            <input type="text" name="address"  style="color:blue" readonly value="<c:if test="${customer.email!=null}">${customer.address}</c:if>" placeholder="Nhập địa chỉ của bạn"
                                    class="checkout__input__add">
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Phone<span>*</span></p>
-                                    <input type="text" name="phoneNumber" value="<c:if test="${customer.email!=null}">${customer.phone}</c:if>"placeholder="Nhập số điện thoại của bạn">
+                                    <input type="text"  style="color:blue" name="phoneNumber" readonly value="<c:if test="${customer.email!=null}">${customer.phone}</c:if>"placeholder="Nhập số điện thoại của bạn">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Email<span>*</span></p>
-                                     <input type="email" name="email" value="<c:if test="${customer.email!=null}">${customer.email}</c:if>" placeholder="Nhập địa chỉ email của bạn">
+                                     <input type="email" name="email"  style="color:blue" readonly value="<c:if test="${customer.email!=null}">${customer.email}</c:if>" placeholder="Nhập địa chỉ email của bạn">
                                 </div>
                             </div>
                         </div>

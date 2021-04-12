@@ -29,7 +29,7 @@ public class Payment extends AbstractPersistable<Long> {
   static public enum TransactionType { Cash, Wire, ATM, CustomerCredit }
   
   @NotNull
-  private String bankAccountId; //TODO: VD: Vietcombank | Tien Mat
+  private String bankAccountId;
 
   private double amount;
   
@@ -59,8 +59,9 @@ public class Payment extends AbstractPersistable<Long> {
     this.transactionType = type;
     return this;
   }
-  public Payment(String bankAccountId, TransactionType transactionType) {
+  public Payment(String bankAccountId, TransactionType transactionType,Date TransactionDate) {
     this.bankAccountId = bankAccountId;
     this.transactionType = transactionType;
+    this.transactionDate = transactionDate;
   }
 }
