@@ -112,6 +112,11 @@
                         $("#product__details__text"+id).append("<p>"+description+"</p>");
                         $("#product__details__text"+id).append("<a href='/shop/addtocart/${category}/" + sortName + "'class='primary-btn'> Add To Cart</a> <br/><br/><br/><br/><br/>");
 
+
+                    }
+                    if(response && !response.length){
+                        $("#listProduct").append("<h4>Không có sản phẩm nào tương thích</h4> ");
+                        $("#productSize").text("Showing 0 of " + productPerPage + " results");
                     }
 
 
@@ -218,7 +223,8 @@ ${category}/` + sortName + `' class='add-cart'>+ Add To Cart</a>`);
 
                     }
                     if(response && !response.length){
-                        $("#listProduct").append("<p>Deo co</p> ");
+                        $("#listProduct").append("<h4>Không có sản phẩm nào tương thích</h4> ");
+                        $("#productSize").text("Showing 0 of " + productPerPage + " results");
                     }
                 }
             });
