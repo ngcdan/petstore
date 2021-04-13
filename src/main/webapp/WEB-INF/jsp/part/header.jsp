@@ -24,7 +24,7 @@
                                     <a href="#" data-target="#loginModal" data-toggle="modal">Đăng nhập</a>
                                 </c:when>
                                 <c:otherwise>
-                                    <div style="width:240px;" class="header__top__hover">
+                                    <div style="max-width:500px;" class="header__top__hover">
                                         <span>Chào <strong style="color:#e53637">${customer.fullName}</strong>   <em
                                             class="arrow_carrot-down"></em></span>
                                         <ul>

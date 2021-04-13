@@ -175,7 +175,7 @@ public class Order extends AbstractPersistable<Long> {
   }
 
 
-  public Order(@NotNull String code, String label, Customer customer, List<Payment> payments, List<OrderItem> orderItems, String note, State state) {
+  public Order(@NotNull String code, String label, Customer customer, List<Payment> payments, List<OrderItem> orderItems, String note, State state,Date transactionDate) {
     this.code = code;
     this.label = label;
     this.customer = customer;
@@ -183,5 +183,6 @@ public class Order extends AbstractPersistable<Long> {
     this.orderItems = orderItems;
     this.note = note;
     this.state = state;
+    this.transactionDate=transactionDate;
   }
 }

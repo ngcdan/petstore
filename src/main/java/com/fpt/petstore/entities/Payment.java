@@ -59,7 +59,7 @@ public class Payment extends AbstractPersistable<Long> {
     this.transactionType = type;
     return this;
   }
-  public Payment(String bankAccountId, TransactionType transactionType,Date TransactionDate) {
+  public Payment(String bankAccountId, TransactionType transactionType,Date transactionDate) {
     this.bankAccountId = bankAccountId;
     this.transactionType = transactionType;
     this.transactionDate = transactionDate;

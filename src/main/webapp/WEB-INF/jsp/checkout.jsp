@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -90,18 +91,18 @@
                                         <c:choose>
                                             <c:when test="${not empty p.value.product.code}">
                                                 <h6>${p.value.product.name}</h6>
-                                                <span>${p.value.total} VNĐ</span>
+                                                <span><fmt:formatNumber type="number" value="${p.value.total}" />  VNĐ</span>
                                             </c:when>
                                             <c:otherwise>
                                                 <h6>${p.value.food.name}</h6>
-                                                <span>${p.value.total} VNĐ</span>
+                                                <span> <fmt:formatNumber type="number" value="${p.value.total}" /> VNĐ</span>
                                             </c:otherwise>
                                         </c:choose>
                                     </li>
                                 </c:forEach>
                             </ul>
                             <ul class="checkout__total__all">
-                                <li>Tổng cộng order <span>${totalPrice} VNĐ</span></li>
+                                <li>Tổng cộng order <span> <fmt:formatNumber value="${totalPrice}" type="number"/>  VNĐ</span></li>
                             </ul>
                             <p>Hình thức thanh toán</p>
                             <div class="checkout__input__checkbox">

@@ -213,7 +213,7 @@ public class ProductController {
             int randomNum = ThreadLocalRandom.current().nextInt(516, 59881 + 1);
             Map<String, OrderItem> listCart = (Map<String, OrderItem>) session.getAttribute("listCart");
 
-            Customer customer = (Customer) session.getAttribute("customer");
+            Customer customerSession = (Customer) session.getAttribute("customer");
 
             int totalPrice = 0;
 
@@ -247,8 +247,12 @@ public class ProductController {
             }
             List<OrderItem> listOrderItem = new ArrayList<>(listCart.values());
             String note = map.get("note");
+            if(note==null || note.equals("")){
+                note="Order for " +customerSession.getFullName();
+            }
             String code = "order_"+randomNum;
             Date newDate = new Date();
+
             if (transaction.equals("COD")) {
 
                 Payment payment = new Payment(transaction, Payment.TransactionType.Cash,newDate);
@@ -257,7 +261,7 @@ public class ProductController {
 
                 orderTransaction.add(payment);
 
-                Order order = new Order(code, "order-" + DateUtil.asCompactDateTimeId(new Date()), customer, orderTransaction, listOrderItem, note, Order.State.DUE);
+                Order order = new Order(code, "order-" + DateUtil.asCompactDateTimeId(new Date()), customerSession, orderTransaction, listOrderItem, note, Order.State.DUE,newDate);
                 petStoreService.saveOrder(order);
 
             } else {
@@ -267,7 +271,7 @@ public class ProductController {
 
                 orderTransaction.add(payment);
 
-                Order order = new Order("order_" + randomNum, "order-" + DateUtil.asCompactDateTimeId(new Date()), customer, orderTransaction, listOrderItem, note, Order.State.DUE);
+                Order order = new Order(code, "order-" + DateUtil.asCompactDateTimeId(new Date()), customerSession, orderTransaction, listOrderItem, note, Order.State.DUE,newDate);
                 petStoreService.saveOrder(order);
             }
             session.removeAttribute("listCart");

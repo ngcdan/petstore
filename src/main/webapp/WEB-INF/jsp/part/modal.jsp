@@ -171,9 +171,9 @@
                                                     <c:if test="${not empty p.value.food.sortName}">
                                                         <h6>${p.value.food.name}</h6></c:if>
                                                     <c:if test="${not empty p.value.product.sortName}">
-                                                        <h5>${p.value.product.price} VND</h5></c:if>
+                                                        <h5>${p.value.product.price} VNĐ</h5></c:if>
                                                     <c:if test="${not empty p.value.food.sortName}">
-                                                        <h5>${p.value.food.price} VND</h5></c:if>
+                                                        <h5>${p.value.food.price} VNĐ</h5></c:if>
                                                 </div>
                                             </td>
 
@@ -184,7 +184,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td class="cart__price">${p.value.total} VND</td>
+                                            <td class="cart__price">${p.value.total} VNĐ</td>
                                             <c:if test="${not empty p.value.product.sortName}">
                                                 <td class="cart__close"><a
                                                         href="/shop/delete/${p.value.product.sortName}"><i
