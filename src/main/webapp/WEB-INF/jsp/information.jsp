@@ -31,8 +31,8 @@
                 <div class="col-md-4">
                     <div class="box_image_logo">
                         <div class="my-account-litle">Ảnh đại diện</div>
-                        <div>
-                            <label for="image"><img style="width:330px; max-height: 236px;"
+                        <div  style="width:330px; height: 236px;">
+                            <label for="image"><img style="width:330px; height: 236px;"
                                     src="/user-photos/${customer1.id}/${customer1.avatarUrl}" id="thumbnail" alt="Image Preview" >
                             </label> <input type="file" name="avatarUrl" style="text-decoration: none;" class="btn btn-block"
                                              id="image"  accept="image/jpeg, image/png,image/jpg"/>
