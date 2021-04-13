@@ -1,16 +1,24 @@
 package com.fpt.petstore.controller;
 
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.fpt.petstore.entities.BaseAccount;
+import com.fpt.petstore.services.FileUploadUtil;
+import com.fpt.petstore.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fpt.petstore.entities.Customer;
@@ -22,6 +30,7 @@ import static com.fpt.petstore.entities.ConstVariable.*;
  * Created by Nizis on 2/1/2021.
  */
 @Controller
+@SuppressWarnings("unchecked")
 public class CustomerController {
 
     @Autowired
@@ -103,8 +112,29 @@ public class CustomerController {
         }
     }
     @PostMapping("/updateInfor")
-    public String updateInfor(HttpServletRequest request){
+    public String updateInfor(HttpServletRequest request, @RequestParam Map<String,String> m, @RequestParam("avatarUrl")MultipartFile multipartFile, HttpSession session, RedirectAttributes redirectAttributes)throws IOException {
         String referer = request.getHeader("Referer");
+        Customer sessionCustomer = (Customer) session.getAttribute("customer");
+        String fullName =m.get("fullName");
+        String phone = m.get("phoneNumber");
+        String avatarUrl = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        String address = m.get("address");
+        String birthday = m.get("birthday");
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date birthdayFormat = null;
+        try {
+            birthdayFormat = simpleDateFormat.parse(birthday);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        petStoreService.updateCustomer(sessionCustomer.getId(),fullName,phone,address,avatarUrl,birthdayFormat);
+        String uploadDir = "user-photos/"+sessionCustomer.getId();
+        FileUploadUtil.saveFile(uploadDir,avatarUrl,multipartFile);
+        redirectAttributes.addFlashAttribute(messageNotification, "Cập nhật tài khoản thành công");
+        redirectAttributes.addFlashAttribute(themeNotification, "success");
+        redirectAttributes.addFlashAttribute(titleNotification, "Thành công");
+
         return redirectRefer + referer;
     }
 }

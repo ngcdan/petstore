@@ -61,4 +61,7 @@ public class CustomerLogic {
     return repo.customerLogin(email,password);
   }
 
+  public void updateCustomer(long id,String fullName,String phone,String address,String avatarUrl,Date birthday){
+     repo.updateCustomer(id,fullName,phone,address,avatarUrl,birthday);
+  }
 }

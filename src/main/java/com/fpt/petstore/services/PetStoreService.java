@@ -1,5 +1,6 @@
 package com.fpt.petstore.services;
 
+import java.util.Date;
 import java.util.List;
 
 import com.fpt.petstore.entities.*;
@@ -49,7 +50,10 @@ public class PetStoreService {
   public List<Customer> findAllCustomers() {
     return customerLogic.findAllCustomers();
   }
-
+  @Transactional
+  public void updateCustomer(long id,String fullName,String phone,String address,String avatarUrl,Date birthday){
+     customerLogic.updateCustomer(id, fullName, phone, address, avatarUrl,birthday);
+  }
   @Transactional
   public Customer findCustomerbyEmail(String email){
     return customerLogic.findCustomerbyEmail(email);

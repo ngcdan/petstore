@@ -83,7 +83,7 @@ public class AppController {
         Customer customer = (Customer) session.getAttribute("customer");
         if (customer != null) {
             Customer customer1 = petStoreService.getCustomerByUsername(customer.getUsername());
-            modelMap.addAttribute("customerr",customer1);
+            modelMap.addAttribute("customer1",customer1);
             return "information";
         } else {
             redirectAttributes.addFlashAttribute(messageNotification, "Chức năng chỉ dành cho người đăng nhập");
