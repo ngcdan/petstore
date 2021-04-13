@@ -23,10 +23,17 @@
         let themeNotif = "${themeNotification}";
         let callModal = "${callModal}";
         let callModalRegister = "${callModalRegister}";
+        let callModalChange = "${callModalChange}";
         if (callModal === "callModal") {
             setTimeout(function () {
                 //your code to be executed after 1 second
                 $('#loginModal').modal('show');
+            }, 1000);
+        }
+        if (callModalChange === "callModalChange") {
+            setTimeout(function () {
+                //your code to be executed after 1 second
+                $('#changePasswordModal').modal('show');
             }, 1000);
         }
         if (callModalRegister === "callModalRegister") {

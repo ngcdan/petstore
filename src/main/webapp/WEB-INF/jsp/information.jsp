@@ -80,7 +80,7 @@
                         <div class="form-group" style="margin-bottom: 40px;">
                             <button class="btn nut text-uppercase" type="submit">Cập nhật</button>
                             <button class="btn nut1 text-uppercase" type="button"
-                                    data-toggle="modal" data-target="#exampleModalChange">ĐỔI
+                                    data-toggle="modal" data-target="#changePasswordModal">ĐỔI
                                 MẬT KHẨU
                             </button>
                             <br>

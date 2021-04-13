@@ -28,4 +28,9 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
   @Query(value="Update Customer set fullName = ?2 , phone = ?3 , address = ?4 , avatarUrl = ?5 , birthday = ?6 where id =?1",nativeQuery = true)
   @Modifying
   void updateCustomer(long id,String fullName,String phone,String address,String avatarUrl,Date birthday);
+  @Query(value="Update Customer set password =?2 where id =?1",nativeQuery = true)
+  @Modifying
+  void updatePassword(long id,String password);
+  @Query(value = "select * from customer where password = ?2 and id =?1",nativeQuery = true)
+  Customer findCustomerByPassword(long id,String password);
 }

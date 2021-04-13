@@ -50,7 +50,7 @@ public class CustomerController {
             rA.addFlashAttribute(messageNotification, "Sai Email hoặc mật khẩu");
             rA.addFlashAttribute(themeNotification, "error");
             rA.addFlashAttribute(titleNotification, "Lỗi");
-            rA.addFlashAttribute("callModal","callModal");
+            rA.addFlashAttribute("callModal", "callModal");
             return "redirect:" + referer;
         }
     }
@@ -83,18 +83,18 @@ public class CustomerController {
                 withEmail(email);
 
         Customer customerExistCustomer = petStoreService.findCustomerbyEmail(email);
-        if(customerExistCustomer!=null){
+        if (customerExistCustomer != null) {
             redirectAttributes.addFlashAttribute(messageNotification, "Email trùng đã bị trùng. Vui lòng nhập email khác");
             redirectAttributes.addFlashAttribute(themeNotification, "error");
             redirectAttributes.addFlashAttribute(titleNotification, "Lỗi");
-            redirectAttributes.addFlashAttribute("callModalRegister","callModalRegister");
+            redirectAttributes.addFlashAttribute("callModalRegister", "callModalRegister");
             return redirectRefer + referer;
         }
         if (email.equals("") || password.equals("") || confirm.equals("") || phoneNumber.equals("") || gender.equals("") || address.equals("") || fullName.equals("")) {
             redirectAttributes.addFlashAttribute(messageNotification, "Không được để trống");
             redirectAttributes.addFlashAttribute(themeNotification, "error");
             redirectAttributes.addFlashAttribute(titleNotification, "Lỗi");
-            redirectAttributes.addFlashAttribute("callModalRegister","callModalRegister");
+            redirectAttributes.addFlashAttribute("callModalRegister", "callModalRegister");
             return redirectRefer + referer;
         }
         if (confirm.equals(password)) {
@@ -107,15 +107,16 @@ public class CustomerController {
             redirectAttributes.addFlashAttribute(messageNotification, "Lỗi mật khẩu không trùng");
             redirectAttributes.addFlashAttribute(themeNotification, "error");
             redirectAttributes.addFlashAttribute(titleNotification, "Lỗi");
-            redirectAttributes.addFlashAttribute("callModalRegister","callModalRegister");
+            redirectAttributes.addFlashAttribute("callModalRegister", "callModalRegister");
             return redirectRefer + referer;
         }
     }
+
     @PostMapping("/updateInfor")
-    public String updateInfor(HttpServletRequest request, @RequestParam Map<String,String> m, @RequestParam("avatarUrl")MultipartFile multipartFile, HttpSession session, RedirectAttributes redirectAttributes)throws IOException {
+    public String updateInfor(HttpServletRequest request, @RequestParam Map<String, String> m, @RequestParam("avatarUrl") MultipartFile multipartFile, HttpSession session, RedirectAttributes redirectAttributes) throws IOException {
         String referer = request.getHeader("Referer");
         Customer sessionCustomer = (Customer) session.getAttribute("customer");
-        String fullName =m.get("fullName");
+        String fullName = m.get("fullName");
         String phone = m.get("phoneNumber");
         String avatarUrl = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         String address = m.get("address");
@@ -128,12 +129,43 @@ public class CustomerController {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        petStoreService.updateCustomer(sessionCustomer.getId(),fullName,phone,address,avatarUrl,birthdayFormat);
-        String uploadDir = "user-photos/"+sessionCustomer.getId();
-        FileUploadUtil.saveFile(uploadDir,avatarUrl,multipartFile);
+        petStoreService.updateCustomer(sessionCustomer.getId(), fullName, phone, address, avatarUrl, birthdayFormat);
+        String uploadDir = "user-photos/" + sessionCustomer.getId();
+        FileUploadUtil.saveFile(uploadDir, avatarUrl, multipartFile);
         redirectAttributes.addFlashAttribute(messageNotification, "Cập nhật tài khoản thành công");
         redirectAttributes.addFlashAttribute(themeNotification, "success");
         redirectAttributes.addFlashAttribute(titleNotification, "Thành công");
+
+        return redirectRefer + referer;
+    }
+
+    @PostMapping("/updatePassword")
+    public String updatePassword(@RequestParam Map<String, String> m, HttpServletRequest request, HttpSession session, RedirectAttributes redirectAttributes) {
+        String referer = request.getHeader("Referer");
+        Customer sessionCustomer = (Customer) session.getAttribute("customer");
+        String oldPassword = m.get("oldPassword");
+        String newPassword = m.get("newPassword");
+        String confirmPassword = m.get("confirmPassword");
+        Customer passwordExist = petStoreService.findCustomerByPassword(sessionCustomer.getId(), oldPassword);
+        if (passwordExist != null) {
+            if (newPassword.equals(confirmPassword)) {
+                petStoreService.updatePassword(sessionCustomer.getId(), newPassword);
+                redirectAttributes.addFlashAttribute(messageNotification, "Cập nhật mật khẩu thành công");
+                redirectAttributes.addFlashAttribute(themeNotification, "success");
+                redirectAttributes.addFlashAttribute(titleNotification, "Thành công");
+            } else {
+                redirectAttributes.addFlashAttribute(messageNotification, "Mật khẩu mới không trùng với mật khẩu xác nhận");
+                redirectAttributes.addFlashAttribute(themeNotification, "error");
+                redirectAttributes.addFlashAttribute(titleNotification, "Lỗi");
+                redirectAttributes.addFlashAttribute("callModalChange", "callModalChange");
+            }
+
+        } else {
+            redirectAttributes.addFlashAttribute(messageNotification, "Mật khẩu cũ không đúng");
+            redirectAttributes.addFlashAttribute(themeNotification, "error");
+            redirectAttributes.addFlashAttribute(titleNotification, "Lỗi");
+            redirectAttributes.addFlashAttribute("callModalChange", "callModalChange");
+        }
 
         return redirectRefer + referer;
     }
