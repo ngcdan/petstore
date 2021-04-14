@@ -46,14 +46,10 @@
         <td>${o.code}</td>
         <td>${o.label}</td>
         <td><fmt:formatDate value="${o.createdTime}" pattern="dd/MM/yyyy HH:mm:ss" /></td>
-
-        <td>${o.total} ${o.currency}</td>
+        <td> <fmt:formatNumber value="${o.total}" type="number"/> VNĐ</td>
         <td class="row">
             <div class="button_admin">
-                <a data-toggle="tooltip" data-placement="top" title="See Detail"
-                   type="button" class="button_see" class="btn"><i
-                        class='fa fa-eye'></i> </a>
-
+                <a href="/chi-tiet-don-hang/${o.id}" class="btn p-0 m-auto" ><i class='fa fa-eye button_see'></i> </a>
             </div>
         </td>
     </tr>

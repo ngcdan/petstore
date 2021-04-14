@@ -64,7 +64,7 @@ public class OrderLogic extends DAOService {
   public List<Order> findOrdersByEmployee(Employee employee) {
     return repo.findOrdersByEmployee(employee.getUsername());
   }
-  public List<Order> listOrderbyId(long id){
+  public List<Order> listOrderbyId(Long id){
     return repo.listOrderbyId(id);
   }
 

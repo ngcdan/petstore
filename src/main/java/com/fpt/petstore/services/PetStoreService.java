@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.fpt.petstore.entities.*;
+import com.fpt.petstore.repository.OrderItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -34,6 +35,9 @@ public class PetStoreService {
 
   @Autowired 
   FoodLogic foodLogic;
+
+  @Autowired
+  OrderItemRepository orderItemRepository;
 
   // Customer
   @Transactional
@@ -134,7 +138,7 @@ public class PetStoreService {
   }
 
   @Transactional
-  public List<Order> listOrderbyId(long id){
+  public List<Order> listOrderbyId(Long id){
     return orderLogic.listOrderbyId(id);
   }
 
@@ -253,5 +257,9 @@ public class PetStoreService {
   @Transactional
   public Food findbyFoodId(long id){
     return foodLogic.findbyId(id);
+  }
+  @Transactional
+  public List<OrderItem> listOrderItembyOrderId(Long id){
+    return orderItemRepository.listOrderItembyOrderId(id);
   }
 }

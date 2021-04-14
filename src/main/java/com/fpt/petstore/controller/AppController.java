@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -79,11 +81,11 @@ public class AppController {
 
 
     @GetMapping("/information")
-    public String viewInfo(ModelMap modelMap,HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+    public String viewInfo(ModelMap modelMap, HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request) {
         Customer customer = (Customer) session.getAttribute("customer");
         if (customer != null) {
             Customer customer1 = petStoreService.getCustomerByUsername(customer.getUsername());
-            modelMap.addAttribute("customer1",customer1);
+            modelMap.addAttribute("customer1", customer1);
             return "information";
         } else {
             redirectAttributes.addFlashAttribute(messageNotification, "Chức năng chỉ dành cho người đăng nhập");
@@ -100,7 +102,7 @@ public class AppController {
     }
 
     @GetMapping("/thanh-toan")
-    public String viewCheckout(HttpServletRequest request,HttpSession session, ModelMap modelMap,RedirectAttributes redirectAttributes) {
+    public String viewCheckout(HttpServletRequest request, HttpSession session, ModelMap modelMap, RedirectAttributes redirectAttributes) {
         Customer customer = (Customer) session.getAttribute("customer");
         String referer = request.getHeader("Referer");
         if (customer != null) {
@@ -112,11 +114,11 @@ public class AppController {
             }
             modelMap.addAttribute("totalPrice", totalPrice);
             return "checkout";
-        }else{
+        } else {
             redirectAttributes.addFlashAttribute(messageNotification, "Chức năng chỉ dành cho người đăng nhập");
             redirectAttributes.addFlashAttribute(themeNotification, "warning");
             redirectAttributes.addFlashAttribute(titleNotification, "Cảnh cáo");
-            return redirectRefer+referer;
+            return redirectRefer + referer;
         }
     }
 
@@ -124,14 +126,14 @@ public class AppController {
     public String viewsCart(HttpSession session, ModelMap modelMap) {
         getCookie(session);
 
-       int totalPrice=0;
-      Map<String, OrderItem> listCart = (Map<String, OrderItem>) session.getAttribute("listCart");
-      if(listCart!=null){
-          for (OrderItem cart : listCart.values()) {
-              totalPrice += cart.getTotal();
-          }
-      }
-        modelMap.addAttribute("totalPrice",totalPrice);
+        int totalPrice = 0;
+        Map<String, OrderItem> listCart = (Map<String, OrderItem>) session.getAttribute("listCart");
+        if (listCart != null) {
+            for (OrderItem cart : listCart.values()) {
+                totalPrice += cart.getTotal();
+            }
+        }
+        modelMap.addAttribute("totalPrice", totalPrice);
 
         return "cart";
     }
@@ -144,13 +146,33 @@ public class AppController {
     }
 
     @GetMapping("/lich-su-giao-dich")
-    public String viewsHistory(ModelMap modelMap,HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+    public String viewsHistory(ModelMap modelMap, HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request) {
         Customer customer = (Customer) session.getAttribute("customer");
         if (customer != null) {
-            long customerId=customer.getId();
+            Long customerId = customer.getId();
             List<Order> listOrder = petStoreService.listOrderbyId(customerId);
-            modelMap.addAttribute("listOrder",listOrder);
+            modelMap.addAttribute("listOrder", listOrder);
             return "history";
+        } else {
+            redirectAttributes.addFlashAttribute(messageNotification, "Chức năng chỉ dành cho người đăng nhập");
+            redirectAttributes.addFlashAttribute(themeNotification, "warning");
+            redirectAttributes.addFlashAttribute(titleNotification, "Cảnh cáo");
+            return redirect + "trang-chu";
+        }
+    }
+
+    @GetMapping("/chi-tiet-don-hang/{id}")
+    public String viewOrderItem(@PathVariable("id") long id, ModelMap modelMap, HttpSession session, RedirectAttributes redirectAttributes) {
+        Customer customerSession = (Customer) session.getAttribute("customer");
+        if (customerSession != null) {
+            List<OrderItem> orderItemList = petStoreService.listOrderItembyOrderId(id);
+            int totalPrice = 0;
+            for (OrderItem orderItem : orderItemList) {
+                totalPrice += orderItem.getTotal();
+            }
+            modelMap.addAttribute("totalPrice", totalPrice);
+            modelMap.addAttribute("orderItemList", orderItemList);
+            return "historydetail";
         } else {
             redirectAttributes.addFlashAttribute(messageNotification, "Chức năng chỉ dành cho người đăng nhập");
             redirectAttributes.addFlashAttribute(themeNotification, "warning");
