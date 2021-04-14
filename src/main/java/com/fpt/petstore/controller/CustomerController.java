@@ -1,5 +1,6 @@
 package com.fpt.petstore.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,6 +14,7 @@ import com.fpt.petstore.entities.BaseAccount;
 import com.fpt.petstore.services.FileUploadUtil;
 import com.fpt.petstore.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -119,19 +121,15 @@ public class CustomerController {
         String fullName = m.get("fullName");
         String phone = m.get("phoneNumber");
         String avatarUrl = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+
         String address = m.get("address");
         String birthday = m.get("birthday");
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date birthdayFormat = null;
-        try {
-            birthdayFormat = simpleDateFormat.parse(birthday);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        Date birthdayFormat = DateUtil.parseDate(birthday);
         petStoreService.updateCustomer(sessionCustomer.getId(), fullName, phone, address, avatarUrl, birthdayFormat);
-        String uploadDir = "user-photos/" + sessionCustomer.getId();
-        FileUploadUtil.saveFile(uploadDir, avatarUrl, multipartFile);
+        if(!(avatarUrl.equals(""))){
+            String uploadDir = "user-photos/" + sessionCustomer.getId();
+            FileUploadUtil.saveFile(uploadDir, avatarUrl, multipartFile);
+        }
         redirectAttributes.addFlashAttribute(messageNotification, "Cập nhật tài khoản thành công");
         redirectAttributes.addFlashAttribute(themeNotification, "success");
         redirectAttributes.addFlashAttribute(titleNotification, "Thành công");

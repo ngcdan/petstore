@@ -20,6 +20,7 @@ public class DateUtil {
   final static public SimpleDateFormat TIME_WITHOUT_SECOND        = new SimpleDateFormat("HH:mm");
   final static public SimpleDateFormat TIME                       = new SimpleDateFormat("HH:mm:ss");
   final static public SimpleDateFormat COMPACT_DATE               = new SimpleDateFormat("dd/MM/yyyy");
+  final static public  SimpleDateFormat DATEFORMAT           =   new SimpleDateFormat("yyyy-MM-dd");
   final static public SimpleDateFormat COMPACT_DATE_ID            = new SimpleDateFormat("yyyyMMdd");
 
   final static public SimpleDateFormat COMPACT_DATETIME_ID       = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -41,7 +42,13 @@ public class DateUtil {
       throw new RuntimeException(exp);
     }
   }
-
+  static public Date parseDate(String exp) {
+    try {
+      return DATEFORMAT.parse(exp) ;
+    } catch (ParseException e) {
+      throw new RuntimeException(exp);
+    }
+  }
   static public Date parseCompactDateTime(String exp) {
     try {
       if(StringUtil.isEmpty(exp)) return null;

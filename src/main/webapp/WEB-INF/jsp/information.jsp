@@ -33,7 +33,7 @@
                         <div class="my-account-litle">Ảnh đại diện</div>
                         <div  style="width:330px; height: 236px;">
                             <label for="image"><img style="width:330px; height: 236px;"
-                                    src="/user-photos/${customer1.id}/${customer1.avatarUrl}" id="thumbnail" alt="Image Preview" >
+                                    src="/user-photos/${customer1.id}/${customer1.avatarUrl}" id="thumbnail"  alt="Image Preview" >
                             </label> <input type="file" name="avatarUrl" style="text-decoration: none;" class="btn btn-block"
                                              id="image"  accept="image/jpeg, image/png,image/jpg"/>
                         </div>
