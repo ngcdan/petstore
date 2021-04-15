@@ -26,7 +26,7 @@
 <br>
 <section>
     <div class="container">
-        <form action="/updateInfor" method="post" enctype="multipart/form-data">
+        <form action="/updateInfor" method="post" name="myForm"  enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-4">
                     <div class="box_image_logo">
@@ -49,7 +49,7 @@
                             <div class="form-group row">
                                 <label class="col-md-4 control-label">Họ và tên:</label>
                                 <div class="col-md-8">
-                                    <input class="form-control" type="text" name="fullName"
+                                    <input required class="form-control" type="text" name="fullName"
                                            value="${customer1.fullName}"
                                            placeholder="Họ và tên">
                                 </div>
@@ -64,15 +64,15 @@
                             <div class="form-group row">
                                 <label class="col-md-4 control-label">Điện thoại:</label>
                                 <div class="col-md-8">
-                                    <input class="form-control numeric" type="text"
-                                           placeholder="Số điện thoại" name="phoneNumber" maxlength="11"
+                                    <input required class="form-control numeric" type="text" minlength="10"
+                                           placeholder="Số điện thoại" name="phoneNumber" maxlength="11" pattern="((09|03|07|08|05)+([0-9]{8})\b)|((09|03|07|08|05)+([0-9]{9})\b)"
                                            value="${customer1.phone}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-4 control-label">Địa chỉ:</label>
                                 <div class="col-md-8">
-                                    <input class="form-control numeric" type="text"
+                                    <input required class="form-control numeric" type="text"
                                            name="address" placeholder="Địa Chỉ" value="${customer1.address}">
                                 </div>
                             </div>
@@ -99,6 +99,7 @@
 <jsp:include page="part/script.jsp"/>
 <script type="text/javascript">
     $(document).ready(function () {
+
         $("#image").change(function () {
             showImageThumbnail(this);
         });

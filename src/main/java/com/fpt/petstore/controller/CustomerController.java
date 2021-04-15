@@ -121,12 +121,13 @@ public class CustomerController {
         String fullName = m.get("fullName");
         String phone = m.get("phoneNumber");
         String avatarUrl = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-
         String address = m.get("address");
         String birthday = m.get("birthday");
         Date birthdayFormat = DateUtil.parseDate(birthday);
-        petStoreService.updateCustomer(sessionCustomer.getId(), fullName, phone, address, avatarUrl, birthdayFormat);
-        if(!(avatarUrl.equals(""))){
+        if(avatarUrl.equals("")){
+            petStoreService.updateCustomer(sessionCustomer.getId(), fullName, phone, address, sessionCustomer.getAvatarUrl(), birthdayFormat);
+        }else{
+            petStoreService.updateCustomer(sessionCustomer.getId(), fullName, phone, address, avatarUrl, birthdayFormat);
             String uploadDir = "user-photos/" + sessionCustomer.getId();
             FileUploadUtil.saveFile(uploadDir, avatarUrl, multipartFile);
         }

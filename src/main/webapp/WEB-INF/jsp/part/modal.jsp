@@ -35,31 +35,30 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel2">Đăng ký</h5>
-                <p>${error1}</p>
                 <div class="custom1"><a href="#" data-target="#loginModal" data-toggle="modal" data-dismiss="modal">Quay
                     lại</a></div>
             </div>
             <form action="/register" method="post">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <input type="email" placeholder="Nhập Email" class="form-control" name="email"/>
+                        <input type="email" required placeholder="Nhập Email" class="form-control" name="email"/>
                     </div>
                     <div class="mb-3">
-                        <input type="password" placeholder="Nhập password" name="password" class="form-control"/>
+                        <input type="password" required placeholder="Nhập password" name="password" class="form-control"/>
                     </div>
                     <div class="mb-3">
-                        <input type="password" placeholder="Xác nhận mật khẩu" class="form-control"
+                        <input type="password" required placeholder="Xác nhận mật khẩu" class="form-control"
                                name="confirmPassword"/>
                     </div>
                     <div class="mb-3">
-                        <input type="number" placeholder="Nhập số diện thoại" class="form-control" name="phoneNumber"/>
+                        <input type="number" required placeholder="Nhập số diện thoại"  pattern="((09|03|07|08|05)+([0-9]{8})\b)|((09|03|07|08|05)+([0-9]{9})\b)" class="form-control" name="phoneNumber"/>
                     </div>
                     <div class="mb-3">
-                        <input type="text" placeholder="Nhập họ và tên" class="form-control" name="fullName"/>
+                        <input type="text" required placeholder="Nhập họ và tên" class="form-control" name="fullName"/>
                     </div>
                     <div class="mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="radio" id="flexRadioDefault1"
+                            <input class="form-check-input"  type="radio" name="radio" id="flexRadioDefault1"
                                    value="Male" checked/>
                             <label class="form-check-label" for="flexRadioDefault1">Nam</label> &nbsp; &nbsp; &nbsp;
                             <input class="form-check-input" type="radio" name="radio" value="Female"
@@ -68,7 +67,7 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <input type="text" placeholder="Nhập địa chỉ" class="form-control" name="address"/>
+                        <input type="text" required placeholder="Nhập địa chỉ" class="form-control" name="address"/>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -86,8 +85,7 @@
         <div class="modal-content">
 
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">ĐỔI
-                    MẬT KHẨU</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">ĐỔI MẬT KHẨU</h5>
             </div>
             <form action="/updatePassword" method="post">
                 <div class="modal-body">
