@@ -12,6 +12,6 @@ import java.util.List;
  */
 @Repository
 public interface OrderItemRepository extends JpaRepository<OrderItem,Integer> {
-    @Query(value = "SELECT * FROM ORDER_ITEM where ORDERID=?1",nativeQuery = true)
+    @Query(value = "SELECT * FROM ORDER_ITEM oi INNER JOIN ORDERS o on oi.orderid= o.id where oi.orderid =?1",nativeQuery = true)
     List<OrderItem> listOrderItembyOrderId(Long id);
 }

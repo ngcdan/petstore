@@ -123,7 +123,7 @@ public class PetStoreData {
 	 Order order_1 = new Order("order-1").
 			withEmployee(employee_2).
 			withCustomer(customer_2).
-			withState(Order.State.DUE).
+			withState(Order.State.PAID).
 			addOrderItem(_DATA_FOOD.food_2).
 			addOrderItem(_DATA_FOOD.food_2).
 			addOrderItem(_DATA_FOOD.food_3).
@@ -140,7 +140,7 @@ public class PetStoreData {
 		Order order_2 = new Order("order_2").
 			withEmployee(employee_1).
 			withCustomer(customer_2).
-			withState(Order.State.DUE).
+			withState(Order.State.PAID).
 			addOrderItem(_DATA_FOOD.food_4).
 			addOrderItem(_DATA_FOOD.food_2).
 				withPayment( // Payment : thanh toan
@@ -340,7 +340,7 @@ public class PetStoreData {
 
 			withEmployee(employee_8).
 			withCustomer(customer_11).
-			withState(Order.State.DUE).
+			withState(Order.State.PAID).
 			addOrderItem(_DATA_FOOD.food_2).
 			addOrderItem(_DATA_FOOD.food_5).addOrderItem(_DATA_PRODUCT.product_40).
 			addOrderItem(_DATA_PRODUCT.product_8).
@@ -357,7 +357,7 @@ public class PetStoreData {
 
 			withEmployee(employee_8).
 			withCustomer(customer_11).
-			withState(Order.State.DUE).
+			withState(Order.State.PAID).
 			addOrderItem(_DATA_FOOD.food_2).
 			addOrderItem(_DATA_FOOD.food_5).addOrderItem(_DATA_PRODUCT.product_12).
 			addOrderItem(_DATA_PRODUCT.product_8).
@@ -373,7 +373,7 @@ public class PetStoreData {
 
 			withEmployee(employee_3).
 			withCustomer(customer_12).
-			withState(Order.State.DUE).
+			withState(Order.State.PAID).
 			addOrderItem(_DATA_FOOD.food_2).
 			addOrderItem(_DATA_FOOD.food_5).addOrderItem(_DATA_PRODUCT.product_12).
 			addOrderItem(_DATA_PRODUCT.product_8).
@@ -905,7 +905,7 @@ public class PetStoreData {
 			withCustomer(customer_2).
 			addOrderItem(_DATA_FOOD.food_2).
 			addOrderItem(_DATA_FOOD.food_5).
-			withState(Order.State.DUE).
+			withState(Order.State.CANCEL).
 			addOrderItem(_DATA_FOOD.food_3).
 
 
@@ -922,7 +922,7 @@ public class PetStoreData {
 			addOrderItem(_DATA_FOOD.food_2).
 			addOrderItem(_DATA_FOOD.food_5).
 			addOrderItem(_DATA_FOOD.food_3).
-			withState(Order.State.DUE).
+			withState(Order.State.CANCEL).
 			withPayment(new Payment("Vietcombank").
 					withAmount(800000).
 					withTransactionDate("23/3/2020@11:20:20").

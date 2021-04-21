@@ -6,7 +6,7 @@
 
 <head>
     <jsp:include page="part/head.jsp"/>
-    <title>History</title>
+    <title>Lịch sử đặt hàng</title>
 
 </head>
 <jsp:include page="part/header.jsp"/>
@@ -37,6 +37,7 @@
         <th>Tên Đơn hàng</th>
         <th>Ngày Đặt</th>
         <th>Tổng Tiền</th>
+        <th>Tình trạng</th>
         <th>Xem chi tiết</th>
     </tr>
     </thead>
@@ -47,6 +48,10 @@
         <td>${o.label}</td>
         <td><fmt:formatDate value="${o.createdTime}" pattern="dd/MM/yyyy HH:mm:ss" /></td>
         <td> <fmt:formatNumber value="${o.total}" type="number"/> VNĐ</td>
+        <td><c:if test="${o.state == 'DUE'}"><span>Đang giao</span></c:if>
+            <c:if test="${o.state == 'PAID'}"><span>Đã thanh toán</span></c:if>
+            <c:if test="${o.state == 'CANCEL'}"><span>Đã hủy</span></c:if>
+        </td>
         <td class="row">
             <div class="button_admin">
                 <a href="/chi-tiet-don-hang/${o.id}" class="btn p-0 m-auto" ><i class='fa fa-eye button_see'></i> </a>
