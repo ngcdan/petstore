@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.fpt.petstore.entities.*;
+import com.fpt.petstore.repository.ContactRepository;
 import com.fpt.petstore.repository.OrderItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -38,6 +39,8 @@ public class PetStoreService {
 
   @Autowired
   OrderItemRepository orderItemRepository;
+  @Autowired
+  ContactRepository contactRepository;
 
   // Customer
   @Transactional
@@ -261,5 +264,10 @@ public class PetStoreService {
   @Transactional
   public List<OrderItem> listOrderItembyOrderId(Long id){
     return orderItemRepository.listOrderItembyOrderId(id);
+  }
+  //Contact
+  @Transactional
+  public Contact saveContact(Contact contact){
+    return contactRepository.save(contact);
   }
 }

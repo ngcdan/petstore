@@ -25,7 +25,7 @@
                     <div class="contact__text">
                         <div class="section-title">
                             <span>Thông Tin</span>
-                            <h2>Liên Hệ</h2>
+                            <h2 class="text-left">Liên Hệ</h2>
                             <p>Mọi thắc mắc vui lòng liên hệ với chúng tôi.</p>
                         </div>
                         <ul>
@@ -39,16 +39,16 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="contact__form">
-                        <form action="#">
+                        <form action="/contact" method="post">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input type="text" placeholder="Tên">
+                                    <input type="text" name="name" required placeholder="Tên">
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="text" placeholder="Email">
+                                    <input type="email" name="email" required placeholder="Email">
                                 </div>
                                 <div class="col-lg-12">
-                                    <textarea placeholder="Tin Nhắn"></textarea>
+                                    <textarea name="message" placeholder="Tin Nhắn"></textarea>
                                     <button type="submit" class="site-btn">Gửi Tin Nhắn</button>
                                 </div>
                             </div>

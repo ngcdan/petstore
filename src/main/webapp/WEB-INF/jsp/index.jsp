@@ -19,8 +19,8 @@
                     <div class="row">
                         <div class="col-xl-5 col-lg-7 col-md-8">
                             <div class="hero__text">
-                                <h6>VẬT DỤNG</h6>
-                                <h2>VẬT DỤNG DÀNH CHO THÚ CƯNG</h2>
+                                <h6 >VẬT DỤNG</h6>
+                                <h2 class="text-left">VẬT DỤNG DÀNH CHO THÚ CƯNG</h2>
                            <p>Các loại vật dụng chất lượng cao, bảo hành 1 năm.</p>
                                 <a href="#" class="primary-btn">MUA NGAY <span class="arrow_right"></span></a>
                                 <div class="hero__social">
@@ -41,7 +41,7 @@
                         <div class="col-xl-5 col-lg-7 col-md-8">
                             <div class="hero__text">
                                 <h6>DỊCH VỤ</h6>
-                                <h2>DỊCH VỤ CHĂM SÓC THÚ CƯNG</h2>
+                                <h2 class="text-left">DỊCH VỤ CHĂM SÓC THÚ CƯNG</h2>
                                 <p>Các dịch vụ chăm sóc sức khỏe, Spa, tắm rửa dành cho thú cưng.</p>
                                 <a href="#" class="primary-btn">TRẢI NGHIỆM NGAY<span class="arrow_right"></span></a>
                                 <div class="hero__social">
@@ -61,7 +61,7 @@
                         <div class="col-xl-5 col-lg-7 col-md-8">
                             <div class="hero__text">
                                 <h6>Đồ Ăn</h6>
-                                <h2>ĐỒ ĂN CHO THÚ CƯNG</h2>
+                                <h2 class="text-left">ĐỒ ĂN CHO THÚ CƯNG</h2>
                                 <p>Các loại hạt, pate, vitamin cho thú cưng.</p>
                                 <a href="#" class="primary-btn">MUA NGAY <span class="arrow_right"></span></a>
                                 <div class="hero__social">
@@ -89,7 +89,7 @@
                             <img src="img/banner/c.jpg" alt="">
                         </div>	
                         <div class="banner__item__text">
-                            <h2>Dịch vụ tắm rửa thú cưng</h2>
+                            <h2 class="text-left">Dịch vụ tắm rửa thú cưng</h2>
                             <a href="#">Trải nghiệm ngay</a>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                             <img src="img/banner/b.jpg" alt="">
                         </div>
                         <div class="banner__item__text">
-                            <h2>Vật Dụng</h2>
+                            <h2 class="text-left">Vật Dụng</h2>
                             <a href="#">Mua ngay</a>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                             <img src="img/banner/e.jpg" alt="">
                         </div>
                         <div class="banner__item__text">
-                            <h2>Đồ Ăn</h2>
+                            <h2 class="text-left">Đồ Ăn</h2>
                             <a href="#">Mua ngay</a>
                         </div>
                     </div>

@@ -2,6 +2,7 @@ package com.fpt.petstore.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fpt.petstore.entities.Contact;
 import com.fpt.petstore.entities.Customer;
 import com.fpt.petstore.entities.Order;
 import com.fpt.petstore.entities.OrderItem;
@@ -14,12 +15,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -143,6 +146,18 @@ public class AppController {
         getCookie(session);
         //session.removeAttribute("listCart");
         return "contact";
+    }
+    @PostMapping("/contact")
+    public String contact(@RequestParam Map<String,String> m, RedirectAttributes redirectAttributes){
+        String name = m.get("name");
+        String email = m.get("email");
+        String message = m.get("message");
+        Contact contact = new Contact(name,email,message,new Date());
+        petStoreService.saveContact(contact);
+        redirectAttributes.addFlashAttribute(messageNotification, "Ý kiến của bạn đã được lưu");
+        redirectAttributes.addFlashAttribute(themeNotification, "success");
+        redirectAttributes.addFlashAttribute(titleNotification, "Thành công");
+        return redirect+"lien-he";
     }
 
     @GetMapping("/lich-su-giao-dich")
