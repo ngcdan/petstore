@@ -19,7 +19,7 @@ import java.util.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @NoArgsConstructor @Getter @Setter
 public class BaseAccount extends AbstractPersistable<Long> {
-	static public enum UserRole { ROLE_Admin, ROLE_User };
+	static public enum UserRole { Admin, Moderator, Write, Read };
 	static public enum Gender {Male, Female};
 
 //	@NotNull
@@ -54,7 +54,7 @@ public class BaseAccount extends AbstractPersistable<Long> {
 	protected String maritalStatus = "Single";
 
 	@Enumerated(EnumType.STRING)
-	protected UserRole role = UserRole.ROLE_User;
+	protected UserRole role;
 
 	public <T extends BaseAccount> T withUsername(String username) {
 		this.username = username;
