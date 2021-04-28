@@ -6,17 +6,17 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel12">Đăng nhập</h5>
+                <h5 class="modal-title font-weight-bold text-uppercase" id="exampleModalLabel12">Đăng nhập</h5>
             </div>
             <form action="/login" method="post">
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="email" class="col-form-label custom">Email:</label>
-                        <input type="email" placeholder="Nhập Email" class="form-control" name="email" id="email"/>
+                        <input type="email" placeholder="Nhập Email của bạn" class="form-control" name="email" id="email"/>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="col-form-label custom">Password:</label>
-                        <input type="password" placeholder="Nhập password" name="password" class="form-control"
+                        <label for="password" class="col-form-label custom">Mật khẩu:</label>
+                        <input type="password" placeholder="Nhập mật khẩu của bạn" name="password" class="form-control"
                                id="password"/>
                     </div>
                     <div><p class="custom">Không có tài khoản? <strong><a href="#" data-target="#registerModal"
@@ -24,7 +24,7 @@
                         ký</a></strong></p></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" id="submit" class="btn btn-danger custom">Login</button>
+                    <button type="submit" id="submit" class="btn btn-danger custom">Đăng nhập</button>
                 </div>
             </form>
         </div>
@@ -34,7 +34,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel2">Đăng ký</h5>
+                <h5 class="modal-title font-weight-bold text-uppercase" id="exampleModalLabel2">Đăng ký</h5>
                 <div class="custom1"><a href="#" data-target="#loginModal" data-toggle="modal" data-dismiss="modal">Quay
                     lại</a></div>
             </div>
@@ -44,17 +44,17 @@
                         <input type="email" required placeholder="Nhập Email" class="form-control" name="email"/>
                     </div>
                     <div class="mb-3">
-                        <input type="password" required placeholder="Nhập password" name="password" class="form-control"/>
+                        <input type="password" required placeholder="Nhập mật khẩu" name="password" class="form-control"/>
                     </div>
                     <div class="mb-3">
                         <input type="password" required placeholder="Xác nhận mật khẩu" class="form-control"
                                name="confirmPassword"/>
                     </div>
                     <div class="mb-3">
-                        <input type="number" required placeholder="Nhập số diện thoại"  pattern="((09|03|07|08|05)+([0-9]{8})\b)|((09|03|07|08|05)+([0-9]{9})\b)" class="form-control" name="phoneNumber"/>
+                        <input type="text" maxlength="10" minlength="10" required placeholder="Nhập số diện thoại"  pattern="(0)+([0-9]{9})\b" class="form-control" name="phoneNumber"/>
                     </div>
                     <div class="mb-3">
-                        <input type="text" required placeholder="Nhập họ và tên" class="form-control" name="fullName"/>
+                        <input type="text" required placeholder="Nhập họ và tên" pattern="^[a-zA-Z\s]+$" class="form-control" name="fullName"/>
                     </div>
                     <div class="mb-3">
                         <div class="form-check">

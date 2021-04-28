@@ -42,7 +42,7 @@
                 <div class="col-md-8">
                     <div class="box_info_account2">
                         <br>
-                        <h3>THÔNG TIN CHI TIẾT</h3>
+                        <h3 class="text-center">THÔNG TIN CHI TIẾT</h3>
                         <br/>
                         <!--Form-->
                         <div class="form_info_update">
@@ -51,7 +51,7 @@
                                 <div class="col-md-8">
                                     <input required class="form-control" type="text" name="fullName"
                                            value="${customer1.fullName}"
-                                           placeholder="Họ và tên">
+                                           placeholder="Họ và tên" pattern="^[a-zA-Z\s]+$">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -64,9 +64,9 @@
                             <div class="form-group row">
                                 <label class="col-md-4 control-label">Điện thoại:</label>
                                 <div class="col-md-8">
-                                    <input required class="form-control numeric" type="text" minlength="10"
-                                           placeholder="Số điện thoại" name="phoneNumber" maxlength="11" pattern="((09|03|07|08|05)+([0-9]{8})\b)|((09|03|07|08|05)+([0-9]{9})\b)"
-                                           value="${customer1.phone}">
+                                    <input  class="form-control numeric" type="text" minlength="10"
+                                           placeholder="Số điện thoại" name="phoneNumber" maxlength="10" pattern="(0)+([0-9]{9})\b"
+                                           value="${customer1.phone}" required>
                                 </div>
                             </div>
                             <div class="form-group row">
