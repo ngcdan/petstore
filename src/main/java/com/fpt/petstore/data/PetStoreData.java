@@ -8,7 +8,7 @@ public class PetStoreData {
   public Customer customer_2 =
       new Customer("Nguyen Van Nhat")
           .withUsername("nguyenvannhat")
-          .withEmail("vannhat98@gmail.com")
+          .withEmail("nhatnv1809@gmail.com")
           .withPassword("12345")
           .withBirthday("12/09/1998")
           .withAddress("342-9B Thoai Ngoc Hau")

@@ -48,9 +48,9 @@
         <td>${o.label}</td>
         <td><fmt:formatDate value="${o.createdTime}" pattern="dd/MM/yyyy HH:mm:ss" /></td>
         <td> <fmt:formatNumber value="${o.total}" type="number"/> VNĐ</td>
-        <td><c:if test="${o.state == 'DUE'}"><span>Đang giao</span></c:if>
-            <c:if test="${o.state == 'PAID'}"><span>Đã thanh toán</span></c:if>
-            <c:if test="${o.state == 'CANCEL'}"><span>Đã hủy</span></c:if>
+        <td><c:if test="${o.state == 'DUE'}"><span>Đang giao/thanh toán</span></c:if>
+            <c:if test="${o.state == 'PAID'}"><span>Thành công</span></c:if>
+            <c:if test="${o.state == 'CANCEL'}"><span>Hủy</span></c:if>
         </td>
         <td class="row">
             <div class="button_admin">

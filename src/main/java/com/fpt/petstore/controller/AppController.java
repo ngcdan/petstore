@@ -10,6 +10,8 @@ import com.fpt.petstore.services.CookieService;
 import com.fpt.petstore.services.PetStoreService;
 import com.fpt.petstore.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.net.URLDecoder;
@@ -30,6 +33,7 @@ import static com.fpt.petstore.entities.ConstVariable.*;
 
 @Controller
 public class AppController {
+
 
     @Autowired
     private PetStoreService petStoreService;
@@ -144,7 +148,6 @@ public class AppController {
     @GetMapping("/lien-he")
     public String viewContact(HttpSession session) {
         getCookie(session);
-        //session.removeAttribute("listCart");
         return "contact";
     }
     @PostMapping("/contact")
@@ -195,4 +198,5 @@ public class AppController {
             return redirect + "trang-chu";
         }
     }
+
 }

@@ -66,6 +66,10 @@ public class PetStoreService {
     return customerLogic.findCustomerByPassword(id,password);
   }
   @Transactional
+  public Customer findCustomerbyId(long id){
+    return customerLogic.findCustomerbyId(id);
+  }
+  @Transactional
   public void updatePassword(long id,String password){
     customerLogic.updatePassword(id,password);
   }

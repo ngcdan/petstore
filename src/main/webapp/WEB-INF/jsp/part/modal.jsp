@@ -19,9 +19,11 @@
                         <input type="password" placeholder="Nhập mật khẩu của bạn" name="password" class="form-control"
                                id="password"/>
                     </div>
-                    <div><p class="custom">Không có tài khoản? <strong><a href="#" data-target="#registerModal"
-                                                                          data-toggle="modal" data-dismiss="modal">Đăng
-                        ký</a></strong></p></div>
+                    <div class="row"><p class=" col-8  custom">Không có tài khoản? <strong><a href="#" data-target="#registerModal"
+                                                                          data-toggle="modal" data-dismiss="modal">Đăng ký</a></strong></p>
+                        <p class="custom col-4"> <strong><a href="#" data-target="#forgetModal"
+                                                                         data-toggle="modal" data-dismiss="modal">Quên mât khẩu?</a></strong></p>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" id="submit" class="btn btn-danger custom">Đăng nhập</button>
@@ -77,7 +79,28 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="forgetModal" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bold text-uppercase" id="exampleModalLabel6">Quên mật khẩu</h5>
+            </div>
+            <form action="/send-mail-changepass" method="post">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="email" class="col-form-label custom">Email:</label>
+                        <input type="email" required placeholder="Nhập Email" class="form-control" name="email"/>
+                    </div>
 
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger custom">Quên mật khẩu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="changePasswordModal" tabindex="-1"
      role="dialog" aria-labelledby="exampleModalCenterTitle"
      aria-hidden="true">

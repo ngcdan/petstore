@@ -64,6 +64,9 @@ public class CustomerLogic {
   public void updateCustomer(long id,String fullName,String phone,String address,String avatarUrl,Date birthday){
      repo.updateCustomer(id,fullName,phone,address,avatarUrl,birthday);
   }
+  public Customer findCustomerbyId(long id){
+    return repo.findById(id).get();
+  }
   public void updatePassword(long id,String password){
     repo.updatePassword(id,password);
   }
