@@ -208,11 +208,17 @@ public class CustomerController {
             try {
                 MimeMessage message = mailSender.createMimeMessage();
                 MimeMessageHelper helper = new MimeMessageHelper(message);
-                String from = "petscoffeeandservices@gmail.com";
-                String subject = "Thư đổi mật khẩu";
+                String from = "Pet-Store-And-Services";
+                String subject = "Thư đổi mật khẩu của Pet Store";
                 String url = "http://localhost:8081/quen-mat-khau/" + token;
-                String body = "<h3>ĐỔI MẬT KHẨU TẠI ĐÂY</h3>" +
-                        "<a href='" + url + "'>" + token + "</a>";
+                String body = "<div style='width:500px;text-align:center;  border-style: solid;\n" +
+                        "  border-color: #8A2BE2;'>" +
+                        "<h2>Tài khoản của email này có tên :</h2>"
+                        +"<b style='font-size:20px'>"+ findCustomerByEmail.getFullName() +"</b>"+ " yêu cầu đổi mật khẩu" +
+                        "<p style='font-style: italic;'>Thời gian hiệu lực của mail này là 15 phút</p>"+
+                        "<h3>ĐỔI MẬT KHẨU TẠI ĐÂY</h3>" +
+                        "<a style='font-size:20px' href='" + url + "'>" + "petstore.com/" + token + "</a>"
+                        + "</div>";
                 helper.setFrom(from, from);
                 helper.setTo(email);
                 helper.setReplyTo(from, from);
