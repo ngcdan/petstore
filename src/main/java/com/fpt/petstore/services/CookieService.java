@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Service này cung cấp các phương thức xử lý cookie
- * @author Nguyễn Nghiệm
- * @version 1.0
  */
 @Service
 public class CookieService {

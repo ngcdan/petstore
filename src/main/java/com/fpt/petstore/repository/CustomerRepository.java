@@ -33,4 +33,12 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
   void updatePassword(long id,String password);
   @Query(value = "select * from customer where password = ?2 and id =?1",nativeQuery = true)
   Customer findCustomerByPassword(long id,String password);
+  @Query(value = "Update Customer set token =?2,createdTimeToken=?3 where email=?1",nativeQuery = true)
+  @Modifying
+  void updateCustomerToken(String email,String token,Date createdTimeToken);
+  @Query(value = "Update Customer set PASSWORD =?2,CREATEDTIMETOKEN=?3, TOKEN=?4 where TOKEN=?1",nativeQuery = true)
+  @Modifying
+  void updatePasswordByToken(String token,String password,Date createdTimeToken,String tokenChange);
+
+  Customer findCustomerByToken(String token);
 }

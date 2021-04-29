@@ -70,8 +70,20 @@ public class PetStoreService {
     return customerLogic.findCustomerbyId(id);
   }
   @Transactional
+  public void updateCustomerToken(String email,String token,Date createdTimeToken){
+    customerLogic.updateCustomerToken(email,token,createdTimeToken);
+  }
+  @Transactional
   public void updatePassword(long id,String password){
     customerLogic.updatePassword(id,password);
+  }
+  @Transactional
+  public void updatePasswordByToken(String currentToken,String password,Date createdTimeToken,String tokenChange){
+    customerLogic.updatePasswordByToken(currentToken,password,createdTimeToken,tokenChange);
+  }
+  @Transactional
+  public  Customer findCustomerByToken(String token){
+    return customerLogic.findCustomerByToken(token);
   }
   @Transactional
   public Customer findCustomerbyEmail(String email){

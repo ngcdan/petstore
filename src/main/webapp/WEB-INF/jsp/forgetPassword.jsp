@@ -9,7 +9,7 @@
 <jsp:include page="part/header.jsp"/>
 <body>
 <form action="/changePassword" method="post">
-    <input type="hidden" name="customerId" value="${customerId}"/>
+    <input type="hidden" name="token" value="${token}"/>
     <div class="modal-body">
         <div class="form-group row">
             <label class="col-md-4 control-label">Mật khẩu mới:

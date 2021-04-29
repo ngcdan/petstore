@@ -67,8 +67,17 @@ public class CustomerLogic {
   public Customer findCustomerbyId(long id){
     return repo.findById(id).get();
   }
+  public void updateCustomerToken(String email,String token,Date createdTimeToken){
+    repo.updateCustomerToken(email,token,createdTimeToken);
+  }
   public void updatePassword(long id,String password){
     repo.updatePassword(id,password);
+  }
+  public void updatePasswordByToken(String currentToken,String password,Date createdTimeToken,String tokenChange){
+    repo.updatePasswordByToken(currentToken,password,createdTimeToken,tokenChange);
+  }
+  public  Customer findCustomerByToken(String token){
+    return repo.findCustomerByToken(token);
   }
   public Customer findCustomerByPassword(long id,String password){
     return repo.findCustomerByPassword(id,password);

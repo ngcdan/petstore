@@ -2,6 +2,8 @@ package com.fpt.petstore.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,8 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fpt.petstore.entities.BaseAccount;
+import com.fpt.petstore.services.CookieService;
 import com.fpt.petstore.services.FileUploadUtil;
+import com.fpt.petstore.services.RandomString;
 import com.fpt.petstore.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -44,6 +49,8 @@ public class CustomerController {
     private JavaMailSender mailSender;
     @Autowired
     private PetStoreService petStoreService;
+    @Autowired
+    private RandomString randomString;
 
 
     @PostMapping(value = {"/login"})
@@ -131,9 +138,9 @@ public class CustomerController {
         String address = m.get("address");
         String birthday = m.get("birthday");
         Date birthdayFormat = DateUtil.parseDate(birthday);
-        if(avatarUrl.equals("")){
+        if (avatarUrl.equals("")) {
             petStoreService.updateCustomer(sessionCustomer.getId(), fullName, phone, address, sessionCustomer.getAvatarUrl(), birthdayFormat);
-        }else{
+        } else {
             petStoreService.updateCustomer(sessionCustomer.getId(), fullName, phone, address, avatarUrl, birthdayFormat);
             String uploadDir = "user-photos/" + sessionCustomer.getId();
             FileUploadUtil.saveFile(uploadDir, avatarUrl, multipartFile);
@@ -175,41 +182,44 @@ public class CustomerController {
 
         return redirectRefer + referer;
     }
-    @GetMapping("/quen-mat-khau/{id}")
-    public String viewForgetPassword(@PathVariable("id") long id, ModelMap modelMap,HttpSession session,RedirectAttributes redirectAttributes){
-        Customer sessionCustomer = (Customer) session.getAttribute("customerEmail");
-        if(sessionCustomer!=null){
-            modelMap.addAttribute("customerId",id);
+
+    @GetMapping("/quen-mat-khau/{token}")
+    public String viewForgetPassword(@PathVariable("token") String token, ModelMap modelMap, RedirectAttributes redirectAttributes) {
+        Customer tokenExist = petStoreService.findCustomerByToken(token);
+        if (tokenExist != null) {
+            modelMap.addAttribute("token", token);
             return "forgetPassword";
-        }else{
-            redirectAttributes.addFlashAttribute(messageNotification, "Lỗi");
+        } else {
+            redirectAttributes.addFlashAttribute(messageNotification, "Không tìm thấy token");
             redirectAttributes.addFlashAttribute(themeNotification, "error");
             redirectAttributes.addFlashAttribute(titleNotification, "Lỗi");
-            return redirect+"trang-chu";
+            return redirect + "trang-chu";
         }
-
     }
+
     @PostMapping("/send-mail-changepass")
     @Transactional
-    public String sendMailChange(@RequestParam Map<String,String > m, RedirectAttributes redirectAttributes,HttpSession session ){
+    public String sendMailChange(@RequestParam Map<String, String> m, RedirectAttributes redirectAttributes, HttpSession session) {
         String email = m.get("email");
-        Customer findCustomerbyEmail = petStoreService.findCustomerbyEmail(email);
-        if(findCustomerbyEmail!=null) {
+        String token = randomString.getRandomString(20);
+        Date tokenCreatedDate = new Date();
+        Customer findCustomerByEmail = petStoreService.findCustomerbyEmail(email);
+        if (findCustomerByEmail != null) {
             try {
-                session.setAttribute("customerEmail",findCustomerbyEmail);
                 MimeMessage message = mailSender.createMimeMessage();
                 MimeMessageHelper helper = new MimeMessageHelper(message);
                 String from = "petscoffeeandservices@gmail.com";
                 String subject = "Thư đổi mật khẩu";
-                String url = "http://localhost:8081/quen-mat-khau/"+findCustomerbyEmail.getId() ;
+                String url = "http://localhost:8081/quen-mat-khau/" + token;
                 String body = "<h3>ĐỔI MẬT KHẨU TẠI ĐÂY</h3>" +
-                        "<a href='"+url+"'>Click here</a>";
+                        "<a href='" + url + "'>" + token + "</a>";
                 helper.setFrom(from, from);
                 helper.setTo(email);
                 helper.setReplyTo(from, from);
                 helper.setSubject(subject);
                 helper.setText(body, true);
                 mailSender.send(message);
+                petStoreService.updateCustomerToken(email, token, tokenCreatedDate);
                 redirectAttributes.addFlashAttribute(messageNotification, "Thư đổi mật khẩu đã gửi về mail của bạn");
                 redirectAttributes.addFlashAttribute(themeNotification, "success");
                 redirectAttributes.addFlashAttribute(titleNotification, "Thành công");
@@ -220,34 +230,45 @@ public class CustomerController {
                 redirectAttributes.addFlashAttribute(themeNotification, "error");
                 redirectAttributes.addFlashAttribute(titleNotification, "Lỗi");
             }
-        }else{
+        } else {
             redirectAttributes.addFlashAttribute(messageNotification, "Không tìm thấy mail");
             redirectAttributes.addFlashAttribute(themeNotification, "error");
             redirectAttributes.addFlashAttribute(titleNotification, "Thất bại");
         }
 
-        return redirect+"trang-chu";
+        return redirect + "trang-chu";
     }
+
     @PostMapping("/changePassword")
     @Transactional
-    public String formChangePassword(@RequestParam Map<String,String> m,HttpSession session,RedirectAttributes redirectAttributes,HttpServletRequest request){
-       String referer = request.getHeader("referer");
-        long id = Long.parseLong(m.get("customerId"));
+    public String formChangePassword(@RequestParam Map<String, String> m, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+        String referer = request.getHeader("referer");
+        String currentToken = m.get("token");
+        Date currentDate = new Date();
+        Customer findCustomerByToken = petStoreService.findCustomerByToken(currentToken);
         String newPassword = m.get("newPassword");
-        String confirmPassword =m.get("confirmPassword");
-        if(confirmPassword.equals(newPassword)){
-            petStoreService.updatePassword(id,newPassword);
-            session.removeAttribute("customerEmail");
-            redirectAttributes.addFlashAttribute(messageNotification, "Đổi mật khẩu thành công");
-            redirectAttributes.addFlashAttribute(themeNotification, "success");
-            redirectAttributes.addFlashAttribute(titleNotification, "Thành công");
-            return redirect+"trang-chu";
-        }else{
-            redirectAttributes.addFlashAttribute(messageNotification, "Mật khẩu xác nhận không trùng với mật khẩu mới");
+        String confirmPassword = m.get("confirmPassword");
+        long timePassed = (currentDate.getTime() - findCustomerByToken.getCreatedTimeToken().getTime()) / 1000;
+        if (timePassed <= 900) {
+            if (confirmPassword.equals(newPassword)) {
+                petStoreService.updatePasswordByToken(currentToken, newPassword, null, null);
+                redirectAttributes.addFlashAttribute(messageNotification, "Đổi mật khẩu thành công");
+                redirectAttributes.addFlashAttribute(themeNotification, "success");
+                redirectAttributes.addFlashAttribute(titleNotification, "Thành công");
+                return redirect + "trang-chu";
+            } else {
+                redirectAttributes.addFlashAttribute(messageNotification, "Mật khẩu xác nhận không trùng với mật khẩu mới");
+                redirectAttributes.addFlashAttribute(themeNotification, "error");
+                redirectAttributes.addFlashAttribute(titleNotification, "Thất bại");
+                return redirectRefer + referer;
+            }
+        } else {
+            redirectAttributes.addFlashAttribute(messageNotification, "Time out");
             redirectAttributes.addFlashAttribute(themeNotification, "error");
-            redirectAttributes.addFlashAttribute(titleNotification, "Thất bại");
-            return redirectRefer+referer;
+            redirectAttributes.addFlashAttribute(titleNotification, "Lỗi");
+            return redirect + "trang-chu";
         }
+
 
     }
 }

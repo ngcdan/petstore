@@ -69,7 +69,6 @@ public class AppController {
 
     @GetMapping("/trang-chu")
     public String viewHome2(HttpSession session) {
-
         getCookie(session);
         return "index";
     }
