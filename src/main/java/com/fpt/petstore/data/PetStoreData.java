@@ -451,54 +451,12 @@ public class PetStoreData {
           .withUsername("chuongducbuivan12@gmail.com");
 
   public Customer[] ALL_CUSTOMERS = {
-    customer_2,
-    customer_3,
-    customer_4,
-    customer_5,
-    customer_6,
-    customer_10,
-    customer_11,
-    customer_12,
-    customer_13,
-    customer_14,
-    customer_15,
-    customer_16,
-    customer_17,
-    customer_18,
-    customer_19,
-    customer_20,
-    customer_7,
-    customer_8,
-    customer_9,
-    customer_21,
-    customer_22,
-    customer_23,
-    customer_24,
-    customer_25,
-    customer_26,
-    customer_27,
-    customer_28,
-    customer_29,
-    customer_30,
-    customer_31,
-    customer_32,
-    customer_33,
-    customer_34,
-    customer_35,
-    customer_36,
-    customer_37,
-    customer_38,
-    customer_39,
-    customer_40,
-    customer_41,
-    customer_42,
-    customer_43,
-    customer_44,
-    customer_45,
-    customer_46,
-    customer_47,
-    customer_48,
-    customer_49,
+    customer_2, customer_3, customer_4, customer_5, customer_6, customer_10, customer_11, customer_12,
+    customer_13, customer_14, customer_15, customer_16, customer_17, customer_18, customer_19, customer_20,
+    customer_7, customer_8, customer_9, customer_21, customer_22, customer_23, customer_24, customer_25,
+    customer_26, customer_27, customer_28, customer_29, customer_30, customer_31, customer_32, customer_33,
+    customer_34, customer_35, customer_36, customer_37, customer_38, customer_39, customer_40, customer_41,
+    customer_42, customer_43, customer_44, customer_45, customer_46, customer_47, customer_48, customer_49,
     customer_50
   };
 
@@ -506,7 +464,7 @@ public class PetStoreData {
       new Employee("Lê Ngọc Đàn")
           .withAddress("Hải Phòng")
           .withEmail("ngocdan@gmail.com")
-          .withPassword("12345")
+          .withPassword("admin")
           .withUsername("admin")
           .withBirthday("00/00/0000")
           .withGender(BaseAccount.Gender.Male)
@@ -514,10 +472,10 @@ public class PetStoreData {
           .withRole(BaseAccount.UserRole.Admin);
 
   public Employee binh =
-      new Employee("Hồ Thanh Bình")
+      new Employee("Nguyen Dinh Tuan")
           .withAddress("Hải Phòng")
-          .withEmail("hothanhbinh@gmail.com")
-          .withPassword("12345")
+          .withEmail("nguyendinhtuan@gmail.com")
+          .withPassword("tuan")
           .withUsername("tuan")
           .withPhone("09107256361")
           .withGender(BaseAccount.Gender.Male)
@@ -528,25 +486,25 @@ public class PetStoreData {
       new Employee("Nguyễn Đình Hiếu")
           .withAddress("Hải Phòng")
           .withEmail("nguyendinhhieu@gmail.com")
-          .withPassword("12345")
+          .withPassword("hieu")
           .withUsername("hieu")
           .withPhone("09854798553")
           .withGender(BaseAccount.Gender.Male)
           .withBirthday("06/09/2000")
           .withRole(BaseAccount.UserRole.Write);
 
-  public Employee toan =
-      new Employee("Bùi Thái Toàn")
+  public Employee duc =
+      new Employee("Lê Ngọc Đức")
           .withAddress("Hải Phòng")
-          .withEmail("buithaitoan@gmail.com")
-          .withPassword("12345")
-          .withUsername("toan")
+          .withEmail("lengocdauc@gmail.com")
+          .withPassword("duc")
+          .withUsername("duc")
           .withPhone("09518022006")
           .withGender(BaseAccount.Gender.Male)
           .withBirthday("06/09/2000")
           .withRole(BaseAccount.UserRole.Read);
 
-  public Employee[] ALL_EMPLOYEES = {admin, binh, hieu, toan};
+  public Employee[] ALL_EMPLOYEES = {admin, binh, hieu, duc};
 
   FoodData _DATA_FOOD = new FoodData();
   ProductData _DATA_PRODUCT = new ProductData();
@@ -692,7 +650,7 @@ public class PetStoreData {
 
   public Order order_7 =
       new Order("order_7")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withState(Order.State.DUE)
           .withCustomer(customer_7)
           .addOrderItem(_DATA_FOOD.food_2)
@@ -733,7 +691,7 @@ public class PetStoreData {
 
   public Order order_9 =
       new Order("order_9")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_8)
           .withState(Order.State.DUE)
           .addOrderItem(_DATA_FOOD.food_2)
@@ -775,7 +733,7 @@ public class PetStoreData {
 
   public Order order_11 =
       new Order("order_11")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_10)
           .withState(Order.State.DUE)
           .addOrderItem(_DATA_FOOD.food_2)
@@ -798,7 +756,7 @@ public class PetStoreData {
 
   public Order order_12 =
       new Order("order_12")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_10)
           .withState(Order.State.DUE)
           .addOrderItem(_DATA_FOOD.food_2)
@@ -864,7 +822,7 @@ public class PetStoreData {
 
   public Order order_15 =
       new Order("order_15")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_11)
           .withState(Order.State.DUE)
           .addOrderItem(_DATA_FOOD.food_2)
@@ -887,7 +845,7 @@ public class PetStoreData {
 
   public Order order_16 =
       new Order("order_16")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_11)
           .withState(Order.State.DUE)
           .addOrderItem(_DATA_FOOD.food_2)
@@ -1015,7 +973,7 @@ public class PetStoreData {
 
   public Order order_43 =
       new Order("order_43")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_15)
           .addOrderItem(_DATA_FOOD.food_2)
           .addOrderItem(_DATA_FOOD.food_16)
@@ -1352,7 +1310,7 @@ public class PetStoreData {
 
   public Order order_22 =
       new Order("order_22")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_18)
           .addOrderItem(_DATA_FOOD.food_2)
           .addOrderItem(_DATA_FOOD.food_2)
@@ -1382,7 +1340,7 @@ public class PetStoreData {
 
   public Order order_24 =
       new Order("order_24")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_18)
           .addOrderItem(_DATA_FOOD.food_18)
           .addOrderItem(_DATA_FOOD.food_2)
@@ -1398,7 +1356,7 @@ public class PetStoreData {
 
   public Order order_25 =
       new Order("order_25")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_18)
           .addOrderItem(_DATA_FOOD.food_2)
           .addOrderItem(_DATA_FOOD.food_5)
@@ -1414,7 +1372,7 @@ public class PetStoreData {
 
   public Order order_26 =
       new Order("order_26")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_18)
           .addOrderItem(_DATA_FOOD.food_2)
           .addOrderItem(_DATA_FOOD.food_5)
@@ -1444,7 +1402,7 @@ public class PetStoreData {
 
   public Order order_28 =
       new Order("order_28")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_18)
           .addOrderItem(_DATA_FOOD.food_2)
           .addOrderItem(_DATA_FOOD.food_5)
@@ -1755,7 +1713,7 @@ public class PetStoreData {
 
   public Order order_72 =
       new Order("order_72")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_6)
           .addOrderItem(_DATA_FOOD.food_2)
           .addOrderItem(_DATA_FOOD.food_5)
@@ -1770,7 +1728,7 @@ public class PetStoreData {
 
   public Order order_73 =
       new Order("order_73")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_6)
           .addOrderItem(_DATA_FOOD.food_2)
           .addOrderItem(_DATA_FOOD.food_5)
@@ -1785,7 +1743,7 @@ public class PetStoreData {
 
   public Order order_74 =
       new Order("order_74")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_6)
           .addOrderItem(_DATA_FOOD.food_2)
           .addOrderItem(_DATA_FOOD.food_5)
@@ -1911,7 +1869,7 @@ public class PetStoreData {
 
   public Order order_82 =
       new Order("order_82")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_20)
           .addOrderItem(_DATA_FOOD.food_2)
           .addOrderItem(_DATA_FOOD.food_17)
@@ -1926,7 +1884,7 @@ public class PetStoreData {
 
   public Order order_83 =
       new Order("order_83")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_20)
           .addOrderItem(_DATA_FOOD.food_2)
           .addOrderItem(_DATA_FOOD.food_16)
@@ -1942,7 +1900,7 @@ public class PetStoreData {
 
   public Order order_84 =
       new Order("order_84")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_20)
           .addOrderItem(_DATA_FOOD.food_1)
           .addOrderItem(_DATA_FOOD.food_4)
@@ -1958,7 +1916,7 @@ public class PetStoreData {
 
   public Order order_85 =
       new Order("order_85")
-          .withEmployee(toan)
+          .withEmployee(duc)
           .withCustomer(customer_20)
           .addOrderItem(_DATA_FOOD.food_2)
           .addOrderItem(_DATA_FOOD.food_5)
