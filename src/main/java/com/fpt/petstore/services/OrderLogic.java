@@ -87,6 +87,9 @@ public class OrderLogic extends DAOService {
         new RangeFilter("transactionDate", DATE)).
       ORDERBY(new String[] { "code" }, "code", "DESC");
     if (params != null) {
+      if(params.hasParamValue("employeeUsername")) {
+        query.FILTER(params.getParam("employeeUsername").format("e.username = '%s'"));
+      }
       query.mergeValue(params);
     }
     return query;

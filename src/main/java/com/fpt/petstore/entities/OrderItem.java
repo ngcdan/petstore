@@ -57,6 +57,9 @@ public class OrderItem extends AbstractPersistable<Long> {
 	@JoinColumn(name = "foodId", nullable = true)
 	private Food food;
 
+	@Transient
+	private Food food2;
+
 	public OrderItem(Product product, int total ) {
 		this.product = product;
 		this.total = total;
