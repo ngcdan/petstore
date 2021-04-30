@@ -26,9 +26,9 @@ public class OrderLogic extends DAOService {
   OrderRepository repo;
 
   public Order saveOrder(Order order) {
-    int total = order.getTotal();
+  	int total = 0;
     List<OrderItem> items = order.getOrderItems();
-    if(total == 0 && items != null) {
+    if(items != null) {
     	for(OrderItem item: items) {
     	  total += item.getTotal();
       }
