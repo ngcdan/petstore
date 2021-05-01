@@ -56,7 +56,7 @@
                         <input type="text" maxlength="10" minlength="10" required placeholder="Nhập số diện thoại"  pattern="(0)+([0-9]{9})\b" class="form-control" name="phoneNumber"/>
                     </div>
                     <div class="mb-3">
-                        <input type="text" required placeholder="Nhập họ và tên" pattern="^[a-zA-Z\s]+$" class="form-control" name="fullName"/>
+                        <input type="text" required placeholder="Nhập họ và tên"  class="form-control" name="fullName">
                     </div>
                     <div class="mb-3">
                         <div class="form-check">

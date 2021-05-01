@@ -46,7 +46,7 @@
                             <thead>
                             <tr>
                                 <th>Tên sản phẩm</th>
-                                <th>Số lượng sản phẩm</th>
+                                <th>Số lượng</th>
                                 <th>Đơn giá sản phẩm</th>
                                 <th>Tổng tiền sản phẩm</th>
                             </tr>

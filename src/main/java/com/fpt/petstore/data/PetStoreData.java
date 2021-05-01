@@ -56,13 +56,13 @@ public class PetStoreData {
           .withUsername("phuonglnt@gmail.com");
   public Customer customer_7 =
       new Customer("Nguyen Thi Thanh Phuong")
-          .withEmail("phuongntt01@gmail.com")
+          .withEmail("phuongntt01012000@gmail.com")
           .withPassword("12345")
           .withBirthday("01/01/2000")
           .withAddress("175-82 Huynh Van Banh")
           .withPhone("0794930056")
           .withGender(BaseAccount.Gender.Female)
-          .withUsername("phuongntt01@gmail.com");
+          .withUsername("phuongntt01012000@gmail.com");
   public Customer customer_8 =
       new Customer("Nguyen Chi Hoa")
           .withEmail("nguyenchihoa98@gmail.com")
