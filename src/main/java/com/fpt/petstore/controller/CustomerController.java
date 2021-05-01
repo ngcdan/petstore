@@ -255,7 +255,7 @@ public class CustomerController {
         String newPassword = m.get("newPassword");
         String confirmPassword = m.get("confirmPassword");
         long timePassed = (currentDate.getTime() - findCustomerByToken.getCreatedTimeToken().getTime()) / 1000;
-        if (timePassed <= 900) {
+        if (timePassed <= 30) {
             if (confirmPassword.equals(newPassword)) {
                 petStoreService.updatePasswordByToken(currentToken, newPassword, null, null);
                 redirectAttributes.addFlashAttribute(messageNotification, "Đổi mật khẩu thành công");
