@@ -1,17 +1,14 @@
 
 package com.fpt.petstore.entities;
 
-import javax.persistence.*;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author linuss
@@ -49,16 +46,11 @@ public class OrderItem extends AbstractPersistable<Long> {
 
 	String currency = "VND";
 
-	@ManyToOne(optional = true)
-	@JoinColumn(name = "productId", nullable = true)
+	@Transient
 	private Product product;
 
-	@ManyToOne(optional = true)
-	@JoinColumn(name = "foodId", nullable = true)
-	private Food food;
-
 	@Transient
-	private Food food2;
+	private Food food;
 
 	public OrderItem(Product product, int total ) {
 		this.product = product;
@@ -74,6 +66,7 @@ public class OrderItem extends AbstractPersistable<Long> {
 	public OrderItem newOrderItem(Food food) {
 		this.name = food.getName();
 		this.label = "Food Item";
+		this.food = food;
 		this.description = "Food Item " + food.getName();
 		this.quantity = 1;
 		this.total = food.getPrice();
