@@ -1,10 +1,12 @@
 package com.fpt.petstore.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -22,6 +24,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +33,8 @@ import org.springframework.web.bind.annotation.*;
 import com.fpt.petstore.services.PetStoreService;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -51,6 +57,8 @@ public class ProductController {
     private PetStoreService petStoreService;
     @Autowired
     private CookieService cookieService;
+    @Autowired
+    private JavaMailSender sender;
 
     @GetMapping("/{category}/{page}")
     public String viewProduct(@PathVariable(value = "category") String category, @PathVariable(value = "page") int page, ModelMap model, HttpSession session) {
@@ -65,7 +73,7 @@ public class ProductController {
                 listCart = new ObjectMapper().readValue(listCartAsJson, new TypeReference<Map<String, OrderItem>>() {
                 });
             } catch (Exception e) {
-               LOGGER.error(e.getMessage());
+                LOGGER.error(e.getMessage());
             }
 
             //set attribute session
@@ -175,7 +183,7 @@ public class ProductController {
         String[] productQuantity = request.getParameterValues("productQuantity");
 
         Map<String, OrderItem> listCart = (Map<String, OrderItem>) session.getAttribute("listCart");
-        if(listCart!=null){
+        if (listCart != null) {
             if (productSortNames != null) {
                 for (int i = 0; i < productSortNames.length; i++) {
                     OrderItem cart = listCart.get(productSortNames[i]);
@@ -190,7 +198,7 @@ public class ProductController {
                     cart.setQuantity(Integer.parseInt(foodQuantity[i]));
                     cart.setTotal(cart.getQuantity() * cart.getFood().getPrice());
                 }
-        }
+            }
 
         }
         session.setAttribute("listCart", listCart);
@@ -224,7 +232,7 @@ public class ProductController {
                 Food food = cart.getFood();
 
                 String name;
-                // set quantity, description, curency thi de VND luon cung dc,
+
                 if (product == null && food == null) {
                     throw new IllegalArgumentException("Expect Product or Food");
 
@@ -247,33 +255,75 @@ public class ProductController {
             }
             List<OrderItem> listOrderItem = new ArrayList<>(listCart.values());
             String note = map.get("note");
-            if(note==null || note.equals("")){
-                note="Order for " +customerSession.getFullName();
+            if (note == null || note.equals("")) {
+                note = "Order for " + customerSession.getFullName();
             }
-            String code = "order_"+randomNum;
+            String code = "order_" + randomNum;
             Date newDate = new Date();
-
+            Order order = null;
+            Payment payment = null;
+            List<Payment> orderTransaction = new ArrayList<>();
             if (transaction.equals("COD")) {
 
-                Payment payment = new Payment(transaction, Payment.TransactionType.Cash,newDate);
-
-                List<Payment> orderTransaction = new ArrayList<>();
+                payment = new Payment(transaction, Payment.TransactionType.Cash, newDate);
 
                 orderTransaction.add(payment);
 
-                Order order = new Order(code, "order-" + DateUtil.asCompactDateTimeId(new Date()), customerSession, orderTransaction, listOrderItem, note, Order.State.DUE,newDate);
-                petStoreService.saveOrder(order);
+                order = new Order(code, "order-" + DateUtil.asCompactDateTimeId(new Date()), customerSession, orderTransaction, listOrderItem, note, Order.State.DUE, newDate);
 
             } else {
-                Payment payment = new Payment(transaction, Payment.TransactionType.ATM,newDate);
-
-                List<Payment> orderTransaction = new ArrayList<>();
+                payment = new Payment(transaction, Payment.TransactionType.ATM, newDate);
 
                 orderTransaction.add(payment);
 
-                Order order = new Order(code, "order-" + DateUtil.asCompactDateTimeId(new Date()), customerSession, orderTransaction, listOrderItem, note, Order.State.DUE,newDate);
-                petStoreService.saveOrder(order);
+                order = new Order(code, "order-" + DateUtil.asCompactDateTimeId(new Date()), customerSession, orderTransaction, listOrderItem, note, Order.State.DUE, newDate);
             }
+            try {
+                MimeMessage message = sender.createMimeMessage();
+                MimeMessageHelper helper = new MimeMessageHelper(message);
+                String from = "Pet-Store-And-Services";
+                String subject = "Đã đặt hàng thành công";
+                String body = "<div style='width:800px;text-align:center;margin:auto;padding:10px;  border-style: solid;\n" +
+                        "  border-color: #8A2BE2;'>" +
+                        "<h2>Tài khoản của email này có tên :</h2>"
+                        + "<b style='font-size:20px'>" + customerSession.getFullName() + "</b>" + " đã đặt đơn hàng có giá là" +
+                        " gồm ";
+                for (OrderItem cart : listCart.values()) {
+
+                    Product product = cart.getProduct();
+
+
+                    Food food = cart.getFood();
+                    String name;
+                    totalPrice += cart.getTotal();
+                    if (product == null && food == null) {
+                        throw new IllegalArgumentException("Expect Product or Food");
+
+                    } else {
+                        if (product != null) {
+
+                            name = product.getName();
+                        } else {
+
+                            name = food.getName();
+                        }
+                    }
+
+                    body += "<h4>" + name + "&ensp;&ensp; " + cart.getTotal() + " VNĐ </h4> <br/>";
+                }
+                body += "<h2>Tổng cộng đơn hàng có giá : " + totalPrice + " VNĐ</h2>";
+                body += "</div>";
+                helper.setFrom(from, from);
+                helper.setTo(customerSession.getEmail());
+                helper.setReplyTo(from, from);
+                helper.setSubject(subject);
+                helper.setText(body, true);
+                sender.send(message);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            petStoreService.saveOrder(order);
             session.removeAttribute("listCart");
             cookieService.delete("listCart");
             session.removeAttribute("totalPrice");
@@ -285,7 +335,7 @@ public class ProductController {
     }
 
     @GetMapping("/delete/{sortName}")
-    public String deleteSanPham(@PathVariable("sortName") String sortName, HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request)  {
+    public String deleteSanPham(@PathVariable("sortName") String sortName, HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request) {
         String referer = request.getHeader("Referer");
         Map<String, OrderItem> listCart = (Map<String, OrderItem>) session.getAttribute("listCart");
         listCart.remove(sortName);
@@ -298,27 +348,27 @@ public class ProductController {
 
     @PostMapping(path = "/searchProduct"/*, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE*/)
     @ResponseBody
-    public List<Product> findProductbyKeyWord(@RequestParam Map<String,String> m) {
+    public List<Product> findProductbyKeyWord(@RequestParam Map<String, String> m) {
         String option = m.get("select");
-         String search= m.get("search");
+        String search = m.get("search");
         List<Product> listSearchProduct = null;
 
-         if(option.equalsIgnoreCase("productName")){
-             listSearchProduct  = petStoreService.findProductsByName(search);
+        if (option.equalsIgnoreCase("productName")) {
+            listSearchProduct = petStoreService.findProductsByName(search);
 
-         }
+        }
 
         return listSearchProduct;
     }
 
     @PostMapping(path = "/searchFood")
     @ResponseBody
-    public List<Food> findFoodbyKeyword(@RequestParam Map<String,String> m,RedirectAttributes redirectAttributes) {
-        String search= m.get("search");
+    public List<Food> findFoodbyKeyword(@RequestParam Map<String, String> m, RedirectAttributes redirectAttributes) {
+        String search = m.get("search");
         String option = m.get("select");
 
         List<Food> listSearchFood = null;
-        if(option.equalsIgnoreCase("productName")){
+        if (option.equalsIgnoreCase("productName")) {
             listSearchFood = petStoreService.findFoodbyName(search);
         }
         return listSearchFood;

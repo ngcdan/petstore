@@ -45,7 +45,15 @@
                         <h3 class="text-center">THÔNG TIN CHI TIẾT</h3>
                         <br/>
                         <!--Form-->
+
                         <div class="form_info_update">
+                            <div class="form-group row">
+                                <label class="col-md-4 control-label">Email :</label>
+                                <div class="col-md-8">
+                                    <input required class="form-control numeric" type="text"
+                                           name="address" placeholder="Địa Chỉ" readonly value="${customer1.email}">
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label class="col-md-4 control-label">Họ và tên:</label>
                                 <div class="col-md-8">
