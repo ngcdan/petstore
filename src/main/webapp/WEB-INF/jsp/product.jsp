@@ -51,7 +51,7 @@
 
                                         </select>
                                     </div>
-                                    <input type="text" name="search" placeholder="Search...">
+                                    <input type="text" name="search" placeholder="Tìm kiếm....">
                                     <button type="submit" id="submit1"></button>
                                 </form>
                             </c:when>
@@ -63,8 +63,8 @@
                                             <option value="productName">Tên Sản phẩm</option>
                                         </select>
                                     </div>
-                                    <br/> <br/>
-                                    <input type="text" name="search" placeholder="Search...">
+                                    <br/> <br/>	
+                                    <input type="text" name="search" placeholder="Tìm kiếm....">
                                     <br/><br/><br/>
                                     <button type="submit" id="submit2"></button>
                                 </form>
@@ -80,12 +80,12 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__product__option__left">
-                                <p id="productSize">Showing ${productPerPage} of ${numberProduct} results</p>
+                                <p id="productSize">Hiển thị ${productPerPage} trên ${numberProduct} kết quả</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__product__option__right">
-                                <p>Sort by Price:</p>
+                                <p>Sắp xếp theo giá</p>
                                 <select id="sortSelected" onchange="sortPrice()">
                                     <option value="tangdan">Tăng dần</option>
                                     <option value="giamdan">Giảm dần</option>
@@ -108,8 +108,7 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6>${p.name}</h6>
-                                    <a href="/shop/addtocart/${category}/${p.sortName}" class="add-cart">+ Add To
-                                        Cart</a>
+                                    <a href="/shop/addtocart/${category}/${p.sortName}" class="add-cart">+ Thêm vào giỏ hàng</a>
                                     <h5><fmt:formatNumber value="${p.price}" type="number"/>VNĐ</h5>
                                     <input class="productPrice" type="hidden" value="${p.price}"/>
                                 </div>
@@ -154,7 +153,7 @@
                                                                                                   currencySymbol=""/>VNĐ</h3>
                                                                             <p>${p.description }</p>
                                                                             <a href="/shop/addtocart/${category}/${p.sortName}"
-                                                                               class="primary-btn">add to cart</a>
+                                                                               class="primary-btn">Thêm vào giỏ hàng</a>
                                                                         </div>
                                                                         <br>
                                                                     </div>

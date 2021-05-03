@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-7">
                     <div class="header__top__left">
-                        <p>Mua những vật dụng thú cưng chỉ có tại PetStore</p>
+                        <p>Mua những vật dụng thú cưng chỉ có tại Pets Coffee And Services</p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-5">
