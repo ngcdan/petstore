@@ -104,7 +104,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="counter__item">
                     <div class="counter__item__number">
-                        <h2 class="cn_num">99</h2>
+                        <h2 class="cn_num">1000</h2>
                     </div>
                     <span>Khách <br/>Hàng</span>
                 </div>
@@ -204,28 +204,28 @@
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/a.jpg" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/a.png" alt=""></a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/client-2.jpg" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/client-2.png" alt=""></a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/client-3.jpg" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/client-3.png" alt=""></a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/client-4.jpg" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/client-4.png" alt=""></a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/client-5.jpg" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/client-5.png" alt=""></a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/client-6.jpg" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/client-6.png" alt=""></a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/client-7.jpg" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/client-7.png" alt=""></a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                <a href="#" class="client__item"><img src="img/clients/client-1.jpg" alt=""></a>
+                <a href="#" class="client__item"><img src="img/clients/client-1.png" alt=""></a>
             </div>
         </div>
     </div>

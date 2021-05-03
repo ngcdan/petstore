@@ -4,7 +4,7 @@
 
 <head>
     <jsp:include page="part/head.jsp" />
-    <title>Blog - details</title>
+    <title>Chi tiết blog</title>
 
 </head>
 
@@ -20,7 +20,7 @@
                     <div class="blog__hero__text">
                         <h2>Kush</h2>
                         <ul>
-                            <li>16 February 2020 - NOW</li>
+                            <li>Ngày 16 tháng 2 năm 2021</li>
                         </ul>
                     </div>
                 </div>
@@ -41,10 +41,10 @@
                 <div class="col-lg-8">
                     <div class="blog__details__content">
                         <div class="blog__details__share">
-                            <span>share</span>
+                            <span>Chia sẽ</span>
                             <ul>
                                 <li><a href="https://www.facebook.com/PETS-Coffee-And-Services-100166812056116"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.instagram.com/petscoffeeandservices/" class="instagram"><i class="fa fa-instagram"></i></a></li>
                                 <li><a href="#" class="youtube"><i class="fa fa-youtube-play"></i></a></li>
                             </ul>
                         </div>

@@ -22,12 +22,11 @@
                                 <h6 >VẬT DỤNG</h6>
                                 <h2 class="text-left">VẬT DỤNG DÀNH CHO THÚ CƯNG</h2>
                            <p>Các loại vật dụng chất lượng cao, bảo hành 1 năm.</p>
-                                <a href="#" class="primary-btn">MUA NGAY <span class="arrow_right"></span></a>
+                                <a href="shop/vat-pham-thu-cung/1" class="primary-btn">MUA NGAY <span class="arrow_right"></span></a>
                                 <div class="hero__social">
                                     <a href="https://www.facebook.com/PETS-Coffee-And-Services-100166812056116"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="https://www.pinterest.com/petscoffeeandservices/_saved/"><i class="fa fa-pinterest"></i></a>
+                                    <a href="https://www.instagram.com/petscoffeeandservices/"><i class="fa fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -46,9 +45,8 @@
                                 <a href="#" class="primary-btn">TRẢI NGHIỆM NGAY<span class="arrow_right"></span></a>
                                 <div class="hero__social">
                                     <a href="https://www.facebook.com/PETS-Coffee-And-Services-100166812056116"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="https://www.pinterest.com/petscoffeeandservices/_saved/"><i class="fa fa-pinterest"></i></a>
+                                    <a href="https://www.instagram.com/petscoffeeandservices/"><i class="fa fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -65,10 +63,9 @@
                                 <p>Các loại hạt, pate, vitamin cho thú cưng.</p>
                                 <a href="#" class="primary-btn">MUA NGAY <span class="arrow_right"></span></a>
                                 <div class="hero__social">
-                                    <a href="https://www.facebook.com/PETS-Coffee-And-Services-100166812056116"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                   <a href="https://www.facebook.com/PETS-Coffee-And-Services-100166812056116"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.pinterest.com/petscoffeeandservices/_saved/"><i class="fa fa-pinterest"></i></a>
+                                    <a href="https://www.instagram.com/petscoffeeandservices/"><i class="fa fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +98,7 @@
                         </div>
                         <div class="banner__item__text">
                             <h2 class="text-left">Vật Dụng</h2>
-                            <a href="#">Mua ngay</a>
+                            <a href="shop/vat-pham-thu-cung/1">Mua ngay</a>
                         </div>
                     </div>
                 </div>
@@ -112,7 +109,7 @@
                         </div>
                         <div class="banner__item__text">
                             <h2 class="text-left">Đồ Ăn</h2>
-                            <a href="#">Mua ngay</a>
+                            <a href="shop/food/1">Mua ngay</a>
                         </div>
                     </div>
                 </div>
@@ -143,8 +140,8 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="instagram__text">
-                        <h2>Instagram</h2>
-                        <p>Vào Instagram đi </p>
+                      
+                       <h2> <a href="https://www.instagram.com/petscoffeeandservices/"><i > INSTAGRAM</i></a></h2>
                         <h3>#PETS_Coffee_And_Services</h3>
                     </div>
                 </div>
@@ -161,16 +158,16 @@
                 <div class="col-lg-12">
                     <div class="section-title">
                     
-                        <h2>BLOG CUA CHUNG TOI</h2>
+                        <h2>BLOG CỦA CHÚNG TÔI</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="blog__item">
-                        <div class="blog__item__pic set-bg" data-setbg="img/blog/d.jpg"></div>
+                        <div class="blog__item__pic set-bg" data-setbg="img/blog/kush.jpg"></div>
                         <div class="blog__item__text">
-                            <span><img src="img/icon/calendar.png" alt=""> 16 February 2020</span>
+                            <span><img src="img/icon/calendar.png" alt="">Ngày 16 tháng 2 năm 2021</span>
                             <h5>Kush</h5>
                             <a href="/chi-tiet-blog">ĐỌC THÊM</a>
                         </div>
@@ -182,7 +179,7 @@
                     <div class="blog__item">
                         <div class="blog__item__pic set-bg" data-setbg="img/blog/c.jpg"></div>
                         <div class="blog__item__text">
-                            <span><img src="img/icon/calendar.png" alt=""> 16 February 2020</span>
+                            <span><img src="img/icon/calendar.png" alt=""> Ngày 14 tháng 2 năm 2021</span>
                             <h5>Orange</h5>
                             <a href="/chi-tiet-blog">ĐỌC THÊM</a>
                         </div>
@@ -194,7 +191,7 @@
                     <div class="blog__item">
                         <div class="blog__item__pic set-bg" data-setbg="img/blog/e.jpg"></div>
                         <div class="blog__item__text">
-                            <span><img src="img/icon/calendar.png" alt=""> 16 February 2020</span>
+                            <span><img src="img/icon/calendar.png" alt=""> Ngày 15 tháng 2 năm 2021</span>
                             <h5>Mango</h5>
                             <a href="/">ĐỌC THÊM</a>
                         </div>

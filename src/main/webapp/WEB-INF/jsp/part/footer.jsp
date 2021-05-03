@@ -11,31 +11,31 @@
 					</div>
 					<p>Welcome To PETS Coffee And Services</p>
 			 <div class="hero__social1">
-                                    <a   href="https://www.facebook.com/PETS-Coffee-And-Services-100166812056116" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
-                                   &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="https://www.instagram.com/petscoffeeandservices/?hl=vi"><i class="fa fa-instagram fa-2x"></i></a>
+                                   <a href="https://www.facebook.com/PETS-Coffee-And-Services-100166812056116"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.pinterest.com/petscoffeeandservices/_saved/"><i class="fa fa-pinterest"></i></a>
+                                    <a href="https://www.instagram.com/petscoffeeandservices/"><i class="fa fa-instagram"></i></a>
                                     </div>
                                    
               </div>
 			</div>
 			<div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
 				<div class="footer__widget">
-					<h6>MUA SẮM</h6>
+					<h6>SẢN PHẨM</h6>
 					<ul>
-						<li><a href="#">Sản Phẩm</a></li>
-						<li><a href="#">Đồ Ăn</a></li>
+						<li><a href="shop/vat-pham-thu-cung/1">Vật dụng</a></li>
+						<li><a href="shop/food/1">Đồ Ăn</a></li>
 
-						<li><a href="#">Sale</a></li>
+						
 					</ul>
 				</div>
 			</div>
 			<div class="col-lg-2 col-md-3 col-sm-4">
 				<div class="footer__widget">
-					<h6>Liên Hệ</h6>
+					<h6>THÔNG TIN</h6>
 					<ul>
-						<li><a href="#">Thông Tin</a></li>
-						<li><a href="#">Giới Thiệu</a></li>
-						<li><a href="#">Địa Chỉ</a></li>
+						<li><a href="/lien-he">Liên Hệ </a></li>
+						<li><a href="/ve-chung-toi">Giới Thiệu</a></li>
+						
 
 					</ul>
 				</div>

@@ -30,9 +30,9 @@
                     <div class="blog__item">
                         <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-1.jpg"></div>
                         <div class="blog__item__text">
-                            <span><img src="img/icon/calendar.png" alt=""> 16 February 2020 - NOW</span>
+                            <span><img src="img/icon/calendar.png" alt=""> Ngày 16 tháng 2 năm 2021</span>
                             <h5>Kush</h5>
-                            <a href="/chi-tiet-blog">Read More</a>
+                            <a href="/chi-tiet-blog">Đọc Thêm</a>
                         </div>
                     </div>
                 </div>
@@ -40,9 +40,9 @@
                     <div class="blog__item">
                         <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-2.jpg"></div>
                         <div class="blog__item__text">
-                            <span><img src="img/icon/calendar.png" alt=""> 21 February 2020 - NOW</span>
+                            <span><img src="img/icon/calendar.png" alt=""> Ngày 14 tháng 2 năm 2021</span>
                             <h5>Mango</h5>
-                            <a href="/chi-tiet-blog">Read More</a>
+                            <a href="/chi-tiet-blog">Đọc Thêm</a>
                         </div>
                     </div>
                 </div>
@@ -50,9 +50,9 @@
                     <div class="blog__item">
                         <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-3.jpg"></div>
                         <div class="blog__item__text">
-                            <span><img src="img/icon/calendar.png" alt=""> 3 March 2020 - NOW</span>
+                            <span><img src="img/icon/calendar.png" alt=""> Ngày 15 tháng 2 năm 2021</span>
                             <h5>Orange</h5>
-                            <a href="/chi-tiet-blog">Read More</a>
+                            <a href="/chi-tiet-blog">Đọc Thêm</a>
                         </div>
                     </div>
                 </div>
