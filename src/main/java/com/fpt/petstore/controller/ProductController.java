@@ -265,14 +265,14 @@ public class ProductController {
             List<Payment> orderTransaction = new ArrayList<>();
             if (transaction.equals("COD")) {
 
-                payment = new Payment(transaction, Payment.TransactionType.Cash, newDate);
+                payment = new Payment(transaction, Payment.TransactionType.Cash, newDate,totalPrice);
 
                 orderTransaction.add(payment);
 
                 order = new Order(code, "order-" + DateUtil.asCompactDateTimeId(new Date()), customerSession, orderTransaction, listOrderItem, note, Order.State.DUE, newDate);
 
             } else {
-                payment = new Payment(transaction, Payment.TransactionType.ATM, newDate);
+                payment = new Payment(transaction, Payment.TransactionType.ATM, newDate,totalPrice);
 
                 orderTransaction.add(payment);
 
@@ -295,7 +295,6 @@ public class ProductController {
 
                     Food food = cart.getFood();
                     String name;
-                    totalPrice += cart.getTotal();
                     if (product == null && food == null) {
                         throw new IllegalArgumentException("Expect Product or Food");
 

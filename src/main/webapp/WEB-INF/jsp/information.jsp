@@ -35,7 +35,7 @@
                             <label for="image"><img style="width:330px; height: 236px;"
                                     src="/user-photos/${customer1.id}/${customer1.avatarUrl}" id="thumbnail"  alt="Image Preview" >
                             </label> <input type="file" name="avatarUrl" style="text-decoration: none;" class="btn btn-block"
-                                             id="image"  accept="image/jpeg, image/png,image/jpg"/>
+                                             id="image"  accept="image/jpeg,image/png,image/jpg"/>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                                 <label class="col-md-4 control-label">Email :</label>
                                 <div class="col-md-8">
                                     <input required class="form-control numeric" type="text"
-                                           name="address" placeholder="Địa Chỉ" readonly value="${customer1.email}">
+                                           name="email" placeholder="Địa Chỉ" readonly value="${customer1.email}">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -65,7 +65,7 @@
                             <div class="form-group row">
                                 <label class="col-md-4 control-label">Ngày sinh:</label>
                                 <div class="col-md-8">
-                                    <input class="form-control" type="date" name="birthday"
+                                    <input class="form-control" type="date" name="birthday" required
                                            value="<fmt:formatDate value="${customer1.birthday}" pattern="yyyy-MM-dd"/>"/>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                                 <label class="col-md-4 control-label">Điện thoại:</label>
                                 <div class="col-md-8">
                                     <input  class="form-control numeric" type="text" minlength="10"
-                                           placeholder="Số điện thoại" name="phoneNumber" maxlength="10" pattern="(0)+([0-9]{9})\b"
+                                           placeholder="Số điện thoại" name="phoneNumber"  maxlength="10" pattern="(0)+([0-9]{9})\b"
                                            value="${customer1.phone}" required>
                                 </div>
                             </div>
