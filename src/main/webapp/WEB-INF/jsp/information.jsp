@@ -59,7 +59,7 @@
                                 <div class="col-md-8">
                                     <input required class="form-control" type="text" name="fullName"
                                            value="${customer1.fullName}"
-                                           placeholder="Họ và tên" pattern="^[a-zA-Z\s]+$">
+                                           placeholder="Họ và tên" >
                                 </div>
                             </div>
                             <div class="form-group row">
