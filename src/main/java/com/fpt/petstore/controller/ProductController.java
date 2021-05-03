@@ -245,8 +245,8 @@ public class ProductController {
                         name = food.getName();
                     }
                 }
-                cart.setName(name + randomNum);
-                cart.setLabel(name + randomNum);
+                cart.setName(name );
+                cart.setLabel(name);
                 cart.setDescription("Ten san pham: " + name + " So luong: " + cart.getQuantity());
 
                 cart.setCurrency("VNĐ");
