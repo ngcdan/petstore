@@ -41,7 +41,7 @@ public class DaoConfig {
 		LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
 		return bean;
 	}
-
+	
 	@Bean("datasource")
 	public DataSource dataSource(
 		@Value("${db.jdbc.driver:org.h2.Driver}") String jdbcDriver,
@@ -51,12 +51,12 @@ public class DaoConfig {
 		HikariDataSource ds = new HikariDataSource();
 		ds.setMaximumPoolSize(50);
 		ds.setDriverClassName(jdbcDriver);
-		ds.setJdbcUrl(jdbcUrl); ;
+		ds.setJdbcUrl(jdbcUrl);
 		ds.setUsername(jdbcUser);
 		ds.setPassword(jdbcPassword);
 		return ds;
 	}
-
+	
 	@Bean("entityManagerFactory")
 	public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(
 		@Value("${hibernate.hbm2ddl.auto:update}") String hbm2ddlAuto,
@@ -67,10 +67,10 @@ public class DaoConfig {
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		factoryBean.setDataSource(ds);
 		factoryBean.setPackagesToScan("com.fpt.petstore.*");
-
+		
 		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		factoryBean.setJpaVendorAdapter(vendorAdapter);
-
+		
 		HashMap<String, Object> jpaPropMap = new HashMap<>();
 		jpaPropMap.put("validator", validator);
 		jpaPropMap.put("hibernate.hbm2ddl.auto", hbm2ddlAuto);
@@ -81,7 +81,7 @@ public class DaoConfig {
 		factoryBean.setJpaPropertyMap(jpaPropMap);
 		return factoryBean;
 	}
-
+	
 	@Bean("transactionManager")
 	public PlatformTransactionManager transactionManager(
 		@Qualifier("entityManagerFactory") LocalContainerEntityManagerFactoryBean factory) {
@@ -89,7 +89,7 @@ public class DaoConfig {
 		transactionManager.setEntityManagerFactory(factory.getObject());
 		return transactionManager;
 	}
-
+	
 	@Bean
 	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
 		return new PersistenceExceptionTranslationPostProcessor();
