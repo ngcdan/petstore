@@ -7,6 +7,7 @@ Run
 $ cd petstore and run command : `mvn spring-boot:run` to run project
 
 $ can access the webui via http://localhost:8081 
+$ customer user: trongnt@gmail.com/ 12345
 
 $ access database table via http://localhost:8081/h2-console
 
